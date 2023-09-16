@@ -1,4 +1,12 @@
 {
+  "gemName": "endoflife_date",
+  "moduleName": "EndOfLifeDateApiClient",
+  "gemVersion": "0.9.0-pre.0",
+  "gemAuthor": "Cliffano Subagio",
+  "gemAuthorEmail": "blah@cliffano.com",
+  "gemHomepage": "https://github.com/cliffano/endoflife.date-api-clients",
+  "gemLicense": "MIT",
+  "gemRequiredRubyVersion": ">= 2.0",
   "gitUserId": "cliffano",
   "gitRepoId": "endoflife.date-api-clients"
 }
