@@ -1,0 +1,7 @@
+.gitignore
+.openapi-generator-ignore
+git_push.sh
+project.clj
+src/endoflife/date/api/default.clj
+src/endoflife/date/core.clj
+src/endoflife/date/specs/cycle.clj

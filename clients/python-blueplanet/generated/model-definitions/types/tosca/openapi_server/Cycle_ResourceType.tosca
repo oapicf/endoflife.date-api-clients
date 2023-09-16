@@ -1,0 +1,70 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server Cycle"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a Cycle"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  Cycle {
+    title = Cycle
+    description = Cycle
+    derivedFrom = Root
+    properties {
+        cycle {
+          type =  
+          description = "Release Cycle"
+          optional = false
+        }
+        release_date {
+          type =  
+          description = "Release Date for the first release in this cycle"
+          optional = false
+        }
+        eol {
+          type =  
+          description = "End of Life Date for this release cycle"
+          optional = false
+        }
+        latest {
+          type =  
+          description = "Latest release in this cycle"
+          optional = false
+        }
+        link {
+          type =  
+          description = "Link to changelog for the latest release, if available"
+          optional = false
+        }
+        lts {
+          type =  
+          description = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. "
+          optional = false
+        }
+        support {
+          type =  
+          description = "Whether this release cycle has active support"
+          optional = false
+        }
+        discontinued {
+          type =  
+          description = "Whether this cycle is now discontinued."
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  Cycle {
+    title = Cycle
+    description = Cycle
+    implements = openapi_server.resourceTypes.Cycle
+
+  }
+}

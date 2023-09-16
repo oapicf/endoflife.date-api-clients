@@ -1,0 +1,18 @@
+@startuml
+
+title endoflife.date Schemas Diagram
+
+entity Cycle {
+    cycle: OasAnyTypeNotMapped
+    releaseDate: OasAnyTypeNotMapped
+    eol: OasAnyTypeNotMapped
+    latest: OasAnyTypeNotMapped
+    link: OasAnyTypeNotMapped
+    lts: OasAnyTypeNotMapped
+    support: OasAnyTypeNotMapped
+    discontinued: OasAnyTypeNotMapped
+}
+
+
+
+@enduml

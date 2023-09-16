@@ -1,0 +1,4 @@
+.openapi-generator-ignore
+README.md
+models/cycle.proto
+services/default_service.proto

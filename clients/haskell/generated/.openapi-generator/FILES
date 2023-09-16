@@ -1,0 +1,7 @@
+.openapi-generator-ignore
+README.md
+Setup.hs
+endoflife.date.cabal
+lib/Endoflife.date/API.hs
+lib/Endoflife.date/Types.hs
+stack.yaml

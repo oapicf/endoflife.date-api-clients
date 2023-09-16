@@ -1,0 +1,321 @@
+{
+  "openapi" : "3.1.0",
+  "info" : {
+    "contact" : {
+      "email" : "blah@cliffano.com",
+      "name" : "Cliffano Subagio",
+      "url" : "https://github.com/cliffano/endoflife.date-api-clients"
+    },
+    "description" : "Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)",
+    "license" : {
+      "name" : "MIT",
+      "url" : "https://github.com/endoflife-date/endoflife.date/blob/master/LICENSE"
+    },
+    "title" : "endoflife.date",
+    "version" : "0.0.1"
+  },
+  "servers" : [ {
+    "description" : "Production API",
+    "url" : "https://endoflife.date"
+  } ],
+  "paths" : {
+    "/api/{product}.json" : {
+      "get" : {
+        "description" : "Get EoL dates of all cycles of a given product.",
+        "operationId" : "get-api-:product.json",
+        "parameters" : [ {
+          "description" : "Product URL as per the canonical URL on the endofife.date website",
+          "explode" : false,
+          "in" : "path",
+          "name" : "product",
+          "required" : true,
+          "schema" : { },
+          "style" : "simple"
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "/api/ubuntu.json" : {
+                    "value" : [ {
+                      "cycle" : "21.04",
+                      "lts" : false,
+                      "releaseDate" : "2021-04-22",
+                      "support" : "2022-01-01",
+                      "eol" : "2022-01-01",
+                      "latest" : "21.04",
+                      "link" : "https://wiki.ubuntu.com/HirsuteHippo/ReleaseNotes/"
+                    }, {
+                      "cycle" : "20.10",
+                      "lts" : false,
+                      "releaseDate" : "2020-10-22",
+                      "support" : "2021-07-07",
+                      "eol" : "2021-07-07",
+                      "latest" : "20.10",
+                      "link" : "https://wiki.ubuntu.com/GroovyGorilla/ReleaseNotes/"
+                    } ]
+                  },
+                  "/api/python.json" : {
+                    "value" : [ {
+                      "cycle" : 3.9,
+                      "releaseDate" : "2020-10-05",
+                      "eol" : "2025-10-05",
+                      "latest" : "3.9.5",
+                      "link" : "https://www.python.org/downloads/release/python-395/"
+                    }, {
+                      "cycle" : 3.8,
+                      "releaseDate" : "2019-10-14",
+                      "eol" : "2024-10-14",
+                      "latest" : "3.8.10",
+                      "link" : "https://www.python.org/downloads/release/python-3810/"
+                    } ]
+                  }
+                },
+                "schema" : {
+                  "items" : {
+                    "$ref" : "#/components/schemas/cycle"
+                  }
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "summary" : "Get All Details",
+        "tags" : [ ]
+      }
+    },
+    "/api/{product}/{cycle}.json" : {
+      "get" : {
+        "description" : "Gets details of a single cycle",
+        "operationId" : "get-api-:product-:cycle.json",
+        "parameters" : [ {
+          "description" : "Product URL as per the canonical URL on the endofife.date website",
+          "explode" : false,
+          "in" : "path",
+          "name" : "product",
+          "required" : true,
+          "schema" : { },
+          "style" : "simple"
+        }, {
+          "description" : "Release Cycle for which the details must be fetched",
+          "explode" : false,
+          "in" : "path",
+          "name" : "cycle",
+          "required" : true,
+          "schema" : { },
+          "style" : "simple"
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "/api/python/3.9.json" : {
+                    "value" : {
+                      "releaseDate" : "2020-10-05",
+                      "eol" : "2025-10-05",
+                      "latest" : "3.9.5",
+                      "link" : "https://www.python.org/downloads/release/python-395/"
+                    }
+                  },
+                  "/api/ubuntu/21.04.json" : {
+                    "value" : {
+                      "lts" : false,
+                      "releaseDate" : "2021-04-22",
+                      "support" : "2022-01-01",
+                      "eol" : "2022-01-01",
+                      "latest" : "21.04",
+                      "link" : "https://wiki.ubuntu.com/HirsuteHippo/ReleaseNotes/"
+                    }
+                  }
+                },
+                "schema" : {
+                  "$ref" : "#/components/schemas/cycle"
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "summary" : "Single cycle details",
+        "tags" : [ ]
+      }
+    },
+    "/api/all.json" : {
+      "get" : {
+        "description" : "Return a list of all products. Each of these can be used for the other API endpoints.",
+        "operationId" : "get-api-all.json",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "all-products" : {
+                    "value" : [ "alpine", "amazon-linux", "android", "bootstrap", "centos", "debian", "django", "dotnet", "dotnetcore", "dotnetfx", "drupal", "elasticsearch", "elixir", "fedora", "filemaker", "freebsd", "go", "godot", "iphone", "java", "kindle", "kubernetes", "laravel", "macos", "magento", "mariadb", "mongodb", "mssqlserver", "mysql", "nodejs", "office", "opensuse", "perl", "php", "pixel", "postgresql", "powershell", "python", "qt", "rabbitmq", "rails", "redis", "rhel", "ros", "ruby", "sles", "spring-framework", "surface", "symfony", "ubuntu", "vue", "wagtail", "windows", "windowsembedded", "windowsserver" ]
+                  }
+                },
+                "schema" : {
+                  "description" : "List of all products.",
+                  "items" : { }
+                }
+              }
+            },
+            "description" : "OK"
+          }
+        },
+        "summary" : "All Products",
+        "tags" : [ ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "cycle" : {
+        "description" : "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.",
+        "properties" : {
+          "cycle" : {
+            "description" : "Release Cycle"
+          },
+          "releaseDate" : {
+            "description" : "Release Date for the first release in this cycle",
+            "format" : "date",
+            "maxLength" : 10,
+            "minLength" : 10
+          },
+          "eol" : {
+            "description" : "End of Life Date for this release cycle",
+            "minLength" : 1
+          },
+          "latest" : {
+            "description" : "Latest release in this cycle",
+            "minLength" : 1
+          },
+          "link" : {
+            "description" : "Link to changelog for the latest release, if available",
+            "minLength" : 1
+          },
+          "lts" : {
+            "description" : "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.\n"
+          },
+          "support" : {
+            "description" : "Whether this release cycle has active support",
+            "format" : "date",
+            "maxLength" : 10,
+            "minLength" : 10
+          },
+          "discontinued" : {
+            "description" : "Whether this cycle is now discontinued.",
+            "format" : "date",
+            "maxLength" : 10,
+            "minLength" : 10
+          }
+        },
+        "title" : "Cycle",
+        "x-examples" : {
+          "python" : [ {
+            "cycle" : 3.9,
+            "releaseDate" : "2020-10-05",
+            "eol" : "2025-10-05",
+            "latest" : "3.9.5",
+            "link" : "https://www.python.org/downloads/release/python-395/"
+          }, {
+            "cycle" : 3.8,
+            "releaseDate" : "2019-10-14",
+            "eol" : "2024-10-14",
+            "latest" : "3.8.10",
+            "link" : "https://www.python.org/downloads/release/python-3810/"
+          }, {
+            "cycle" : 3.7,
+            "releaseDate" : "2018-06-27",
+            "eol" : "2023-06-27",
+            "latest" : "3.7.10",
+            "link" : "https://www.python.org/downloads/release/python-3710/"
+          }, {
+            "cycle" : 3.6,
+            "releaseDate" : "2016-12-23",
+            "eol" : "2021-12-23",
+            "latest" : "3.6.13",
+            "link" : "https://www.python.org/downloads/release/python-3613/"
+          }, {
+            "cycle" : 3.5,
+            "releaseDate" : "2015-09-30",
+            "eol" : "2020-09-13",
+            "latest" : "3.5.10",
+            "link" : "https://www.python.org/downloads/release/python-3510/"
+          }, {
+            "cycle" : 3.4,
+            "releaseDate" : "2014-03-16",
+            "eol" : "2019-03-18",
+            "latest" : "3.4.10",
+            "link" : "https://www.python.org/downloads/release/python-3410/"
+          }, {
+            "cycle" : 3.3,
+            "releaseDate" : "2012-09-29",
+            "eol" : "2017-09-29",
+            "latest" : "3.3.7",
+            "link" : "https://www.python.org/downloads/release/python-337/"
+          }, {
+            "cycle" : 2.7,
+            "releaseDate" : "2010-07-03",
+            "eol" : "2020-01-01",
+            "latest" : "2.7.18",
+            "link" : "https://github.com/python/cpython/blob/2.7/Misc/NEWS.d/2.7.18rc1.rst"
+          } ],
+          "ubuntu" : [ {
+            "cycle" : "21.04",
+            "lts" : false,
+            "releaseDate" : "2021-04-22",
+            "support" : "2022-01-01",
+            "eol" : "2022-01-01",
+            "latest" : "21.04",
+            "link" : "https://wiki.ubuntu.com/HirsuteHippo/ReleaseNotes/"
+          }, {
+            "cycle" : "20.10",
+            "lts" : false,
+            "releaseDate" : "2020-10-22",
+            "support" : "2021-07-07",
+            "eol" : "2021-07-07",
+            "latest" : "20.10",
+            "link" : "https://wiki.ubuntu.com/GroovyGorilla/ReleaseNotes/"
+          }, {
+            "cycle" : "20.04",
+            "lts" : true,
+            "releaseDate" : "2020-04-23",
+            "support" : "2022-10-01",
+            "eol" : "2025-04-02",
+            "latest" : "20.04.2"
+          }, {
+            "cycle" : "19.10",
+            "releaseDate" : "2019-10-17",
+            "support" : "2020-07-06",
+            "eol" : "2020-07-06",
+            "latest" : "19.10"
+          }, {
+            "cycle" : "18.04",
+            "lts" : true,
+            "releaseDate" : "2018-04-26",
+            "support" : "2020-09-30",
+            "eol" : "2023-04-02",
+            "latest" : "18.04.5"
+          }, {
+            "cycle" : "16.04",
+            "lts" : true,
+            "releaseDate" : "2016-04-21",
+            "support" : "2018-10-01",
+            "eol" : "2021-04-02",
+            "latest" : "16.04.7"
+          }, {
+            "cycle" : "14.04",
+            "lts" : true,
+            "releaseDate" : "2014-04-17",
+            "support" : "2016-09-30",
+            "eol" : "2019-04-02",
+            "latest" : "14.04.6"
+          } ]
+        }
+      }
+    }
+  }
+}

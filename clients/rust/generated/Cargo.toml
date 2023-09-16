@@ -1,0 +1,18 @@
+[package]
+name = "openapi"
+version = "0.0.1"
+authors = ["blah@cliffano.com"]
+description = "Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)"
+license = "MIT"
+edition = "2018"
+
+[dependencies]
+serde = "^1.0"
+serde_derive = "^1.0"
+serde_with = "^2.0"
+serde_json = "^1.0"
+url = "^2.2"
+uuid = { version = "^1.0", features = ["serde", "v4"] }
+[dependencies.reqwest]
+version = "^0.11"
+features = ["json", "multipart"]

@@ -1,0 +1,19 @@
+{application, openapi, [
+    {description, "Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)"},
+    {vsn, "1.0.0"},
+    {registered, []},
+    {applications, [
+        kernel,
+        stdlib,
+        ssl,
+        inets,
+        jsx,
+        jesse,
+        cowboy
+    ]},
+    {env, [
+    ]},
+    {modules, []},
+    {licenses, ["MIT"]},
+    {links, ["https://github.com/cliffano/endoflife.date-api-clients"]}
+]}.

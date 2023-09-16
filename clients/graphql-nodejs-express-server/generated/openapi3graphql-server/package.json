@@ -1,0 +1,25 @@
+{
+  "name": "graphql-server",
+  "version": "1.0.0",
+  "description": " Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki) ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest",
+    "graphql": "latest",
+    "apollo-server-express": "latest",
+    "graphql-combine": "latest",
+    "lodash": "latest",
+    "path": "latest"
+  },
+  "devDependencies": {
+    "babel-register": "latest",
+    "babel-preset-env": "latest"
+  }
+}

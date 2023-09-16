@@ -1,0 +1,8 @@
+-- By default this file is used by `parseRoutesFile` in Foundation.hs
+-- Syntax for this file here: https://www.yesodweb.com/book/routing-and-handlers
+
+-- /static StaticR Static appStatic
+
+/api/{product}.json Api{Product}JsonR GET
+/api/#Value/{cycle}.json ApiByValue{Cycle}JsonR GET
+/api/all.json ApiAllJsonR GET

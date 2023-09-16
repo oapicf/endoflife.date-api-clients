@@ -1,0 +1,77 @@
+<div class="main-content">
+  <h2><a name=""></a></h2>
+  <p>This is the  API</p>
+
+  <h2><a name="getApiAll.json"></a>getApiAll.json</h2>
+  <hr>
+  <p></p>
+  <p>Return a list of all products. Each of these can be used for the other API endpoints.</p>
+  <h3 class="section">URL</h3>
+  <code>https://endoflife.date/api/all.json</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="AnyType"><a href="">oas_any_type_not_mapped</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  </ul>
+  <h2><a name="getApiProduct.json"></a>getApiProduct.json</h2>
+  <hr>
+  <p></p>
+  <p>Get EoL dates of all cycles of a given product.</p>
+  <h3 class="section">URL</h3>
+  <code>https://endoflife.date/api/{product}.json</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="AnyType"><a href="">oas_any_type_not_mapped</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">product</span>
+      <span class="param-type">oas_any_type_not_mapped</span>
+      
+      <p class="param-description">Product URL as per the canonical URL on the endofife.date website</p>
+	  </li>
+  </ul>
+  <h2><a name="getApiProductCycle.json"></a>getApiProductCycle.json</h2>
+  <hr>
+  <p></p>
+  <p>Gets details of a single cycle</p>
+  <h3 class="section">URL</h3>
+  <code>https://endoflife.date/api/{product}/{cycle}.json</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="cycle"><a href="">cycle</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">product</span>
+      <span class="param-type">oas_any_type_not_mapped</span>
+      
+      <p class="param-description">Product URL as per the canonical URL on the endofife.date website</p>
+	  </li>
+	  <li class="parameter">
+      
+      
+      <span class="param-in">Path: </span>
+      
+      
+      <span class="param-name">cycle</span>
+      <span class="param-type">oas_any_type_not_mapped</span>
+      
+      <p class="param-description">Release Cycle for which the details must be fetched</p>
+	  </li>
+  </ul>
+</div>

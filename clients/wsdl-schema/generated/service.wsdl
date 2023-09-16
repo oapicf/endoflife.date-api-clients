@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:schemas="http://localhost/soap/ServiceV1/model" xmlns:wsdl="http://localhost/soap/ServiceV1/service" targetNamespace="http://localhost/soap/ServiceV1/service" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:tns="http://localhost/soap/ServiceV1/model" targetNamespace="http://localhost/soap/ServiceV1/model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="GetApiAll.json_RequestMessage" type="schemas:GetApiAll.json_RequestMessage" />
+      <xs:element name="GetApiAll.json_ResponseMessage" type="schemas:GetApiAll.json_ResponseMessage" />
+      <xs:element name="GetApiByProduct}.jso_RequestMessage" type="schemas:GetApiByProduct}.jso_RequestMessage" />
+      <xs:element name="GetApiByProduct}.jso_ResponseMessage" type="schemas:GetApiByProduct}.jso_ResponseMessage" />
+      <xs:element name="GetApiByProductAndCycle}.jso_RequestMessage" type="schemas:GetApiByProductAndCycle}.jso_RequestMessage" />
+      <xs:element name="GetApiByProductAndCycle}.jso_ResponseMessage" type="schemas:GetApiByProductAndCycle}.jso_ResponseMessage" />
+      <xs:complexType name="Cycle">
+        <xs:annotation>
+          <xs:documentation>Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cycle" type="xs:AnyType">
+            <xs:annotation>
+              <xs:documentation>Release Cycle</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="releaseDate">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Release Date for the first release in this cycle</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:long">
+                <xs:maxLength value="10" />
+                <xs:minLength value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="eol">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>End of Life Date for this release cycle</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:long">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="latest">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Latest release in this cycle</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:long">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="link">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Link to changelog for the latest release, if available</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:long">
+                <xs:minLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="lts" type="xs:AnyType">
+            <xs:annotation>
+              <xs:documentation>Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="support">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Whether this release cycle has active support</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:long">
+                <xs:maxLength value="10" />
+                <xs:minLength value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="discontinued">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>Whether this cycle is now discontinued.</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:long">
+                <xs:maxLength value="10" />
+                <xs:minLength value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiAll.json_RequestMessage" />
+      <xs:complexType name="GetApiAll.json_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="response" type="xs:oas_any_type_not_mapped">
+            <xs:annotation>
+              <xs:documentation>OK</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiByProduct}.jso_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="product" type="xs:oas_any_type_not_mapped">
+            <xs:annotation>
+              <xs:documentation>Product URL as per the canonical URL on the endofife.date website</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiByProduct}.jso_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="response" type="xs:oas_any_type_not_mapped">
+            <xs:annotation>
+              <xs:documentation>OK</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiByProductAndCycle}.jso_RequestMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="product" type="xs:oas_any_type_not_mapped">
+            <xs:annotation>
+              <xs:documentation>Product URL as per the canonical URL on the endofife.date website</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="1" name="cycle" type="xs:oas_any_type_not_mapped">
+            <xs:annotation>
+              <xs:documentation>Release Cycle for which the details must be fetched</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetApiByProductAndCycle}.jso_ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="Cycle" type="schemas:Cycle">
+            <xs:annotation>
+              <xs:documentation>OK</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="GetApiAll.json_RequestMessage">
+    <part name="GetApiAll.json_RequestMessage" element="schemas:GetApiAll.json_RequestMessage" />
+  </message>
+  <message name="GetApiAll.json_ResponseMessage">
+    <part name="GetApiAll.json_ResponseMessage" element="schemas:GetApiAll.json_ResponseMessage" />
+  </message>
+  <message name="GetApiByProduct}.jso_RequestMessage">
+    <part name="GetApiByProduct}.jso_RequestMessage" element="schemas:GetApiByProduct}.jso_RequestMessage" />
+  </message>
+  <message name="GetApiByProduct}.jso_ResponseMessage">
+    <part name="GetApiByProduct}.jso_ResponseMessage" element="schemas:GetApiByProduct}.jso_ResponseMessage" />
+  </message>
+  <message name="GetApiByProductAndCycle}.jso_RequestMessage">
+    <part name="GetApiByProductAndCycle}.jso_RequestMessage" element="schemas:GetApiByProductAndCycle}.jso_RequestMessage" />
+  </message>
+  <message name="GetApiByProductAndCycle}.jso_ResponseMessage">
+    <part name="GetApiByProductAndCycle}.jso_ResponseMessage" element="schemas:GetApiByProductAndCycle}.jso_ResponseMessage" />
+  </message>
+  <portType name="ServiceV1_PortType">
+    <operation name="GetApiAll.json">
+      <documentation>Return a list of all products. Each of these can be used for the other API endpoints.</documentation>
+      <input message="wsdl:GetApiAll.json_RequestMessage" />
+      <output message="wsdl:GetApiAll.json_ResponseMessage">
+        <documentation>OK</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiByProduct}.jso">
+      <documentation>Get EoL dates of all cycles of a given product.</documentation>
+      <input message="wsdl:GetApiByProduct}.jso_RequestMessage" />
+      <output message="wsdl:GetApiByProduct}.jso_ResponseMessage">
+        <documentation>OK</documentation>
+      </output>
+    </operation>
+    <operation name="GetApiByProductAndCycle}.jso">
+      <documentation>Gets details of a single cycle</documentation>
+      <input message="wsdl:GetApiByProductAndCycle}.jso_RequestMessage" />
+      <output message="wsdl:GetApiByProductAndCycle}.jso_ResponseMessage">
+        <documentation>OK</documentation>
+      </output>
+    </operation>
+  </portType>
+  <binding name="ServiceV1_Binding" type="wsdl:ServiceV1_PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="GetApiAll.json">
+      <soap:operation soapAction="GetApiAll.json" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetApiByProduct}.jso">
+      <soap:operation soapAction="GetApiByProduct}.jso" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetApiByProductAndCycle}.jso">
+      <soap:operation soapAction="GetApiByProductAndCycle}.jso" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output>
+        <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ServiceV1">
+    <documentation>Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)</documentation>
+    <port name="default_Port" binding="wsdl:ServiceV1_Binding">
+      <soap:address location="http://localhost/soap/ServiceV1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

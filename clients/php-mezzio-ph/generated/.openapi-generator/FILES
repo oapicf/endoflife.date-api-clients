@@ -1,0 +1,16 @@
+.gitignore
+.openapi-generator-ignore
+README.md
+application/config.yml
+application/config/app.yml
+application/config/data_transfer.yml
+application/config/path_handler.yml
+application/container.php
+composer.json
+public/index.php
+src/App/DTO/Cycle.php
+src/App/Factory.php
+src/App/Handler/ApiAllJson.php
+src/App/Handler/ApiProductCycleJson.php
+src/App/Handler/ApiProductJson.php
+src/App/Middleware/InternalServerError.php

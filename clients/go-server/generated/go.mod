@@ -1,0 +1,5 @@
+module github.com/cliffano/endoflife.date-api-clients
+
+go 1.18
+
+require github.com/gorilla/mux v1.8.0

@@ -1,0 +1,217 @@
+h1. endoflife.date
+
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki\](https://github.com/endoflife-date/endoflife.date/wiki)
+
+*Version:* 0.0.1
+
+----
+
+{expand:Table of Contents - Click to expand}
+{toc:printable=true|style=square|minLevel=2|maxLevel=3|type=list|outline=false|include=.*}
+{expand}
+
+h2. Endpoints
+
+
+h3. getApiAll.json
+{panel:title=getApiAll.json|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
+    *Summary:* All Products
+    *Description:* Return a list of all products. Each of these can be used for the other API endpoints.
+
+	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
+    || Protocol | {noformat:nopanel=true}https{noformat} |
+    || Path | {noformat:nopanel=true}/api/all.json{noformat} |
+    || Base Path | {noformat:nopanel=true}https://endoflife.date{noformat} |
+    || Produces | {noformat:nopanel=true}application/json {noformat} |
+----
+h4. Parameters
+
+
+
+----
+h4. Responses
+
+    	|| Status Code | {status:colour=Green|title=200|subtle=false} |
+    	|| Message | OK |
+    	|| Response Type | oas_any_type_not_mapped |
+    	|| Response Model | [oas_any_type_not_mapped Model|#oas_any_type_not_mappedModelAnchor|Jump to model] |
+    	|| Response Schema | {code:collapse=true}{
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "description" : "List of all products.",
+        "items" : { }
+      },
+      "examples" : {
+        "all-products" : {
+          "value" : [ "alpine", "amazon-linux", "android", "bootstrap", "centos", "debian", "django", "dotnet", "dotnetcore", "dotnetfx", "drupal", "elasticsearch", "elixir", "fedora", "filemaker", "freebsd", "go", "godot", "iphone", "java", "kindle", "kubernetes", "laravel", "macos", "magento", "mariadb", "mongodb", "mssqlserver", "mysql", "nodejs", "office", "opensuse", "perl", "php", "pixel", "postgresql", "powershell", "python", "qt", "rabbitmq", "rails", "redis", "rhel", "ros", "ruby", "sles", "spring-framework", "surface", "symfony", "ubuntu", "vue", "wagtail", "windows", "windowsembedded", "windowsserver" ]
+        }
+      }
+    }
+  }
+}{code} |
+       
+
+{panel}
+
+
+
+h3. getApiProduct.json
+{panel:title=getApiProduct.json|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
+    *Summary:* Get All Details
+    *Description:* Get EoL dates of all cycles of a given product.
+
+	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
+    || Protocol | {noformat:nopanel=true}https{noformat} |
+    || Path | {noformat:nopanel=true}/api/{product}.json{noformat} |
+    || Base Path | {noformat:nopanel=true}https://endoflife.date{noformat} |
+    || Produces | {noformat:nopanel=true}application/json {noformat} |
+----
+h4. Parameters
+h5. Path Parameters
+        ||Name||Description||Type||Required||Default||Pattern||Enum||Example||
+        |product |Product URL as per the canonical URL on the endofife.date website | oas_any_type_not_mapped | (/) |null |  |  |
+
+
+
+----
+h4. Responses
+
+    	|| Status Code | {status:colour=Green|title=200|subtle=false} |
+    	|| Message | OK |
+    	|| Response Type | oas_any_type_not_mapped |
+    	|| Response Model | [oas_any_type_not_mapped Model|#oas_any_type_not_mappedModelAnchor|Jump to model] |
+    	|| Response Schema | {code:collapse=true}{
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "items" : {
+          "$ref" : "#/components/schemas/cycle"
+        }
+      },
+      "examples" : {
+        "/api/ubuntu.json" : {
+          "value" : [ {
+            "cycle" : "21.04",
+            "lts" : false,
+            "releaseDate" : "2021-04-22",
+            "support" : "2022-01-01",
+            "eol" : "2022-01-01",
+            "latest" : "21.04",
+            "link" : "https://wiki.ubuntu.com/HirsuteHippo/ReleaseNotes/"
+          }, {
+            "cycle" : "20.10",
+            "lts" : false,
+            "releaseDate" : "2020-10-22",
+            "support" : "2021-07-07",
+            "eol" : "2021-07-07",
+            "latest" : "20.10",
+            "link" : "https://wiki.ubuntu.com/GroovyGorilla/ReleaseNotes/"
+          } ]
+        },
+        "/api/python.json" : {
+          "value" : [ {
+            "cycle" : 3.9,
+            "releaseDate" : "2020-10-05",
+            "eol" : "2025-10-05",
+            "latest" : "3.9.5",
+            "link" : "https://www.python.org/downloads/release/python-395/"
+          }, {
+            "cycle" : 3.8,
+            "releaseDate" : "2019-10-14",
+            "eol" : "2024-10-14",
+            "latest" : "3.8.10",
+            "link" : "https://www.python.org/downloads/release/python-3810/"
+          } ]
+        }
+      }
+    }
+  }
+}{code} |
+       
+
+{panel}
+
+
+
+h3. getApiProductCycle.json
+{panel:title=getApiProductCycle.json|borderStyle=solid|borderColor=#003b6f|titleBGColor=#003b6f|titleColor=#a6b8c7|bgColor=#ffffff}
+    *Summary:* Single cycle details
+    *Description:* Gets details of a single cycle
+
+	|| HttpMethod | {status:colour=Yellow|title=get|subtle=false} |
+    || Protocol | {noformat:nopanel=true}https{noformat} |
+    || Path | {noformat:nopanel=true}/api/{product}/{cycle}.json{noformat} |
+    || Base Path | {noformat:nopanel=true}https://endoflife.date{noformat} |
+    || Produces | {noformat:nopanel=true}application/json {noformat} |
+----
+h4. Parameters
+h5. Path Parameters
+        ||Name||Description||Type||Required||Default||Pattern||Enum||Example||
+        |product |Product URL as per the canonical URL on the endofife.date website | oas_any_type_not_mapped | (/) |null |  |  ||cycle |Release Cycle for which the details must be fetched | oas_any_type_not_mapped | (/) |null |  |  |
+
+
+
+----
+h4. Responses
+
+    	|| Status Code | {status:colour=Green|title=200|subtle=false} |
+    	|| Message | OK |
+    	|| Response Type | cycle |
+    	|| Response Model | [cycle Model|#cycleModelAnchor|Jump to model] |
+    	|| Response Schema | {code:collapse=true}{
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/cycle"
+      },
+      "examples" : {
+        "/api/python/3.9.json" : {
+          "value" : {
+            "releaseDate" : "2020-10-05",
+            "eol" : "2025-10-05",
+            "latest" : "3.9.5",
+            "link" : "https://www.python.org/downloads/release/python-395/"
+          }
+        },
+        "/api/ubuntu/21.04.json" : {
+          "value" : {
+            "lts" : false,
+            "releaseDate" : "2021-04-22",
+            "support" : "2022-01-01",
+            "eol" : "2022-01-01",
+            "latest" : "21.04",
+            "link" : "https://wiki.ubuntu.com/HirsuteHippo/ReleaseNotes/"
+          }
+        }
+      }
+    }
+  }
+}{code} |
+       
+
+{panel}
+
+
+{anchor:models}
+h2. Models
+
+        {anchor:CycleModelAnchor}
+        h3. Cycle
+
+        Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         |cycle |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Release Cycle |  | null
+         |releaseDate |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Release Date for the first release in this cycle |  | null
+         |eol |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | End of Life Date for this release cycle |  | null
+         |latest |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Latest release in this cycle |  | null
+         |link |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Link to changelog for the latest release, if available |  | null
+         |lts |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. |  | null
+         |support |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Whether this release cycle has active support |  | null
+         |discontinued |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Whether this cycle is now discontinued. |  | null
+         

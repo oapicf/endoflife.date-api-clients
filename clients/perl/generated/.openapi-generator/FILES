@@ -1,0 +1,17 @@
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+README.md
+bin/autodoc
+docs/Cycle.md
+docs/DefaultApi.md
+git_push.sh
+lib/WWW/OpenAPIClient/ApiClient.pm
+lib/WWW/OpenAPIClient/ApiFactory.pm
+lib/WWW/OpenAPIClient/Configuration.pm
+lib/WWW/OpenAPIClient/DefaultApi.pm
+lib/WWW/OpenAPIClient/Object/Cycle.pm
+lib/WWW/OpenAPIClient/Role.pm
+lib/WWW/OpenAPIClient/Role/AutoDoc.pm
+t/CycleTest.t
+t/DefaultApiTest.t

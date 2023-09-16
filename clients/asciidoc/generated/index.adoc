@@ -1,0 +1,336 @@
+= endoflife.date
+blah@cliffano.com
+0.0.1
+:toc: left
+:numbered:
+:toclevels: 4
+:source-highlighter: highlightjs
+:keywords: openapi, rest, endoflife.date
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://github.com/cliffano/endoflife.date-api-clients
+:app-name: endoflife.date
+
+[abstract]
+.Abstract
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+
+== Endpoints
+
+
+[.Default]
+=== Default
+
+
+[.getApiAll.json]
+==== getApiAll.json
+
+`GET /api/all.json`
+
+All Products
+
+===== Description
+
+Return a list of all products. Each of these can be used for the other API endpoints.
+
+
+// markup not found, no include::{specDir}api/all.json/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+
+<<oas_any_type_not_mapped>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| OK
+|  <<oas_any_type_not_mapped>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/all.json/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/all.json/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/all.json/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/all.json/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getApiProduct.json]
+==== getApiProduct.json
+
+`GET /api/{product}.json`
+
+Get All Details
+
+===== Description
+
+Get EoL dates of all cycles of a given product.
+
+
+// markup not found, no include::{specDir}api/\{product\}.json/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===
+|Name| Description| Required| Default| Pattern
+
+| product
+| Product URL as per the canonical URL on the endofife.date website 
+| X
+| null
+| 
+
+|===
+
+
+
+
+
+
+===== Return Type
+
+
+<<oas_any_type_not_mapped>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| OK
+|  <<oas_any_type_not_mapped>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/\{product\}.json/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/\{product\}.json/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/{product}.json/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/\{product\}.json/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.getApiProductCycle.json]
+==== getApiProductCycle.json
+
+`GET /api/{product}/{cycle}.json`
+
+Single cycle details
+
+===== Description
+
+Gets details of a single cycle
+
+
+// markup not found, no include::{specDir}api/\{product\}/\{cycle\}.json/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===
+|Name| Description| Required| Default| Pattern
+
+| product
+| Product URL as per the canonical URL on the endofife.date website 
+| X
+| null
+| 
+
+| cycle
+| Release Cycle for which the details must be fetched 
+| X
+| null
+| 
+
+|===
+
+
+
+
+
+
+===== Return Type
+
+<<cycle>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.HTTP Response Codes
+[cols="2,3,1"]
+|===
+| Code | Message | Datatype
+
+
+| 200
+| OK
+|  <<cycle>>
+
+|===
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/\{product\}/\{cycle\}.json/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/\{product\}/\{cycle\}.json/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/{product}/{cycle}.json/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/\{product\}/\{cycle\}.json/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+
+[#Cycle]
+=== _Cycle_ Cycle
+
+Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
+
+[.fields-Cycle]
+[cols="2,1,2,4,1"]
+|===
+| Field Name| Required| Type| Description| Format
+
+| cycle
+| 
+| oas_any_type_not_mapped 
+| Release Cycle
+|  
+
+| releaseDate
+| 
+| oas_any_type_not_mapped 
+| Release Date for the first release in this cycle
+| date 
+
+| eol
+| 
+| oas_any_type_not_mapped 
+| End of Life Date for this release cycle
+|  
+
+| latest
+| 
+| oas_any_type_not_mapped 
+| Latest release in this cycle
+|  
+
+| link
+| 
+| oas_any_type_not_mapped 
+| Link to changelog for the latest release, if available
+|  
+
+| lts
+| 
+| oas_any_type_not_mapped 
+| Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+|  
+
+| support
+| 
+| oas_any_type_not_mapped 
+| Whether this release cycle has active support
+| date 
+
+| discontinued
+| 
+| oas_any_type_not_mapped 
+| Whether this cycle is now discontinued.
+| date 
+
+|===
+
+
