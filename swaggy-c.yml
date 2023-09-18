@@ -1,6 +1,6 @@
----
-spec_uri: https://raw.githubusercontent.com/endoflife-date/endoflife.date/master/assets/openapi.yml
-version: 0.9.0-pre.0
+spec_uri: >-
+  https://raw.githubusercontent.com/endoflife-date/endoflife.date/master/assets/openapi.yml
+version: 0.10.0
 contact:
   name: Cliffano Subagio
   url: https://github.com/cliffano/endoflife.date-api-clients
