@@ -1,7 +1,7 @@
 {
   "gemName": "endoflife_date",
   "moduleName": "EndOfLifeDateApiClient",
-  "gemVersion": "0.10.0",
+  "gemVersion": "0.10.1-pre.0",
   "gemAuthor": "Cliffano Subagio",
   "gemAuthorEmail": "blah@cliffano.com",
   "gemHomepage": "https://github.com/cliffano/endoflife.date-api-clients",
