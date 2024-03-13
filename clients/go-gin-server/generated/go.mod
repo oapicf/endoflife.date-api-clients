@@ -1,4 +1,4 @@
-module github.com/cliffano/endoflife.date-api-clients
+module github.com/oapicf/endoflife.date-api-clients
 
 go 1.19
 

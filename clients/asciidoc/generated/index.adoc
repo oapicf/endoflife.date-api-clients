@@ -1,15 +1,15 @@
 = endoflife.date
-blah@cliffano.com
+blah+oapicf@cliffano.com
 0.0.1
 :toc: left
 :numbered:
 :toclevels: 4
 :source-highlighter: highlightjs
 :keywords: openapi, rest, endoflife.date
-:specDir: 
-:snippetDir: 
+:specDir:
+:snippetDir:
 :generator-template: v1 2019-12-20
-:info-url: https://github.com/cliffano/endoflife.date-api-clients
+:info-url: https://github.com/oapicf/endoflife.date-api-clients
 :app-name: endoflife.date
 
 [abstract]
@@ -123,10 +123,10 @@ Get EoL dates of all cycles of a given product.
 |Name| Description| Required| Default| Pattern
 
 | product
-| Product URL as per the canonical URL on the endofife.date website 
+| Product URL as per the canonical URL on the endofife.date website
 | X
 | null
-| 
+|
 
 |===
 
@@ -206,16 +206,16 @@ Gets details of a single cycle
 |Name| Description| Required| Default| Pattern
 
 | product
-| Product URL as per the canonical URL on the endofife.date website 
+| Product URL as per the canonical URL on the endofife.date website
 | X
 | null
-| 
+|
 
 | cycle
-| Release Cycle for which the details must be fetched 
+| Release Cycle for which the details must be fetched
 | X
 | null
-| 
+|
 
 |===
 
@@ -284,52 +284,52 @@ Details of a single release cycle of a given product. There might be some slight
 | Field Name| Required| Type| Description| Format
 
 | cycle
-| 
-| oas_any_type_not_mapped 
+|
+| oas_any_type_not_mapped
 | Release Cycle
-|  
+|
 
 | releaseDate
-| 
-| oas_any_type_not_mapped 
+|
+| oas_any_type_not_mapped
 | Release Date for the first release in this cycle
-| date 
+| date
 
 | eol
-| 
-| oas_any_type_not_mapped 
+|
+| oas_any_type_not_mapped
 | End of Life Date for this release cycle
-|  
+|
 
 | latest
-| 
-| oas_any_type_not_mapped 
+|
+| oas_any_type_not_mapped
 | Latest release in this cycle
-|  
+|
 
 | link
-| 
-| oas_any_type_not_mapped 
+|
+| oas_any_type_not_mapped
 | Link to changelog for the latest release, if available
-|  
+|
 
 | lts
-| 
-| oas_any_type_not_mapped 
-| Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
-|  
+|
+| oas_any_type_not_mapped
+| Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+|
 
 | support
-| 
-| oas_any_type_not_mapped 
+|
+| oas_any_type_not_mapped
 | Whether this release cycle has active support
-| date 
+| date
 
 | discontinued
-| 
-| oas_any_type_not_mapped 
+|
+| oas_any_type_not_mapped
 | Whether this cycle is now discontinued.
-| date 
+| date
 
 |===
 

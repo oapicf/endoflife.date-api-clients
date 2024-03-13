@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Handover repo to OpenAPI Clients Factory project
+
 ## 0.10.0 - 2023-09-18
 ### Added
 - Initial version

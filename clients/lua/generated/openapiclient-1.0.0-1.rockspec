@@ -1,7 +1,7 @@
 package = "openapiclient"
 version = "1.0.0-1"
 source = {
-	url = "https://github.com/cliffano/endoflife.date-api-clients.git"
+	url = "https://github.com/oapicf/endoflife.date-api-clients.git"
 }
 
 description = {

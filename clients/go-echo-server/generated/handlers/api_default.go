@@ -1,6 +1,6 @@
 package handlers
 import (
-    "github.com/cliffano/endoflife.date-api-clients/models"
+    "github.com/oapicf/endoflife.date-api-clients/models"
     "github.com/labstack/echo/v4"
     "net/http"
 )

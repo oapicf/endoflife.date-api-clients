@@ -23,8 +23,8 @@ public class SpringDocConfiguration {
                                 .contact(
                                         new Contact()
                                                 .name("Cliffano Subagio")
-                                                .url("https://github.com/cliffano/endoflife.date-api-clients")
-                                                .email("blah@cliffano.com")
+                                                .url("https://github.com/oapicf/endoflife.date-api-clients")
+                                                .email("blah+oapicf@cliffano.com")
                                 )
                                 .license(
                                         new License()

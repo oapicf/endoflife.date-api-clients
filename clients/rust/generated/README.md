@@ -2,7 +2,7 @@
 
 Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 
-For more information, please visit [https://github.com/cliffano/endoflife.date-api-clients](https://github.com/cliffano/endoflife.date-api-clients)
+For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 
 ## Overview
 
@@ -44,5 +44,5 @@ cargo doc --open
 
 ## Author
 
-blah@cliffano.com
+blah+oapicf@cliffano.com
 

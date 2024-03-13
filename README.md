@@ -1,6 +1,6 @@
-<img align="right" src="https://raw.github.com/cliffano/endoflife.date-api-clients/master/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/oapicf/endoflife.date-api-clients/master/avatar.jpg" alt="Avatar"/>
 
-[![Build Status](https://github.com/cliffano/endoflife.date-api-clients/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/cliffano/endoflife.date-api-clients/actions/workflows/ci-workflow.yaml)
+[![Build Status](https://github.com/oapicf/endoflife.date-api-clients/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/oapicf/endoflife.date-api-clients/actions/workflows/ci-workflow.yaml)
 <br/>
 
 endoflife.date API Clients
@@ -48,4 +48,4 @@ Install Ruby client:
 Colophon
 --------
 
-* [API Documentation](https://cliffano.github.io/endoflife.date-api-clients/api/latest/)
+* [API Documentation](https://oapicf.github.io/endoflife.date-api-clients/api/latest/)

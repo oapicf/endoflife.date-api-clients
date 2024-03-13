@@ -2,7 +2,7 @@
 
 Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 
-For more information, please visit [https://github.com/cliffano/endoflife.date-api-clients](https://github.com/cliffano/endoflife.date-api-clients).
+For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients).
 
 ## Installation & Usage
 
@@ -20,11 +20,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/cliffano/endoflife.date-api-clients.git"
+      "url": "https://github.com/oapicf/endoflife.date-api-clients.git"
     }
   ],
   "require": {
-    "cliffano/endoflife.date-api-clients": "*@dev"
+    "oapicf/endoflife.date-api-clients": "*@dev"
   }
 }
 ```
@@ -94,7 +94,7 @@ vendor/bin/phpunit
 
 ## Author
 
-blah@cliffano.com
+blah+oapicf@cliffano.com
 
 ## About this package
 

@@ -15,5 +15,5 @@
     ]},
     {modules, []},
     {licenses, ["MIT"]},
-    {links, ["https://github.com/cliffano/endoflife.date-api-clients"]}
+    {links, ["https://github.com/oapicf/endoflife.date-api-clients"]}
 ]}.

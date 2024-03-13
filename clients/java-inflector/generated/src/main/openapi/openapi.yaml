@@ -1,9 +1,9 @@
 openapi: 3.1.0
 info:
   contact:
-    email: blah@cliffano.com
+    email: blah+oapicf@cliffano.com
     name: Cliffano Subagio
-    url: https://github.com/cliffano/endoflife.date-api-clients
+    url: https://github.com/oapicf/endoflife.date-api-clients
   description: "Documentation for the endoflife.date API. The API is currently in\
     \ Alpha. Additional information about the API can be found on the [endoflife.date\
     \ wiki](https://github.com/endoflife-date/endoflife.date/wiki)"

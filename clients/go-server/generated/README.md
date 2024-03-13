@@ -14,7 +14,7 @@ To see how to make this your own, look here:
 
 - API version: 0.0.1
 - Build date: 2023-09-16T14:42:07.332945Z[Etc/UTC]
-For more information, please visit [https://github.com/cliffano/endoflife.date-api-clients](https://github.com/cliffano/endoflife.date-api-clients)
+For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 
 
 ### Running the server

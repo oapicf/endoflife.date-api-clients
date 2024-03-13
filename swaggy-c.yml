@@ -2,11 +2,11 @@ spec_uri: >-
   https://raw.githubusercontent.com/endoflife-date/endoflife.date/master/assets/openapi.yml
 version: 0.10.1-pre.0
 contact:
-  name: Cliffano Subagio
-  url: https://github.com/cliffano/endoflife.date-api-clients
-  email: blah@cliffano.com
+  name: OpenAPI Clients Factory
+  url: https://github.com/oapicf/endoflife.date-api-clients
+  email: blah+oapicf@cliffano.com
 scm:
-  git_user: cliffano
+  git_user: oapicf
   git_repo: endoflife.date-api-clients
 base_dir:
   github_actions: /home/runner/work/endoflife.date-api-clients/endoflife.date-api-clients

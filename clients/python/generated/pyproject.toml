@@ -2,10 +2,10 @@
 name = "endoflifedate"
 version = "0.9.0-pre.0"
 description = "endoflife.date"
-authors = ["Cliffano Subagio <blah@cliffano.com>"]
+authors = ["Cliffano Subagio <blah+oapicf@cliffano.com>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/cliffano/endoflife.date-api-clients"
+repository = "https://github.com/oapicf/endoflife.date-api-clients"
 keywords = ["OpenAPI", "OpenAPI-Generator", "endoflife.date"]
 include = ["endoflifedate/py.typed"]
 

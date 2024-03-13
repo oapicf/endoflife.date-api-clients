@@ -12,7 +12,7 @@ LONG DESCRIPTION
     - API version: 0.0.1
     - SDK version: 0.1.2
     - Build package: org.openapitools.codegen.languages.PowerShellClientCodegen
-    For more information, please visit [https://github.com/cliffano/endoflife.date-api-clients](https://github.com/cliffano/endoflife.date-api-clients)
+    For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 
     Frameworks supported:
 

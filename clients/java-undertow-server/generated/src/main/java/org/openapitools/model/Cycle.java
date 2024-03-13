@@ -4,7 +4,7 @@
  * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
  *
  * OpenAPI document version: 0.0.1
- * Maintained by: blah@cliffano.com
+ * Maintained by: blah+oapicf@cliffano.com
  *
  * AUTO-GENERATED FILE, DO NOT MODIFY!
  */
@@ -26,7 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2023-09-16T14:43:31.916530Z[Etc/UTC]")
 public class Cycle   {
-  
+
   private Object cycle = null;
   private Object releaseDate = null;
   private Object eol = null;
@@ -44,7 +44,7 @@ public class Cycle   {
     return this;
   }
 
-  
+
   @ApiModelProperty(value = "Release Cycle")
   @JsonProperty("cycle")
   public Object getCycle() {
@@ -62,7 +62,7 @@ public class Cycle   {
     return this;
   }
 
-  
+
   @ApiModelProperty(value = "Release Date for the first release in this cycle")
   @JsonProperty("releaseDate")
   public Object getReleaseDate() {
@@ -80,7 +80,7 @@ public class Cycle   {
     return this;
   }
 
-  
+
   @ApiModelProperty(value = "End of Life Date for this release cycle")
   @JsonProperty("eol")
   public Object getEol() {
@@ -98,7 +98,7 @@ public class Cycle   {
     return this;
   }
 
-  
+
   @ApiModelProperty(value = "Latest release in this cycle")
   @JsonProperty("latest")
   public Object getLatest() {
@@ -116,7 +116,7 @@ public class Cycle   {
     return this;
   }
 
-  
+
   @ApiModelProperty(value = "Link to changelog for the latest release, if available")
   @JsonProperty("link")
   public Object getLink() {
@@ -127,14 +127,14 @@ public class Cycle   {
   }
 
   /**
-   * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+   * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
    */
   public Cycle lts(Object lts) {
     this.lts = lts;
     return this;
   }
 
-  
+
   @ApiModelProperty(value = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
   @JsonProperty("lts")
   public Object getLts() {
@@ -152,7 +152,7 @@ public class Cycle   {
     return this;
   }
 
-  
+
   @ApiModelProperty(value = "Whether this release cycle has active support")
   @JsonProperty("support")
   public Object getSupport() {
@@ -170,7 +170,7 @@ public class Cycle   {
     return this;
   }
 
-  
+
   @ApiModelProperty(value = "Whether this cycle is now discontinued.")
   @JsonProperty("discontinued")
   public Object getDiscontinued() {
@@ -209,7 +209,7 @@ public class Cycle   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Cycle {\n");
-    
+
     sb.append("    cycle: ").append(toIndentedString(cycle)).append("\n");
     sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
     sb.append("    eol: ").append(toIndentedString(eol)).append("\n");

@@ -18,10 +18,10 @@
 # https://github.com/endoflife-date/endoflife.date/blob/master/LICENSE
 #
 # CONTACT:
-# blah@cliffano.com
+# blah+oapicf@cliffano.com
 #
 # MORE INFORMATION:
-# 
+#
 #
 
 # For improved pattern matching in case statements
@@ -536,7 +536,7 @@ print_about() {
     echo -e "${BOLD}${WHITE}endoflife.date command line client (API version 0.0.1)${OFF}"
     echo ""
     echo -e "License: MIT"
-    echo -e "Contact: blah@cliffano.com"
+    echo -e "Contact: blah+oapicf@cliffano.com"
     echo ""
 read -r -d '' appdescription <<EOF
 

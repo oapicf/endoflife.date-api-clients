@@ -27,7 +27,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/cliffano/endoflife.date-api-clients"
+    openapiclient "github.com/oapicf/endoflife.date-api-clients"
 )
 
 func main() {
@@ -88,7 +88,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/cliffano/endoflife.date-api-clients"
+    openapiclient "github.com/oapicf/endoflife.date-api-clients"
 )
 
 func main() {
@@ -113,8 +113,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**product** | [**interface{}**](.md) | Product URL as per the canonical URL on the endofife.date website | 
-**cycle** | [**interface{}**](.md) | Release Cycle for which the details must be fetched | 
+**product** | [**interface{}**](.md) | Product URL as per the canonical URL on the endofife.date website |
+**cycle** | [**interface{}**](.md) | Release Cycle for which the details must be fetched |
 
 ### Other Parameters
 
@@ -161,7 +161,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/cliffano/endoflife.date-api-clients"
+    openapiclient "github.com/oapicf/endoflife.date-api-clients"
 )
 
 func main() {
@@ -185,7 +185,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**product** | [**interface{}**](.md) | Product URL as per the canonical URL on the endofife.date website | 
+**product** | [**interface{}**](.md) | Product URL as per the canonical URL on the endofife.date website |
 
 ### Other Parameters
 

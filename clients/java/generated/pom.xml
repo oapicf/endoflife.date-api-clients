@@ -6,12 +6,12 @@
     <packaging>jar</packaging>
     <name>endoflifedate</name>
     <version>1.0.0-pre.0</version>
-    <url>https://github.com/cliffano/endoflife.date-api-clients</url>
+    <url>https://github.com/oapicf/endoflife.date-api-clients</url>
     <description>endoflife.date API clients generated from OpenAPI specification</description>
     <scm>
-        <connection>scm:git:git@github.com:cliffano/endoflife.date-api-clients.git</connection>
-        <developerConnection>scm:git:git@github.com:cliffano/endoflife.date-api-clients.git</developerConnection>
-        <url>https://github.com/cliffano/endoflife.date-api-clients</url>
+        <connection>scm:git:git@github.com:oapicf/endoflife.date-api-clients.git</connection>
+        <developerConnection>scm:git:git@github.com:oapicf/endoflife.date-api-clients.git</developerConnection>
+        <url>https://github.com/oapicf/endoflife.date-api-clients</url>
     </scm>
 
     <licenses>
@@ -25,7 +25,7 @@
     <developers>
         <developer>
             <name>Cliffano Subagio</name>
-            <email>blah@cliffano.com</email>
+            <email>blah+oapicf@cliffano.com</email>
             <organization>Studio Cliffano</organization>
             <organizationUrl>http://cliffano.com</organizationUrl>
         </developer>

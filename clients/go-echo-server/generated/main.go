@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/cliffano/endoflife.date-api-clients/handlers"
+	"github.com/oapicf/endoflife.date-api-clients/handlers"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )

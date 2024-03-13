@@ -23,7 +23,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="endoflife.date",
-    author_email="blah@cliffano.com",
+    author_email="blah+oapicf@cliffano.com",
     url="",
     keywords=["OpenAPI", "endoflife.date"],
     install_requires=REQUIRES,

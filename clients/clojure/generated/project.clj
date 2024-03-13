@@ -1,6 +1,6 @@
 (defproject endoflife/date "0.0.1"
   :description "Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)"
-  :url "https://github.com/cliffano/endoflife.date-api-clients"
+  :url "https://github.com/oapicf/endoflife.date-api-clients"
   :license {:name "MIT"
             :url "https://github.com/endoflife-date/endoflife.date/blob/master/LICENSE"}
   :dependencies [[org.clojure/clojure "1.9.0"]
