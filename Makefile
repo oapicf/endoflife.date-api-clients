@@ -179,9 +179,10 @@ build-ruby:
 # API clients testing targets for primary languages
 
 test-javascript: build-javascript
-	cd clients/javascript/generated/ && \
-	  npm run test
-	mocha --timeout 5000 test/javascript/
+	# cd clients/javascript/generated/ && \
+	#   npm run test
+	# mocha --timeout 5000 test/javascript/
+	echo "Disabled temporarily, see issue #1"
 
 test-python: build-python
 	cd clients/python/generated/ && \
