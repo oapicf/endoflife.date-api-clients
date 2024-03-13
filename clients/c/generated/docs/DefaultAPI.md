@@ -15,7 +15,7 @@ Method | HTTP request | Description
 //
 // Return a list of all products. Each of these can be used for the other API endpoints.
 //
-any_type_t* DefaultAPI_getApiAllJson(apiClient_t *apiClient);
+list_t* DefaultAPI_getApiAllJson(apiClient_t *apiClient);
 ```
 
 ### Parameters
@@ -25,7 +25,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[any_type_t](any_type.md) *
+
+[list_t](char.md) *
+
+
 
 
 ### Authorization
@@ -45,15 +48,15 @@ No authorization required
 //
 // Gets details of a single cycle
 //
-cycle_t* DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient,  product,  cycle);
+cycle_t* DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *cycle);
 ```
 
 ### Parameters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**product** |  | Product URL as per the canonical URL on the endofife.date website | 
-**cycle** |  | Release Cycle for which the details must be fetched | 
+**product** | **char \*** | Product URL as per the canonical URL on the endofife.date website | 
+**cycle** | **char \*** | Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -77,18 +80,18 @@ No authorization required
 //
 // Get EoL dates of all cycles of a given product.
 //
-any_type_t* DefaultAPI_getApiProductJson(apiClient_t *apiClient,  product);
+list_t* DefaultAPI_getApiProductJson(apiClient_t *apiClient, char *product);
 ```
 
 ### Parameters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**product** |  | Product URL as per the canonical URL on the endofife.date website | 
+**product** | **char \*** | Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-[any_type_t](any_type.md) *
+[list_t](cycle.md) *
 
 
 ### Authorization

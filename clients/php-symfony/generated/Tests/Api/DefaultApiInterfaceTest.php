@@ -104,8 +104,10 @@ class DefaultApiInterfaceTest extends WebTestCase
 
         $path = '/api/{product}/{cycle}.json';
         $pattern = '{product}';
+        $data = $this->genTestData('[a-z0-9]+');
         $path = str_replace($pattern, $data, $path);
         $pattern = '{cycle}';
+        $data = $this->genTestData('[a-z0-9]+');
         $path = str_replace($pattern, $data, $path);
 
         $crawler = $client->request('GET', $path);
@@ -124,6 +126,7 @@ class DefaultApiInterfaceTest extends WebTestCase
 
         $path = '/api/{product}.json';
         $pattern = '{product}';
+        $data = $this->genTestData('[a-z0-9]+');
         $path = str_replace($pattern, $data, $path);
 
         $crawler = $client->request('GET', $path);

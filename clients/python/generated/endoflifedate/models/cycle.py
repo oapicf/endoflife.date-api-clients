@@ -18,108 +18,111 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, Optional
-from pydantic import BaseModel, Field
+from datetime import date
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from endoflifedate.models.cycle_cycle import CycleCycle
+from endoflifedate.models.cycle_discontinued import CycleDiscontinued
+from endoflifedate.models.cycle_eol import CycleEol
+from endoflifedate.models.cycle_lts import CycleLts
+from endoflifedate.models.cycle_support import CycleSupport
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Cycle(BaseModel):
     """
     Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
-    """
-    cycle: Optional[Any] = Field(None, description="Release Cycle")
-    release_date: Optional[Any] = Field(None, alias="releaseDate", description="Release Date for the first release in this cycle")
-    eol: Optional[Any] = Field(None, description="End of Life Date for this release cycle")
-    latest: Optional[Any] = Field(None, description="Latest release in this cycle")
-    link: Optional[Any] = Field(None, description="Link to changelog for the latest release, if available")
-    lts: Optional[Any] = Field(None, description="Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
-    support: Optional[Any] = Field(None, description="Whether this release cycle has active support")
-    discontinued: Optional[Any] = Field(None, description="Whether this cycle is now discontinued.")
-    __properties = ["cycle", "releaseDate", "eol", "latest", "link", "lts", "support", "discontinued"]
+    """ # noqa: E501
+    cycle: Optional[CycleCycle] = None
+    release_date: Optional[date] = Field(default=None, description="Release Date for the first release in this cycle", alias="releaseDate")
+    eol: Optional[CycleEol] = None
+    latest: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Latest release in this cycle")
+    link: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Link to changelog for the latest release, if available")
+    lts: Optional[CycleLts] = None
+    support: Optional[CycleSupport] = None
+    discontinued: Optional[CycleDiscontinued] = None
+    __properties: ClassVar[List[str]] = ["cycle", "releaseDate", "eol", "latest", "link", "lts", "support", "discontinued"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Cycle:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Cycle from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
-        # set to None if cycle (nullable) is None
-        # and __fields_set__ contains the field
-        if self.cycle is None and "cycle" in self.__fields_set__:
-            _dict['cycle'] = None
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
 
-        # set to None if release_date (nullable) is None
-        # and __fields_set__ contains the field
-        if self.release_date is None and "release_date" in self.__fields_set__:
-            _dict['releaseDate'] = None
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
 
-        # set to None if eol (nullable) is None
-        # and __fields_set__ contains the field
-        if self.eol is None and "eol" in self.__fields_set__:
-            _dict['eol'] = None
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
 
-        # set to None if latest (nullable) is None
-        # and __fields_set__ contains the field
-        if self.latest is None and "latest" in self.__fields_set__:
-            _dict['latest'] = None
-
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
+        # override the default output from pydantic by calling `to_dict()` of cycle
+        if self.cycle:
+            _dict['cycle'] = self.cycle.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of eol
+        if self.eol:
+            _dict['eol'] = self.eol.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of lts
+        if self.lts:
+            _dict['lts'] = self.lts.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of support
+        if self.support:
+            _dict['support'] = self.support.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of discontinued
+        if self.discontinued:
+            _dict['discontinued'] = self.discontinued.to_dict()
         # set to None if link (nullable) is None
-        # and __fields_set__ contains the field
-        if self.link is None and "link" in self.__fields_set__:
+        # and model_fields_set contains the field
+        if self.link is None and "link" in self.model_fields_set:
             _dict['link'] = None
-
-        # set to None if lts (nullable) is None
-        # and __fields_set__ contains the field
-        if self.lts is None and "lts" in self.__fields_set__:
-            _dict['lts'] = None
-
-        # set to None if support (nullable) is None
-        # and __fields_set__ contains the field
-        if self.support is None and "support" in self.__fields_set__:
-            _dict['support'] = None
-
-        # set to None if discontinued (nullable) is None
-        # and __fields_set__ contains the field
-        if self.discontinued is None and "discontinued" in self.__fields_set__:
-            _dict['discontinued'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Cycle:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Cycle from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Cycle.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Cycle.parse_obj({
-            "cycle": obj.get("cycle"),
-            "release_date": obj.get("releaseDate"),
-            "eol": obj.get("eol"),
+        _obj = cls.model_validate({
+            "cycle": CycleCycle.from_dict(obj["cycle"]) if obj.get("cycle") is not None else None,
+            "releaseDate": obj.get("releaseDate"),
+            "eol": CycleEol.from_dict(obj["eol"]) if obj.get("eol") is not None else None,
             "latest": obj.get("latest"),
             "link": obj.get("link"),
-            "lts": obj.get("lts"),
-            "support": obj.get("support"),
-            "discontinued": obj.get("discontinued")
+            "lts": CycleLts.from_dict(obj["lts"]) if obj.get("lts") is not None else None,
+            "support": CycleSupport.from_dict(obj["support"]) if obj.get("support") is not None else None,
+            "discontinued": CycleDiscontinued.from_dict(obj["discontinued"]) if obj.get("discontinued") is not None else None
         })
         return _obj
 

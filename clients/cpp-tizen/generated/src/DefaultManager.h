@@ -5,8 +5,8 @@
 #include <cstring>
 #include <list>
 #include <glib.h>
-#include "AnyType.h"
 #include "Cycle.h"
+#include <list>
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints
@@ -34,7 +34,7 @@ public:
  */
 bool getApiAllJsonSync(char * accessToken,
 	
-	void(* handler)(AnyType, Error, void* )
+	void(* handler)(std::list<std::string>, Error, void* )
 	, void* userData);
 
 /*! \brief All Products. *Asynchronous*
@@ -46,7 +46,7 @@ bool getApiAllJsonSync(char * accessToken,
  */
 bool getApiAllJsonAsync(char * accessToken,
 	
-	void(* handler)(AnyType, Error, void* )
+	void(* handler)(std::list<std::string>, Error, void* )
 	, void* userData);
 
 
@@ -60,7 +60,7 @@ bool getApiAllJsonAsync(char * accessToken,
  * \param userData The user data to be passed to the callback function.
  */
 bool getApiProductCycleJsonSync(char * accessToken,
-	AnyType product, AnyType cycle, 
+	std::string product, std::string cycle, 
 	void(* handler)(Cycle, Error, void* )
 	, void* userData);
 
@@ -74,7 +74,7 @@ bool getApiProductCycleJsonSync(char * accessToken,
  * \param userData The user data to be passed to the callback function.
  */
 bool getApiProductCycleJsonAsync(char * accessToken,
-	AnyType product, AnyType cycle, 
+	std::string product, std::string cycle, 
 	void(* handler)(Cycle, Error, void* )
 	, void* userData);
 
@@ -88,8 +88,8 @@ bool getApiProductCycleJsonAsync(char * accessToken,
  * \param userData The user data to be passed to the callback function.
  */
 bool getApiProductJsonSync(char * accessToken,
-	AnyType product, 
-	void(* handler)(AnyType, Error, void* )
+	std::string product, 
+	void(* handler)(std::list<Cycle>, Error, void* )
 	, void* userData);
 
 /*! \brief Get All Details. *Asynchronous*
@@ -101,8 +101,8 @@ bool getApiProductJsonSync(char * accessToken,
  * \param userData The user data to be passed to the callback function.
  */
 bool getApiProductJsonAsync(char * accessToken,
-	AnyType product, 
-	void(* handler)(AnyType, Error, void* )
+	std::string product, 
+	void(* handler)(std::list<Cycle>, Error, void* )
 	, void* userData);
 
 

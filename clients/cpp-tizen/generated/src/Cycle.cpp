@@ -23,14 +23,14 @@ Cycle::~Cycle()
 void
 Cycle::__init()
 {
-	//cycle = null;
+	//cycle = new Cycle_cycle();
 	//releaseDate = null;
-	//eol = null;
-	//latest = null;
-	//link = null;
-	//lts = null;
-	//support = null;
-	//discontinued = null;
+	//eol = new Cycle_eol();
+	//latest = std::string();
+	//link = std::string();
+	//lts = new Cycle_lts();
+	//support = new Cycle_support();
+	//discontinued = new Cycle_discontinued();
 }
 
 void
@@ -89,11 +89,11 @@ Cycle::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("AnyType")) {
-			jsonToValue(&cycle, node, "AnyType", "");
+		if (isprimitive("Cycle_cycle")) {
+			jsonToValue(&cycle, node, "Cycle_cycle", "Cycle_cycle");
 		} else {
 			
-			AnyType* obj = static_cast<AnyType*> (&cycle);
+			Cycle_cycle* obj = static_cast<Cycle_cycle*> (&cycle);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -103,12 +103,9 @@ Cycle::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("AnyType")) {
-			jsonToValue(&releaseDate, node, "AnyType", "");
+		if (isprimitive("Date")) {
+			jsonToValue(&releaseDate, node, "Date", "Date");
 		} else {
-			
-			AnyType* obj = static_cast<AnyType*> (&releaseDate);
-			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
@@ -117,11 +114,11 @@ Cycle::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("AnyType")) {
-			jsonToValue(&eol, node, "AnyType", "");
+		if (isprimitive("Cycle_eol")) {
+			jsonToValue(&eol, node, "Cycle_eol", "Cycle_eol");
 		} else {
 			
-			AnyType* obj = static_cast<AnyType*> (&eol);
+			Cycle_eol* obj = static_cast<Cycle_eol*> (&eol);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -131,12 +128,9 @@ Cycle::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("AnyType")) {
-			jsonToValue(&latest, node, "AnyType", "");
+		if (isprimitive("std::string")) {
+			jsonToValue(&latest, node, "std::string", "");
 		} else {
-			
-			AnyType* obj = static_cast<AnyType*> (&latest);
-			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
@@ -145,12 +139,9 @@ Cycle::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("AnyType")) {
-			jsonToValue(&link, node, "AnyType", "");
+		if (isprimitive("std::string")) {
+			jsonToValue(&link, node, "std::string", "");
 		} else {
-			
-			AnyType* obj = static_cast<AnyType*> (&link);
-			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
@@ -159,11 +150,11 @@ Cycle::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("AnyType")) {
-			jsonToValue(&lts, node, "AnyType", "");
+		if (isprimitive("Cycle_lts")) {
+			jsonToValue(&lts, node, "Cycle_lts", "Cycle_lts");
 		} else {
 			
-			AnyType* obj = static_cast<AnyType*> (&lts);
+			Cycle_lts* obj = static_cast<Cycle_lts*> (&lts);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -173,11 +164,11 @@ Cycle::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("AnyType")) {
-			jsonToValue(&support, node, "AnyType", "");
+		if (isprimitive("Cycle_support")) {
+			jsonToValue(&support, node, "Cycle_support", "Cycle_support");
 		} else {
 			
-			AnyType* obj = static_cast<AnyType*> (&support);
+			Cycle_support* obj = static_cast<Cycle_support*> (&support);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -187,11 +178,11 @@ Cycle::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("AnyType")) {
-			jsonToValue(&discontinued, node, "AnyType", "");
+		if (isprimitive("Cycle_discontinued")) {
+			jsonToValue(&discontinued, node, "Cycle_discontinued", "Cycle_discontinued");
 		} else {
 			
-			AnyType* obj = static_cast<AnyType*> (&discontinued);
+			Cycle_discontinued* obj = static_cast<Cycle_discontinued*> (&discontinued);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -208,13 +199,13 @@ Cycle::toJson()
 {
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
-	if (isprimitive("AnyType")) {
-		AnyType obj = getCycle();
-		node = converttoJson(&obj, "AnyType", "");
+	if (isprimitive("Cycle_cycle")) {
+		Cycle_cycle obj = getCycle();
+		node = converttoJson(&obj, "Cycle_cycle", "");
 	}
 	else {
 		
-		AnyType obj = static_cast<AnyType> (getCycle());
+		Cycle_cycle obj = static_cast<Cycle_cycle> (getCycle());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -222,27 +213,22 @@ Cycle::toJson()
 	}
 	const gchar *cycleKey = "cycle";
 	json_object_set_member(pJsonObject, cycleKey, node);
-	if (isprimitive("AnyType")) {
-		AnyType obj = getReleaseDate();
-		node = converttoJson(&obj, "AnyType", "");
+	if (isprimitive("Date")) {
+		Date obj = getReleaseDate();
+		node = converttoJson(&obj, "Date", "");
 	}
 	else {
-		
-		AnyType obj = static_cast<AnyType> (getReleaseDate());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
 		
 	}
 	const gchar *releaseDateKey = "releaseDate";
 	json_object_set_member(pJsonObject, releaseDateKey, node);
-	if (isprimitive("AnyType")) {
-		AnyType obj = getEol();
-		node = converttoJson(&obj, "AnyType", "");
+	if (isprimitive("Cycle_eol")) {
+		Cycle_eol obj = getEol();
+		node = converttoJson(&obj, "Cycle_eol", "");
 	}
 	else {
 		
-		AnyType obj = static_cast<AnyType> (getEol());
+		Cycle_eol obj = static_cast<Cycle_eol> (getEol());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -250,41 +236,31 @@ Cycle::toJson()
 	}
 	const gchar *eolKey = "eol";
 	json_object_set_member(pJsonObject, eolKey, node);
-	if (isprimitive("AnyType")) {
-		AnyType obj = getLatest();
-		node = converttoJson(&obj, "AnyType", "");
+	if (isprimitive("std::string")) {
+		std::string obj = getLatest();
+		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
-		
-		AnyType obj = static_cast<AnyType> (getLatest());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
 		
 	}
 	const gchar *latestKey = "latest";
 	json_object_set_member(pJsonObject, latestKey, node);
-	if (isprimitive("AnyType")) {
-		AnyType obj = getLink();
-		node = converttoJson(&obj, "AnyType", "");
+	if (isprimitive("std::string")) {
+		std::string obj = getLink();
+		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
-		
-		AnyType obj = static_cast<AnyType> (getLink());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
 		
 	}
 	const gchar *linkKey = "link";
 	json_object_set_member(pJsonObject, linkKey, node);
-	if (isprimitive("AnyType")) {
-		AnyType obj = getLts();
-		node = converttoJson(&obj, "AnyType", "");
+	if (isprimitive("Cycle_lts")) {
+		Cycle_lts obj = getLts();
+		node = converttoJson(&obj, "Cycle_lts", "");
 	}
 	else {
 		
-		AnyType obj = static_cast<AnyType> (getLts());
+		Cycle_lts obj = static_cast<Cycle_lts> (getLts());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -292,13 +268,13 @@ Cycle::toJson()
 	}
 	const gchar *ltsKey = "lts";
 	json_object_set_member(pJsonObject, ltsKey, node);
-	if (isprimitive("AnyType")) {
-		AnyType obj = getSupport();
-		node = converttoJson(&obj, "AnyType", "");
+	if (isprimitive("Cycle_support")) {
+		Cycle_support obj = getSupport();
+		node = converttoJson(&obj, "Cycle_support", "");
 	}
 	else {
 		
-		AnyType obj = static_cast<AnyType> (getSupport());
+		Cycle_support obj = static_cast<Cycle_support> (getSupport());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -306,13 +282,13 @@ Cycle::toJson()
 	}
 	const gchar *supportKey = "support";
 	json_object_set_member(pJsonObject, supportKey, node);
-	if (isprimitive("AnyType")) {
-		AnyType obj = getDiscontinued();
-		node = converttoJson(&obj, "AnyType", "");
+	if (isprimitive("Cycle_discontinued")) {
+		Cycle_discontinued obj = getDiscontinued();
+		node = converttoJson(&obj, "Cycle_discontinued", "");
 	}
 	else {
 		
-		AnyType obj = static_cast<AnyType> (getDiscontinued());
+		Cycle_discontinued obj = static_cast<Cycle_discontinued> (getDiscontinued());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -328,98 +304,98 @@ Cycle::toJson()
 	return ret;
 }
 
-AnyType
+Cycle_cycle
 Cycle::getCycle()
 {
 	return cycle;
 }
 
 void
-Cycle::setCycle(AnyType  cycle)
+Cycle::setCycle(Cycle_cycle  cycle)
 {
 	this->cycle = cycle;
 }
 
-AnyType
+Date
 Cycle::getReleaseDate()
 {
 	return releaseDate;
 }
 
 void
-Cycle::setReleaseDate(AnyType  releaseDate)
+Cycle::setReleaseDate(Date  releaseDate)
 {
 	this->releaseDate = releaseDate;
 }
 
-AnyType
+Cycle_eol
 Cycle::getEol()
 {
 	return eol;
 }
 
 void
-Cycle::setEol(AnyType  eol)
+Cycle::setEol(Cycle_eol  eol)
 {
 	this->eol = eol;
 }
 
-AnyType
+std::string
 Cycle::getLatest()
 {
 	return latest;
 }
 
 void
-Cycle::setLatest(AnyType  latest)
+Cycle::setLatest(std::string  latest)
 {
 	this->latest = latest;
 }
 
-AnyType
+std::string
 Cycle::getLink()
 {
 	return link;
 }
 
 void
-Cycle::setLink(AnyType  link)
+Cycle::setLink(std::string  link)
 {
 	this->link = link;
 }
 
-AnyType
+Cycle_lts
 Cycle::getLts()
 {
 	return lts;
 }
 
 void
-Cycle::setLts(AnyType  lts)
+Cycle::setLts(Cycle_lts  lts)
 {
 	this->lts = lts;
 }
 
-AnyType
+Cycle_support
 Cycle::getSupport()
 {
 	return support;
 }
 
 void
-Cycle::setSupport(AnyType  support)
+Cycle::setSupport(Cycle_support  support)
 {
 	this->support = support;
 }
 
-AnyType
+Cycle_discontinued
 Cycle::getDiscontinued()
 {
 	return discontinued;
 }
 
 void
-Cycle::setDiscontinued(AnyType  discontinued)
+Cycle::setDiscontinued(Cycle_discontinued  discontinued)
 {
 	this->discontinued = discontinued;
 }

@@ -1,6 +1,6 @@
 #
 # endoflife.date
-#
+# 
 # Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 # The version of the OpenAPI document: 0.0.1
 # Contact: blah+oapicf@cliffano.com
@@ -18,7 +18,6 @@ import tables
 import typetraits
 import uri
 
-import ../models/model_any_type
 import ../models/model_cycle
 
 const basepath = "https://endoflife.date"
@@ -39,23 +38,23 @@ template constructResult[T](response: Response): untyped =
     (none(T.typedesc), response)
 
 
-proc getApiAllJson*(httpClient: HttpClient): (Option[AnyType], Response) =
+proc getApiAllJson*(httpClient: HttpClient): (Option[seq[string]], Response) =
   ## All Products
 
   let response = httpClient.get(basepath & "/api/all.json")
-  constructResult[AnyType](response)
+  constructResult[seq[string]](response)
 
 
-proc getApiProductCycleJson*(httpClient: HttpClient, product: AnyType, cycle: AnyType): (Option[cycle], Response) =
+proc getApiProductCycleJson*(httpClient: HttpClient, product: string, cycle: string): (Option[cycle], Response) =
   ## Single cycle details
 
   let response = httpClient.get(basepath & fmt"/api/{product}/{cycle}.json")
   constructResult[cycle](response)
 
 
-proc getApiProductJson*(httpClient: HttpClient, product: AnyType): (Option[AnyType], Response) =
+proc getApiProductJson*(httpClient: HttpClient, product: string): (Option[seq[cycle]], Response) =
   ## Get All Details
 
   let response = httpClient.get(basepath & fmt"/api/{product}.json")
-  constructResult[AnyType](response)
+  constructResult[seq[cycle]](response)
 

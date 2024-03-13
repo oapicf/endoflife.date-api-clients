@@ -75,53 +75,88 @@ export class RequiredError extends Error {
  */
 export type Cycle = {
     /**
-     * Release Cycle
-     * @type {AnyType}
+     * 
+     * @type {CycleCycle}
      * @memberof Cycle
      */
-    cycle?: AnyType;
+    cycle?: CycleCycle;
     /**
      * Release Date for the first release in this cycle
-     * @type {AnyType}
+     * @type {Date}
      * @memberof Cycle
      */
-    releaseDate?: AnyType;
+    releaseDate?: Date;
     /**
-     * End of Life Date for this release cycle
-     * @type {AnyType}
+     * 
+     * @type {CycleEol}
      * @memberof Cycle
      */
-    eol?: AnyType;
+    eol?: CycleEol;
     /**
      * Latest release in this cycle
-     * @type {AnyType}
+     * @type {string}
      * @memberof Cycle
      */
-    latest?: AnyType;
+    latest?: string;
     /**
      * Link to changelog for the latest release, if available
-     * @type {AnyType}
+     * @type {string}
      * @memberof Cycle
      */
-    link?: AnyType;
+    link?: string;
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-     * @type {AnyType}
+     * 
+     * @type {CycleLts}
      * @memberof Cycle
      */
-    lts?: AnyType;
+    lts?: CycleLts;
     /**
-     * Whether this release cycle has active support
-     * @type {AnyType}
+     * 
+     * @type {CycleSupport}
      * @memberof Cycle
      */
-    support?: AnyType;
+    support?: CycleSupport;
     /**
-     * Whether this cycle is now discontinued.
-     * @type {AnyType}
+     * 
+     * @type {CycleDiscontinued}
      * @memberof Cycle
      */
-    discontinued?: AnyType;
+    discontinued?: CycleDiscontinued;
+}
+
+/**
+ * Release Cycle
+ * @export
+ */
+export type CycleCycle = {
+}
+
+/**
+ * Whether this cycle is now discontinued.
+ * @export
+ */
+export type CycleDiscontinued = {
+}
+
+/**
+ * End of Life Date for this release cycle
+ * @export
+ */
+export type CycleEol = {
+}
+
+/**
+ * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+ * @export
+ */
+export type CycleLts = {
+}
+
+/**
+ * Whether this release cycle has active support
+ * @export
+ */
+export type CycleSupport = {
 }
 
 
@@ -159,7 +194,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
          * @summary Single cycle details
          * @throws {RequiredError}
          */
-        getApiProductCycleJson(product: AnyType, cycle: AnyType, options: RequestOptions): FetchArgs {
+        getApiProductCycleJson(product: string, cycle: string, options: RequestOptions): FetchArgs {
             // verify required parameter 'product' is not null or undefined
             if (product === null || product === undefined) {
                 throw new RequiredError('product','Required parameter product was null or undefined when calling getApiProductCycleJson.');
@@ -191,7 +226,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
          * @summary Get All Details
          * @throws {RequiredError}
          */
-        getApiProductJson(product: AnyType, options: RequestOptions): FetchArgs {
+        getApiProductJson(product: string, options: RequestOptions): FetchArgs {
             // verify required parameter 'product' is not null or undefined
             if (product === null || product === undefined) {
                 throw new RequiredError('product','Required parameter product was null or undefined when calling getApiProductJson.');
@@ -216,16 +251,16 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
     }
 };
 
-export type DefaultApiType = {
-    getApiAllJson(options?: RequestOptions): Promise<AnyType>,
+export type DefaultApiType = { 
+    getApiAllJson(options?: RequestOptions): Promise<Array<string>>,
 
-    getApiProductCycleJson(product: AnyType, cycle: AnyType, options?: RequestOptions): Promise<Cycle>,
+    getApiProductCycleJson(product: string, cycle: string, options?: RequestOptions): Promise<Cycle>,
 
-    getApiProductJson(product: AnyType, options?: RequestOptions): Promise<AnyType>,
+    getApiProductJson(product: string, options?: RequestOptions): Promise<Array<Cycle>>,
 }
 
 /**
- * DefaultApi - factory function to inject configuration
+ * DefaultApi - factory function to inject configuration 
  * @export
  */
 export const DefaultApi = function(configuration?: Configuration, fetch: FetchAPI = portableFetch): DefaultApiType {
@@ -236,7 +271,7 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
          * @summary All Products
          * @throws {RequiredError}
          */
-        getApiAllJson(options?: RequestOptions = {}): Promise<AnyType> {
+        getApiAllJson(options?: RequestOptions = {}): Promise<Array<string>> {
             const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).getApiAllJson(options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -251,7 +286,7 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
          * @summary Single cycle details
          * @throws {RequiredError}
          */
-        getApiProductCycleJson(product: AnyType, cycle: AnyType, options?: RequestOptions = {}): Promise<Cycle> {
+        getApiProductCycleJson(product: string, cycle: string, options?: RequestOptions = {}): Promise<Cycle> {
             const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).getApiProductCycleJson(product, cycle, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -266,7 +301,7 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
          * @summary Get All Details
          * @throws {RequiredError}
          */
-        getApiProductJson(product: AnyType, options?: RequestOptions = {}): Promise<AnyType> {
+        getApiProductJson(product: string, options?: RequestOptions = {}): Promise<Array<Cycle>> {
             const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).getApiProductJson(product, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -280,6 +315,6 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
 };
 
 
-export type ApiTypes = {
+export type ApiTypes = { 
     DefaultApi: DefaultApiType,
  }

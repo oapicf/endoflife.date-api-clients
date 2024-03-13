@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## getApiAllJson
 
-> getApiAllJson(): ApiRequest[AnyType]
+> getApiAllJson(): ApiRequest[Seq[String]]
 
 All Products
 
@@ -25,7 +25,6 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 ```scala
 // Import classes:
-import 
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -70,7 +69,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiRequest[[**AnyType**](AnyType.md)]
+ApiRequest[**Seq[String]**]
 
 
 ### Authorization
@@ -116,9 +115,9 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = DefaultApi("https://endoflife.date")
-    val product: AnyType =  // AnyType | Product URL as per the canonical URL on the endofife.date website
+    val product: String = product_example // String | Product URL as per the canonical URL on the endofife.date website
 
-    val cycle: AnyType =  // AnyType | Release Cycle for which the details must be fetched
+    val cycle: String = cycle_example // String | Release Cycle for which the details must be fetched
     
     val request = apiInstance.getApiProductCycleJson(product, cycle)
     val response = apiInvoker.execute(request)
@@ -148,8 +147,8 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](.md)| Product URL as per the canonical URL on the endofife.date website |
- **cycle** | [**AnyType**](.md)| Release Cycle for which the details must be fetched |
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website |
+ **cycle** | **String**| Release Cycle for which the details must be fetched |
 
 ### Return type
 
@@ -173,7 +172,7 @@ No authorization required
 
 ## getApiProductJson
 
-> getApiProductJson(getApiProductJsonRequest): ApiRequest[AnyType]
+> getApiProductJson(getApiProductJsonRequest): ApiRequest[Seq[Cycle]]
 
 Get All Details
 
@@ -199,7 +198,7 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = DefaultApi("https://endoflife.date")
-    val product: AnyType =  // AnyType | Product URL as per the canonical URL on the endofife.date website
+    val product: String = product_example // String | Product URL as per the canonical URL on the endofife.date website
     
     val request = apiInstance.getApiProductJson(product)
     val response = apiInvoker.execute(request)
@@ -229,11 +228,11 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](.md)| Product URL as per the canonical URL on the endofife.date website |
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website |
 
 ### Return type
 
-ApiRequest[[**AnyType**](AnyType.md)]
+ApiRequest[[**Seq[Cycle]**](Cycle.md)]
 
 
 ### Authorization

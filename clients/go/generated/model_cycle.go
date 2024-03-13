@@ -20,22 +20,17 @@ var _ MappedNullable = &Cycle{}
 
 // Cycle Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 type Cycle struct {
-	// Release Cycle
-	Cycle interface{} `json:"cycle,omitempty"`
+	Cycle *CycleCycle `json:"cycle,omitempty"`
 	// Release Date for the first release in this cycle
-	ReleaseDate interface{} `json:"releaseDate,omitempty"`
-	// End of Life Date for this release cycle
-	Eol interface{} `json:"eol,omitempty"`
+	ReleaseDate *string `json:"releaseDate,omitempty"`
+	Eol *CycleEol `json:"eol,omitempty"`
 	// Latest release in this cycle
-	Latest interface{} `json:"latest,omitempty"`
+	Latest *string `json:"latest,omitempty"`
 	// Link to changelog for the latest release, if available
-	Link interface{} `json:"link,omitempty"`
-	// Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-	Lts interface{} `json:"lts,omitempty"`
-	// Whether this release cycle has active support
-	Support interface{} `json:"support,omitempty"`
-	// Whether this cycle is now discontinued.
-	Discontinued interface{} `json:"discontinued,omitempty"`
+	Link NullableString `json:"link,omitempty"`
+	Lts *CycleLts `json:"lts,omitempty"`
+	Support *CycleSupport `json:"support,omitempty"`
+	Discontinued *CycleDiscontinued `json:"discontinued,omitempty"`
 }
 
 // NewCycle instantiates a new Cycle object
@@ -55,268 +50,270 @@ func NewCycleWithDefaults() *Cycle {
 	return &this
 }
 
-// GetCycle returns the Cycle field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Cycle) GetCycle() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetCycle returns the Cycle field value if set, zero value otherwise.
+func (o *Cycle) GetCycle() CycleCycle {
+	if o == nil || IsNil(o.Cycle) {
+		var ret CycleCycle
 		return ret
 	}
-	return o.Cycle
+	return *o.Cycle
 }
 
 // GetCycleOk returns a tuple with the Cycle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Cycle) GetCycleOk() (*interface{}, bool) {
+func (o *Cycle) GetCycleOk() (*CycleCycle, bool) {
 	if o == nil || IsNil(o.Cycle) {
 		return nil, false
 	}
-	return &o.Cycle, true
+	return o.Cycle, true
 }
 
 // HasCycle returns a boolean if a field has been set.
 func (o *Cycle) HasCycle() bool {
-	if o != nil && IsNil(o.Cycle) {
+	if o != nil && !IsNil(o.Cycle) {
 		return true
 	}
 
 	return false
 }
 
-// SetCycle gets a reference to the given interface{} and assigns it to the Cycle field.
-func (o *Cycle) SetCycle(v interface{}) {
-	o.Cycle = v
+// SetCycle gets a reference to the given CycleCycle and assigns it to the Cycle field.
+func (o *Cycle) SetCycle(v CycleCycle) {
+	o.Cycle = &v
 }
 
-// GetReleaseDate returns the ReleaseDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Cycle) GetReleaseDate() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetReleaseDate returns the ReleaseDate field value if set, zero value otherwise.
+func (o *Cycle) GetReleaseDate() string {
+	if o == nil || IsNil(o.ReleaseDate) {
+		var ret string
 		return ret
 	}
-	return o.ReleaseDate
+	return *o.ReleaseDate
 }
 
 // GetReleaseDateOk returns a tuple with the ReleaseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Cycle) GetReleaseDateOk() (*interface{}, bool) {
+func (o *Cycle) GetReleaseDateOk() (*string, bool) {
 	if o == nil || IsNil(o.ReleaseDate) {
 		return nil, false
 	}
-	return &o.ReleaseDate, true
+	return o.ReleaseDate, true
 }
 
 // HasReleaseDate returns a boolean if a field has been set.
 func (o *Cycle) HasReleaseDate() bool {
-	if o != nil && IsNil(o.ReleaseDate) {
+	if o != nil && !IsNil(o.ReleaseDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetReleaseDate gets a reference to the given interface{} and assigns it to the ReleaseDate field.
-func (o *Cycle) SetReleaseDate(v interface{}) {
-	o.ReleaseDate = v
+// SetReleaseDate gets a reference to the given string and assigns it to the ReleaseDate field.
+func (o *Cycle) SetReleaseDate(v string) {
+	o.ReleaseDate = &v
 }
 
-// GetEol returns the Eol field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Cycle) GetEol() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetEol returns the Eol field value if set, zero value otherwise.
+func (o *Cycle) GetEol() CycleEol {
+	if o == nil || IsNil(o.Eol) {
+		var ret CycleEol
 		return ret
 	}
-	return o.Eol
+	return *o.Eol
 }
 
 // GetEolOk returns a tuple with the Eol field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Cycle) GetEolOk() (*interface{}, bool) {
+func (o *Cycle) GetEolOk() (*CycleEol, bool) {
 	if o == nil || IsNil(o.Eol) {
 		return nil, false
 	}
-	return &o.Eol, true
+	return o.Eol, true
 }
 
 // HasEol returns a boolean if a field has been set.
 func (o *Cycle) HasEol() bool {
-	if o != nil && IsNil(o.Eol) {
+	if o != nil && !IsNil(o.Eol) {
 		return true
 	}
 
 	return false
 }
 
-// SetEol gets a reference to the given interface{} and assigns it to the Eol field.
-func (o *Cycle) SetEol(v interface{}) {
-	o.Eol = v
+// SetEol gets a reference to the given CycleEol and assigns it to the Eol field.
+func (o *Cycle) SetEol(v CycleEol) {
+	o.Eol = &v
 }
 
-// GetLatest returns the Latest field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Cycle) GetLatest() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetLatest returns the Latest field value if set, zero value otherwise.
+func (o *Cycle) GetLatest() string {
+	if o == nil || IsNil(o.Latest) {
+		var ret string
 		return ret
 	}
-	return o.Latest
+	return *o.Latest
 }
 
 // GetLatestOk returns a tuple with the Latest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Cycle) GetLatestOk() (*interface{}, bool) {
+func (o *Cycle) GetLatestOk() (*string, bool) {
 	if o == nil || IsNil(o.Latest) {
 		return nil, false
 	}
-	return &o.Latest, true
+	return o.Latest, true
 }
 
 // HasLatest returns a boolean if a field has been set.
 func (o *Cycle) HasLatest() bool {
-	if o != nil && IsNil(o.Latest) {
+	if o != nil && !IsNil(o.Latest) {
 		return true
 	}
 
 	return false
 }
 
-// SetLatest gets a reference to the given interface{} and assigns it to the Latest field.
-func (o *Cycle) SetLatest(v interface{}) {
-	o.Latest = v
+// SetLatest gets a reference to the given string and assigns it to the Latest field.
+func (o *Cycle) SetLatest(v string) {
+	o.Latest = &v
 }
 
 // GetLink returns the Link field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Cycle) GetLink() interface{} {
-	if o == nil {
-		var ret interface{}
+func (o *Cycle) GetLink() string {
+	if o == nil || IsNil(o.Link.Get()) {
+		var ret string
 		return ret
 	}
-	return o.Link
+	return *o.Link.Get()
 }
 
 // GetLinkOk returns a tuple with the Link field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Cycle) GetLinkOk() (*interface{}, bool) {
-	if o == nil || IsNil(o.Link) {
+func (o *Cycle) GetLinkOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Link, true
+	return o.Link.Get(), o.Link.IsSet()
 }
 
 // HasLink returns a boolean if a field has been set.
 func (o *Cycle) HasLink() bool {
-	if o != nil && IsNil(o.Link) {
+	if o != nil && o.Link.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLink gets a reference to the given interface{} and assigns it to the Link field.
-func (o *Cycle) SetLink(v interface{}) {
-	o.Link = v
+// SetLink gets a reference to the given NullableString and assigns it to the Link field.
+func (o *Cycle) SetLink(v string) {
+	o.Link.Set(&v)
+}
+// SetLinkNil sets the value for Link to be an explicit nil
+func (o *Cycle) SetLinkNil() {
+	o.Link.Set(nil)
 }
 
-// GetLts returns the Lts field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Cycle) GetLts() interface{} {
-	if o == nil {
-		var ret interface{}
+// UnsetLink ensures that no value is present for Link, not even an explicit nil
+func (o *Cycle) UnsetLink() {
+	o.Link.Unset()
+}
+
+// GetLts returns the Lts field value if set, zero value otherwise.
+func (o *Cycle) GetLts() CycleLts {
+	if o == nil || IsNil(o.Lts) {
+		var ret CycleLts
 		return ret
 	}
-	return o.Lts
+	return *o.Lts
 }
 
 // GetLtsOk returns a tuple with the Lts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Cycle) GetLtsOk() (*interface{}, bool) {
+func (o *Cycle) GetLtsOk() (*CycleLts, bool) {
 	if o == nil || IsNil(o.Lts) {
 		return nil, false
 	}
-	return &o.Lts, true
+	return o.Lts, true
 }
 
 // HasLts returns a boolean if a field has been set.
 func (o *Cycle) HasLts() bool {
-	if o != nil && IsNil(o.Lts) {
+	if o != nil && !IsNil(o.Lts) {
 		return true
 	}
 
 	return false
 }
 
-// SetLts gets a reference to the given interface{} and assigns it to the Lts field.
-func (o *Cycle) SetLts(v interface{}) {
-	o.Lts = v
+// SetLts gets a reference to the given CycleLts and assigns it to the Lts field.
+func (o *Cycle) SetLts(v CycleLts) {
+	o.Lts = &v
 }
 
-// GetSupport returns the Support field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Cycle) GetSupport() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetSupport returns the Support field value if set, zero value otherwise.
+func (o *Cycle) GetSupport() CycleSupport {
+	if o == nil || IsNil(o.Support) {
+		var ret CycleSupport
 		return ret
 	}
-	return o.Support
+	return *o.Support
 }
 
 // GetSupportOk returns a tuple with the Support field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Cycle) GetSupportOk() (*interface{}, bool) {
+func (o *Cycle) GetSupportOk() (*CycleSupport, bool) {
 	if o == nil || IsNil(o.Support) {
 		return nil, false
 	}
-	return &o.Support, true
+	return o.Support, true
 }
 
 // HasSupport returns a boolean if a field has been set.
 func (o *Cycle) HasSupport() bool {
-	if o != nil && IsNil(o.Support) {
+	if o != nil && !IsNil(o.Support) {
 		return true
 	}
 
 	return false
 }
 
-// SetSupport gets a reference to the given interface{} and assigns it to the Support field.
-func (o *Cycle) SetSupport(v interface{}) {
-	o.Support = v
+// SetSupport gets a reference to the given CycleSupport and assigns it to the Support field.
+func (o *Cycle) SetSupport(v CycleSupport) {
+	o.Support = &v
 }
 
-// GetDiscontinued returns the Discontinued field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Cycle) GetDiscontinued() interface{} {
-	if o == nil {
-		var ret interface{}
+// GetDiscontinued returns the Discontinued field value if set, zero value otherwise.
+func (o *Cycle) GetDiscontinued() CycleDiscontinued {
+	if o == nil || IsNil(o.Discontinued) {
+		var ret CycleDiscontinued
 		return ret
 	}
-	return o.Discontinued
+	return *o.Discontinued
 }
 
 // GetDiscontinuedOk returns a tuple with the Discontinued field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Cycle) GetDiscontinuedOk() (*interface{}, bool) {
+func (o *Cycle) GetDiscontinuedOk() (*CycleDiscontinued, bool) {
 	if o == nil || IsNil(o.Discontinued) {
 		return nil, false
 	}
-	return &o.Discontinued, true
+	return o.Discontinued, true
 }
 
 // HasDiscontinued returns a boolean if a field has been set.
 func (o *Cycle) HasDiscontinued() bool {
-	if o != nil && IsNil(o.Discontinued) {
+	if o != nil && !IsNil(o.Discontinued) {
 		return true
 	}
 
 	return false
 }
 
-// SetDiscontinued gets a reference to the given interface{} and assigns it to the Discontinued field.
-func (o *Cycle) SetDiscontinued(v interface{}) {
-	o.Discontinued = v
+// SetDiscontinued gets a reference to the given CycleDiscontinued and assigns it to the Discontinued field.
+func (o *Cycle) SetDiscontinued(v CycleDiscontinued) {
+	o.Discontinued = &v
 }
 
 func (o Cycle) MarshalJSON() ([]byte, error) {
@@ -329,28 +326,28 @@ func (o Cycle) MarshalJSON() ([]byte, error) {
 
 func (o Cycle) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Cycle != nil {
+	if !IsNil(o.Cycle) {
 		toSerialize["cycle"] = o.Cycle
 	}
-	if o.ReleaseDate != nil {
+	if !IsNil(o.ReleaseDate) {
 		toSerialize["releaseDate"] = o.ReleaseDate
 	}
-	if o.Eol != nil {
+	if !IsNil(o.Eol) {
 		toSerialize["eol"] = o.Eol
 	}
-	if o.Latest != nil {
+	if !IsNil(o.Latest) {
 		toSerialize["latest"] = o.Latest
 	}
-	if o.Link != nil {
-		toSerialize["link"] = o.Link
+	if o.Link.IsSet() {
+		toSerialize["link"] = o.Link.Get()
 	}
-	if o.Lts != nil {
+	if !IsNil(o.Lts) {
 		toSerialize["lts"] = o.Lts
 	}
-	if o.Support != nil {
+	if !IsNil(o.Support) {
 		toSerialize["support"] = o.Support
 	}
-	if o.Discontinued != nil {
+	if !IsNil(o.Discontinued) {
 		toSerialize["discontinued"] = o.Discontinued
 	}
 	return toSerialize, nil

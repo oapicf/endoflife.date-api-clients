@@ -102,13 +102,13 @@ QString OAICycle::asJson() const {
 
 QJsonObject OAICycle::asJsonObject() const {
     QJsonObject obj;
-    if (m_cycle_isSet) {
+    if (m_cycle.isSet()) {
         obj.insert(QString("cycle"), ::OpenAPI::toJsonValue(m_cycle));
     }
     if (m_release_date_isSet) {
         obj.insert(QString("releaseDate"), ::OpenAPI::toJsonValue(m_release_date));
     }
-    if (m_eol_isSet) {
+    if (m_eol.isSet()) {
         obj.insert(QString("eol"), ::OpenAPI::toJsonValue(m_eol));
     }
     if (m_latest_isSet) {
@@ -117,22 +117,22 @@ QJsonObject OAICycle::asJsonObject() const {
     if (m_link_isSet) {
         obj.insert(QString("link"), ::OpenAPI::toJsonValue(m_link));
     }
-    if (m_lts_isSet) {
+    if (m_lts.isSet()) {
         obj.insert(QString("lts"), ::OpenAPI::toJsonValue(m_lts));
     }
-    if (m_support_isSet) {
+    if (m_support.isSet()) {
         obj.insert(QString("support"), ::OpenAPI::toJsonValue(m_support));
     }
-    if (m_discontinued_isSet) {
+    if (m_discontinued.isSet()) {
         obj.insert(QString("discontinued"), ::OpenAPI::toJsonValue(m_discontinued));
     }
     return obj;
 }
 
-QJsonValue OAICycle::getCycle() const {
+OAICycle_cycle OAICycle::getCycle() const {
     return m_cycle;
 }
-void OAICycle::setCycle(const QJsonValue &cycle) {
+void OAICycle::setCycle(const OAICycle_cycle &cycle) {
     m_cycle = cycle;
     m_cycle_isSet = true;
 }
@@ -145,10 +145,10 @@ bool OAICycle::is_cycle_Valid() const{
     return m_cycle_isValid;
 }
 
-QJsonValue OAICycle::getReleaseDate() const {
+QDate OAICycle::getReleaseDate() const {
     return m_release_date;
 }
-void OAICycle::setReleaseDate(const QJsonValue &release_date) {
+void OAICycle::setReleaseDate(const QDate &release_date) {
     m_release_date = release_date;
     m_release_date_isSet = true;
 }
@@ -161,10 +161,10 @@ bool OAICycle::is_release_date_Valid() const{
     return m_release_date_isValid;
 }
 
-QJsonValue OAICycle::getEol() const {
+OAICycle_eol OAICycle::getEol() const {
     return m_eol;
 }
-void OAICycle::setEol(const QJsonValue &eol) {
+void OAICycle::setEol(const OAICycle_eol &eol) {
     m_eol = eol;
     m_eol_isSet = true;
 }
@@ -177,10 +177,10 @@ bool OAICycle::is_eol_Valid() const{
     return m_eol_isValid;
 }
 
-QJsonValue OAICycle::getLatest() const {
+QString OAICycle::getLatest() const {
     return m_latest;
 }
-void OAICycle::setLatest(const QJsonValue &latest) {
+void OAICycle::setLatest(const QString &latest) {
     m_latest = latest;
     m_latest_isSet = true;
 }
@@ -193,10 +193,10 @@ bool OAICycle::is_latest_Valid() const{
     return m_latest_isValid;
 }
 
-QJsonValue OAICycle::getLink() const {
+QString OAICycle::getLink() const {
     return m_link;
 }
-void OAICycle::setLink(const QJsonValue &link) {
+void OAICycle::setLink(const QString &link) {
     m_link = link;
     m_link_isSet = true;
 }
@@ -209,10 +209,10 @@ bool OAICycle::is_link_Valid() const{
     return m_link_isValid;
 }
 
-QJsonValue OAICycle::getLts() const {
+OAICycle_lts OAICycle::getLts() const {
     return m_lts;
 }
-void OAICycle::setLts(const QJsonValue &lts) {
+void OAICycle::setLts(const OAICycle_lts &lts) {
     m_lts = lts;
     m_lts_isSet = true;
 }
@@ -225,10 +225,10 @@ bool OAICycle::is_lts_Valid() const{
     return m_lts_isValid;
 }
 
-QJsonValue OAICycle::getSupport() const {
+OAICycle_support OAICycle::getSupport() const {
     return m_support;
 }
-void OAICycle::setSupport(const QJsonValue &support) {
+void OAICycle::setSupport(const OAICycle_support &support) {
     m_support = support;
     m_support_isSet = true;
 }
@@ -241,10 +241,10 @@ bool OAICycle::is_support_Valid() const{
     return m_support_isValid;
 }
 
-QJsonValue OAICycle::getDiscontinued() const {
+OAICycle_discontinued OAICycle::getDiscontinued() const {
     return m_discontinued;
 }
-void OAICycle::setDiscontinued(const QJsonValue &discontinued) {
+void OAICycle::setDiscontinued(const OAICycle_discontinued &discontinued) {
     m_discontinued = discontinued;
     m_discontinued_isSet = true;
 }
@@ -260,7 +260,7 @@ bool OAICycle::is_discontinued_Valid() const{
 bool OAICycle::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_cycle_isSet) {
+        if (m_cycle.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -270,7 +270,7 @@ bool OAICycle::isSet() const {
             break;
         }
 
-        if (m_eol_isSet) {
+        if (m_eol.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -285,17 +285,17 @@ bool OAICycle::isSet() const {
             break;
         }
 
-        if (m_lts_isSet) {
+        if (m_lts.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_support_isSet) {
+        if (m_support.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_discontinued_isSet) {
+        if (m_discontinued.isSet()) {
             isObjectUpdated = true;
             break;
         }

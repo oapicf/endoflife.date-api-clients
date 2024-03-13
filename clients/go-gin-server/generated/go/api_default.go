@@ -15,13 +15,26 @@ import (
 )
 
 type DefaultAPI struct {
-	// Get /api/all.json
-	// All Products
-	GetApiAllJson gin.HandlerFunc
-	// Get /api/:product/:cycle.json
-	// Single cycle details
-	GetApiProductCycleJson gin.HandlerFunc
-	// Get /api/:product.json
-	// Get All Details
-	GetApiProductJson gin.HandlerFunc
 }
+
+// Get /api/all.json
+// All Products 
+func (api *DefaultAPI) GetApiAllJson(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+
+// Get /api/:product/:cycle.json
+// Single cycle details 
+func (api *DefaultAPI) GetApiProductCycleJson(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+
+// Get /api/:product.json
+// Get All Details 
+func (api *DefaultAPI) GetApiProductJson(c *gin.Context) {
+	// Your handler implementation
+	c.JSON(200, gin.H{"status": "OK"})
+}
+

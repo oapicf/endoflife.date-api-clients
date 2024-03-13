@@ -30,7 +30,7 @@ public class DefaultApiServiceImpl implements DefaultApi {
      *
      */
     @Override
-    public Object getApiAllJson() {
+    public List<String> getApiAllJson() {
         // TODO: Implement...
         return null;
     }
@@ -42,7 +42,7 @@ public class DefaultApiServiceImpl implements DefaultApi {
      *
      */
     @Override
-    public Cycle getApiProductCycleJson(Object product, Object cycle) {
+    public Cycle getApiProductCycleJson(String product, String cycle) {
         // TODO: Implement...
         return null;
     }
@@ -54,7 +54,7 @@ public class DefaultApiServiceImpl implements DefaultApi {
      *
      */
     @Override
-    public Object getApiProductJson(Object product) {
+    public List<Cycle> getApiProductJson(String product) {
         // TODO: Implement...
         return null;
     }

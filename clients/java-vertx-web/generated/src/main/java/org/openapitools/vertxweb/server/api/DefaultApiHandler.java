@@ -63,8 +63,8 @@ public class DefaultApiHandler {
         // Param extraction
         RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-        Object product = requestParameters.pathParameter("product") != null ? requestParameters.pathParameter("product").getObject() : null;
-        Object cycle = requestParameters.pathParameter("cycle") != null ? requestParameters.pathParameter("cycle").getObject() : null;
+        String product = requestParameters.pathParameter("product") != null ? requestParameters.pathParameter("product").getString() : null;
+        String cycle = requestParameters.pathParameter("cycle") != null ? requestParameters.pathParameter("cycle").getString() : null;
 
         logger.debug("Parameter product is {}", product);
         logger.debug("Parameter cycle is {}", cycle);
@@ -87,7 +87,7 @@ public class DefaultApiHandler {
         // Param extraction
         RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-        Object product = requestParameters.pathParameter("product") != null ? requestParameters.pathParameter("product").getObject() : null;
+        String product = requestParameters.pathParameter("product") != null ? requestParameters.pathParameter("product").getString() : null;
 
         logger.debug("Parameter product is {}", product);
 

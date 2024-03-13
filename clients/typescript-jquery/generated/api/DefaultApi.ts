@@ -51,7 +51,7 @@ export class DefaultApi {
      * @summary All Products
      */
     public getApiAllJson(extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: any;  },
+    { response: JQueryXHR; body: Array<string>;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/api/all.json';
@@ -90,11 +90,11 @@ export class DefaultApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: any;  },
+            { response: JQueryXHR; body: Array<string>;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: any, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: Array<string>, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})
@@ -108,7 +108,7 @@ export class DefaultApi {
      * @param product Product URL as per the canonical URL on the endofife.date website
      * @param cycle Release Cycle for which the details must be fetched
      */
-    public getApiProductCycleJson(product: any, cycle: any, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    public getApiProductCycleJson(product: string, cycle: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.Cycle;  },
     { response: JQueryXHR; errorThrown: string }
     > {
@@ -175,8 +175,8 @@ export class DefaultApi {
      * @summary Get All Details
      * @param product Product URL as per the canonical URL on the endofife.date website
      */
-    public getApiProductJson(product: any, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: any;  },
+    public getApiProductJson(product: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    { response: JQueryXHR; body: Array<models.Cycle>;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/api/{product}.json'.replace('{' + 'product' + '}', encodeURIComponent(String(product)));
@@ -220,11 +220,11 @@ export class DefaultApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: any;  },
+            { response: JQueryXHR; body: Array<models.Cycle>;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: any, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: Array<models.Cycle>, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})

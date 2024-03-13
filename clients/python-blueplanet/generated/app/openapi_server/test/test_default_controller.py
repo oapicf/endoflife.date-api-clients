@@ -3,7 +3,7 @@
 from __future__ import absolute_import
 
 from flask import json
-from six import BytesIO
+from io import BytesIO
 
 from app.openapi_server.models.cycle import Cycle  # noqa: E501
 from openapi_server.test import BaseTestCase
@@ -29,7 +29,7 @@ class TestDefaultController(BaseTestCase):
         Single cycle details
         """
         response = self.client.open(
-            '/api/{product}/{cycle_jso}'.format(product=None, cycle=None),
+            '/api/{product}/{cycle_jso}'.format(product='product_example', cycle='cycle_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -40,7 +40,7 @@ class TestDefaultController(BaseTestCase):
         Get All Details
         """
         response = self.client.open(
-            '/api/{product_jso}'.format(product=None),
+            '/api/{product_jso}'.format(product='product_example'),
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

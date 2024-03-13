@@ -7,14 +7,14 @@
 #' @title Cycle
 #' @description Cycle Class
 #' @format An \code{R6Class} generator object
-#' @field cycle Release Cycle \link{AnyType} [optional]
-#' @field releaseDate Release Date for the first release in this cycle \link{AnyType} [optional]
-#' @field eol End of Life Date for this release cycle \link{AnyType} [optional]
-#' @field latest Latest release in this cycle \link{AnyType} [optional]
-#' @field link Link to changelog for the latest release, if available \link{AnyType} [optional]
-#' @field lts Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. \link{AnyType} [optional]
-#' @field support Whether this release cycle has active support \link{AnyType} [optional]
-#' @field discontinued Whether this cycle is now discontinued. \link{AnyType} [optional]
+#' @field cycle  \link{CycleCycle} [optional]
+#' @field releaseDate Release Date for the first release in this cycle character [optional]
+#' @field eol  \link{CycleEol} [optional]
+#' @field latest Latest release in this cycle character [optional]
+#' @field link Link to changelog for the latest release, if available character [optional]
+#' @field lts  \link{CycleLts} [optional]
+#' @field support  \link{CycleSupport} [optional]
+#' @field discontinued  \link{CycleDiscontinued} [optional]
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -34,14 +34,14 @@ Cycle <- R6::R6Class(
     #' @description
     #' Initialize a new Cycle class.
     #'
-    #' @param cycle Release Cycle
+    #' @param cycle cycle
     #' @param releaseDate Release Date for the first release in this cycle
-    #' @param eol End of Life Date for this release cycle
+    #' @param eol eol
     #' @param latest Latest release in this cycle
     #' @param link Link to changelog for the latest release, if available
-    #' @param lts Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-    #' @param support Whether this release cycle has active support
-    #' @param discontinued Whether this cycle is now discontinued.
+    #' @param lts lts
+    #' @param support support
+    #' @param discontinued discontinued
     #' @param ... Other optional arguments.
     #' @export
     initialize = function(`cycle` = NULL, `releaseDate` = NULL, `eol` = NULL, `latest` = NULL, `link` = NULL, `lts` = NULL, `support` = NULL, `discontinued` = NULL, ...) {
@@ -50,7 +50,9 @@ Cycle <- R6::R6Class(
         self$`cycle` <- `cycle`
       }
       if (!is.null(`releaseDate`)) {
-        stopifnot(R6::is.R6(`releaseDate`))
+        if (!is.character(`releaseDate`)) {
+          stop(paste("Error! Invalid data for `releaseDate`. Must be a string:", `releaseDate`))
+        }
         self$`releaseDate` <- `releaseDate`
       }
       if (!is.null(`eol`)) {
@@ -58,11 +60,15 @@ Cycle <- R6::R6Class(
         self$`eol` <- `eol`
       }
       if (!is.null(`latest`)) {
-        stopifnot(R6::is.R6(`latest`))
+        if (!(is.character(`latest`) && length(`latest`) == 1)) {
+          stop(paste("Error! Invalid data for `latest`. Must be a string:", `latest`))
+        }
         self$`latest` <- `latest`
       }
       if (!is.null(`link`)) {
-        stopifnot(R6::is.R6(`link`))
+        if (!(is.character(`link`) && length(`link`) == 1)) {
+          stop(paste("Error! Invalid data for `link`. Must be a string:", `link`))
+        }
         self$`link` <- `link`
       }
       if (!is.null(`lts`)) {
@@ -93,7 +99,7 @@ Cycle <- R6::R6Class(
       }
       if (!is.null(self$`releaseDate`)) {
         CycleObject[["releaseDate"]] <-
-          self$`releaseDate`$toJSON()
+          self$`releaseDate`
       }
       if (!is.null(self$`eol`)) {
         CycleObject[["eol"]] <-
@@ -101,11 +107,11 @@ Cycle <- R6::R6Class(
       }
       if (!is.null(self$`latest`)) {
         CycleObject[["latest"]] <-
-          self$`latest`$toJSON()
+          self$`latest`
       }
       if (!is.null(self$`link`)) {
         CycleObject[["link"]] <-
-          self$`link`$toJSON()
+          self$`link`
       }
       if (!is.null(self$`lts`)) {
         CycleObject[["lts"]] <-
@@ -132,42 +138,36 @@ Cycle <- R6::R6Class(
     fromJSON = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
       if (!is.null(this_object$`cycle`)) {
-        `cycle_object` <- AnyType$new()
+        `cycle_object` <- CycleCycle$new()
         `cycle_object`$fromJSON(jsonlite::toJSON(this_object$`cycle`, auto_unbox = TRUE, digits = NA))
         self$`cycle` <- `cycle_object`
       }
       if (!is.null(this_object$`releaseDate`)) {
-        `releasedate_object` <- AnyType$new()
-        `releasedate_object`$fromJSON(jsonlite::toJSON(this_object$`releaseDate`, auto_unbox = TRUE, digits = NA))
-        self$`releaseDate` <- `releasedate_object`
+        self$`releaseDate` <- this_object$`releaseDate`
       }
       if (!is.null(this_object$`eol`)) {
-        `eol_object` <- AnyType$new()
+        `eol_object` <- CycleEol$new()
         `eol_object`$fromJSON(jsonlite::toJSON(this_object$`eol`, auto_unbox = TRUE, digits = NA))
         self$`eol` <- `eol_object`
       }
       if (!is.null(this_object$`latest`)) {
-        `latest_object` <- AnyType$new()
-        `latest_object`$fromJSON(jsonlite::toJSON(this_object$`latest`, auto_unbox = TRUE, digits = NA))
-        self$`latest` <- `latest_object`
+        self$`latest` <- this_object$`latest`
       }
       if (!is.null(this_object$`link`)) {
-        `link_object` <- AnyType$new()
-        `link_object`$fromJSON(jsonlite::toJSON(this_object$`link`, auto_unbox = TRUE, digits = NA))
-        self$`link` <- `link_object`
+        self$`link` <- this_object$`link`
       }
       if (!is.null(this_object$`lts`)) {
-        `lts_object` <- AnyType$new()
+        `lts_object` <- CycleLts$new()
         `lts_object`$fromJSON(jsonlite::toJSON(this_object$`lts`, auto_unbox = TRUE, digits = NA))
         self$`lts` <- `lts_object`
       }
       if (!is.null(this_object$`support`)) {
-        `support_object` <- AnyType$new()
+        `support_object` <- CycleSupport$new()
         `support_object`$fromJSON(jsonlite::toJSON(this_object$`support`, auto_unbox = TRUE, digits = NA))
         self$`support` <- `support_object`
       }
       if (!is.null(this_object$`discontinued`)) {
-        `discontinued_object` <- AnyType$new()
+        `discontinued_object` <- CycleDiscontinued$new()
         `discontinued_object`$fromJSON(jsonlite::toJSON(this_object$`discontinued`, auto_unbox = TRUE, digits = NA))
         self$`discontinued` <- `discontinued_object`
       }
@@ -193,9 +193,9 @@ Cycle <- R6::R6Class(
         if (!is.null(self$`releaseDate`)) {
           sprintf(
           '"releaseDate":
-          %s
-          ',
-          jsonlite::toJSON(self$`releaseDate`$toJSON(), auto_unbox = TRUE, digits = NA)
+            "%s"
+                    ',
+          self$`releaseDate`
           )
         },
         if (!is.null(self$`eol`)) {
@@ -209,17 +209,17 @@ Cycle <- R6::R6Class(
         if (!is.null(self$`latest`)) {
           sprintf(
           '"latest":
-          %s
-          ',
-          jsonlite::toJSON(self$`latest`$toJSON(), auto_unbox = TRUE, digits = NA)
+            "%s"
+                    ',
+          self$`latest`
           )
         },
         if (!is.null(self$`link`)) {
           sprintf(
           '"link":
-          %s
-          ',
-          jsonlite::toJSON(self$`link`$toJSON(), auto_unbox = TRUE, digits = NA)
+            "%s"
+                    ',
+          self$`link`
           )
         },
         if (!is.null(self$`lts`)) {
@@ -260,14 +260,14 @@ Cycle <- R6::R6Class(
     #' @export
     fromJSONString = function(input_json) {
       this_object <- jsonlite::fromJSON(input_json)
-      self$`cycle` <- AnyType$new()$fromJSON(jsonlite::toJSON(this_object$`cycle`, auto_unbox = TRUE, digits = NA))
-      self$`releaseDate` <- AnyType$new()$fromJSON(jsonlite::toJSON(this_object$`releaseDate`, auto_unbox = TRUE, digits = NA))
-      self$`eol` <- AnyType$new()$fromJSON(jsonlite::toJSON(this_object$`eol`, auto_unbox = TRUE, digits = NA))
-      self$`latest` <- AnyType$new()$fromJSON(jsonlite::toJSON(this_object$`latest`, auto_unbox = TRUE, digits = NA))
-      self$`link` <- AnyType$new()$fromJSON(jsonlite::toJSON(this_object$`link`, auto_unbox = TRUE, digits = NA))
-      self$`lts` <- AnyType$new()$fromJSON(jsonlite::toJSON(this_object$`lts`, auto_unbox = TRUE, digits = NA))
-      self$`support` <- AnyType$new()$fromJSON(jsonlite::toJSON(this_object$`support`, auto_unbox = TRUE, digits = NA))
-      self$`discontinued` <- AnyType$new()$fromJSON(jsonlite::toJSON(this_object$`discontinued`, auto_unbox = TRUE, digits = NA))
+      self$`cycle` <- CycleCycle$new()$fromJSON(jsonlite::toJSON(this_object$`cycle`, auto_unbox = TRUE, digits = NA))
+      self$`releaseDate` <- this_object$`releaseDate`
+      self$`eol` <- CycleEol$new()$fromJSON(jsonlite::toJSON(this_object$`eol`, auto_unbox = TRUE, digits = NA))
+      self$`latest` <- this_object$`latest`
+      self$`link` <- this_object$`link`
+      self$`lts` <- CycleLts$new()$fromJSON(jsonlite::toJSON(this_object$`lts`, auto_unbox = TRUE, digits = NA))
+      self$`support` <- CycleSupport$new()$fromJSON(jsonlite::toJSON(this_object$`support`, auto_unbox = TRUE, digits = NA))
+      self$`discontinued` <- CycleDiscontinued$new()$fromJSON(jsonlite::toJSON(this_object$`discontinued`, auto_unbox = TRUE, digits = NA))
       self
     },
     #' Validate JSON input with respect to Cycle
@@ -305,29 +305,11 @@ Cycle <- R6::R6Class(
         return(FALSE)
       }
 
-      if (nchar(self$`eol`) < 1) {
-        return(FALSE)
-      }
-
       if (nchar(self$`latest`) < 1) {
         return(FALSE)
       }
 
       if (nchar(self$`link`) < 1) {
-        return(FALSE)
-      }
-
-      if (nchar(self$`support`) > 10) {
-        return(FALSE)
-      }
-      if (nchar(self$`support`) < 10) {
-        return(FALSE)
-      }
-
-      if (nchar(self$`discontinued`) > 10) {
-        return(FALSE)
-      }
-      if (nchar(self$`discontinued`) < 10) {
         return(FALSE)
       }
 
@@ -349,30 +331,12 @@ Cycle <- R6::R6Class(
         invalid_fields["releaseDate"] <- "Invalid length for `releaseDate`, must be bigger than or equal to 10."
       }
 
-      if (nchar(self$`eol`) < 1) {
-        invalid_fields["eol"] <- "Invalid length for `eol`, must be bigger than or equal to 1."
-      }
-
       if (nchar(self$`latest`) < 1) {
         invalid_fields["latest"] <- "Invalid length for `latest`, must be bigger than or equal to 1."
       }
 
       if (nchar(self$`link`) < 1) {
         invalid_fields["link"] <- "Invalid length for `link`, must be bigger than or equal to 1."
-      }
-
-      if (nchar(self$`support`) > 10) {
-        invalid_fields["support"] <- "Invalid length for `support`, must be smaller than or equal to 10."
-      }
-      if (nchar(self$`support`) < 10) {
-        invalid_fields["support"] <- "Invalid length for `support`, must be bigger than or equal to 10."
-      }
-
-      if (nchar(self$`discontinued`) > 10) {
-        invalid_fields["discontinued"] <- "Invalid length for `discontinued`, must be smaller than or equal to 10."
-      }
-      if (nchar(self$`discontinued`) < 10) {
-        invalid_fields["discontinued"] <- "Invalid length for `discontinued`, must be bigger than or equal to 10."
       }
 
       invalid_fields

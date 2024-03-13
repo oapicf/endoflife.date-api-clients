@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GetApiAllJson
 
-> interface{} GetApiAllJson(ctx).Execute()
+> []string GetApiAllJson(ctx).Execute()
 
 All Products
 
@@ -24,23 +24,23 @@ All Products
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/oapicf/endoflife.date-api-clients"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/oapicf/endoflife.date-api-clients"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultAPI.GetApiAllJson(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetApiAllJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetApiAllJson`: interface{}
-    fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetApiAllJson`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetApiAllJson(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetApiAllJson``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetApiAllJson`: []string
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetApiAllJson`: %v\n", resp)
 }
 ```
 
@@ -55,7 +55,7 @@ Other parameters are passed through a pointer to a apiGetApiAllJsonRequest struc
 
 ### Return type
 
-**interface{}**
+**[]string**
 
 ### Authorization
 
@@ -85,25 +85,25 @@ Single cycle details
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/oapicf/endoflife.date-api-clients"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/oapicf/endoflife.date-api-clients"
 )
 
 func main() {
-    product := TODO // interface{} | Product URL as per the canonical URL on the endofife.date website
-    cycle := TODO // interface{} | Release Cycle for which the details must be fetched
+	product := "product_example" // string | Product URL as per the canonical URL on the endofife.date website
+	cycle := "cycle_example" // string | Release Cycle for which the details must be fetched
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultAPI.GetApiProductCycleJson(context.Background(), product, cycle).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetApiProductCycleJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetApiProductCycleJson`: Cycle
-    fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetApiProductCycleJson`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetApiProductCycleJson(context.Background(), product, cycle).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetApiProductCycleJson``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetApiProductCycleJson`: Cycle
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetApiProductCycleJson`: %v\n", resp)
 }
 ```
 
@@ -113,8 +113,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**product** | [**interface{}**](.md) | Product URL as per the canonical URL on the endofife.date website |
-**cycle** | [**interface{}**](.md) | Release Cycle for which the details must be fetched |
+**product** | **string** | Product URL as per the canonical URL on the endofife.date website | 
+**cycle** | **string** | Release Cycle for which the details must be fetched | 
 
 ### Other Parameters
 
@@ -146,7 +146,7 @@ No authorization required
 
 ## GetApiProductJson
 
-> interface{} GetApiProductJson(ctx, product).Execute()
+> []Cycle GetApiProductJson(ctx, product).Execute()
 
 Get All Details
 
@@ -158,24 +158,24 @@ Get All Details
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/oapicf/endoflife.date-api-clients"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/oapicf/endoflife.date-api-clients"
 )
 
 func main() {
-    product := TODO // interface{} | Product URL as per the canonical URL on the endofife.date website
+	product := "product_example" // string | Product URL as per the canonical URL on the endofife.date website
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DefaultAPI.GetApiProductJson(context.Background(), product).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetApiProductJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetApiProductJson`: interface{}
-    fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetApiProductJson`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.GetApiProductJson(context.Background(), product).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.GetApiProductJson``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetApiProductJson`: []Cycle
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.GetApiProductJson`: %v\n", resp)
 }
 ```
 
@@ -185,7 +185,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**product** | [**interface{}**](.md) | Product URL as per the canonical URL on the endofife.date website |
+**product** | **string** | Product URL as per the canonical URL on the endofife.date website | 
 
 ### Other Parameters
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**[]Cycle**](Cycle.md)
 
 ### Authorization
 

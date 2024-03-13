@@ -19,6 +19,7 @@ import static play.mvc.Results.unauthorized;
 import play.libs.Files.TemporaryFile;
 
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 
 @SuppressWarnings("RedundantThrows")
 public abstract class DefaultApiControllerImpInterface {
@@ -27,16 +28,16 @@ public abstract class DefaultApiControllerImpInterface {
     private ObjectMapper mapper = new ObjectMapper();
 
     public Result getApiAllJsonHttp(Http.Request request) throws Exception {
-        Object obj = getApiAllJson(request);
+        List<String> obj = getApiAllJson(request);
         JsonNode result = mapper.valueToTree(obj);
 
         return ok(result);
 
     }
 
-    public abstract Object getApiAllJson(Http.Request request) throws Exception;
+    public abstract List<String> getApiAllJson(Http.Request request) throws Exception;
 
-    public Result getApiProductCycleJsonHttp(Http.Request request, Object product, Object cycle) throws Exception {
+    public Result getApiProductCycleJsonHttp(Http.Request request, String product, String cycle) throws Exception {
         Cycle obj = getApiProductCycleJson(request, product, cycle);
 
         if (configuration.getBoolean("useOutputBeanValidation")) {
@@ -49,16 +50,23 @@ public abstract class DefaultApiControllerImpInterface {
 
     }
 
-    public abstract Cycle getApiProductCycleJson(Http.Request request, Object product, Object cycle) throws Exception;
+    public abstract Cycle getApiProductCycleJson(Http.Request request, String product, String cycle) throws Exception;
 
-    public Result getApiProductJsonHttp(Http.Request request, Object product) throws Exception {
-        Object obj = getApiProductJson(request, product);
+    public Result getApiProductJsonHttp(Http.Request request, String product) throws Exception {
+        List<Cycle> obj = getApiProductJson(request, product);
+
+        if (configuration.getBoolean("useOutputBeanValidation")) {
+            for (Cycle curItem : obj) {
+                OpenAPIUtils.validate(curItem);
+            }
+        }
+
         JsonNode result = mapper.valueToTree(obj);
 
         return ok(result);
 
     }
 
-    public abstract Object getApiProductJson(Http.Request request, Object product) throws Exception;
+    public abstract List<Cycle> getApiProductJson(Http.Request request, String product) throws Exception;
 
 }

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_api_all_json**
-> object get_api_all_json()
+> List[str] get_api_all_json()
 
 All Products
 
@@ -18,9 +18,8 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 ### Example
 
+
 ```python
-import time
-import os
 import endoflifedate
 from endoflifedate.rest import ApiException
 from pprint import pprint
@@ -49,11 +48,12 @@ with endoflifedate.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-**object**
+**List[str]**
 
 ### Authorization
 
@@ -65,6 +65,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -80,9 +81,8 @@ Gets details of a single cycle
 
 ### Example
 
+
 ```python
-import time
-import os
 import endoflifedate
 from endoflifedate.models.cycle import Cycle
 from endoflifedate.rest import ApiException
@@ -99,8 +99,8 @@ configuration = endoflifedate.Configuration(
 with endoflifedate.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = endoflifedate.DefaultApi(api_client)
-    product = None # object | Product URL as per the canonical URL on the endofife.date website
-    cycle = None # object | Release Cycle for which the details must be fetched
+    product = 'product_example' # str | Product URL as per the canonical URL on the endofife.date website
+    cycle = 'cycle_example' # str | Release Cycle for which the details must be fetched
 
     try:
         # Single cycle details
@@ -115,10 +115,11 @@ with endoflifedate.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**object**](.md)| Product URL as per the canonical URL on the endofife.date website | 
- **cycle** | [**object**](.md)| Release Cycle for which the details must be fetched | 
+ **product** | **str**| Product URL as per the canonical URL on the endofife.date website | 
+ **cycle** | **str**| Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -134,6 +135,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -141,7 +143,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_product_json**
-> object get_api_product_json(product)
+> List[Cycle] get_api_product_json(product)
 
 Get All Details
 
@@ -149,10 +151,10 @@ Get EoL dates of all cycles of a given product.
 
 ### Example
 
+
 ```python
-import time
-import os
 import endoflifedate
+from endoflifedate.models.cycle import Cycle
 from endoflifedate.rest import ApiException
 from pprint import pprint
 
@@ -167,7 +169,7 @@ configuration = endoflifedate.Configuration(
 with endoflifedate.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = endoflifedate.DefaultApi(api_client)
-    product = None # object | Product URL as per the canonical URL on the endofife.date website
+    product = 'product_example' # str | Product URL as per the canonical URL on the endofife.date website
 
     try:
         # Get All Details
@@ -182,13 +184,14 @@ with endoflifedate.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**object**](.md)| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **str**| Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-**object**
+[**List[Cycle]**](Cycle.md)
 
 ### Authorization
 
@@ -200,6 +203,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |

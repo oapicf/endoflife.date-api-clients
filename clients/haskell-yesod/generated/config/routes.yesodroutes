@@ -4,5 +4,5 @@
 -- /static StaticR Static appStatic
 
 /api/{product}.json Api{Product}JsonR GET
-/api/#Value/{cycle}.json ApiByValue{Cycle}JsonR GET
+/api/#Text/{cycle}.json ApiByText{Cycle}JsonR GET
 /api/all.json ApiAllJsonR GET

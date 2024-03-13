@@ -23,16 +23,16 @@ import {
 } from '../models/index';
 
 export interface GetApiProductCycleJsonRequest {
-    product: any;
-    cycle: any;
+    product: string;
+    cycle: string;
 }
 
 export interface GetApiProductJsonRequest {
-    product: any;
+    product: string;
 }
 
 /**
- *
+ * 
  */
 export class DefaultApi extends runtime.BaseAPI {
 
@@ -40,7 +40,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * All Products
      */
-    async getApiAllJsonRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+    async getApiAllJsonRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<string>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -52,18 +52,14 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse<any>(response);
     }
 
     /**
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * All Products
      */
-    async getApiAllJson(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async getApiAllJson(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<string>> {
         const response = await this.getApiAllJsonRaw(initOverrides);
         return await response.value();
     }
@@ -73,12 +69,18 @@ export class DefaultApi extends runtime.BaseAPI {
      * Single cycle details
      */
     async getApiProductCycleJsonRaw(requestParameters: GetApiProductCycleJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cycle>> {
-        if (requestParameters.product === null || requestParameters.product === undefined) {
-            throw new runtime.RequiredError('product','Required parameter requestParameters.product was null or undefined when calling getApiProductCycleJson.');
+        if (requestParameters['product'] == null) {
+            throw new runtime.RequiredError(
+                'product',
+                'Required parameter "product" was null or undefined when calling getApiProductCycleJson().'
+            );
         }
 
-        if (requestParameters.cycle === null || requestParameters.cycle === undefined) {
-            throw new runtime.RequiredError('cycle','Required parameter requestParameters.cycle was null or undefined when calling getApiProductCycleJson.');
+        if (requestParameters['cycle'] == null) {
+            throw new runtime.RequiredError(
+                'cycle',
+                'Required parameter "cycle" was null or undefined when calling getApiProductCycleJson().'
+            );
         }
 
         const queryParameters: any = {};
@@ -86,7 +88,7 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/api/{product}/{cycle}.json`.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters.product))).replace(`{${"cycle"}}`, encodeURIComponent(String(requestParameters.cycle))),
+            path: `/api/{product}/{cycle}.json`.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters['product']))).replace(`{${"cycle"}}`, encodeURIComponent(String(requestParameters['cycle']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -108,9 +110,12 @@ export class DefaultApi extends runtime.BaseAPI {
      * Get EoL dates of all cycles of a given product.
      * Get All Details
      */
-    async getApiProductJsonRaw(requestParameters: GetApiProductJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters.product === null || requestParameters.product === undefined) {
-            throw new runtime.RequiredError('product','Required parameter requestParameters.product was null or undefined when calling getApiProductJson.');
+    async getApiProductJsonRaw(requestParameters: GetApiProductJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Cycle>>> {
+        if (requestParameters['product'] == null) {
+            throw new runtime.RequiredError(
+                'product',
+                'Required parameter "product" was null or undefined when calling getApiProductJson().'
+            );
         }
 
         const queryParameters: any = {};
@@ -118,24 +123,20 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/api/{product}.json`.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters.product))),
+            path: `/api/{product}.json`.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters['product']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CycleFromJSON));
     }
 
     /**
      * Get EoL dates of all cycles of a given product.
      * Get All Details
      */
-    async getApiProductJson(requestParameters: GetApiProductJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async getApiProductJson(requestParameters: GetApiProductJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Cycle>> {
         const response = await this.getApiProductJsonRaw(requestParameters, initOverrides);
         return await response.value();
     }

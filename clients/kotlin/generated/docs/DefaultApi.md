@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a id="getApiAllJson"></a>
 # **getApiAllJson**
-> kotlin.Any getApiAllJson()
+> kotlin.collections.List&lt;kotlin.String&gt; getApiAllJson()
 
 All Products
 
@@ -25,7 +25,7 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 val apiInstance = DefaultApi()
 try {
-    val result : kotlin.Any = apiInstance.getApiAllJson()
+    val result : kotlin.collections.List<kotlin.String> = apiInstance.getApiAllJson()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getApiAllJson")
@@ -41,7 +41,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+**kotlin.collections.List&lt;kotlin.String&gt;**
 
 ### Authorization
 
@@ -67,8 +67,8 @@ Gets details of a single cycle
 //import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
-val product : kotlin.Any =  // kotlin.Any | Product URL as per the canonical URL on the endofife.date website
-val cycle : kotlin.Any =  // kotlin.Any | Release Cycle for which the details must be fetched
+val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website
+val cycle : kotlin.String = cycle_example // kotlin.String | Release Cycle for which the details must be fetched
 try {
     val result : Cycle = apiInstance.getApiProductCycleJson(product, cycle)
     println(result)
@@ -85,8 +85,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**kotlin.Any**](.md)| Product URL as per the canonical URL on the endofife.date website |
- **cycle** | [**kotlin.Any**](.md)| Release Cycle for which the details must be fetched |
+ **product** | **kotlin.String**| Product URL as per the canonical URL on the endofife.date website |
+ **cycle** | **kotlin.String**| Release Cycle for which the details must be fetched |
 
 ### Return type
 
@@ -103,7 +103,7 @@ No authorization required
 
 <a id="getApiProductJson"></a>
 # **getApiProductJson**
-> kotlin.Any getApiProductJson(product)
+> kotlin.collections.List&lt;Cycle&gt; getApiProductJson(product)
 
 Get All Details
 
@@ -116,9 +116,9 @@ Get EoL dates of all cycles of a given product.
 //import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
-val product : kotlin.Any =  // kotlin.Any | Product URL as per the canonical URL on the endofife.date website
+val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website
 try {
-    val result : kotlin.Any = apiInstance.getApiProductJson(product)
+    val result : kotlin.collections.List<Cycle> = apiInstance.getApiProductJson(product)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#getApiProductJson")
@@ -133,11 +133,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**kotlin.Any**](.md)| Product URL as per the canonical URL on the endofife.date website |
+ **product** | **kotlin.String**| Product URL as per the canonical URL on the endofife.date website |
 
 ### Return type
 
-[**kotlin.Any**](kotlin.Any.md)
+[**kotlin.collections.List&lt;Cycle&gt;**](Cycle.md)
 
 ### Authorization
 

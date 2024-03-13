@@ -4,4 +4,9 @@ config.nim
 openapiclient.nim
 openapiclient/apis/api_default.nim
 openapiclient/models/model_cycle.nim
+openapiclient/models/model_cycle_cycle.nim
+openapiclient/models/model_cycle_discontinued.nim
+openapiclient/models/model_cycle_eol.nim
+openapiclient/models/model_cycle_lts.nim
+openapiclient/models/model_cycle_support.nim
 sample_client.nim

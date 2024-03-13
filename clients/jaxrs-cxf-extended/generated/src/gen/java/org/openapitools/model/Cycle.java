@@ -2,7 +2,13 @@ package org.openapitools.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.annotations.ApiModel;
+import org.joda.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.model.CycleCycle;
+import org.openapitools.model.CycleDiscontinued;
+import org.openapitools.model.CycleEol;
+import org.openapitools.model.CycleLts;
+import org.openapitools.model.CycleSupport;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -18,73 +24,64 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Cycle  {
   
- /**
-  * Release Cycle
-  */
-  @ApiModelProperty(value = "Release Cycle")
-  private Object cycle = null;
+  @ApiModelProperty(value = "")
+  @Valid
+  private CycleCycle cycle;
 
  /**
   * Release Date for the first release in this cycle
   */
   @ApiModelProperty(value = "Release Date for the first release in this cycle")
-  private Object releaseDate = null;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+  private LocalDate releaseDate;
 
- /**
-  * End of Life Date for this release cycle
-  */
-  @ApiModelProperty(value = "End of Life Date for this release cycle")
-  private Object eol = null;
+  @ApiModelProperty(value = "")
+  @Valid
+  private CycleEol eol;
 
  /**
   * Latest release in this cycle
   */
   @ApiModelProperty(value = "Latest release in this cycle")
-  private Object latest = null;
+  private String latest;
 
  /**
   * Link to changelog for the latest release, if available
   */
   @ApiModelProperty(value = "Link to changelog for the latest release, if available")
-  private Object link = null;
+  private String link;
 
- /**
-  * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
-  */
-  @ApiModelProperty(value = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
-  private Object lts = null;
+  @ApiModelProperty(value = "")
+  @Valid
+  private CycleLts lts;
 
- /**
-  * Whether this release cycle has active support
-  */
-  @ApiModelProperty(value = "Whether this release cycle has active support")
-  private Object support = null;
+  @ApiModelProperty(value = "")
+  @Valid
+  private CycleSupport support;
 
+  @ApiModelProperty(value = "")
+  @Valid
+  private CycleDiscontinued discontinued;
  /**
-  * Whether this cycle is now discontinued.
-  */
-  @ApiModelProperty(value = "Whether this cycle is now discontinued.")
-  private Object discontinued = null;
- /**
-  * Release Cycle
+  * Get cycle
   * @return cycle
   */
   @JsonProperty("cycle")
-  public Object getCycle() {
+  public CycleCycle getCycle() {
     return cycle;
   }
 
   /**
    * Sets the <code>cycle</code> property.
    */
- public void setCycle(Object cycle) {
+ public void setCycle(CycleCycle cycle) {
     this.cycle = cycle;
   }
 
   /**
    * Sets the <code>cycle</code> property.
    */
-  public Cycle cycle(Object cycle) {
+  public Cycle cycle(CycleCycle cycle) {
     this.cycle = cycle;
     return this;
   }
@@ -94,45 +91,45 @@ public class Cycle  {
   * @return releaseDate
   */
   @JsonProperty("releaseDate")
- @Size(min=10,max=10)  public Object getReleaseDate() {
+ @Size(min=10,max=10)  public LocalDate getReleaseDate() {
     return releaseDate;
   }
 
   /**
    * Sets the <code>releaseDate</code> property.
    */
- public void setReleaseDate(Object releaseDate) {
+ public void setReleaseDate(LocalDate releaseDate) {
     this.releaseDate = releaseDate;
   }
 
   /**
    * Sets the <code>releaseDate</code> property.
    */
-  public Cycle releaseDate(Object releaseDate) {
+  public Cycle releaseDate(LocalDate releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
 
  /**
-  * End of Life Date for this release cycle
+  * Get eol
   * @return eol
   */
   @JsonProperty("eol")
- @Size(min=1)  public Object getEol() {
+  public CycleEol getEol() {
     return eol;
   }
 
   /**
    * Sets the <code>eol</code> property.
    */
- public void setEol(Object eol) {
+ public void setEol(CycleEol eol) {
     this.eol = eol;
   }
 
   /**
    * Sets the <code>eol</code> property.
    */
-  public Cycle eol(Object eol) {
+  public Cycle eol(CycleEol eol) {
     this.eol = eol;
     return this;
   }
@@ -142,21 +139,21 @@ public class Cycle  {
   * @return latest
   */
   @JsonProperty("latest")
- @Size(min=1)  public Object getLatest() {
+ @Size(min=1)  public String getLatest() {
     return latest;
   }
 
   /**
    * Sets the <code>latest</code> property.
    */
- public void setLatest(Object latest) {
+ public void setLatest(String latest) {
     this.latest = latest;
   }
 
   /**
    * Sets the <code>latest</code> property.
    */
-  public Cycle latest(Object latest) {
+  public Cycle latest(String latest) {
     this.latest = latest;
     return this;
   }
@@ -166,93 +163,93 @@ public class Cycle  {
   * @return link
   */
   @JsonProperty("link")
- @Size(min=1)  public Object getLink() {
+ @Size(min=1)  public String getLink() {
     return link;
   }
 
   /**
    * Sets the <code>link</code> property.
    */
- public void setLink(Object link) {
+ public void setLink(String link) {
     this.link = link;
   }
 
   /**
    * Sets the <code>link</code> property.
    */
-  public Cycle link(Object link) {
+  public Cycle link(String link) {
     this.link = link;
     return this;
   }
 
  /**
-  * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+  * Get lts
   * @return lts
   */
   @JsonProperty("lts")
-  public Object getLts() {
+  public CycleLts getLts() {
     return lts;
   }
 
   /**
    * Sets the <code>lts</code> property.
    */
- public void setLts(Object lts) {
+ public void setLts(CycleLts lts) {
     this.lts = lts;
   }
 
   /**
    * Sets the <code>lts</code> property.
    */
-  public Cycle lts(Object lts) {
+  public Cycle lts(CycleLts lts) {
     this.lts = lts;
     return this;
   }
 
  /**
-  * Whether this release cycle has active support
+  * Get support
   * @return support
   */
   @JsonProperty("support")
- @Size(min=10,max=10)  public Object getSupport() {
+  public CycleSupport getSupport() {
     return support;
   }
 
   /**
    * Sets the <code>support</code> property.
    */
- public void setSupport(Object support) {
+ public void setSupport(CycleSupport support) {
     this.support = support;
   }
 
   /**
    * Sets the <code>support</code> property.
    */
-  public Cycle support(Object support) {
+  public Cycle support(CycleSupport support) {
     this.support = support;
     return this;
   }
 
  /**
-  * Whether this cycle is now discontinued.
+  * Get discontinued
   * @return discontinued
   */
   @JsonProperty("discontinued")
- @Size(min=10,max=10)  public Object getDiscontinued() {
+  public CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
 
   /**
    * Sets the <code>discontinued</code> property.
    */
- public void setDiscontinued(Object discontinued) {
+ public void setDiscontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 
   /**
    * Sets the <code>discontinued</code> property.
    */
-  public Cycle discontinued(Object discontinued) {
+  public Cycle discontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
     return this;
   }
@@ -267,14 +264,14 @@ public class Cycle  {
       return false;
     }
     Cycle cycle = (Cycle) o;
-    return Objects.equals(cycle, cycle.cycle) &&
-        Objects.equals(releaseDate, cycle.releaseDate) &&
-        Objects.equals(eol, cycle.eol) &&
-        Objects.equals(latest, cycle.latest) &&
-        Objects.equals(link, cycle.link) &&
-        Objects.equals(lts, cycle.lts) &&
-        Objects.equals(support, cycle.support) &&
-        Objects.equals(discontinued, cycle.discontinued);
+    return Objects.equals(this.cycle, cycle.cycle) &&
+        Objects.equals(this.releaseDate, cycle.releaseDate) &&
+        Objects.equals(this.eol, cycle.eol) &&
+        Objects.equals(this.latest, cycle.latest) &&
+        Objects.equals(this.link, cycle.link) &&
+        Objects.equals(this.lts, cycle.lts) &&
+        Objects.equals(this.support, cycle.support) &&
+        Objects.equals(this.discontinued, cycle.discontinued);
   }
 
   @Override

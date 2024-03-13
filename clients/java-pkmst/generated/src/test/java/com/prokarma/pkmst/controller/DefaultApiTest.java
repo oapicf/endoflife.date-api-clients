@@ -15,6 +15,7 @@ package com.prokarma.pkmst.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prokarma.pkmst.model.Cycle;
+import java.util.List;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -38,7 +39,7 @@ public class DefaultApiTest {
 
     private final String accept = "application/json";
 
-
+    
     /**
      * All Products
      *
@@ -49,11 +50,11 @@ public class DefaultApiTest {
      */
     @Test
     public void getApiAllJsonTest() throws Exception {
-    ResponseEntity<Object> response = api.getApiAllJson(  accept);
+    ResponseEntity<List<String>> response = api.getApiAllJson(  accept);
 
         // TODO: test validations
     }
-
+    
     /**
      * Single cycle details
      *
@@ -64,13 +65,13 @@ public class DefaultApiTest {
      */
     @Test
     public void getApiProductCycleJsonTest() throws Exception {
-        Object product = null;
-        Object cycle = null;
+        String product = null;
+        String cycle = null;
     ResponseEntity<Cycle> response = api.getApiProductCycleJson(product, cycle , accept);
 
         // TODO: test validations
     }
-
+    
     /**
      * Get All Details
      *
@@ -81,10 +82,10 @@ public class DefaultApiTest {
      */
     @Test
     public void getApiProductJsonTest() throws Exception {
-        Object product = null;
-    ResponseEntity<Object> response = api.getApiProductJson(product , accept);
+        String product = null;
+    ResponseEntity<List<Cycle>> response = api.getApiProductJson(product , accept);
 
         // TODO: test validations
     }
-
+    
 }

@@ -1,26 +1,25 @@
 package api
 
 import model.Cycle
-import model.OasAnyTypeNotMapped
 
 /**
   * Provides a default implementation for [[DefaultApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2023-09-16T14:49:07.439280Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-03-13T10:52:42.906253649Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 class DefaultApiImpl extends DefaultApi {
   /**
     * @inheritdoc
     */
-  override def getApiAllJson(): OasAnyTypeNotMapped = {
+  override def getApiAllJson(): List[String] = {
     // TODO: Implement better logic
 
-    null
+    List.empty[String]
   }
 
   /**
     * @inheritdoc
     */
-  override def getApiProductCycleJson(product: OasAnyTypeNotMapped, cycle: OasAnyTypeNotMapped): Cycle = {
+  override def getApiProductCycleJson(product: String, cycle: String): Cycle = {
     // TODO: Implement better logic
 
     Cycle(None, None, None, None, None, None, None, None)
@@ -29,9 +28,9 @@ class DefaultApiImpl extends DefaultApi {
   /**
     * @inheritdoc
     */
-  override def getApiProductJson(product: OasAnyTypeNotMapped): OasAnyTypeNotMapped = {
+  override def getApiProductJson(product: String): List[Cycle] = {
     // TODO: Implement better logic
 
-    null
+    List.empty[Cycle]
   }
 }

@@ -83,9 +83,9 @@ void DefaultApi::get_api_product_cycle_json_handler(const Pistache::Rest::Reques
     try {
 
     // Getting the path params
-    auto product = request.param(":product").as<org::openapitools::server::model::nlohmann::json>();
-    auto cycle = request.param(":cycle").as<org::openapitools::server::model::nlohmann::json>();
-
+    auto product = request.param(":product").as<std::string>();
+    auto cycle = request.param(":cycle").as<std::string>();
+    
     try {
         this->get_api_product_cycle_json(product, cycle, response);
     } catch (Pistache::Http::HttpError &e) {
@@ -106,8 +106,8 @@ void DefaultApi::get_api_product_json_handler(const Pistache::Rest::Request &req
     try {
 
     // Getting the path params
-    auto product = request.param(":product").as<org::openapitools::server::model::nlohmann::json>();
-
+    auto product = request.param(":product").as<std::string>();
+    
     try {
         this->get_api_product_json(product, response);
     } catch (Pistache::Http::HttpError &e) {

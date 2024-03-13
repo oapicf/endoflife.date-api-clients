@@ -1,1 +1,6 @@
 export * from '../models/Cycle'
+export * from '../models/CycleCycle'
+export * from '../models/CycleDiscontinued'
+export * from '../models/CycleEol'
+export * from '../models/CycleLts'
+export * from '../models/CycleSupport'

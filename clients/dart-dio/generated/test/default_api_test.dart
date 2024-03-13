@@ -11,7 +11,7 @@ void main() {
     //
     // Return a list of all products. Each of these can be used for the other API endpoints.
     //
-    //Future<JsonObject> getApiAllJson() async
+    //Future<BuiltList<String>> getApiAllJson() async
     test('test getApiAllJson', () async {
       // TODO
     });
@@ -20,7 +20,7 @@ void main() {
     //
     // Gets details of a single cycle
     //
-    //Future<Cycle> getApiProductCycleJson(JsonObject product, JsonObject cycle) async
+    //Future<Cycle> getApiProductCycleJson(String product, String cycle) async
     test('test getApiProductCycleJson', () async {
       // TODO
     });
@@ -29,7 +29,7 @@ void main() {
     //
     // Get EoL dates of all cycles of a given product.
     //
-    //Future<JsonObject> getApiProductJson(JsonObject product) async
+    //Future<BuiltList<Cycle>> getApiProductJson(String product) async
     test('test getApiProductJson', () async {
       // TODO
     });

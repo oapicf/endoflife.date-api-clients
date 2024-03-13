@@ -8,6 +8,11 @@ lib/endoflife_date/api/default.ex
 lib/endoflife_date/connection.ex
 lib/endoflife_date/deserializer.ex
 lib/endoflife_date/model/cycle.ex
+lib/endoflife_date/model/cycle_cycle.ex
+lib/endoflife_date/model/cycle_discontinued.ex
+lib/endoflife_date/model/cycle_eol.ex
+lib/endoflife_date/model/cycle_lts.ex
+lib/endoflife_date/model/cycle_support.ex
 lib/endoflife_date/request_builder.ex
 mix.exs
 test/test_helper.exs

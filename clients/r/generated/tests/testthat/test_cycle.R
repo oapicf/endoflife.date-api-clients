@@ -6,15 +6,14 @@ context("Test Cycle")
 model_instance <- Cycle$new()
 
 test_that("cycle", {
-  # tests for the property `cycle` (AnyType)
-  # Release Cycle
+  # tests for the property `cycle` (CycleCycle)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`cycle`, "EXPECTED_RESULT")
 })
 
 test_that("releaseDate", {
-  # tests for the property `releaseDate` (AnyType)
+  # tests for the property `releaseDate` (character)
   # Release Date for the first release in this cycle
 
   # uncomment below to test the property
@@ -22,15 +21,14 @@ test_that("releaseDate", {
 })
 
 test_that("eol", {
-  # tests for the property `eol` (AnyType)
-  # End of Life Date for this release cycle
+  # tests for the property `eol` (CycleEol)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`eol`, "EXPECTED_RESULT")
 })
 
 test_that("latest", {
-  # tests for the property `latest` (AnyType)
+  # tests for the property `latest` (character)
   # Latest release in this cycle
 
   # uncomment below to test the property
@@ -38,7 +36,7 @@ test_that("latest", {
 })
 
 test_that("link", {
-  # tests for the property `link` (AnyType)
+  # tests for the property `link` (character)
   # Link to changelog for the latest release, if available
 
   # uncomment below to test the property
@@ -46,24 +44,21 @@ test_that("link", {
 })
 
 test_that("lts", {
-  # tests for the property `lts` (AnyType)
-  # Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+  # tests for the property `lts` (CycleLts)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`lts`, "EXPECTED_RESULT")
 })
 
 test_that("support", {
-  # tests for the property `support` (AnyType)
-  # Whether this release cycle has active support
+  # tests for the property `support` (CycleSupport)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`support`, "EXPECTED_RESULT")
 })
 
 test_that("discontinued", {
-  # tests for the property `discontinued` (AnyType)
-  # Whether this cycle is now discontinued.
+  # tests for the property `discontinued` (CycleDiscontinued)
 
   # uncomment below to test the property
   #expect_equal(model.instance$`discontinued`, "EXPECTED_RESULT")

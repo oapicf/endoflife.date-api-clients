@@ -4,6 +4,16 @@ client/CMakeLists.txt
 client/Config.cmake.in
 client/OAICycle.cpp
 client/OAICycle.h
+client/OAICycle_cycle.cpp
+client/OAICycle_cycle.h
+client/OAICycle_discontinued.cpp
+client/OAICycle_discontinued.h
+client/OAICycle_eol.cpp
+client/OAICycle_eol.h
+client/OAICycle_lts.cpp
+client/OAICycle_lts.h
+client/OAICycle_support.cpp
+client/OAICycle_support.h
 client/OAIDefaultApi.cpp
 client/OAIDefaultApi.h
 client/OAIEnum.h

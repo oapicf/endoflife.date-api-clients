@@ -11,12 +11,12 @@ import java.util.Map;
 
 public interface DefaultApi  {
     //get-api-all.json
-    void getApiAllJson(Handler<AsyncResult<Object>> handler);
+    void getApiAllJson(Handler<AsyncResult<List<String>>> handler);
 
     //get-api-:product-:cycle.json
-    void getApiProductCycleJson(Object product, Object cycle, Handler<AsyncResult<Cycle>> handler);
+    void getApiProductCycleJson(String product, String cycle, Handler<AsyncResult<Cycle>> handler);
 
     //get-api-:product.json
-    void getApiProductJson(Object product, Handler<AsyncResult<Object>> handler);
+    void getApiProductJson(String product, Handler<AsyncResult<List<Cycle>>> handler);
 
 }

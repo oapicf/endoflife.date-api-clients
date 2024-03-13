@@ -5,6 +5,11 @@ modelMappings:
   # to enable explicit mappings, use this syntax:
   DefinitionFromSwaggerSpecification: fully.qualified.path.to.Model
   Cycle : org.openapitools.model.Cycle
+CycleCycle : org.openapitools.model.CycleCycle
+CycleDiscontinued : org.openapitools.model.CycleDiscontinued
+CycleEol : org.openapitools.model.CycleEol
+CycleLts : org.openapitools.model.CycleLts
+CycleSupport : org.openapitools.model.CycleSupport
 
 entityProcessors:
   - json

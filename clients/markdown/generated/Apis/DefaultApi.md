@@ -11,7 +11,7 @@ All URIs are relative to *https://endoflife.date*
 
 <a name="getApiAll.json"></a>
 # **getApiAll.json**
-> oas_any_type_not_mapped getApiAll.json()
+> List getApiAll.json()
 
 All Products
 
@@ -22,7 +22,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**oas_any_type_not_mapped**](../Models/AnyType.md)
+**List**
 
 ### Authorization
 
@@ -35,7 +35,7 @@ No authorization required
 
 <a name="getApiProduct.json"></a>
 # **getApiProduct.json**
-> oas_any_type_not_mapped getApiProduct.json(product)
+> List getApiProduct.json(product)
 
 Get All Details
 
@@ -45,11 +45,11 @@ Get All Details
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **product** | [**oas_any_type_not_mapped**](../Models/.md)| Product URL as per the canonical URL on the endofife.date website | [default to null] |
+| **product** | **String**| Product URL as per the canonical URL on the endofife.date website | [default to null] |
 
 ### Return type
 
-[**oas_any_type_not_mapped**](../Models/AnyType.md)
+[**List**](../Models/cycle.md)
 
 ### Authorization
 
@@ -72,8 +72,8 @@ Single cycle details
 
 |Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **product** | [**oas_any_type_not_mapped**](../Models/.md)| Product URL as per the canonical URL on the endofife.date website | [default to null] |
-| **cycle** | [**oas_any_type_not_mapped**](../Models/.md)| Release Cycle for which the details must be fetched | [default to null] |
+| **product** | **String**| Product URL as per the canonical URL on the endofife.date website | [default to null] |
+| **cycle** | **String**| Release Cycle for which the details must be fetched | [default to null] |
 
 ### Return type
 

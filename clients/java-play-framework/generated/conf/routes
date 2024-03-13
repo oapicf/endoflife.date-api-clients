@@ -7,8 +7,8 @@ GET     /api                        controllers.ApiDocController.api
 
 #Functions for Default API
 GET     /api/all.json                     controllers.DefaultApiController.getApiAllJson(request: Request)
-GET     /api/:product/:cycle.json                     controllers.DefaultApiController.getApiProductCycleJson(request: Request, product: Object, cycle: Object)
-GET     /api/:product.json                     controllers.DefaultApiController.getApiProductJson(request: Request, product: Object)
+GET     /api/:product/:cycle.json                     controllers.DefaultApiController.getApiProductCycleJson(request: Request, product: String, cycle: String)
+GET     /api/:product.json                     controllers.DefaultApiController.getApiProductJson(request: Request, product: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET /assets/*file           controllers.Assets.at(file)

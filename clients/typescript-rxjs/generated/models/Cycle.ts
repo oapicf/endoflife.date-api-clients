@@ -11,6 +11,14 @@
  * Do not edit the class manually.
  */
 
+import type {
+    CycleCycle,
+    CycleDiscontinued,
+    CycleEol,
+    CycleLts,
+    CycleSupport,
+} from './';
+
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  * @export
@@ -18,51 +26,46 @@
  */
 export interface Cycle {
     /**
-     * Release Cycle
-     * @type {any}
+     * @type {CycleCycle}
      * @memberof Cycle
      */
-    cycle?: any | null;
+    cycle?: CycleCycle;
     /**
      * Release Date for the first release in this cycle
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    releaseDate?: any | null;
+    releaseDate?: string;
     /**
-     * End of Life Date for this release cycle
-     * @type {any}
+     * @type {CycleEol}
      * @memberof Cycle
      */
-    eol?: any | null;
+    eol?: CycleEol;
     /**
      * Latest release in this cycle
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    latest?: any | null;
+    latest?: string;
     /**
      * Link to changelog for the latest release, if available
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    link?: any | null;
+    link?: string | null;
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-     * @type {any}
+     * @type {CycleLts}
      * @memberof Cycle
      */
-    lts?: any | null;
+    lts?: CycleLts;
     /**
-     * Whether this release cycle has active support
-     * @type {any}
+     * @type {CycleSupport}
      * @memberof Cycle
      */
-    support?: any | null;
+    support?: CycleSupport;
     /**
-     * Whether this cycle is now discontinued.
-     * @type {any}
+     * @type {CycleDiscontinued}
      * @memberof Cycle
      */
-    discontinued?: any | null;
+    discontinued?: CycleDiscontinued;
 }

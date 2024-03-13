@@ -13,6 +13,11 @@ lib/App/RegisterRoutes.php
 lib/App/ResponseEmitter.php
 lib/BaseModel.php
 lib/Model/Cycle.php
+lib/Model/CycleCycle.php
+lib/Model/CycleDiscontinued.php
+lib/Model/CycleEol.php
+lib/Model/CycleLts.php
+lib/Model/CycleSupport.php
 logs/.htaccess
 phpcs.xml.dist
 phpunit.xml.dist
@@ -20,4 +25,9 @@ public/.htaccess
 public/index.php
 tests/Api/DefaultApiTest.php
 tests/BaseModelTest.php
+tests/Model/CycleCycleTest.php
+tests/Model/CycleDiscontinuedTest.php
+tests/Model/CycleEolTest.php
+tests/Model/CycleLtsTest.php
+tests/Model/CycleSupportTest.php
 tests/Model/CycleTest.php

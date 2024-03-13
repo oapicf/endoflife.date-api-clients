@@ -5,14 +5,14 @@
 ## Properties
 Name | Mapping | SQL Type | Default | Type | Description | Notes
 ---- | ------- | -------- | ------- | ---- | ----------- | -----
-**cycle** | cycle | blob |  | [**kotlin.Any**](.md) | Release Cycle |  [optional]
-**releaseDate** | releaseDate | blob |  | [**kotlin.Any**](.md) | Release Date for the first release in this cycle |  [optional]
-**eol** | eol | blob |  | [**kotlin.Any**](.md) | End of Life Date for this release cycle |  [optional]
-**latest** | latest | blob |  | [**kotlin.Any**](.md) | Latest release in this cycle |  [optional]
-**link** | link | blob |  | [**kotlin.Any**](.md) | Link to changelog for the latest release, if available |  [optional]
-**lts** | lts | blob |  | [**kotlin.Any**](.md) | Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  |  [optional]
-**support** | support | blob |  | [**kotlin.Any**](.md) | Whether this release cycle has active support |  [optional]
-**discontinued** | discontinued | blob |  | [**kotlin.Any**](.md) | Whether this cycle is now discontinued. |  [optional]
+**cycle** | cycle | long |  | [**CycleCycle**](CycleCycle.md) |  |  [optional] [foreignkey]
+**releaseDate** | releaseDate | date |  | [**java.time.LocalDate**](java.time.LocalDate.md) | Release Date for the first release in this cycle |  [optional]
+**eol** | eol | long |  | [**CycleEol**](CycleEol.md) |  |  [optional] [foreignkey]
+**latest** | latest | text |  | **kotlin.String** | Latest release in this cycle |  [optional]
+**link** | link | text |  | **kotlin.String** | Link to changelog for the latest release, if available |  [optional]
+**lts** | lts | long |  | [**CycleLts**](CycleLts.md) |  |  [optional] [foreignkey]
+**support** | support | long |  | [**CycleSupport**](CycleSupport.md) |  |  [optional] [foreignkey]
+**discontinued** | discontinued | long |  | [**CycleDiscontinued**](CycleDiscontinued.md) |  |  [optional] [foreignkey]
 
 
 

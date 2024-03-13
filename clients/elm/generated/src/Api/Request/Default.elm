@@ -29,7 +29,7 @@ import Json.Encode
 
 {-| Return a list of all products. Each of these can be used for the other API endpoints.
 -}
-getApiAllJson : Api.Request Api.Data.AnyType
+getApiAllJson : Api.Request (List String)
 getApiAllJson =
     Api.request
         "GET"
@@ -38,17 +38,17 @@ getApiAllJson =
         []
         []
         Nothing
-        Api.Data.anyTypeDecoder
+        (Json.Decode.list Json.Decode.string)
 
 
 {-| Gets details of a single cycle
 -}
-getApiProductCycleJson : Api.Data.AnyType -> Api.Data.AnyType -> Api.Request Api.Data.Cycle
+getApiProductCycleJson : String -> String -> Api.Request Api.Data.Cycle
 getApiProductCycleJson product_path cycle_path =
     Api.request
         "GET"
         "/api/{product}/{cycle}.json"
-        [ ( "product",  product_path ), ( "cycle",  cycle_path ) ]
+        [ ( "product", identity product_path ), ( "cycle", identity cycle_path ) ]
         []
         []
         Nothing
@@ -57,14 +57,14 @@ getApiProductCycleJson product_path cycle_path =
 
 {-| Get EoL dates of all cycles of a given product.
 -}
-getApiProductJson : Api.Data.AnyType -> Api.Request Api.Data.AnyType
+getApiProductJson : String -> Api.Request (List Api.Data.Cycle)
 getApiProductJson product_path =
     Api.request
         "GET"
         "/api/{product}.json"
-        [ ( "product",  product_path ) ]
+        [ ( "product", identity product_path ) ]
         []
         []
         Nothing
-        Api.Data.anyTypeDecoder
+        (Json.Decode.list Api.Data.cycleDecoder)
 

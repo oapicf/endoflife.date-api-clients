@@ -110,7 +110,6 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         &self,
         context: &C) -> Result<GetApiAllPeriodJsonResponse, ApiError>
     {
-        let context = context.clone();
         info!("get_api_all_period_json() - X-Span-ID: {:?}", context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
@@ -118,23 +117,21 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
     /// Single cycle details
     async fn get_api_product_cycle_period_json(
         &self,
-        product: serde_json::Value,
-        cycle: serde_json::Value,
+        product: String,
+        cycle: String,
         context: &C) -> Result<GetApiProductCyclePeriodJsonResponse, ApiError>
     {
-        let context = context.clone();
-        info!("get_api_product_cycle_period_json({:?}, {:?}) - X-Span-ID: {:?}", product, cycle, context.get().0.clone());
+        info!("get_api_product_cycle_period_json(\"{}\", \"{}\") - X-Span-ID: {:?}", product, cycle, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
 
     /// Get All Details
     async fn get_api_product_period_json(
         &self,
-        product: serde_json::Value,
+        product: String,
         context: &C) -> Result<GetApiProductPeriodJsonResponse, ApiError>
     {
-        let context = context.clone();
-        info!("get_api_product_period_json({:?}) - X-Span-ID: {:?}", product, context.get().0.clone());
+        info!("get_api_product_period_json(\"{}\") - X-Span-ID: {:?}", product, context.get().0.clone());
         Err(ApiError("Generic failure".into()))
     }
 

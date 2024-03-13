@@ -14,6 +14,11 @@
 
 import ApiClient from './ApiClient';
 import Cycle from './model/Cycle';
+import CycleCycle from './model/CycleCycle';
+import CycleDiscontinued from './model/CycleDiscontinued';
+import CycleEol from './model/CycleEol';
+import CycleLts from './model/CycleLts';
+import CycleSupport from './model/CycleSupport';
 import DefaultApi from './api/DefaultApi';
 
 
@@ -46,7 +51,7 @@ import DefaultApi from './api/DefaultApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.0-pre.0
+* @version 0.10.1-pre.0
 */
 export {
     /**
@@ -60,6 +65,36 @@ export {
      * @property {module:model/Cycle}
      */
     Cycle,
+
+    /**
+     * The CycleCycle model constructor.
+     * @property {module:model/CycleCycle}
+     */
+    CycleCycle,
+
+    /**
+     * The CycleDiscontinued model constructor.
+     * @property {module:model/CycleDiscontinued}
+     */
+    CycleDiscontinued,
+
+    /**
+     * The CycleEol model constructor.
+     * @property {module:model/CycleEol}
+     */
+    CycleEol,
+
+    /**
+     * The CycleLts model constructor.
+     * @property {module:model/CycleLts}
+     */
+    CycleLts,
+
+    /**
+     * The CycleSupport model constructor.
+     * @property {module:model/CycleSupport}
+     */
+    CycleSupport,
 
     /**
     * The DefaultApi service constructor.

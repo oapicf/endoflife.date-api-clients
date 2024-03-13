@@ -7,22 +7,17 @@
  *)
 
 type t = {
-    (* Release Cycle *)
-    cycle: Any_type.t option [@default None];
+    cycle: Cycle_cycle.t option [@default None];
     (* Release Date for the first release in this cycle *)
-    release_date: Any_type.t option [@default None];
-    (* End of Life Date for this release cycle *)
-    eol: Any_type.t option [@default None];
+    release_date: string option [@default None];
+    eol: Cycle_eol.t option [@default None];
     (* Latest release in this cycle *)
-    latest: Any_type.t option [@default None];
+    latest: string option [@default None];
     (* Link to changelog for the latest release, if available *)
-    link: Any_type.t option [@default None];
-    (* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  *)
-    lts: Any_type.t option [@default None];
-    (* Whether this release cycle has active support *)
-    support: Any_type.t option [@default None];
-    (* Whether this cycle is now discontinued. *)
-    discontinued: Any_type.t option [@default None];
+    link: string option [@default None];
+    lts: Cycle_lts.t option [@default None];
+    support: Cycle_support.t option [@default None];
+    discontinued: Cycle_discontinued.t option [@default None];
 } [@@deriving yojson { strict = false }, show ];;
 
 (** Details of a single release cycle of a given product. There might be some slight variations to this depending on the product. *)

@@ -40,8 +40,8 @@ public interface DefaultApi  {
     @Produces({ "application/json" })
     @ApiOperation(value = "All Products", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Object.class) })
-    public Object getApiAllJson();
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
+    public List<String> getApiAllJson();
 
     /**
      * Single cycle details
@@ -55,7 +55,7 @@ public interface DefaultApi  {
     @ApiOperation(value = "Single cycle details", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class) })
-    public Cycle getApiProductCycleJson(@PathParam("product") Object product, @PathParam("cycle") Object cycle);
+    public Cycle getApiProductCycleJson(@PathParam("product") String product, @PathParam("cycle") String cycle);
 
     /**
      * Get All Details
@@ -68,6 +68,6 @@ public interface DefaultApi  {
     @Produces({ "application/json" })
     @ApiOperation(value = "Get All Details", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Object.class) })
-    public Object getApiProductJson(@PathParam("product") Object product);
+        @ApiResponse(code = 200, message = "OK", response = Cycle.class, responseContainer = "List") })
+    public List<Cycle> getApiProductJson(@PathParam("product") String product);
 }

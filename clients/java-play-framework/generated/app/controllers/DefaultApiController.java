@@ -19,11 +19,12 @@ import openapitools.OpenAPIUtils;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 import com.typesafe.config.Config;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2023-09-16T14:43:28.067343Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-03-13T10:45:07.097392421Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DefaultApiController extends Controller {
     private final DefaultApiControllerImpInterface imp;
     private final ObjectMapper mapper;
@@ -42,12 +43,12 @@ public class DefaultApiController extends Controller {
     }
 
     @ApiAction
-    public Result getApiProductCycleJson(Http.Request request, Object product,Object cycle) throws Exception {
+    public Result getApiProductCycleJson(Http.Request request, String product,String cycle) throws Exception {
         return imp.getApiProductCycleJsonHttp(request, product, cycle);
     }
 
     @ApiAction
-    public Result getApiProductJson(Http.Request request, Object product) throws Exception {
+    public Result getApiProductJson(Http.Request request, String product) throws Exception {
         return imp.getApiProductJsonHttp(request, product);
     }
 

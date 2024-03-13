@@ -1,2 +1,12 @@
 pub mod cycle;
 pub use self::cycle::Cycle;
+pub mod cycle_cycle;
+pub use self::cycle_cycle::CycleCycle;
+pub mod cycle_discontinued;
+pub use self::cycle_discontinued::CycleDiscontinued;
+pub mod cycle_eol;
+pub use self::cycle_eol::CycleEol;
+pub mod cycle_lts;
+pub use self::cycle_lts::CycleLts;
+pub mod cycle_support;
+pub use self::cycle_support::CycleSupport;

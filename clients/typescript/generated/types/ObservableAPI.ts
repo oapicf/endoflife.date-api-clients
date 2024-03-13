@@ -3,6 +3,11 @@ import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
 import { Cycle } from '../models/Cycle';
+import { CycleCycle } from '../models/CycleCycle';
+import { CycleDiscontinued } from '../models/CycleDiscontinued';
+import { CycleEol } from '../models/CycleEol';
+import { CycleLts } from '../models/CycleLts';
+import { CycleSupport } from '../models/CycleSupport';
 
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
 export class ObservableDefaultApi {
@@ -24,7 +29,7 @@ export class ObservableDefaultApi {
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * All Products
      */
-    public getApiAllJsonWithHttpInfo(_options?: Configuration): Observable<HttpInfo<any>> {
+    public getApiAllJsonWithHttpInfo(_options?: Configuration): Observable<HttpInfo<Array<string>>> {
         const requestContextPromise = this.requestFactory.getApiAllJson(_options);
 
         // build promise chain
@@ -47,8 +52,8 @@ export class ObservableDefaultApi {
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * All Products
      */
-    public getApiAllJson(_options?: Configuration): Observable<any> {
-        return this.getApiAllJsonWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
+    public getApiAllJson(_options?: Configuration): Observable<Array<string>> {
+        return this.getApiAllJsonWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<Array<string>>) => apiResponse.data));
     }
 
     /**
@@ -57,7 +62,7 @@ export class ObservableDefaultApi {
      * @param product Product URL as per the canonical URL on the endofife.date website
      * @param cycle Release Cycle for which the details must be fetched
      */
-    public getApiProductCycleJsonWithHttpInfo(product: any, cycle: any, _options?: Configuration): Observable<HttpInfo<Cycle>> {
+    public getApiProductCycleJsonWithHttpInfo(product: string, cycle: string, _options?: Configuration): Observable<HttpInfo<Cycle>> {
         const requestContextPromise = this.requestFactory.getApiProductCycleJson(product, cycle, _options);
 
         // build promise chain
@@ -82,7 +87,7 @@ export class ObservableDefaultApi {
      * @param product Product URL as per the canonical URL on the endofife.date website
      * @param cycle Release Cycle for which the details must be fetched
      */
-    public getApiProductCycleJson(product: any, cycle: any, _options?: Configuration): Observable<Cycle> {
+    public getApiProductCycleJson(product: string, cycle: string, _options?: Configuration): Observable<Cycle> {
         return this.getApiProductCycleJsonWithHttpInfo(product, cycle, _options).pipe(map((apiResponse: HttpInfo<Cycle>) => apiResponse.data));
     }
 
@@ -91,7 +96,7 @@ export class ObservableDefaultApi {
      * Get All Details
      * @param product Product URL as per the canonical URL on the endofife.date website
      */
-    public getApiProductJsonWithHttpInfo(product: any, _options?: Configuration): Observable<HttpInfo<any>> {
+    public getApiProductJsonWithHttpInfo(product: string, _options?: Configuration): Observable<HttpInfo<Array<Cycle>>> {
         const requestContextPromise = this.requestFactory.getApiProductJson(product, _options);
 
         // build promise chain
@@ -115,8 +120,8 @@ export class ObservableDefaultApi {
      * Get All Details
      * @param product Product URL as per the canonical URL on the endofife.date website
      */
-    public getApiProductJson(product: any, _options?: Configuration): Observable<any> {
-        return this.getApiProductJsonWithHttpInfo(product, _options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
+    public getApiProductJson(product: string, _options?: Configuration): Observable<Array<Cycle>> {
+        return this.getApiProductJsonWithHttpInfo(product, _options).pipe(map((apiResponse: HttpInfo<Array<Cycle>>) => apiResponse.data));
     }
 
 }

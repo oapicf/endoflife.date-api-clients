@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.jaxrs.*;
 
 import org.openapitools.model.Cycle;
+import java.util.List;
 
 import java.util.List;
 import org.openapitools.api.NotFoundException;
@@ -26,7 +27,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2023-09-16T14:43:17.968520Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-03-13T10:44:58.234230102Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ApiApi  {
    private final ApiApiService delegate = ApiApiServiceFactory.getApiApi();
 
@@ -34,9 +35,9 @@ public class ApiApi  {
     @Path("/all.json")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "All Products", notes = "Return a list of all products. Each of these can be used for the other API endpoints.", response = Object.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "All Products", notes = "Return a list of all products. Each of these can be used for the other API endpoints.", response = String.class, responseContainer = "List", tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Object.class) })
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     public Response getApiAllJson()
     throws NotFoundException {
         return delegate.getApiAllJson();
@@ -48,8 +49,8 @@ public class ApiApi  {
     @io.swagger.annotations.ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle", response = Cycle.class, tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Cycle.class) })
-    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") Object product
-,@ApiParam(value = "Release Cycle for which the details must be fetched",required=true) @PathParam("cycle") Object cycle
+    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") String product
+,@ApiParam(value = "Release Cycle for which the details must be fetched",required=true) @PathParam("cycle") String cycle
 )
     throws NotFoundException {
         return delegate.getApiProductCycleJson(product,cycle);
@@ -58,10 +59,10 @@ public class ApiApi  {
     @Path("/{product}.json")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Object.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Cycle.class, responseContainer = "List", tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Object.class) })
-    public Response getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") Object product
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Cycle.class, responseContainer = "List") })
+    public Response getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") String product
 )
     throws NotFoundException {
         return delegate.getApiProductJson(product);

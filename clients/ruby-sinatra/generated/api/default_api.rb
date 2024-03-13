@@ -5,7 +5,7 @@ MyApp.add_route('GET', '/api/all.json', {
   "resourcePath" => "/Default",
   "summary" => "All Products",
   "nickname" => "get_api_all/json",
-  "responseClass" => "Object",
+  "responseClass" => "Array<String>",
   "endpoint" => "/api/all.json",
   "notes" => "Return a list of all products. Each of these can be used for the other API endpoints.",
   "parameters" => [
@@ -21,14 +21,14 @@ MyApp.add_route('GET', '/api/{product}.json', {
   "resourcePath" => "/Default",
   "summary" => "Get All Details",
   "nickname" => "get_api_product/json",
-  "responseClass" => "Object",
+  "responseClass" => "Array<cycle>",
   "endpoint" => "/api/{product}.json",
   "notes" => "Get EoL dates of all cycles of a given product.",
   "parameters" => [
     {
       "name" => "product",
       "description" => "Product URL as per the canonical URL on the endofife.date website",
-      "dataType" => "Object",
+      "dataType" => "String",
       "paramType" => "path",
     },
     ]}) do
@@ -50,13 +50,13 @@ MyApp.add_route('GET', '/api/{product}/{cycle}.json', {
     {
       "name" => "product",
       "description" => "Product URL as per the canonical URL on the endofife.date website",
-      "dataType" => "Object",
+      "dataType" => "String",
       "paramType" => "path",
     },
     {
       "name" => "cycle",
       "description" => "Release Cycle for which the details must be fetched",
-      "dataType" => "Object",
+      "dataType" => "String",
       "paramType" => "path",
     },
     ]}) do

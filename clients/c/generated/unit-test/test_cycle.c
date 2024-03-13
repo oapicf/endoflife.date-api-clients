@@ -16,6 +16,11 @@
 #include "../model/cycle.h"
 cycle_t* instantiate_cycle(int include_optional);
 
+#include "test_cycle_cycle.c"
+#include "test_cycle_eol.c"
+#include "test_cycle_lts.c"
+#include "test_cycle_support.c"
+#include "test_cycle_discontinued.c"
 
 
 cycle_t* instantiate_cycle(int include_optional) {
@@ -23,10 +28,10 @@ cycle_t* instantiate_cycle(int include_optional) {
   if (include_optional) {
     cycle = cycle_create(
       null,
+      "2013-10-20",
       null,
-      null,
-      null,
-      null,
+      "0",
+      "0",
       null,
       null,
       null
@@ -34,10 +39,10 @@ cycle_t* instantiate_cycle(int include_optional) {
   } else {
     cycle = cycle_create(
       null,
+      "2013-10-20",
       null,
-      null,
-      null,
-      null,
+      "0",
+      "0",
       null,
       null,
       null

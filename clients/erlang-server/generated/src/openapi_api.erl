@@ -64,6 +64,7 @@ request_param_info('GetApiProductCycleJson', 'product') ->
     #{
         source =>  binding ,
         rules => [
+            {type, 'binary'},
             required
         ]
     };
@@ -72,6 +73,7 @@ request_param_info('GetApiProductCycleJson', 'cycle') ->
     #{
         source =>  binding ,
         rules => [
+            {type, 'binary'},
             required
         ]
     };
@@ -80,6 +82,7 @@ request_param_info('GetApiProductJson', 'product') ->
     #{
         source =>  binding ,
         rules => [
+            {type, 'binary'},
             required
         ]
     };
@@ -132,13 +135,13 @@ populate_request_param(OperationID, Name, Req0, ValidatorState) ->
 
 
 validate_response('GetApiAllJson', 200, Body, ValidatorState) ->
-    validate_response_body('AnyType', 'AnyType', Body, ValidatorState);
+    validate_response_body('list', 'string', Body, ValidatorState);
 
 validate_response('GetApiProductCycleJson', 200, Body, ValidatorState) ->
     validate_response_body('cycle', 'cycle', Body, ValidatorState);
 
 validate_response('GetApiProductJson', 200, Body, ValidatorState) ->
-    validate_response_body('AnyType', 'AnyType', Body, ValidatorState);
+    validate_response_body('list', 'cycle', Body, ValidatorState);
 
 
 validate_response(_OperationID, _Code, _Body, _ValidatorState) ->

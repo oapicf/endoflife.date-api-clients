@@ -21,6 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="src/model/CycleSupport.fs" />
+    <Compile Include="src/model/CycleLts.fs" />
+    <Compile Include="src/model/CycleEol.fs" />
+    <Compile Include="src/model/CycleDiscontinued.fs" />
+    <Compile Include="src/model/CycleCycle.fs" />
     <Compile Include="src/model/Cycle.fs" />
     <Compile Include="src/api/DefaultApiHandlerParams.fs" />
     <Compile Include="src/api/DefaultApiServiceInterface.fs" />

@@ -11,27 +11,23 @@
  */
 package org.openapitools.client.model
 
+import java.time.LocalDate
 
   /**
    * Cycle
    * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
    */
 case class Cycle(
-  /* Release Cycle */
-  cycle: Option[org.json4s.JValue] = None,
+  cycle: Option[CycleCycle] = None,
   /* Release Date for the first release in this cycle */
-  releaseDate: Option[org.json4s.JValue] = None,
-  /* End of Life Date for this release cycle */
-  eol: Option[org.json4s.JValue] = None,
+  releaseDate: Option[LocalDate] = None,
+  eol: Option[CycleEol] = None,
   /* Latest release in this cycle */
-  latest: Option[org.json4s.JValue] = None,
+  latest: Option[String] = None,
   /* Link to changelog for the latest release, if available */
-  link: Option[org.json4s.JValue] = None,
-  /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-  lts: Option[org.json4s.JValue] = None,
-  /* Whether this release cycle has active support */
-  support: Option[org.json4s.JValue] = None,
-  /* Whether this cycle is now discontinued. */
-  discontinued: Option[org.json4s.JValue] = None
+  link: Option[String] = None,
+  lts: Option[CycleLts] = None,
+  support: Option[CycleSupport] = None,
+  discontinued: Option[CycleDiscontinued] = None
 )
 

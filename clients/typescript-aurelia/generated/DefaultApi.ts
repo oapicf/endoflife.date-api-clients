@@ -28,15 +28,15 @@ export interface IGetApiAllJsonParams {
  * getApiProductCycleJson - parameters interface
  */
 export interface IGetApiProductCycleJsonParams {
-  product: any;
-  cycle: any;
+  product: string;
+  cycle: string;
 }
 
 /**
  * getApiProductJson - parameters interface
  */
 export interface IGetApiProductJsonParams {
-  product: any;
+  product: string;
 }
 
 /**
@@ -59,7 +59,7 @@ export class DefaultApi extends Api {
    * All Products
    * Return a list of all products. Each of these can be used for the other API endpoints.
    */
-  async getApiAllJson(): Promise<any> {
+  async getApiAllJson(): Promise<Array<string>> {
     // Verify required parameters are set
 
     // Create URL to call
@@ -116,7 +116,7 @@ export class DefaultApi extends Api {
    * Get EoL dates of all cycles of a given product.
    * @param params.product Product URL as per the canonical URL on the endofife.date website
    */
-  async getApiProductJson(params: IGetApiProductJsonParams): Promise<any> {
+  async getApiProductJson(params: IGetApiProductJsonParams): Promise<Array<Cycle>> {
     // Verify required parameters are set
     this.ensureParamIsSet('getApiProductJson', params, 'product');
 

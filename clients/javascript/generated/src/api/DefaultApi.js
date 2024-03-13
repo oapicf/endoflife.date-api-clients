@@ -18,12 +18,12 @@ import Cycle from '../model/Cycle';
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 0.9.0-pre.0
+* @version 0.10.1-pre.0
 */
 export default class DefaultApi {
 
     /**
-    * Constructs a new DefaultApi.
+    * Constructs a new DefaultApi. 
     * @alias module:api/DefaultApi
     * @class
     * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -38,7 +38,7 @@ export default class DefaultApi {
      * Callback function to receive the result of the getApiAllJson operation.
      * @callback module:api/DefaultApi~getApiAllJsonCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {Array.<String>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -46,7 +46,7 @@ export default class DefaultApi {
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * @param {module:api/DefaultApi~getApiAllJsonCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link Array.<String>}
      */
     getApiAllJson(callback) {
       let postBody = null;
@@ -63,7 +63,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Object;
+      let returnType = ['String'];
       return this.apiClient.callApi(
         '/api/all.json', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -82,8 +82,8 @@ export default class DefaultApi {
     /**
      * Single cycle details
      * Gets details of a single cycle
-     * @param {Object} product Product URL as per the canonical URL on the endofife.date website
-     * @param {Object} cycle Release Cycle for which the details must be fetched
+     * @param {String} product Product URL as per the canonical URL on the endofife.date website
+     * @param {String} cycle Release Cycle for which the details must be fetched
      * @param {module:api/DefaultApi~getApiProductCycleJsonCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Cycle}
      */
@@ -124,16 +124,16 @@ export default class DefaultApi {
      * Callback function to receive the result of the getApiProductJson operation.
      * @callback module:api/DefaultApi~getApiProductJsonCallback
      * @param {String} error Error message, if any.
-     * @param {Object} data The data returned by the service call.
+     * @param {Array.<module:model/Cycle>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get All Details
      * Get EoL dates of all cycles of a given product.
-     * @param {Object} product Product URL as per the canonical URL on the endofife.date website
+     * @param {String} product Product URL as per the canonical URL on the endofife.date website
      * @param {module:api/DefaultApi~getApiProductJsonCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * data is of type: {@link Array.<module:model/Cycle>}
      */
     getApiProductJson(product, callback) {
       let postBody = null;
@@ -155,7 +155,7 @@ export default class DefaultApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Object;
+      let returnType = [Cycle];
       return this.apiClient.callApi(
         '/api/{product}.json', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

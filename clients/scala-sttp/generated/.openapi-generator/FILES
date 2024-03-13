@@ -7,3 +7,8 @@ src/main/scala/org/openapitools/client/core/AdditionalTypeSerializers.scala
 src/main/scala/org/openapitools/client/core/DateSerializers.scala
 src/main/scala/org/openapitools/client/core/JsonSupport.scala
 src/main/scala/org/openapitools/client/model/Cycle.scala
+src/main/scala/org/openapitools/client/model/CycleCycle.scala
+src/main/scala/org/openapitools/client/model/CycleDiscontinued.scala
+src/main/scala/org/openapitools/client/model/CycleEol.scala
+src/main/scala/org/openapitools/client/model/CycleLts.scala
+src/main/scala/org/openapitools/client/model/CycleSupport.scala

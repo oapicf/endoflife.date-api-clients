@@ -19,7 +19,7 @@ using Newtonsoft.Json;
 using Org.OpenAPITools.Converters;
 
 namespace Org.OpenAPITools.Models
-{
+{ 
     /// <summary>
     /// Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
     /// </summary>
@@ -27,35 +27,32 @@ namespace Org.OpenAPITools.Models
     public partial class Cycle : IEquatable<Cycle>
     {
         /// <summary>
-        /// Release Cycle
+        /// Gets or Sets VarCycle
         /// </summary>
-        /// <value>Release Cycle</value>
-        [DataMember(Name="cycle", EmitDefaultValue=true)]
-        public Object VarCycle { get; set; }
+        [DataMember(Name="cycle", EmitDefaultValue=false)]
+        public CycleCycle VarCycle { get; set; }
 
         /// <summary>
         /// Release Date for the first release in this cycle
         /// </summary>
         /// <value>Release Date for the first release in this cycle</value>
         [StringLength(10, MinimumLength=10)]
-        [DataMember(Name="releaseDate", EmitDefaultValue=true)]
-        public Object ReleaseDate { get; set; }
+        [DataMember(Name="releaseDate", EmitDefaultValue=false)]
+        public DateTime ReleaseDate { get; set; }
 
         /// <summary>
-        /// End of Life Date for this release cycle
+        /// Gets or Sets Eol
         /// </summary>
-        /// <value>End of Life Date for this release cycle</value>
-        [MinLength(1)]
-        [DataMember(Name="eol", EmitDefaultValue=true)]
-        public Object Eol { get; set; }
+        [DataMember(Name="eol", EmitDefaultValue=false)]
+        public CycleEol Eol { get; set; }
 
         /// <summary>
         /// Latest release in this cycle
         /// </summary>
         /// <value>Latest release in this cycle</value>
         [MinLength(1)]
-        [DataMember(Name="latest", EmitDefaultValue=true)]
-        public Object Latest { get; set; }
+        [DataMember(Name="latest", EmitDefaultValue=false)]
+        public string Latest { get; set; }
 
         /// <summary>
         /// Link to changelog for the latest release, if available
@@ -63,30 +60,25 @@ namespace Org.OpenAPITools.Models
         /// <value>Link to changelog for the latest release, if available</value>
         [MinLength(1)]
         [DataMember(Name="link", EmitDefaultValue=true)]
-        public Object Link { get; set; }
+        public string Link { get; set; }
 
         /// <summary>
-        /// Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+        /// Gets or Sets Lts
         /// </summary>
-        /// <value>Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. </value>
-        [DataMember(Name="lts", EmitDefaultValue=true)]
-        public Object Lts { get; set; }
+        [DataMember(Name="lts", EmitDefaultValue=false)]
+        public CycleLts Lts { get; set; }
 
         /// <summary>
-        /// Whether this release cycle has active support
+        /// Gets or Sets Support
         /// </summary>
-        /// <value>Whether this release cycle has active support</value>
-        [StringLength(10, MinimumLength=10)]
-        [DataMember(Name="support", EmitDefaultValue=true)]
-        public Object Support { get; set; }
+        [DataMember(Name="support", EmitDefaultValue=false)]
+        public CycleSupport Support { get; set; }
 
         /// <summary>
-        /// Whether this cycle is now discontinued.
+        /// Gets or Sets Discontinued
         /// </summary>
-        /// <value>Whether this cycle is now discontinued.</value>
-        [StringLength(10, MinimumLength=10)]
-        [DataMember(Name="discontinued", EmitDefaultValue=true)]
-        public Object Discontinued { get; set; }
+        [DataMember(Name="discontinued", EmitDefaultValue=false)]
+        public CycleDiscontinued Discontinued { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -139,42 +131,42 @@ namespace Org.OpenAPITools.Models
             if (other is null) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return
+            return 
                 (
                     VarCycle == other.VarCycle ||
                     VarCycle != null &&
                     VarCycle.Equals(other.VarCycle)
-                ) &&
+                ) && 
                 (
                     ReleaseDate == other.ReleaseDate ||
                     ReleaseDate != null &&
                     ReleaseDate.Equals(other.ReleaseDate)
-                ) &&
+                ) && 
                 (
                     Eol == other.Eol ||
                     Eol != null &&
                     Eol.Equals(other.Eol)
-                ) &&
+                ) && 
                 (
                     Latest == other.Latest ||
                     Latest != null &&
                     Latest.Equals(other.Latest)
-                ) &&
+                ) && 
                 (
                     Link == other.Link ||
                     Link != null &&
                     Link.Equals(other.Link)
-                ) &&
+                ) && 
                 (
                     Lts == other.Lts ||
                     Lts != null &&
                     Lts.Equals(other.Lts)
-                ) &&
+                ) && 
                 (
                     Support == other.Support ||
                     Support != null &&
                     Support.Equals(other.Support)
-                ) &&
+                ) && 
                 (
                     Discontinued == other.Discontinued ||
                     Discontinued != null &&

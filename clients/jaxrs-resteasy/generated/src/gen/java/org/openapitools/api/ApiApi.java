@@ -27,7 +27,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2023-09-16T14:44:02.559095Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-03-13T10:45:57.432198931Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ApiApi  {
 
     @Inject ApiApiService service;
@@ -36,9 +36,9 @@ public class ApiApi  {
     @Path("/all.json")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "All Products", notes = "Return a list of all products. Each of these can be used for the other API endpoints.", response = Object.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "All Products", notes = "Return a list of all products. Each of these can be used for the other API endpoints.", response = String.class, responseContainer = "List", tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Object.class) })
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     public Response getApiAllJson(@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.getApiAllJson(securityContext);
@@ -50,7 +50,7 @@ public class ApiApi  {
     @io.swagger.annotations.ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle", response = Cycle.class, tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Cycle.class) })
-    public Response getApiProductCycleJson( @PathParam("product") Object product, @PathParam("cycle") Object cycle,@Context SecurityContext securityContext)
+    public Response getApiProductCycleJson( @PathParam("product") String product, @PathParam("cycle") String cycle,@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.getApiProductCycleJson(product,cycle,securityContext);
     }
@@ -58,10 +58,10 @@ public class ApiApi  {
     @Path("/{product}.json")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Object.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Cycle.class, responseContainer = "List", tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Object.class) })
-    public Response getApiProductJson( @PathParam("product") Object product,@Context SecurityContext securityContext)
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Cycle.class, responseContainer = "List") })
+    public Response getApiProductJson( @PathParam("product") String product,@Context SecurityContext securityContext)
     throws NotFoundException {
         return service.getApiProductJson(product,securityContext);
     }

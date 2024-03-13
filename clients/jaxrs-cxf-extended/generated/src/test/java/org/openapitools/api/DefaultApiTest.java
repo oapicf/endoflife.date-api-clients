@@ -58,7 +58,7 @@ public class DefaultApiTest {
         ClientConfiguration config = WebClient.getConfig(client);
     }
 
-
+    
     /**
      * All Products
      *
@@ -70,10 +70,10 @@ public class DefaultApiTest {
     public void getApiAllJsonTest() throws Exception {
 
         // TODO: delete this line and uncomment the next
-        // Object response = api.getApiAllJson();
+        // List<String> response = api.getApiAllJson();
         // TODO: complete test assertions
     }
-
+    
     /**
      * Single cycle details
      *
@@ -84,14 +84,14 @@ public class DefaultApiTest {
     @Test
     public void getApiProductCycleJsonTest() throws Exception {
         // TODO: assign appropriate parameter values
-        Object product = null;
-        Object cycle = null;
+        String product = null;
+        String cycle = null;
 
         // TODO: delete this line and uncomment the next
         // Cycle response = api.getApiProductCycleJson(product, cycle);
         // TODO: complete test assertions
     }
-
+    
     /**
      * Get All Details
      *
@@ -102,11 +102,11 @@ public class DefaultApiTest {
     @Test
     public void getApiProductJsonTest() throws Exception {
         // TODO: assign appropriate parameter values
-        Object product = null;
+        String product = null;
 
         // TODO: delete this line and uncomment the next
-        // Object response = api.getApiProductJson(product);
+        // List<Cycle> response = api.getApiProductJson(product);
         // TODO: complete test assertions
     }
-
+    
 }

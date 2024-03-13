@@ -21,7 +21,13 @@
 
 #include <QJsonObject>
 
-#include <QJsonValue>
+#include "OAICycle_cycle.h"
+#include "OAICycle_discontinued.h"
+#include "OAICycle_eol.h"
+#include "OAICycle_lts.h"
+#include "OAICycle_support.h"
+#include <QDate>
+#include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
@@ -39,43 +45,43 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QJsonValue getCycle() const;
-    void setCycle(const QJsonValue &cycle);
+    OAICycle_cycle getCycle() const;
+    void setCycle(const OAICycle_cycle &cycle);
     bool is_cycle_Set() const;
     bool is_cycle_Valid() const;
 
-    QJsonValue getReleaseDate() const;
-    void setReleaseDate(const QJsonValue &release_date);
+    QDate getReleaseDate() const;
+    void setReleaseDate(const QDate &release_date);
     bool is_release_date_Set() const;
     bool is_release_date_Valid() const;
 
-    QJsonValue getEol() const;
-    void setEol(const QJsonValue &eol);
+    OAICycle_eol getEol() const;
+    void setEol(const OAICycle_eol &eol);
     bool is_eol_Set() const;
     bool is_eol_Valid() const;
 
-    QJsonValue getLatest() const;
-    void setLatest(const QJsonValue &latest);
+    QString getLatest() const;
+    void setLatest(const QString &latest);
     bool is_latest_Set() const;
     bool is_latest_Valid() const;
 
-    QJsonValue getLink() const;
-    void setLink(const QJsonValue &link);
+    QString getLink() const;
+    void setLink(const QString &link);
     bool is_link_Set() const;
     bool is_link_Valid() const;
 
-    QJsonValue getLts() const;
-    void setLts(const QJsonValue &lts);
+    OAICycle_lts getLts() const;
+    void setLts(const OAICycle_lts &lts);
     bool is_lts_Set() const;
     bool is_lts_Valid() const;
 
-    QJsonValue getSupport() const;
-    void setSupport(const QJsonValue &support);
+    OAICycle_support getSupport() const;
+    void setSupport(const OAICycle_support &support);
     bool is_support_Set() const;
     bool is_support_Valid() const;
 
-    QJsonValue getDiscontinued() const;
-    void setDiscontinued(const QJsonValue &discontinued);
+    OAICycle_discontinued getDiscontinued() const;
+    void setDiscontinued(const OAICycle_discontinued &discontinued);
     bool is_discontinued_Set() const;
     bool is_discontinued_Valid() const;
 
@@ -85,35 +91,35 @@ public:
 private:
     void initializeModel();
 
-    QJsonValue m_cycle;
+    OAICycle_cycle m_cycle;
     bool m_cycle_isSet;
     bool m_cycle_isValid;
 
-    QJsonValue m_release_date;
+    QDate m_release_date;
     bool m_release_date_isSet;
     bool m_release_date_isValid;
 
-    QJsonValue m_eol;
+    OAICycle_eol m_eol;
     bool m_eol_isSet;
     bool m_eol_isValid;
 
-    QJsonValue m_latest;
+    QString m_latest;
     bool m_latest_isSet;
     bool m_latest_isValid;
 
-    QJsonValue m_link;
+    QString m_link;
     bool m_link_isSet;
     bool m_link_isValid;
 
-    QJsonValue m_lts;
+    OAICycle_lts m_lts;
     bool m_lts_isSet;
     bool m_lts_isValid;
 
-    QJsonValue m_support;
+    OAICycle_support m_support;
     bool m_support_isSet;
     bool m_support_isValid;
 
-    QJsonValue m_discontinued;
+    OAICycle_discontinued m_discontinued;
     bool m_discontinued_isSet;
     bool m_discontinued_isValid;
 };

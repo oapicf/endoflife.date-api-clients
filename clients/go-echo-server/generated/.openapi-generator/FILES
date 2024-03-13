@@ -8,3 +8,8 @@ handlers/container.go
 main.go
 models/hello-world.go
 models/model_cycle.go
+models/model_cycle_cycle.go
+models/model_cycle_discontinued.go
+models/model_cycle_eol.go
+models/model_cycle_lts.go
+models/model_cycle_support.go

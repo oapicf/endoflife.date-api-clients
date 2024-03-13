@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   contact:
     email: blah+oapicf@cliffano.com
-    name: Cliffano Subagio
+    name: OpenAPI Clients Factory
     url: https://github.com/oapicf/endoflife.date-api-clients
   description: "Documentation for the endoflife.date API. The API is currently in\
     \ Alpha. Additional information about the API can be found on the [endoflife.date\
@@ -26,7 +26,8 @@ paths:
         in: path
         name: product
         required: true
-        schema: {}
+        schema:
+          type: string
         style: simple
       responses:
         "200":
@@ -64,6 +65,7 @@ paths:
               schema:
                 items:
                   $ref: '#/components/schemas/cycle'
+                type: array
           description: OK
       summary: Get All Details
       tags: []
@@ -77,14 +79,16 @@ paths:
         in: path
         name: product
         required: true
-        schema: {}
+        schema:
+          type: string
         style: simple
       - description: Release Cycle for which the details must be fetched
         explode: false
         in: path
         name: cycle
         required: true
-        schema: {}
+        schema:
+          type: string
         style: simple
       responses:
         "200":
@@ -179,7 +183,9 @@ paths:
                   - windowsserver
               schema:
                 description: List of all products.
-                items: {}
+                items:
+                  type: string
+                type: array
           description: OK
       summary: All Products
       tags: []
@@ -189,52 +195,43 @@ components:
       description: Details of a single release cycle of a given product. There might
         be some slight variations to this depending on the product.
       example:
-        eol: ""
-        releaseDate: ""
-        link: ""
-        lts: ""
-        discontinued: ""
-        cycle: ""
-        support: ""
-        latest: ""
+        eol: cycle_eol
+        releaseDate: 2000-01-23
+        link: link
+        lts: true
+        discontinued: cycle_discontinued
+        cycle: 0.8008281904610115
+        support: cycle_support
+        latest: latest
       properties:
         cycle:
-          description: Release Cycle
-          title: cycle
+          $ref: '#/components/schemas/cycle_cycle'
         releaseDate:
           description: Release Date for the first release in this cycle
           format: date
           maxLength: 10
           minLength: 10
           title: releaseDate
+          type: string
         eol:
-          description: End of Life Date for this release cycle
-          minLength: 1
-          title: eol
+          $ref: '#/components/schemas/cycle_eol'
         latest:
           description: Latest release in this cycle
           minLength: 1
           title: latest
+          type: string
         link:
           description: "Link to changelog for the latest release, if available"
           minLength: 1
+          nullable: true
           title: link
+          type: string
         lts:
-          description: |
-            Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-          title: lts
+          $ref: '#/components/schemas/cycle_lts'
         support:
-          description: Whether this release cycle has active support
-          format: date
-          maxLength: 10
-          minLength: 10
-          title: support
+          $ref: '#/components/schemas/cycle_support'
         discontinued:
-          description: Whether this cycle is now discontinued.
-          format: date
-          maxLength: 10
-          minLength: 10
-          title: discontinued
+          $ref: '#/components/schemas/cycle_discontinued'
       title: Cycle
       x-examples:
         python:
@@ -322,3 +319,41 @@ components:
           support: 2016-09-30
           eol: 2019-04-02
           latest: 14.04.6
+    cycle_cycle:
+      anyOf:
+      - type: number
+      - type: string
+      description: Release Cycle
+      title: cycle_cycle
+    cycle_eol:
+      anyOf:
+      - type: string
+      - type: boolean
+      description: End of Life Date for this release cycle
+      minLength: 1
+      title: cycle_eol
+    cycle_lts:
+      anyOf:
+      - type: boolean
+      - type: string
+      description: |
+        Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+      title: cycle_lts
+    cycle_support:
+      anyOf:
+      - type: string
+      - type: boolean
+      description: Whether this release cycle has active support
+      format: date
+      maxLength: 10
+      minLength: 10
+      title: cycle_support
+    cycle_discontinued:
+      anyOf:
+      - type: string
+      - type: boolean
+      description: Whether this cycle is now discontinued.
+      format: date
+      maxLength: 10
+      minLength: 10
+      title: cycle_discontinued

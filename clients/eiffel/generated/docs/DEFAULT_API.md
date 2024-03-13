@@ -10,7 +10,7 @@ Feature | HTTP request | Description
 
 
 # **api_all_json**
-> api_all_json : detachable ANY
+> api_all_json : detachable LIST [STRING_32]
 
 
 All Products
@@ -23,7 +23,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ANY**](ANY.md)
+[**LIST [STRING_32]**](STRING_32.md)
 
 ### Authorization
 
@@ -37,7 +37,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_product_cycle_json**
-> api_product_cycle_json (product: ANY ; cycle: ANY ): detachable CYCLE
+> api_product_cycle_json (product: STRING_32 ; cycle: STRING_32 ): detachable CYCLE
 
 
 Single cycle details
@@ -49,8 +49,8 @@ Gets details of a single cycle
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**ANY**](.md)| Product URL as per the canonical URL on the endofife.date website | [default to null]
- **cycle** | [**ANY**](.md)| Release Cycle for which the details must be fetched | [default to null]
+ **product** | **STRING_32**| Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **cycle** | **STRING_32**| Release Cycle for which the details must be fetched | [default to null]
 
 ### Return type
 
@@ -68,7 +68,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **api_product_json**
-> api_product_json (product: ANY ): detachable ANY
+> api_product_json (product: STRING_32 ): detachable LIST [CYCLE]
 
 
 Get All Details
@@ -80,11 +80,11 @@ Get EoL dates of all cycles of a given product.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**ANY**](.md)| Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **product** | **STRING_32**| Product URL as per the canonical URL on the endofife.date website | [default to null]
 
 ### Return type
 
-[**ANY**](ANY.md)
+[**LIST [CYCLE]**](cycle.md)
 
 ### Authorization
 

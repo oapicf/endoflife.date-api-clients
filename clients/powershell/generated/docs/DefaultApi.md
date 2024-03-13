@@ -1,4 +1,4 @@
-# PSOpenAPITools.PSOpenAPITools/Api.DefaultApi
+# PSOpenAPITools.PSOpenAPITools\Api.DefaultApi
 
 All URIs are relative to *https://endoflife.date*
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a id="Get-ApiAllJson"></a>
 # **Get-ApiAllJson**
-> AnyType Get-ApiAllJson<br>
+> String[] Get-ApiAllJson<br>
 
 All Products
 
@@ -34,7 +34,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AnyType**](AnyType.md) (PSCustomObject)
+**String[]**
 
 ### Authorization
 
@@ -50,8 +50,8 @@ No authorization required
 <a id="Get-ApiProductCycleJson"></a>
 # **Get-ApiProductCycleJson**
 > Cycle Get-ApiProductCycleJson<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Product] <PSCustomObject><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Cycle] <PSCustomObject><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Product] <String><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Cycle] <String><br>
 
 Single cycle details
 
@@ -59,8 +59,8 @@ Gets details of a single cycle
 
 ### Example
 ```powershell
-$Product =  # AnyType | Product URL as per the canonical URL on the endofife.date website
-$Cycle =  # AnyType | Release Cycle for which the details must be fetched
+$Product = "MyProduct" # String | Product URL as per the canonical URL on the endofife.date website
+$Cycle = "MyCycle" # String | Release Cycle for which the details must be fetched
 
 # Single cycle details
 try {
@@ -75,8 +75,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Product** | [**AnyType**](AnyType.md)| Product URL as per the canonical URL on the endofife.date website | 
- **Cycle** | [**AnyType**](AnyType.md)| Release Cycle for which the details must be fetched | 
+ **Product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
+ **Cycle** | **String**| Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -95,8 +95,8 @@ No authorization required
 
 <a id="Get-ApiProductJson"></a>
 # **Get-ApiProductJson**
-> AnyType Get-ApiProductJson<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Product] <PSCustomObject><br>
+> Cycle[] Get-ApiProductJson<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-Product] <String><br>
 
 Get All Details
 
@@ -104,7 +104,7 @@ Get EoL dates of all cycles of a given product.
 
 ### Example
 ```powershell
-$Product =  # AnyType | Product URL as per the canonical URL on the endofife.date website
+$Product = "MyProduct" # String | Product URL as per the canonical URL on the endofife.date website
 
 # Get All Details
 try {
@@ -119,11 +119,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Product** | [**AnyType**](AnyType.md)| Product URL as per the canonical URL on the endofife.date website | 
+ **Product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-[**AnyType**](AnyType.md) (PSCustomObject)
+[**Cycle[]**](Cycle.md) (PSCustomObject)
 
 ### Authorization
 

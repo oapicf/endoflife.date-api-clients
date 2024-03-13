@@ -19,22 +19,22 @@ class CYCLE
 
 feature --Access
 
-    cycle: detachable ANY
-      -- Release Cycle
-    release_date: detachable ANY
+    cycle: detachable CYCLE_CYCLE
+      
+    release_date: detachable DATE
       -- Release Date for the first release in this cycle
-    eol: detachable ANY
-      -- End of Life Date for this release cycle
-    latest: detachable ANY
+    eol: detachable CYCLE_EOL
+      
+    latest: detachable STRING_32
       -- Latest release in this cycle
-    link: detachable ANY
+    link: detachable STRING_32
       -- Link to changelog for the latest release, if available
-    lts: detachable ANY
-      -- Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-    support: detachable ANY
-      -- Whether this release cycle has active support
-    discontinued: detachable ANY
-      -- Whether this cycle is now discontinued.
+    lts: detachable CYCLE_LTS
+      
+    support: detachable CYCLE_SUPPORT
+      
+    discontinued: detachable CYCLE_DISCONTINUED
+      
 
 feature -- Change Element
 

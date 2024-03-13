@@ -63,7 +63,7 @@ namespace Org.OpenAPITools.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetApiAllJson();
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<List<string>>(response);
         }
 
         /// <summary>
@@ -73,8 +73,8 @@ namespace Org.OpenAPITools.Test.Api
         public void GetApiProductCycleJsonTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Object product = null;
-            //Object cycle = null;
+            //string product = null;
+            //string cycle = null;
             //var response = instance.GetApiProductCycleJson(product, cycle);
             //Assert.IsType<Cycle>(response);
         }
@@ -86,9 +86,9 @@ namespace Org.OpenAPITools.Test.Api
         public void GetApiProductJsonTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //Object product = null;
+            //string product = null;
             //var response = instance.GetApiProductJson(product);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<List<Cycle>>(response);
         }
     }
 }

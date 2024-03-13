@@ -30,7 +30,7 @@ OAIApiRouter::~OAIApiRouter(){
 
 }
 
-void OAIApiRouter::createApiHandlers() {
+void OAIApiRouter::createApiHandlers() { 
     mOAIDefaultApiHandler = QSharedPointer<OAIDefaultApiHandler>::create();
 }
 
@@ -40,7 +40,7 @@ void OAIApiRouter::setOAIDefaultApiHandler(QSharedPointer<OAIDefaultApiHandler> 
 }
 
 void OAIApiRouter::setUpRoutes() {
-
+    
     Routes.insert(QString("%1 %2").arg("GET").arg("/api/all.json").toLower(), [this](QHttpEngine::Socket *socket) {
             auto reqObj = new OAIDefaultApiRequest(socket, mOAIDefaultApiHandler);
             reqObj->getApiAll_jsonRequest();

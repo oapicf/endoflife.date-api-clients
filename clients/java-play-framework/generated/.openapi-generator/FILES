@@ -3,6 +3,11 @@ LICENSE
 README
 app/Module.java
 app/apimodels/Cycle.java
+app/apimodels/CycleCycle.java
+app/apimodels/CycleDiscontinued.java
+app/apimodels/CycleEol.java
+app/apimodels/CycleLts.java
+app/apimodels/CycleSupport.java
 app/controllers/ApiDocController.java
 app/controllers/DefaultApiController.java
 app/controllers/DefaultApiControllerImp.java

@@ -78,7 +78,7 @@ class CycleTest extends TestCase
             class_exists($namespacedClassname),
             sprintf('Assertion failed that "%s" class exists', $namespacedClassname)
         );
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "Cycle" model has not been implemented yet.'
         );
     }
@@ -88,7 +88,7 @@ class CycleTest extends TestCase
      */
     public function testPropertyCycle()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "cycle" property in "Cycle" model has not been implemented yet.'
         );
     }
@@ -98,7 +98,7 @@ class CycleTest extends TestCase
      */
     public function testPropertyReleaseDate()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "releaseDate" property in "Cycle" model has not been implemented yet.'
         );
     }
@@ -108,7 +108,7 @@ class CycleTest extends TestCase
      */
     public function testPropertyEol()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "eol" property in "Cycle" model has not been implemented yet.'
         );
     }
@@ -118,7 +118,7 @@ class CycleTest extends TestCase
      */
     public function testPropertyLatest()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "latest" property in "Cycle" model has not been implemented yet.'
         );
     }
@@ -128,7 +128,7 @@ class CycleTest extends TestCase
      */
     public function testPropertyLink()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "link" property in "Cycle" model has not been implemented yet.'
         );
     }
@@ -138,7 +138,7 @@ class CycleTest extends TestCase
      */
     public function testPropertyLts()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "lts" property in "Cycle" model has not been implemented yet.'
         );
     }
@@ -148,7 +148,7 @@ class CycleTest extends TestCase
      */
     public function testPropertySupport()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "support" property in "Cycle" model has not been implemented yet.'
         );
     }
@@ -158,7 +158,7 @@ class CycleTest extends TestCase
      */
     public function testPropertyDiscontinued()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "discontinued" property in "Cycle" model has not been implemented yet.'
         );
     }
@@ -173,3 +173,4 @@ class CycleTest extends TestCase
         $this->assertIsArray($schemaArr);
     }
 }
+

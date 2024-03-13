@@ -1,74 +1,84 @@
 package apimodels;
 
+import apimodels.CycleCycle;
+import apimodels.CycleDiscontinued;
+import apimodels.CycleEol;
+import apimodels.CycleLts;
+import apimodels.CycleSupport;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.*;
 import java.util.Set;
 import javax.validation.*;
 import java.util.Objects;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2023-09-16T14:43:28.067343Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-03-13T10:45:07.097392421Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class Cycle   {
   @JsonProperty("cycle")
-  
-  private Object cycle = null;
+  @Valid
+
+  private CycleCycle cycle;
 
   @JsonProperty("releaseDate")
   @Size(min=10,max=10)
+@Valid
 
-  private Object releaseDate = null;
+  private LocalDate releaseDate;
 
   @JsonProperty("eol")
-  @Size(min=1)
+  @Valid
 
-  private Object eol = null;
+  private CycleEol eol;
 
   @JsonProperty("latest")
   @Size(min=1)
 
-  private Object latest = null;
+  private String latest;
 
   @JsonProperty("link")
   @Size(min=1)
 
-  private Object link = null;
+  private String link;
 
   @JsonProperty("lts")
-  
-  private Object lts = null;
+  @Valid
+
+  private CycleLts lts;
 
   @JsonProperty("support")
-  @Size(min=10,max=10)
+  @Valid
 
-  private Object support = null;
+  private CycleSupport support;
 
   @JsonProperty("discontinued")
-  @Size(min=10,max=10)
+  @Valid
 
-  private Object discontinued = null;
+  private CycleDiscontinued discontinued;
 
-  public Cycle cycle(Object cycle) {
+  public Cycle cycle(CycleCycle cycle) {
     this.cycle = cycle;
     return this;
   }
 
    /**
-   * Release Cycle
+   * Get cycle
    * @return cycle
   **/
-  public Object getCycle() {
+  public CycleCycle getCycle() {
     return cycle;
   }
 
-  public void setCycle(Object cycle) {
+  public void setCycle(CycleCycle cycle) {
     this.cycle = cycle;
   }
 
-  public Cycle releaseDate(Object releaseDate) {
+  public Cycle releaseDate(LocalDate releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
@@ -77,32 +87,32 @@ public class Cycle   {
    * Release Date for the first release in this cycle
    * @return releaseDate
   **/
-  public Object getReleaseDate() {
+  public LocalDate getReleaseDate() {
     return releaseDate;
   }
 
-  public void setReleaseDate(Object releaseDate) {
+  public void setReleaseDate(LocalDate releaseDate) {
     this.releaseDate = releaseDate;
   }
 
-  public Cycle eol(Object eol) {
+  public Cycle eol(CycleEol eol) {
     this.eol = eol;
     return this;
   }
 
    /**
-   * End of Life Date for this release cycle
+   * Get eol
    * @return eol
   **/
-  public Object getEol() {
+  public CycleEol getEol() {
     return eol;
   }
 
-  public void setEol(Object eol) {
+  public void setEol(CycleEol eol) {
     this.eol = eol;
   }
 
-  public Cycle latest(Object latest) {
+  public Cycle latest(String latest) {
     this.latest = latest;
     return this;
   }
@@ -111,15 +121,15 @@ public class Cycle   {
    * Latest release in this cycle
    * @return latest
   **/
-  public Object getLatest() {
+  public String getLatest() {
     return latest;
   }
 
-  public void setLatest(Object latest) {
+  public void setLatest(String latest) {
     this.latest = latest;
   }
 
-  public Cycle link(Object link) {
+  public Cycle link(String link) {
     this.link = link;
     return this;
   }
@@ -128,62 +138,62 @@ public class Cycle   {
    * Link to changelog for the latest release, if available
    * @return link
   **/
-  public Object getLink() {
+  public String getLink() {
     return link;
   }
 
-  public void setLink(Object link) {
+  public void setLink(String link) {
     this.link = link;
   }
 
-  public Cycle lts(Object lts) {
+  public Cycle lts(CycleLts lts) {
     this.lts = lts;
     return this;
   }
 
    /**
-   * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+   * Get lts
    * @return lts
   **/
-  public Object getLts() {
+  public CycleLts getLts() {
     return lts;
   }
 
-  public void setLts(Object lts) {
+  public void setLts(CycleLts lts) {
     this.lts = lts;
   }
 
-  public Cycle support(Object support) {
+  public Cycle support(CycleSupport support) {
     this.support = support;
     return this;
   }
 
    /**
-   * Whether this release cycle has active support
+   * Get support
    * @return support
   **/
-  public Object getSupport() {
+  public CycleSupport getSupport() {
     return support;
   }
 
-  public void setSupport(Object support) {
+  public void setSupport(CycleSupport support) {
     this.support = support;
   }
 
-  public Cycle discontinued(Object discontinued) {
+  public Cycle discontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
     return this;
   }
 
    /**
-   * Whether this cycle is now discontinued.
+   * Get discontinued
    * @return discontinued
   **/
-  public Object getDiscontinued() {
+  public CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
 
-  public void setDiscontinued(Object discontinued) {
+  public void setDiscontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 

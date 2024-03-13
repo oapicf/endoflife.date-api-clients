@@ -3,16 +3,36 @@
 title endoflife.date Schemas Diagram
 
 entity Cycle {
-    cycle: OasAnyTypeNotMapped
-    releaseDate: OasAnyTypeNotMapped
-    eol: OasAnyTypeNotMapped
-    latest: OasAnyTypeNotMapped
-    link: OasAnyTypeNotMapped
-    lts: OasAnyTypeNotMapped
-    support: OasAnyTypeNotMapped
-    discontinued: OasAnyTypeNotMapped
+    cycle: CycleCycle
+    releaseDate: Date
+    eol: CycleEol
+    latest: String
+    link: String
+    lts: CycleLts
+    support: CycleSupport
+    discontinued: CycleDiscontinued
+}
+
+entity CycleCycle {
+}
+
+entity CycleDiscontinued {
+}
+
+entity CycleEol {
+}
+
+entity CycleLts {
+}
+
+entity CycleSupport {
 }
 
 
+Cycle -- CycleCycle : cycle
+Cycle -- CycleEol : eol
+Cycle -- CycleLts : lts
+Cycle -- CycleSupport : support
+Cycle -- CycleDiscontinued : discontinued
 
 @enduml

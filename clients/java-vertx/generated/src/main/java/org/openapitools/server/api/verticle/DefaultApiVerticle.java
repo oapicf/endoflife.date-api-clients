@@ -43,7 +43,7 @@ public class DefaultApiVerticle extends AbstractVerticle {
                 String serviceId = "get-api-all.json";
                 service.getApiAllJson(result -> {
                     if (result.succeeded())
-                        message.reply(new JsonObject(Json.encode(result.result())).encodePrettily());
+                        message.reply(new JsonArray(Json.encode(result.result())).encodePrettily());
                     else {
                         Throwable cause = result.cause();
                         manageError(message, cause, "get-api-all.json");
@@ -60,18 +60,18 @@ public class DefaultApiVerticle extends AbstractVerticle {
             try {
                 // Workaround for #allParams section clearing the vendorExtensions map
                 String serviceId = "get-api-:product-:cycle.json";
-                JsonObject productParam = message.body().getJsonObject("product");
-                if (productParam == null) {
+                String productParam = message.body().getString("product");
+                if(productParam == null) {
                     manageError(message, new MainApiException(400, "product is required"), serviceId);
                     return;
                 }
-                Object product = Json.mapper.readValue(productParam.encode(), Object.class);
-                JsonObject cycleParam = message.body().getJsonObject("cycle");
-                if (cycleParam == null) {
+                String product = productParam;
+                String cycleParam = message.body().getString("cycle");
+                if(cycleParam == null) {
                     manageError(message, new MainApiException(400, "cycle is required"), serviceId);
                     return;
                 }
-                Object cycle = Json.mapper.readValue(cycleParam.encode(), Object.class);
+                String cycle = cycleParam;
                 service.getApiProductCycleJson(product, cycle, result -> {
                     if (result.succeeded())
                         message.reply(new JsonObject(Json.encode(result.result())).encodePrettily());
@@ -91,15 +91,15 @@ public class DefaultApiVerticle extends AbstractVerticle {
             try {
                 // Workaround for #allParams section clearing the vendorExtensions map
                 String serviceId = "get-api-:product.json";
-                JsonObject productParam = message.body().getJsonObject("product");
-                if (productParam == null) {
+                String productParam = message.body().getString("product");
+                if(productParam == null) {
                     manageError(message, new MainApiException(400, "product is required"), serviceId);
                     return;
                 }
-                Object product = Json.mapper.readValue(productParam.encode(), Object.class);
+                String product = productParam;
                 service.getApiProductJson(product, result -> {
                     if (result.succeeded())
-                        message.reply(new JsonObject(Json.encode(result.result())).encodePrettily());
+                        message.reply(new JsonArray(Json.encode(result.result())).encodePrettily());
                     else {
                         Throwable cause = result.cause();
                         manageError(message, cause, "get-api-:product.json");

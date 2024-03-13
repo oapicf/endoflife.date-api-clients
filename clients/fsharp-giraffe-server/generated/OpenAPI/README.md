@@ -6,6 +6,11 @@ A [Giraffe](https://github.com/giraffe-fsharp/Giraffe) server stub for the OpenA
 
 The following models have been auto-generated from the provided OpenAPI schema:
 
+- model/CycleSupportModel.fs
+- model/CycleLtsModel.fs
+- model/CycleEolModel.fs
+- model/CycleDiscontinuedModel.fs
+- model/CycleCycleModel.fs
 - model/CycleModel.fs
 
 ## Operations

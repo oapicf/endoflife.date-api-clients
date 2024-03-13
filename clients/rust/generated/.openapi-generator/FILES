@@ -4,6 +4,11 @@
 Cargo.toml
 README.md
 docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
 docs/DefaultApi.md
 git_push.sh
 src/apis/configuration.rs
@@ -11,4 +16,9 @@ src/apis/default_api.rs
 src/apis/mod.rs
 src/lib.rs
 src/models/cycle.rs
+src/models/cycle_cycle.rs
+src/models/cycle_discontinued.rs
+src/models/cycle_eol.rs
+src/models/cycle_lts.rs
+src/models/cycle_support.rs
 src/models/mod.rs

@@ -22,7 +22,7 @@ public class SpringDocConfiguration {
                                 .description("Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)")
                                 .contact(
                                         new Contact()
-                                                .name("Cliffano Subagio")
+                                                .name("OpenAPI Clients Factory")
                                                 .url("https://github.com/oapicf/endoflife.date-api-clients")
                                                 .email("blah+oapicf@cliffano.com")
                                 )

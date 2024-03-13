@@ -8,7 +8,14 @@ application/config/path_handler.yml
 application/container.php
 composer.json
 public/index.php
+src/App/DTO/Collection.php
+src/App/DTO/Collection1.php
 src/App/DTO/Cycle.php
+src/App/DTO/CycleCycle.php
+src/App/DTO/CycleDiscontinued.php
+src/App/DTO/CycleEol.php
+src/App/DTO/CycleLts.php
+src/App/DTO/CycleSupport.php
 src/App/Factory.php
 src/App/Handler/ApiAllJson.php
 src/App/Handler/ApiProductCycleJson.php

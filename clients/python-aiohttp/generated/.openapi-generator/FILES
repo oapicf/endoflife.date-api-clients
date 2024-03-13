@@ -9,6 +9,11 @@ openapi_server/controllers/security_controller.py
 openapi_server/models/__init__.py
 openapi_server/models/base_model.py
 openapi_server/models/cycle.py
+openapi_server/models/cycle_cycle.py
+openapi_server/models/cycle_discontinued.py
+openapi_server/models/cycle_eol.py
+openapi_server/models/cycle_lts.py
+openapi_server/models/cycle_support.py
 openapi_server/openapi/openapi.yaml
 openapi_server/typing_utils.py
 openapi_server/util.py

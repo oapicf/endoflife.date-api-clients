@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get-api-all.json**
-> serde_json::Value get-api-all.json()
+> Vec<String> get-api-all.json()
 All Products
 
 Return a list of all products. Each of these can be used for the other API endpoints.
@@ -20,7 +20,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**serde_json::Value**](AnyType.md)
+[**Vec<String>**](string.md)
 
 ### Authorization
 
@@ -43,8 +43,8 @@ Gets details of a single cycle
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-  **product** | [****](.md)| Product URL as per the canonical URL on the endofife.date website | 
-  **cycle** | [****](.md)| Release Cycle for which the details must be fetched | 
+  **product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
+  **cycle** | **String**| Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -62,7 +62,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get-api-:product.json**
-> serde_json::Value get-api-:product.json(product)
+> Vec<models::Cycle> get-api-:product.json(product)
 Get All Details
 
 Get EoL dates of all cycles of a given product.
@@ -71,11 +71,11 @@ Get EoL dates of all cycles of a given product.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-  **product** | [****](.md)| Product URL as per the canonical URL on the endofife.date website | 
+  **product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-[**serde_json::Value**](AnyType.md)
+[**Vec<models::Cycle>**](cycle.md)
 
 ### Authorization
 

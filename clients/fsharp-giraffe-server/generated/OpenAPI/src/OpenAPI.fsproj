@@ -21,6 +21,11 @@
   <ItemGroup>
     <Content Include="openapi.yaml"/>
     <Compile Include="helpers/Helpers.fs" />
+    <Compile Include="model/CycleSupport.fs" />
+    <Compile Include="model/CycleLts.fs" />
+    <Compile Include="model/CycleEol.fs" />
+    <Compile Include="model/CycleDiscontinued.fs" />
+    <Compile Include="model/CycleCycle.fs" />
     <Compile Include="model/Cycle.fs" />
     <Compile Include="api/DefaultApiHandlerParams.fs" />
     <Compile Include="api/DefaultApiServiceInterface.fs" />

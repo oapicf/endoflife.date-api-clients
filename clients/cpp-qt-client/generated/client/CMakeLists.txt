@@ -1,7 +1,10 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.5)
 
 project(QtOpenAPIClient)
 
+set(CMAKE_AUTOMOC ON)
+
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Network Gui)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Network Gui)
 
 include(GNUInstallDirs)
@@ -9,6 +12,11 @@ include(CMakePackageConfigHelpers)
 
 add_library(${PROJECT_NAME}
   OAICycle.h
+  OAICycle_cycle.h
+  OAICycle_discontinued.h
+  OAICycle_eol.h
+  OAICycle_lts.h
+  OAICycle_support.h
   OAIDefaultApi.h
   OAIHelpers.h
   OAIHttpRequest.h
@@ -19,6 +27,11 @@ add_library(${PROJECT_NAME}
   OAIServerVariable.h
   OAIOauth.h
   OAICycle.cpp
+  OAICycle_cycle.cpp
+  OAICycle_discontinued.cpp
+  OAICycle_eol.cpp
+  OAICycle_lts.cpp
+  OAICycle_support.cpp
   OAIDefaultApi.cpp
   OAIHelpers.cpp
   OAIHttpRequest.cpp

@@ -2,6 +2,11 @@
 README.md
 pom.xml
 src/main/kotlin/org/openapitools/server/api/model/Cycle.kt
+src/main/kotlin/org/openapitools/server/api/model/CycleCycle.kt
+src/main/kotlin/org/openapitools/server/api/model/CycleDiscontinued.kt
+src/main/kotlin/org/openapitools/server/api/model/CycleEol.kt
+src/main/kotlin/org/openapitools/server/api/model/CycleLts.kt
+src/main/kotlin/org/openapitools/server/api/model/CycleSupport.kt
 src/main/kotlin/org/openapitools/server/api/verticle/DefaultApi.kt
 src/main/kotlin/org/openapitools/server/api/verticle/DefaultApiVerticle.kt
 src/main/kotlin/org/openapitools/server/api/verticle/DefaultApiVertxProxyHandler.kt

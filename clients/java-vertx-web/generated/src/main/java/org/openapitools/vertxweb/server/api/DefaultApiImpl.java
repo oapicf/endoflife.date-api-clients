@@ -14,15 +14,15 @@ import java.util.Map;
 // Implement this class
 
 public class DefaultApiImpl implements DefaultApi {
-    public Future<ApiResponse<Object>> getApiAllJson() {
+    public Future<ApiResponse<List<String>>> getApiAllJson() {
         return Future.failedFuture(new HttpException(501));
     }
 
-    public Future<ApiResponse<Cycle>> getApiProductCycleJson(Object product, Object cycle) {
+    public Future<ApiResponse<Cycle>> getApiProductCycleJson(String product, String cycle) {
         return Future.failedFuture(new HttpException(501));
     }
 
-    public Future<ApiResponse<Object>> getApiProductJson(Object product) {
+    public Future<ApiResponse<List<Cycle>>> getApiProductJson(String product) {
         return Future.failedFuture(new HttpException(501));
     }
 

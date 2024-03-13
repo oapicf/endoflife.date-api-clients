@@ -65,7 +65,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
         try {
-            OasAnyTypeNotMapped result = apiInstance.getApiAllJson();
+            List<String> result = apiInstance.getApiAllJson();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getApiAllJson");
@@ -90,6 +90,11 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Cycle](docs/Cycle.md)
+ - [CycleCycle](docs/CycleCycle.md)
+ - [CycleDiscontinued](docs/CycleDiscontinued.md)
+ - [CycleEol](docs/CycleEol.md)
+ - [CycleLts](docs/CycleLts.md)
+ - [CycleSupport](docs/CycleSupport.md)
 
 
 ## Documentation for Authorization

@@ -14,6 +14,11 @@ src/gen/java/org/openapitools/api/RFC3339DateFormat.java
 src/gen/java/org/openapitools/api/RestApplication.java
 src/gen/java/org/openapitools/api/StringUtil.java
 src/gen/java/org/openapitools/model/Cycle.java
+src/gen/java/org/openapitools/model/CycleCycle.java
+src/gen/java/org/openapitools/model/CycleDiscontinued.java
+src/gen/java/org/openapitools/model/CycleEol.java
+src/gen/java/org/openapitools/model/CycleLts.java
+src/gen/java/org/openapitools/model/CycleSupport.java
 src/main/java/org/openapitools/api/impl/ApiApiServiceImpl.java
 src/main/webapp/WEB-INF/jboss-web.xml
 src/main/webapp/WEB-INF/web.xml

@@ -21,13 +21,11 @@ async def get_api_product_cycle_json(request: web.Request, product, cycle) -> we
     Gets details of a single cycle
 
     :param product: Product URL as per the canonical URL on the endofife.date website
-    :type product: dict | bytes
+    :type product: str
     :param cycle: Release Cycle for which the details must be fetched
-    :type cycle: dict | bytes
+    :type cycle: str
 
     """
-    product = .from_dict(product)
-    cycle = .from_dict(cycle)
     return web.Response(status=200)
 
 
@@ -37,8 +35,7 @@ async def get_api_product_json(request: web.Request, product) -> web.Response:
     Get EoL dates of all cycles of a given product.
 
     :param product: Product URL as per the canonical URL on the endofife.date website
-    :type product: dict | bytes
+    :type product: str
 
     """
-    product = .from_dict(product)
     return web.Response(status=200)

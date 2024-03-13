@@ -15,6 +15,11 @@
 
 package org.openapitools.client.models
 
+import org.openapitools.client.models.CycleCycle
+import org.openapitools.client.models.CycleDiscontinued
+import org.openapitools.client.models.CycleEol
+import org.openapitools.client.models.CycleLts
+import org.openapitools.client.models.CycleSupport
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -22,50 +27,45 @@ import com.squareup.moshi.JsonClass
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  *
- * @param cycle Release Cycle
+ * @param cycle 
  * @param releaseDate Release Date for the first release in this cycle
- * @param eol End of Life Date for this release cycle
+ * @param eol 
  * @param latest Latest release in this cycle
  * @param link Link to changelog for the latest release, if available
- * @param lts Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
- * @param support Whether this release cycle has active support
- * @param discontinued Whether this cycle is now discontinued.
+ * @param lts 
+ * @param support 
+ * @param discontinued 
  */
 
 
 data class Cycle (
 
-    /* Release Cycle */
     @Json(name = "cycle")
-    val cycle: kotlin.Any? = null,
+    val cycle: CycleCycle? = null,
 
     /* Release Date for the first release in this cycle */
     @Json(name = "releaseDate")
-    val releaseDate: kotlin.Any? = null,
+    val releaseDate: java.time.LocalDate? = null,
 
-    /* End of Life Date for this release cycle */
     @Json(name = "eol")
-    val eol: kotlin.Any? = null,
+    val eol: CycleEol? = null,
 
     /* Latest release in this cycle */
     @Json(name = "latest")
-    val latest: kotlin.Any? = null,
+    val latest: kotlin.String? = null,
 
     /* Link to changelog for the latest release, if available */
     @Json(name = "link")
-    val link: kotlin.Any? = null,
+    val link: kotlin.String? = null,
 
-    /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
     @Json(name = "lts")
-    val lts: kotlin.Any? = null,
+    val lts: CycleLts? = null,
 
-    /* Whether this release cycle has active support */
     @Json(name = "support")
-    val support: kotlin.Any? = null,
+    val support: CycleSupport? = null,
 
-    /* Whether this cycle is now discontinued. */
     @Json(name = "discontinued")
-    val discontinued: kotlin.Any? = null
+    val discontinued: CycleDiscontinued? = null
 
 )
 

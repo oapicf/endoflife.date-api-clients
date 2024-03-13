@@ -12,12 +12,15 @@ import java.util.List;
 
 import java.io.InputStream;
 
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2023-09-16T14:43:55.215930Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-03-13T10:45:46.705389032Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public interface ApiApiService {
       public Response getApiAllJson(SecurityContext securityContext);
-      public Response getApiProductCycleJson(Object product, Object cycle, SecurityContext securityContext);
-      public Response getApiProductJson(Object product, SecurityContext securityContext);
+      public Response getApiProductCycleJson(String product, String cycle, SecurityContext securityContext);
+      public Response getApiProductJson(String product, SecurityContext securityContext);
 }

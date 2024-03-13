@@ -26,8 +26,8 @@ module DefaultApiHandlers =
       let result = DefaultApiService.GetApiAllJson ()
       match result with
       | GetApiAllJsonStatusCode200 resolved ->
-          let content = JsonConvert.SerializeObject resolved.content
-          let responseContentType = "application/json"
+          let content = resolved.content
+          let responseContentType = "text/plain"
           ContentResult(Content = content, ContentType = responseContentType, StatusCode = System.Nullable(200))
 
     //#region GetApiProductCycleJson

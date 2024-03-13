@@ -55,6 +55,11 @@ set(SRCS
     external/cJSON.c
     model/object.c
     model/cycle.c
+    model/cycle_cycle.c
+    model/cycle_discontinued.c
+    model/cycle_eol.c
+    model/cycle_lts.c
+    model/cycle_support.c
     api/DefaultAPI.c
 
 )
@@ -67,6 +72,11 @@ set(HDRS
     external/cJSON.h
     model/object.h
     model/cycle.h
+    model/cycle_cycle.h
+    model/cycle_discontinued.h
+    model/cycle_eol.h
+    model/cycle_lts.h
+    model/cycle_support.h
     api/DefaultAPI.h
 
 )

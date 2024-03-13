@@ -16,7 +16,7 @@ class ApiApiTest {
      */
     @Test
     fun getApiAllJsonTest() {
-        val response: ResponseEntity<kotlin.Any> = api.getApiAllJson()
+        val response: ResponseEntity<List<kotlin.String>> = api.getApiAllJson()
 
         // TODO: test validations
     }
@@ -29,8 +29,8 @@ class ApiApiTest {
      */
     @Test
     fun getApiProductCycleJsonTest() {
-        val product: kotlin.Any = TODO()
-        val cycle: kotlin.Any = TODO()
+        val product: kotlin.String = TODO()
+        val cycle: kotlin.String = TODO()
         val response: ResponseEntity<Cycle> = api.getApiProductCycleJson(product, cycle)
 
         // TODO: test validations
@@ -44,8 +44,8 @@ class ApiApiTest {
      */
     @Test
     fun getApiProductJsonTest() {
-        val product: kotlin.Any = TODO()
-        val response: ResponseEntity<kotlin.Any> = api.getApiProductJson(product)
+        val product: kotlin.String = TODO()
+        val response: ResponseEntity<List<Cycle>> = api.getApiProductJson(product)
 
         // TODO: test validations
     }

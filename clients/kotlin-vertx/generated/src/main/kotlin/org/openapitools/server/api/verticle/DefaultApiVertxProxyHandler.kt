@@ -19,7 +19,7 @@ import com.google.gson.Gson
 import org.openapitools.server.api.model.Cycle
 
 class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service: DefaultApi, topLevel: Boolean, private val timeoutSeconds: Long) : ProxyHandler() {
-    private val timerID: Long
+    private lateinit var timerID: Long
     private var lastAccessed: Long = 0
     init {
         try {
@@ -69,16 +69,14 @@ class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service:
         
                 "getApiProductCycleJson" -> {
                     val params = context.params
-                    val productParam = ApiHandlerUtils.searchJsonObjectInJson(params,"product")
-                    if (productParam == null) {
+                    val product = ApiHandlerUtils.searchStringInJson(params,"product")
+                    if(product == null){
                         throw IllegalArgumentException("product is required")
                     }
-                    val product = Gson().fromJson(productParam.encode(), kotlin.Any::class.java)
-                    val cycleParam = ApiHandlerUtils.searchJsonObjectInJson(params,"cycle")
-                    if (cycleParam == null) {
+                    val cycle = ApiHandlerUtils.searchStringInJson(params,"cycle")
+                    if(cycle == null){
                         throw IllegalArgumentException("cycle is required")
                     }
-                    val cycle = Gson().fromJson(cycleParam.encode(), kotlin.Any::class.java)
                     GlobalScope.launch(vertx.dispatcher()){
                         val result = service.getApiProductCycleJson(product,cycle,context)
                         val payload = JsonObject(Json.encode(result.payload)).toBuffer()
@@ -91,14 +89,13 @@ class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service:
         
                 "getApiProductJson" -> {
                     val params = context.params
-                    val productParam = ApiHandlerUtils.searchJsonObjectInJson(params,"product")
-                    if (productParam == null) {
+                    val product = ApiHandlerUtils.searchStringInJson(params,"product")
+                    if(product == null){
                         throw IllegalArgumentException("product is required")
                     }
-                    val product = Gson().fromJson(productParam.encode(), kotlin.Any::class.java)
                     GlobalScope.launch(vertx.dispatcher()){
                         val result = service.getApiProductJson(product,context)
-                        val payload = JsonObject(Json.encode(result.payload)).toBuffer()
+                        val payload = JsonArray(Json.encode(result.payload)).toBuffer()
                         val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
                         msg.reply(res.toJson())
                     }.invokeOnCompletion{

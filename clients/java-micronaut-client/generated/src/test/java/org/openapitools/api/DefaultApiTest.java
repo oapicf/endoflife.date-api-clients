@@ -34,7 +34,7 @@ public class DefaultApiTest {
         // given
 
         // when
-        Object body = api.getApiAllJson().block();
+        List<String> body = api.getApiAllJson().block();
 
         // then
         // TODO implement the getApiAllJsonTest()
@@ -50,8 +50,8 @@ public class DefaultApiTest {
     @Disabled("Not Implemented")
     public void getApiProductCycleJsonTest() {
         // given
-        Object product = null;
-        Object cycle = null;
+        String product = "example";
+        String cycle = "example";
 
         // when
         Cycle body = api.getApiProductCycleJson(product, cycle).block();
@@ -70,10 +70,10 @@ public class DefaultApiTest {
     @Disabled("Not Implemented")
     public void getApiProductJsonTest() {
         // given
-        Object product = null;
+        String product = "example";
 
         // when
-        Object body = api.getApiProductJson(product).block();
+        List<Cycle> body = api.getApiProductJson(product).block();
 
         // then
         // TODO implement the getApiProductJsonTest()

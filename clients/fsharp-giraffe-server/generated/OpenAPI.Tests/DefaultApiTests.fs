@@ -16,7 +16,6 @@ open TestHelper
 open DefaultApiHandlerTestsHelper
 open OpenAPI.DefaultApiHandler
 open OpenAPI.DefaultApiHandlerParams
-open OpenAPI.Model.AnyType
 open OpenAPI.Model.Cycle
 
 module DefaultApiHandlerTests =

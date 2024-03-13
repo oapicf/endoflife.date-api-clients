@@ -16,7 +16,7 @@
 //
 // Return a list of all products. Each of these can be used for the other API endpoints.
 //
-any_type_t*
+list_t*
 DefaultAPI_getApiAllJson(apiClient_t *apiClient)
 {
     list_t    *localVarQueryParameters = NULL;
@@ -48,15 +48,16 @@ DefaultAPI_getApiAllJson(apiClient_t *apiClient)
     //if (apiClient->response_code == 200) {
     //    printf("%s\n","OK");
     //}
-    //nonprimitive not container
-    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    any_type_t *elementToReturn = any_type_parseFromJSON(DefaultAPIlocalVarJSON);
-    cJSON_Delete(DefaultAPIlocalVarJSON);
-    if(elementToReturn == NULL) {
-        // return 0;
+    //primitive return type not simple
+    cJSON *localVarJSON = cJSON_Parse(apiClient->dataReceived);
+    cJSON *VarJSON;
+    list_t *elementToReturn = list_createList();
+    cJSON_ArrayForEach(VarJSON, localVarJSON){
+        keyValuePair_t *keyPair = keyValuePair_create(strdup(VarJSON->string), cJSON_Print(VarJSON));
+        list_addElement(elementToReturn, keyPair);
     }
+    cJSON_Delete(localVarJSON);
 
-    //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
         apiClient->dataReceived = NULL;
@@ -80,7 +81,7 @@ end:
 // Gets details of a single cycle
 //
 cycle_t*
-DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient,  product ,  cycle )
+DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *cycle)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -96,10 +97,24 @@ DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient,  product ,  cycle )
 
 
     // Path Params
-    long sizeOfPathParams_product =  +  + strlen("{ product }");
+    long sizeOfPathParams_product = strlen(product)+3 + strlen(cycle)+3 + strlen("{ product }");
+    if(product == NULL) {
+        goto end;
+    }
+    char* localVarToReplace_product = malloc(sizeOfPathParams_product);
+    sprintf(localVarToReplace_product, "{%s}", "product");
+
+    localVarPath = strReplace(localVarPath, localVarToReplace_product, product);
 
     // Path Params
-    long sizeOfPathParams_cycle =  +  + strlen("{ cycle }");
+    long sizeOfPathParams_cycle = strlen(product)+3 + strlen(cycle)+3 + strlen("{ cycle }");
+    if(cycle == NULL) {
+        goto end;
+    }
+    char* localVarToReplace_cycle = malloc(sizeOfPathParams_cycle);
+    sprintf(localVarToReplace_cycle, "{%s}", "cycle");
+
+    localVarPath = strReplace(localVarPath, localVarToReplace_cycle, cycle);
 
 
     list_addElement(localVarHeaderType,"application/json"); //produces
@@ -150,8 +165,8 @@ end:
 //
 // Get EoL dates of all cycles of a given product.
 //
-any_type_t*
-DefaultAPI_getApiProductJson(apiClient_t *apiClient,  product )
+list_t*
+DefaultAPI_getApiProductJson(apiClient_t *apiClient, char *product)
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -167,7 +182,14 @@ DefaultAPI_getApiProductJson(apiClient_t *apiClient,  product )
 
 
     // Path Params
-    long sizeOfPathParams_product =  + strlen("{ product }");
+    long sizeOfPathParams_product = strlen(product)+3 + strlen("{ product }");
+    if(product == NULL) {
+        goto end;
+    }
+    char* localVarToReplace_product = malloc(sizeOfPathParams_product);
+    sprintf(localVarToReplace_product, "{%s}", "product");
+
+    localVarPath = strReplace(localVarPath, localVarToReplace_product, product);
 
 
     list_addElement(localVarHeaderType,"application/json"); //produces
@@ -185,14 +207,24 @@ DefaultAPI_getApiProductJson(apiClient_t *apiClient,  product )
     //if (apiClient->response_code == 200) {
     //    printf("%s\n","OK");
     //}
-    //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    any_type_t *elementToReturn = any_type_parseFromJSON(DefaultAPIlocalVarJSON);
-    cJSON_Delete(DefaultAPIlocalVarJSON);
-    if(elementToReturn == NULL) {
-        // return 0;
+    if(!cJSON_IsArray(DefaultAPIlocalVarJSON)) {
+        return 0;//nonprimitive container
+    }
+    list_t *elementToReturn = list_createList();
+    cJSON *VarJSON;
+    cJSON_ArrayForEach(VarJSON, DefaultAPIlocalVarJSON)
+    {
+        if(!cJSON_IsObject(VarJSON))
+        {
+           // return 0;
+        }
+        char *localVarJSONToChar = cJSON_Print(VarJSON);
+        list_addElement(elementToReturn , localVarJSONToChar);
     }
 
+    cJSON_Delete( DefaultAPIlocalVarJSON);
+    cJSON_Delete( VarJSON);
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);

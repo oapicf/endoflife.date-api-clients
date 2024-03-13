@@ -9,7 +9,12 @@
 
 
 #include <string>
-#include "AnyType.h"
+#include "Cycle_cycle.h"
+#include "Cycle_discontinued.h"
+#include "Cycle_eol.h"
+#include "Cycle_lts.h"
+#include "Cycle_support.h"
+#include "Date.h"
 #include "Object.h"
 
 /** \defgroup Models Data Structures for API
@@ -46,72 +51,72 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Release Cycle
+	/*! \brief Get 
 	 */
-	AnyType getCycle();
+	Cycle_cycle getCycle();
 
-	/*! \brief Set Release Cycle
+	/*! \brief Set 
 	 */
-	void setCycle(AnyType  cycle);
+	void setCycle(Cycle_cycle  cycle);
 	/*! \brief Get Release Date for the first release in this cycle
 	 */
-	AnyType getReleaseDate();
+	Date getReleaseDate();
 
 	/*! \brief Set Release Date for the first release in this cycle
 	 */
-	void setReleaseDate(AnyType  releaseDate);
-	/*! \brief Get End of Life Date for this release cycle
+	void setReleaseDate(Date  releaseDate);
+	/*! \brief Get 
 	 */
-	AnyType getEol();
+	Cycle_eol getEol();
 
-	/*! \brief Set End of Life Date for this release cycle
+	/*! \brief Set 
 	 */
-	void setEol(AnyType  eol);
+	void setEol(Cycle_eol  eol);
 	/*! \brief Get Latest release in this cycle
 	 */
-	AnyType getLatest();
+	std::string getLatest();
 
 	/*! \brief Set Latest release in this cycle
 	 */
-	void setLatest(AnyType  latest);
+	void setLatest(std::string  latest);
 	/*! \brief Get Link to changelog for the latest release, if available
 	 */
-	AnyType getLink();
+	std::string getLink();
 
 	/*! \brief Set Link to changelog for the latest release, if available
 	 */
-	void setLink(AnyType  link);
-	/*! \brief Get Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+	void setLink(std::string  link);
+	/*! \brief Get 
 	 */
-	AnyType getLts();
+	Cycle_lts getLts();
 
-	/*! \brief Set Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+	/*! \brief Set 
 	 */
-	void setLts(AnyType  lts);
-	/*! \brief Get Whether this release cycle has active support
+	void setLts(Cycle_lts  lts);
+	/*! \brief Get 
 	 */
-	AnyType getSupport();
+	Cycle_support getSupport();
 
-	/*! \brief Set Whether this release cycle has active support
+	/*! \brief Set 
 	 */
-	void setSupport(AnyType  support);
-	/*! \brief Get Whether this cycle is now discontinued.
+	void setSupport(Cycle_support  support);
+	/*! \brief Get 
 	 */
-	AnyType getDiscontinued();
+	Cycle_discontinued getDiscontinued();
 
-	/*! \brief Set Whether this cycle is now discontinued.
+	/*! \brief Set 
 	 */
-	void setDiscontinued(AnyType  discontinued);
+	void setDiscontinued(Cycle_discontinued  discontinued);
 
 private:
-	AnyType cycle;
-	AnyType releaseDate;
-	AnyType eol;
-	AnyType latest;
-	AnyType link;
-	AnyType lts;
-	AnyType support;
-	AnyType discontinued;
+	Cycle_cycle cycle;
+	Date releaseDate;
+	Cycle_eol eol;
+	std::string latest;
+	std::string link;
+	Cycle_lts lts;
+	Cycle_support support;
+	Cycle_discontinued discontinued;
 	void __init();
 	void __cleanup();
 

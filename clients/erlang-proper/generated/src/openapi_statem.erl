@@ -75,7 +75,7 @@ get_api_product_cycle_json(Product, Cycle) ->
   openapi_api:get_api_product_cycle_json(Product, Cycle).
 
 get_api_product_cycle_json_args(_S) ->
-  [openapi_any_type:openapi_any_type(), openapi_any_type:openapi_any_type()].
+  [binary(), binary()].
 
 %%==============================================================================
 %% get_api_product_json
@@ -85,5 +85,5 @@ get_api_product_json(Product) ->
   openapi_api:get_api_product_json(Product).
 
 get_api_product_json_args(_S) ->
-  [openapi_any_type:openapi_any_type()].
+  [binary()].
 

@@ -119,15 +119,55 @@ instance Arbitrary Cycle where
 genCycle :: Int -> Gen Cycle
 genCycle n =
   Cycle
-    <$> arbitraryReducedMaybe n -- cycleCycle :: Maybe AnyType
-    <*> arbitraryReducedMaybe n -- cycleReleaseDate :: Maybe AnyType
-    <*> arbitraryReducedMaybe n -- cycleEol :: Maybe AnyType
-    <*> arbitraryReducedMaybe n -- cycleLatest :: Maybe AnyType
-    <*> arbitraryReducedMaybe n -- cycleLink :: Maybe AnyType
-    <*> arbitraryReducedMaybe n -- cycleLts :: Maybe AnyType
-    <*> arbitraryReducedMaybe n -- cycleSupport :: Maybe AnyType
-    <*> arbitraryReducedMaybe n -- cycleDiscontinued :: Maybe AnyType
+    <$> arbitraryReducedMaybe n -- cycleCycle :: Maybe CycleCycle
+    <*> arbitraryReducedMaybe n -- cycleReleaseDate :: Maybe Date
+    <*> arbitraryReducedMaybe n -- cycleEol :: Maybe CycleEol
+    <*> arbitraryReducedMaybe n -- cycleLatest :: Maybe Text
+    <*> arbitraryReducedMaybe n -- cycleLink :: Maybe Text
+    <*> arbitraryReducedMaybe n -- cycleLts :: Maybe CycleLts
+    <*> arbitraryReducedMaybe n -- cycleSupport :: Maybe CycleSupport
+    <*> arbitraryReducedMaybe n -- cycleDiscontinued :: Maybe CycleDiscontinued
   
+instance Arbitrary CycleCycle where
+  arbitrary = sized genCycleCycle
+
+genCycleCycle :: Int -> Gen CycleCycle
+genCycleCycle n =
+  
+  pure CycleCycle
+   
+instance Arbitrary CycleDiscontinued where
+  arbitrary = sized genCycleDiscontinued
+
+genCycleDiscontinued :: Int -> Gen CycleDiscontinued
+genCycleDiscontinued n =
+  
+  pure CycleDiscontinued
+   
+instance Arbitrary CycleEol where
+  arbitrary = sized genCycleEol
+
+genCycleEol :: Int -> Gen CycleEol
+genCycleEol n =
+  
+  pure CycleEol
+   
+instance Arbitrary CycleLts where
+  arbitrary = sized genCycleLts
+
+genCycleLts :: Int -> Gen CycleLts
+genCycleLts n =
+  
+  pure CycleLts
+   
+instance Arbitrary CycleSupport where
+  arbitrary = sized genCycleSupport
+
+genCycleSupport :: Int -> Gen CycleSupport
+genCycleSupport n =
+  
+  pure CycleSupport
+   
 
 
 

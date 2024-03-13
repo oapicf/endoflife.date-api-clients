@@ -1,6 +1,11 @@
 import localVarRequest from 'request';
 
 export * from './cycle';
+export * from './cycleCycle';
+export * from './cycleDiscontinued';
+export * from './cycleEol';
+export * from './cycleLts';
+export * from './cycleSupport';
 
 import * as fs from 'fs';
 
@@ -16,6 +21,11 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
 import { Cycle } from './cycle';
+import { CycleCycle } from './cycleCycle';
+import { CycleDiscontinued } from './cycleDiscontinued';
+import { CycleEol } from './cycleEol';
+import { CycleLts } from './cycleLts';
+import { CycleSupport } from './cycleSupport';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -34,6 +44,11 @@ let enumsMap: {[index: string]: any} = {
 
 let typeMap: {[index: string]: any} = {
     "Cycle": Cycle,
+    "CycleCycle": CycleCycle,
+    "CycleDiscontinued": CycleDiscontinued,
+    "CycleEol": CycleEol,
+    "CycleLts": CycleLts,
+    "CycleSupport": CycleSupport,
 }
 
 export class ObjectSerializer {

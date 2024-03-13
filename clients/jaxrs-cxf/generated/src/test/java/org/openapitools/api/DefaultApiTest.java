@@ -58,7 +58,7 @@ public class DefaultApiTest {
         ClientConfiguration config = WebClient.getConfig(client);
     }
 
-
+    
     /**
      * All Products
      *
@@ -69,13 +69,13 @@ public class DefaultApiTest {
      */
     @Test
     public void getApiAllJsonTest() {
-        //Object response = api.getApiAllJson();
+        //List<String> response = api.getApiAllJson();
         //assertNotNull(response);
         // TODO: test validations
 
 
     }
-
+    
     /**
      * Single cycle details
      *
@@ -86,15 +86,15 @@ public class DefaultApiTest {
      */
     @Test
     public void getApiProductCycleJsonTest() {
-        Object product = null;
-        Object cycle = null;
+        String product = null;
+        String cycle = null;
         //Cycle response = api.getApiProductCycleJson(product, cycle);
         //assertNotNull(response);
         // TODO: test validations
 
 
     }
-
+    
     /**
      * Get All Details
      *
@@ -105,12 +105,12 @@ public class DefaultApiTest {
      */
     @Test
     public void getApiProductJsonTest() {
-        Object product = null;
-        //Object response = api.getApiProductJson(product);
+        String product = null;
+        //List<Cycle> response = api.getApiProductJson(product);
         //assertNotNull(response);
         // TODO: test validations
 
 
     }
-
+    
 }

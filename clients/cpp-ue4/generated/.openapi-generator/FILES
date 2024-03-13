@@ -2,6 +2,11 @@
 OpenAPI.Build.cs
 Private/OpenAPIBaseModel.cpp
 Private/OpenAPICycle.cpp
+Private/OpenAPICycleCycle.cpp
+Private/OpenAPICycleDiscontinued.cpp
+Private/OpenAPICycleEol.cpp
+Private/OpenAPICycleLts.cpp
+Private/OpenAPICycleSupport.cpp
 Private/OpenAPIDefaultApi.cpp
 Private/OpenAPIDefaultApiOperations.cpp
 Private/OpenAPIHelpers.cpp
@@ -9,6 +14,11 @@ Private/OpenAPIModule.cpp
 Private/OpenAPIModule.h
 Public/OpenAPIBaseModel.h
 Public/OpenAPICycle.h
+Public/OpenAPICycleCycle.h
+Public/OpenAPICycleDiscontinued.h
+Public/OpenAPICycleEol.h
+Public/OpenAPICycleLts.h
+Public/OpenAPICycleSupport.h
 Public/OpenAPIDefaultApi.h
 Public/OpenAPIDefaultApiOperations.h
 Public/OpenAPIHelpers.h

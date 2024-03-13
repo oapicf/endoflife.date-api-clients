@@ -39,17 +39,17 @@ export class DefaultService {
     /**
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
-
+     
      */
-    public getApiAllJson(observe?: 'body', headers?: Headers): Observable<any>;
-    public getApiAllJson(observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
+    public getApiAllJson(observe?: 'body', headers?: Headers): Observable<Array<string>>;
+    public getApiAllJson(observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<string>>>;
     public getApiAllJson(observe: any = 'body', headers: Headers = {}): Observable<any> {
         headers['Accept'] = 'application/json';
 
-        const response: Observable<HttpResponse<any>> = this.httpClient.get(`${this.basePath}/api/all.json`, headers);
+        const response: Observable<HttpResponse<Array<string>>> = this.httpClient.get(`${this.basePath}/api/all.json`, headers);
         if (observe === 'body') {
                return response.pipe(
-                   map((httpResponse: HttpResponse) => <any>(httpResponse.response))
+                   map((httpResponse: HttpResponse) => <Array<string>>(httpResponse.response))
                );
         }
         return response;
@@ -61,11 +61,11 @@ export class DefaultService {
      * Gets details of a single cycle
      * @param product Product URL as per the canonical URL on the endofife.date website
      * @param cycle Release Cycle for which the details must be fetched
-
+     
      */
-    public getApiProductCycleJson(product: any, cycle: any, observe?: 'body', headers?: Headers): Observable<Cycle>;
-    public getApiProductCycleJson(product: any, cycle: any, observe?: 'response', headers?: Headers): Observable<HttpResponse<Cycle>>;
-    public getApiProductCycleJson(product: any, cycle: any, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public getApiProductCycleJson(product: string, cycle: string, observe?: 'body', headers?: Headers): Observable<Cycle>;
+    public getApiProductCycleJson(product: string, cycle: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Cycle>>;
+    public getApiProductCycleJson(product: string, cycle: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (product === null || product === undefined){
             throw new Error('Required parameter product was null or undefined when calling getApiProductCycleJson.');
         }
@@ -90,21 +90,21 @@ export class DefaultService {
      * Get All Details
      * Get EoL dates of all cycles of a given product.
      * @param product Product URL as per the canonical URL on the endofife.date website
-
+     
      */
-    public getApiProductJson(product: any, observe?: 'body', headers?: Headers): Observable<any>;
-    public getApiProductJson(product: any, observe?: 'response', headers?: Headers): Observable<HttpResponse<any>>;
-    public getApiProductJson(product: any, observe: any = 'body', headers: Headers = {}): Observable<any> {
+    public getApiProductJson(product: string, observe?: 'body', headers?: Headers): Observable<Array<Cycle>>;
+    public getApiProductJson(product: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<Array<Cycle>>>;
+    public getApiProductJson(product: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
         if (product === null || product === undefined){
             throw new Error('Required parameter product was null or undefined when calling getApiProductJson.');
         }
 
         headers['Accept'] = 'application/json';
 
-        const response: Observable<HttpResponse<any>> = this.httpClient.get(`${this.basePath}/api/${encodeURIComponent(String(product))}.json`, headers);
+        const response: Observable<HttpResponse<Array<Cycle>>> = this.httpClient.get(`${this.basePath}/api/${encodeURIComponent(String(product))}.json`, headers);
         if (observe === 'body') {
                return response.pipe(
-                   map((httpResponse: HttpResponse) => <any>(httpResponse.response))
+                   map((httpResponse: HttpResponse) => <Array<Cycle>>(httpResponse.response))
                );
         }
         return response;

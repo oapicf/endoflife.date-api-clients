@@ -11,7 +11,7 @@
 
 use reqwest;
 
-use crate::apis::ResponseContent;
+use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
@@ -38,7 +38,7 @@ pub enum GetApiProductPeriodJsonError {
 
 
 /// Return a list of all products. Each of these can be used for the other API endpoints.
-pub async fn get_api_all_period_json(configuration: &configuration::Configuration, ) -> Result<serde_json::Value, Error<GetApiAllPeriodJsonError>> {
+pub async fn get_api_all_period_json(configuration: &configuration::Configuration, ) -> Result<Vec<String>, Error<GetApiAllPeriodJsonError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -66,12 +66,12 @@ pub async fn get_api_all_period_json(configuration: &configuration::Configuratio
 }
 
 /// Gets details of a single cycle
-pub async fn get_api_product_cycle_period_json(configuration: &configuration::Configuration, product: serde_json::Value, cycle: serde_json::Value) -> Result<crate::models::Cycle, Error<GetApiProductCyclePeriodJsonError>> {
+pub async fn get_api_product_cycle_period_json(configuration: &configuration::Configuration, product: &str, cycle: &str) -> Result<models::Cycle, Error<GetApiProductCyclePeriodJsonError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/{product}/{cycle}.json", local_var_configuration.base_path, product=product, cycle=cycle);
+    let local_var_uri_str = format!("{}/api/{product}/{cycle}.json", local_var_configuration.base_path, product=crate::apis::urlencode(product), cycle=crate::apis::urlencode(cycle));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -94,12 +94,12 @@ pub async fn get_api_product_cycle_period_json(configuration: &configuration::Co
 }
 
 /// Get EoL dates of all cycles of a given product.
-pub async fn get_api_product_period_json(configuration: &configuration::Configuration, product: serde_json::Value) -> Result<serde_json::Value, Error<GetApiProductPeriodJsonError>> {
+pub async fn get_api_product_period_json(configuration: &configuration::Configuration, product: &str) -> Result<Vec<models::Cycle>, Error<GetApiProductPeriodJsonError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/{product}.json", local_var_configuration.base_path, product=product);
+    let local_var_uri_str = format!("{}/api/{product}.json", local_var_configuration.base_path, product=crate::apis::urlencode(product));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {

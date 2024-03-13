@@ -1,5 +1,4 @@
 import connexion
-import six
 
 from app.openapi_server.models.cycle import Cycle  # noqa: E501
 from openapi_server import util
@@ -11,7 +10,7 @@ def get_api_all_json():  # noqa: E501
     Return a list of all products. Each of these can be used for the other API endpoints. # noqa: E501
 
 
-    :rtype: object
+    :rtype: List[str]
     """
     return 'do some magic!'
 
@@ -22,16 +21,12 @@ def get_api_product_cycle_json(product, cycle):  # noqa: E501
     Gets details of a single cycle # noqa: E501
 
     :param product: Product URL as per the canonical URL on the endofife.date website
-    :type product: dict | bytes
+    :type product: str
     :param cycle: Release Cycle for which the details must be fetched
-    :type cycle: dict | bytes
+    :type cycle: str
 
     :rtype: Cycle
     """
-    if connexion.request.is_json:
-        product = .from_dict(connexion.request.get_json())  # noqa: E501
-    if connexion.request.is_json:
-        cycle = .from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 
@@ -41,10 +36,8 @@ def get_api_product_json(product):  # noqa: E501
     Get EoL dates of all cycles of a given product. # noqa: E501
 
     :param product: Product URL as per the canonical URL on the endofife.date website
-    :type product: dict | bytes
+    :type product: str
 
-    :rtype: object
+    :rtype: List[Cycle]
     """
-    if connexion.request.is_json:
-        product = .from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'

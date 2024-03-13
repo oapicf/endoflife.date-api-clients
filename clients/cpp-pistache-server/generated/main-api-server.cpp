@@ -79,7 +79,7 @@ int main() {
     httpEndpoint->init(opts);
 
     auto apiImpls = std::vector<std::shared_ptr<ApiBase>>();
-
+    
     apiImpls.push_back(std::make_shared<DefaultApiImpl>(router));
 
     for (auto api : apiImpls) {

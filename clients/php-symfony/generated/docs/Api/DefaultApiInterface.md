@@ -21,7 +21,7 @@ services:
 ```
 
 ## **getApiAllJson**
-> AnyType getApiAllJson()
+> string getApiAllJson()
 
 All Products
 
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AnyType**](../Model/AnyType.md)
+**string**
 
 ### Authorization
 
@@ -95,7 +95,7 @@ class DefaultApi implements DefaultApiInterface
     /**
      * Implementation of DefaultApiInterface#getApiProductCycleJson
      */
-    public function getApiProductCycleJson($product, $cycle, int &$responseCode, array &$responseHeaders): array|object|null
+    public function getApiProductCycleJson(string $product, string $cycle, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -108,8 +108,8 @@ class DefaultApi implements DefaultApiInterface
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](../Model/.md)| Product URL as per the canonical URL on the endofife.date website |
- **cycle** | [**AnyType**](../Model/.md)| Release Cycle for which the details must be fetched |
+ **product** | **string**| Product URL as per the canonical URL on the endofife.date website |
+ **cycle** | **string**| Release Cycle for which the details must be fetched |
 
 ### Return type
 
@@ -127,7 +127,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 ## **getApiProductJson**
-> AnyType getApiProductJson($product)
+> OpenAPI\Server\Model\Cycle getApiProductJson($product)
 
 Get All Details
 
@@ -150,7 +150,7 @@ class DefaultApi implements DefaultApiInterface
     /**
      * Implementation of DefaultApiInterface#getApiProductJson
      */
-    public function getApiProductJson($product, int &$responseCode, array &$responseHeaders): array|object|null
+    public function getApiProductJson(string $product, int &$responseCode, array &$responseHeaders): array|object|null
     {
         // Implement the operation ...
     }
@@ -163,11 +163,11 @@ class DefaultApi implements DefaultApiInterface
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](../Model/.md)| Product URL as per the canonical URL on the endofife.date website |
+ **product** | **string**| Product URL as per the canonical URL on the endofife.date website |
 
 ### Return type
 
-[**AnyType**](../Model/AnyType.md)
+[**OpenAPI\Server\Model\Cycle**](../Model/Cycle.md)
 
 ### Authorization
 

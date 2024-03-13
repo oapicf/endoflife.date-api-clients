@@ -23,12 +23,12 @@ class DefaultApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "",
-                    Object.class )
+                    "GET", "array",
+                    String.class )
 
     }
 
-    def getApiProductCycleJson ( Object product, Object cycle, Closure onSuccess, Closure onFailure)  {
+    def getApiProductCycleJson ( String product, String cycle, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/api/${product}/${cycle}.json"
 
         // params
@@ -56,7 +56,7 @@ class DefaultApi {
 
     }
 
-    def getApiProductJson ( Object product, Closure onSuccess, Closure onFailure)  {
+    def getApiProductJson ( String product, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/api/${product}.json"
 
         // params
@@ -75,8 +75,8 @@ class DefaultApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "",
-                    Object.class )
+                    "GET", "array",
+                    Cycle.class )
 
     }
 

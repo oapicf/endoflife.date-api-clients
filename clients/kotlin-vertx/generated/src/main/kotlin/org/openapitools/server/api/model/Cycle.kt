@@ -11,41 +11,41 @@
 */
 package org.openapitools.server.api.model
 
+import org.openapitools.server.api.model.CycleCycle
+import org.openapitools.server.api.model.CycleDiscontinued
+import org.openapitools.server.api.model.CycleEol
+import org.openapitools.server.api.model.CycleLts
+import org.openapitools.server.api.model.CycleSupport
 
-
+        
 import com.google.gson.annotations.SerializedName
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
- * @param cycle Release Cycle
+ * @param cycle 
  * @param releaseDate Release Date for the first release in this cycle
- * @param eol End of Life Date for this release cycle
+ * @param eol 
  * @param latest Latest release in this cycle
  * @param link Link to changelog for the latest release, if available
- * @param lts Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
- * @param support Whether this release cycle has active support
- * @param discontinued Whether this cycle is now discontinued.
+ * @param lts 
+ * @param support 
+ * @param discontinued 
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Cycle (
-    /* Release Cycle */
-    val cycle: kotlin.Any? = null,
+    val cycle: CycleCycle? = null,
     /* Release Date for the first release in this cycle */
-    val releaseDate: kotlin.Any? = null,
-    /* End of Life Date for this release cycle */
-    val eol: kotlin.Any? = null,
+    val releaseDate: java.time.LocalDate? = null,
+    val eol: CycleEol? = null,
     /* Latest release in this cycle */
-    val latest: kotlin.Any? = null,
+    val latest: kotlin.String? = null,
     /* Link to changelog for the latest release, if available */
-    val link: kotlin.Any? = null,
-    /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-    val lts: kotlin.Any? = null,
-    /* Whether this release cycle has active support */
-    val support: kotlin.Any? = null,
-    /* Whether this cycle is now discontinued. */
-    val discontinued: kotlin.Any? = null
+    val link: kotlin.String? = null,
+    val lts: CycleLts? = null,
+    val support: CycleSupport? = null,
+    val discontinued: CycleDiscontinued? = null
 ) {
 
 }

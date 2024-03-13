@@ -1,4 +1,4 @@
-#
+# 
 
 Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 
@@ -6,7 +6,8 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 0.0.1
 - Package version: 0.0.1
-- Build date: 2023-09-16T14:42:19.950898Z[Etc/UTC]
+- Build date: 2024-03-13T10:43:56.775107223Z[Etc/UTC]
+- Generator version: 7.4.0
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 
@@ -38,9 +39,9 @@ def apiInstance = new DefaultApi()
 apiInstance.getApiAllJson()
     {
     // on success
-    def result = (Object)it
+    def result = (List&lt;String&gt;)it
     println result
-
+    
 }
     {
     // on failure

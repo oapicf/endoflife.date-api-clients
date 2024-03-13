@@ -1,8 +1,8 @@
 Package: openapi
 Title: R Package Client for endoflife.date
 Version: 1.0.0
-Author: person("Cliffano Subagio", email = "blah+oapicf@cliffano.com", role = c("aut", "cre"))
-Maintainer: Cliffano Subagio <blah+oapicf@cliffano.com>
+Author: person("OpenAPI Clients Factory", email = "blah+oapicf@cliffano.com", role = c("aut", "cre"))
+Maintainer: OpenAPI Clients Factory <blah+oapicf@cliffano.com>
 Description: Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 URL: https://github.com/oapicf/endoflife.date-api-clients
 BugReports: https://github.com/oapicf/endoflife.date-api-clients/issues

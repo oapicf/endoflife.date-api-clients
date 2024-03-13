@@ -26,7 +26,7 @@ public interface PathHandlerInterface {
      * <p><b>Endpoint</b>: {@link Methods#GET GET} "/api/all.json" (<i>privileged: false</i>)</p>
      *
      * <p><b>Produces</b>: [{isJson=true, mediaType=application/json}]</p>
-     * <p><b>Returns</b>: {@link Object}</p>
+     * <p><b>Returns</b>: {@link java.util.List List} of {@link String}</p>
      *
      * <p><b>Responses</b>:</p>
      * <ul>
@@ -49,7 +49,7 @@ public interface PathHandlerInterface {
      * <p>"<b>product</b>"
      * <p>Product URL as per the canonical URL on the endofife.date website</p>
      * <p>
-     * - Parameter type: <b>{@link Object}</b><br/>
+     * - Parameter type: <b>{@link String}</b><br/>
      * - Appears in: <b>{@link HttpServerExchange#getPathParameters Path}</b><br/>
      * - Required: <b>true</b>
      * </p>
@@ -58,7 +58,7 @@ public interface PathHandlerInterface {
      * <p>"<b>cycle</b>"
      * <p>Release Cycle for which the details must be fetched</p>
      * <p>
-     * - Parameter type: <b>{@link Object}</b><br/>
+     * - Parameter type: <b>{@link String}</b><br/>
      * - Appears in: <b>{@link HttpServerExchange#getPathParameters Path}</b><br/>
      * - Required: <b>true</b>
      * </p>
@@ -89,7 +89,7 @@ public interface PathHandlerInterface {
      * <p>"<b>product</b>"
      * <p>Product URL as per the canonical URL on the endofife.date website</p>
      * <p>
-     * - Parameter type: <b>{@link Object}</b><br/>
+     * - Parameter type: <b>{@link String}</b><br/>
      * - Appears in: <b>{@link HttpServerExchange#getPathParameters Path}</b><br/>
      * - Required: <b>true</b>
      * </p>
@@ -97,7 +97,7 @@ public interface PathHandlerInterface {
      * </ul>
      *
      * <p><b>Produces</b>: [{isJson=true, mediaType=application/json}]</p>
-     * <p><b>Returns</b>: {@link Object}</p>
+     * <p><b>Returns</b>: {@link java.util.List List} of {@link Cycle}</p>
      *
      * <p><b>Responses</b>:</p>
      * <ul>

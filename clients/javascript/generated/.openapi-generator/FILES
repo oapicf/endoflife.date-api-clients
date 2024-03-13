@@ -4,6 +4,11 @@
 .travis.yml
 README.md
 docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
 docs/DefaultApi.md
 git_push.sh
 mocha.opts
@@ -12,5 +17,15 @@ src/ApiClient.js
 src/api/DefaultApi.js
 src/index.js
 src/model/Cycle.js
+src/model/CycleCycle.js
+src/model/CycleDiscontinued.js
+src/model/CycleEol.js
+src/model/CycleLts.js
+src/model/CycleSupport.js
 test/api/DefaultApi.spec.js
 test/model/Cycle.spec.js
+test/model/CycleCycle.spec.js
+test/model/CycleDiscontinued.spec.js
+test/model/CycleEol.spec.js
+test/model/CycleLts.spec.js
+test/model/CycleSupport.spec.js

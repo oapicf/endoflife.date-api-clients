@@ -24,12 +24,14 @@ Cycle::Cycle()
     m_CycleIsSet = false;
     m_ReleaseDateIsSet = false;
     m_EolIsSet = false;
+    m_Latest = "";
     m_LatestIsSet = false;
+    m_Link = "";
     m_LinkIsSet = false;
     m_LtsIsSet = false;
     m_SupportIsSet = false;
     m_DiscontinuedIsSet = false;
-
+    
 }
 
 void Cycle::validate() const
@@ -51,93 +53,81 @@ bool Cycle::validate(std::stringstream& msg, const std::string& pathPrefix) cons
     bool success = true;
     const std::string _pathPrefix = pathPrefix.empty() ? "Cycle" : pathPrefix;
 
-
+             
     if (releaseDateIsSet())
     {
-        const org::openapitools::server::model::nlohmann::json& value = m_ReleaseDate;
+        const std::string& value = m_ReleaseDate;
         const std::string currentValuePath = _pathPrefix + ".releaseDate";
-
-
-
-    }
-
-    if (eolIsSet())
-    {
-        const org::openapitools::server::model::nlohmann::json& value = m_Eol;
-        const std::string currentValuePath = _pathPrefix + ".eol";
-
-
+                
+        
+        if (!org::openapitools::server::helpers::validateRfc3339_date(value))
+        {
+            success = false;
+            msg << currentValuePath << ": must be a valid RFC 3339 date-full string;";
+        }
 
     }
-
+             
     if (latestIsSet())
     {
-        const org::openapitools::server::model::nlohmann::json& value = m_Latest;
+        const std::string& value = m_Latest;
         const std::string currentValuePath = _pathPrefix + ".latest";
-
-
+                
+        
+        if (value.length() < 1)
+        {
+            success = false;
+            msg << currentValuePath << ": must be at least 1 characters long;";
+        }
 
     }
-
+         
     if (linkIsSet())
     {
-        const org::openapitools::server::model::nlohmann::json& value = m_Link;
+        const std::string& value = m_Link;
         const std::string currentValuePath = _pathPrefix + ".link";
-
-
-
-    }
-
-    if (supportIsSet())
-    {
-        const org::openapitools::server::model::nlohmann::json& value = m_Support;
-        const std::string currentValuePath = _pathPrefix + ".support";
-
-
+                
+        
+        if (value.length() < 1)
+        {
+            success = false;
+            msg << currentValuePath << ": must be at least 1 characters long;";
+        }
 
     }
-
-    if (discontinuedIsSet())
-    {
-        const org::openapitools::server::model::nlohmann::json& value = m_Discontinued;
-        const std::string currentValuePath = _pathPrefix + ".discontinued";
-
-
-
-    }
-
+                
     return success;
 }
 
 bool Cycle::operator==(const Cycle& rhs) const
 {
     return
-
-
-
+    
+    
+    
     ((!cycleIsSet() && !rhs.cycleIsSet()) || (cycleIsSet() && rhs.cycleIsSet() && getCycle() == rhs.getCycle())) &&
-
-
+    
+    
     ((!releaseDateIsSet() && !rhs.releaseDateIsSet()) || (releaseDateIsSet() && rhs.releaseDateIsSet() && getReleaseDate() == rhs.getReleaseDate())) &&
-
-
+    
+    
     ((!eolIsSet() && !rhs.eolIsSet()) || (eolIsSet() && rhs.eolIsSet() && getEol() == rhs.getEol())) &&
-
-
+    
+    
     ((!latestIsSet() && !rhs.latestIsSet()) || (latestIsSet() && rhs.latestIsSet() && getLatest() == rhs.getLatest())) &&
-
-
+    
+    
     ((!linkIsSet() && !rhs.linkIsSet()) || (linkIsSet() && rhs.linkIsSet() && getLink() == rhs.getLink())) &&
-
-
+    
+    
     ((!ltsIsSet() && !rhs.ltsIsSet()) || (ltsIsSet() && rhs.ltsIsSet() && getLts() == rhs.getLts())) &&
-
-
+    
+    
     ((!supportIsSet() && !rhs.supportIsSet()) || (supportIsSet() && rhs.supportIsSet() && getSupport() == rhs.getSupport())) &&
-
-
+    
+    
     ((!discontinuedIsSet() && !rhs.discontinuedIsSet()) || (discontinuedIsSet() && rhs.discontinuedIsSet() && getDiscontinued() == rhs.getDiscontinued()))
-
+    
     ;
 }
 
@@ -165,7 +155,7 @@ void to_json(nlohmann::json& j, const Cycle& o)
         j["support"] = o.m_Support;
     if(o.discontinuedIsSet())
         j["discontinued"] = o.m_Discontinued;
-
+    
 }
 
 void from_json(const nlohmann::json& j, Cycle& o)
@@ -174,50 +164,50 @@ void from_json(const nlohmann::json& j, Cycle& o)
     {
         j.at("cycle").get_to(o.m_Cycle);
         o.m_CycleIsSet = true;
-    }
+    } 
     if(j.find("releaseDate") != j.end())
     {
         j.at("releaseDate").get_to(o.m_ReleaseDate);
         o.m_ReleaseDateIsSet = true;
-    }
+    } 
     if(j.find("eol") != j.end())
     {
         j.at("eol").get_to(o.m_Eol);
         o.m_EolIsSet = true;
-    }
+    } 
     if(j.find("latest") != j.end())
     {
         j.at("latest").get_to(o.m_Latest);
         o.m_LatestIsSet = true;
-    }
+    } 
     if(j.find("link") != j.end())
     {
         j.at("link").get_to(o.m_Link);
         o.m_LinkIsSet = true;
-    }
+    } 
     if(j.find("lts") != j.end())
     {
         j.at("lts").get_to(o.m_Lts);
         o.m_LtsIsSet = true;
-    }
+    } 
     if(j.find("support") != j.end())
     {
         j.at("support").get_to(o.m_Support);
         o.m_SupportIsSet = true;
-    }
+    } 
     if(j.find("discontinued") != j.end())
     {
         j.at("discontinued").get_to(o.m_Discontinued);
         o.m_DiscontinuedIsSet = true;
-    }
-
+    } 
+    
 }
 
-org::openapitools::server::model::nlohmann::json Cycle::getCycle() const
+org::openapitools::server::model::Cycle_cycle Cycle::getCycle() const
 {
     return m_Cycle;
 }
-void Cycle::setCycle(org::openapitools::server::model::nlohmann::json const& value)
+void Cycle::setCycle(org::openapitools::server::model::Cycle_cycle const& value)
 {
     m_Cycle = value;
     m_CycleIsSet = true;
@@ -230,11 +220,11 @@ void Cycle::unsetCycle()
 {
     m_CycleIsSet = false;
 }
-org::openapitools::server::model::nlohmann::json Cycle::getReleaseDate() const
+std::string Cycle::getReleaseDate() const
 {
     return m_ReleaseDate;
 }
-void Cycle::setReleaseDate(org::openapitools::server::model::nlohmann::json const& value)
+void Cycle::setReleaseDate(std::string const& value)
 {
     m_ReleaseDate = value;
     m_ReleaseDateIsSet = true;
@@ -247,11 +237,11 @@ void Cycle::unsetReleaseDate()
 {
     m_ReleaseDateIsSet = false;
 }
-org::openapitools::server::model::nlohmann::json Cycle::getEol() const
+org::openapitools::server::model::Cycle_eol Cycle::getEol() const
 {
     return m_Eol;
 }
-void Cycle::setEol(org::openapitools::server::model::nlohmann::json const& value)
+void Cycle::setEol(org::openapitools::server::model::Cycle_eol const& value)
 {
     m_Eol = value;
     m_EolIsSet = true;
@@ -264,11 +254,11 @@ void Cycle::unsetEol()
 {
     m_EolIsSet = false;
 }
-org::openapitools::server::model::nlohmann::json Cycle::getLatest() const
+std::string Cycle::getLatest() const
 {
     return m_Latest;
 }
-void Cycle::setLatest(org::openapitools::server::model::nlohmann::json const& value)
+void Cycle::setLatest(std::string const& value)
 {
     m_Latest = value;
     m_LatestIsSet = true;
@@ -281,11 +271,11 @@ void Cycle::unsetLatest()
 {
     m_LatestIsSet = false;
 }
-org::openapitools::server::model::nlohmann::json Cycle::getLink() const
+std::string Cycle::getLink() const
 {
     return m_Link;
 }
-void Cycle::setLink(org::openapitools::server::model::nlohmann::json const& value)
+void Cycle::setLink(std::string const& value)
 {
     m_Link = value;
     m_LinkIsSet = true;
@@ -298,11 +288,11 @@ void Cycle::unsetLink()
 {
     m_LinkIsSet = false;
 }
-org::openapitools::server::model::nlohmann::json Cycle::getLts() const
+org::openapitools::server::model::Cycle_lts Cycle::getLts() const
 {
     return m_Lts;
 }
-void Cycle::setLts(org::openapitools::server::model::nlohmann::json const& value)
+void Cycle::setLts(org::openapitools::server::model::Cycle_lts const& value)
 {
     m_Lts = value;
     m_LtsIsSet = true;
@@ -315,11 +305,11 @@ void Cycle::unsetLts()
 {
     m_LtsIsSet = false;
 }
-org::openapitools::server::model::nlohmann::json Cycle::getSupport() const
+org::openapitools::server::model::Cycle_support Cycle::getSupport() const
 {
     return m_Support;
 }
-void Cycle::setSupport(org::openapitools::server::model::nlohmann::json const& value)
+void Cycle::setSupport(org::openapitools::server::model::Cycle_support const& value)
 {
     m_Support = value;
     m_SupportIsSet = true;
@@ -332,11 +322,11 @@ void Cycle::unsetSupport()
 {
     m_SupportIsSet = false;
 }
-org::openapitools::server::model::nlohmann::json Cycle::getDiscontinued() const
+org::openapitools::server::model::Cycle_discontinued Cycle::getDiscontinued() const
 {
     return m_Discontinued;
 }
-void Cycle::setDiscontinued(org::openapitools::server::model::nlohmann::json const& value)
+void Cycle::setDiscontinued(org::openapitools::server::model::Cycle_discontinued const& value)
 {
     m_Discontinued = value;
     m_DiscontinuedIsSet = true;

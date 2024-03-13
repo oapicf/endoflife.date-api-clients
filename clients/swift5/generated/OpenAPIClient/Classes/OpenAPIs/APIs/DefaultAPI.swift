@@ -19,7 +19,7 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func getApiAllJson(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AnyCodable?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func getApiAllJson(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [String]?, _ error: Error?) -> Void)) -> RequestTask {
         return getApiAllJsonWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -34,9 +34,9 @@ open class DefaultAPI {
      All Products
      - GET /api/all.json
      - Return a list of all products. Each of these can be used for the other API endpoints.
-     - returns: RequestBuilder<AnyCodable> 
+     - returns: RequestBuilder<[String]> 
      */
-    open class func getApiAllJsonWithRequestBuilder() -> RequestBuilder<AnyCodable> {
+    open class func getApiAllJsonWithRequestBuilder() -> RequestBuilder<[String]> {
         let localVariablePath = "/api/all.json"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -49,7 +49,7 @@ open class DefaultAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AnyCodable>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[String]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -63,7 +63,7 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func getApiProductCycleJson(product: AnyCodable, cycle: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cycle?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func getApiProductCycleJson(product: String, cycle: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cycle?, _ error: Error?) -> Void)) -> RequestTask {
         return getApiProductCycleJsonWithRequestBuilder(product: product, cycle: cycle).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -82,7 +82,7 @@ open class DefaultAPI {
      - parameter cycle: (path) Release Cycle for which the details must be fetched 
      - returns: RequestBuilder<Cycle> 
      */
-    open class func getApiProductCycleJsonWithRequestBuilder(product: AnyCodable, cycle: AnyCodable) -> RequestBuilder<Cycle> {
+    open class func getApiProductCycleJsonWithRequestBuilder(product: String, cycle: String) -> RequestBuilder<Cycle> {
         var localVariablePath = "/api/{product}/{cycle}.json"
         let productPreEscape = "\(APIHelper.mapValueToPathItem(product))"
         let productPostEscape = productPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -114,7 +114,7 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func getApiProductJson(product: AnyCodable, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: AnyCodable?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func getApiProductJson(product: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Cycle]?, _ error: Error?) -> Void)) -> RequestTask {
         return getApiProductJsonWithRequestBuilder(product: product).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -130,9 +130,9 @@ open class DefaultAPI {
      - GET /api/{product}.json
      - Get EoL dates of all cycles of a given product.
      - parameter product: (path) Product URL as per the canonical URL on the endofife.date website 
-     - returns: RequestBuilder<AnyCodable> 
+     - returns: RequestBuilder<[Cycle]> 
      */
-    open class func getApiProductJsonWithRequestBuilder(product: AnyCodable) -> RequestBuilder<AnyCodable> {
+    open class func getApiProductJsonWithRequestBuilder(product: String) -> RequestBuilder<[Cycle]> {
         var localVariablePath = "/api/{product}.json"
         let productPreEscape = "\(APIHelper.mapValueToPathItem(product))"
         let productPostEscape = productPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -148,7 +148,7 @@ open class DefaultAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<AnyCodable>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<[Cycle]>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }

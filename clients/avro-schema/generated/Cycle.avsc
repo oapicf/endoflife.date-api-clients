@@ -6,50 +6,50 @@
   "fields": [
     {
       "name": "cycle",
-      "type": ["null", "model.AnyType"],
-      "doc": "Release Cycle",
+      "type": ["null", "model.CycleCycle"],
+      "doc": "",
       "default": null
     },
     {
       "name": "releaseDate",
-      "type": ["null", "model.AnyType"],
+      "type": ["null", "string"],
       "doc": "Release Date for the first release in this cycle",
       "default": null
     },
     {
       "name": "eol",
-      "type": ["null", "model.AnyType"],
-      "doc": "End of Life Date for this release cycle",
+      "type": ["null", "model.CycleEol"],
+      "doc": "",
       "default": null
     },
     {
       "name": "latest",
-      "type": ["null", "model.AnyType"],
+      "type": ["null", "string"],
       "doc": "Latest release in this cycle",
       "default": null
     },
     {
       "name": "link",
-      "type": ["null", "model.AnyType"],
+      "type": ["null", "string"],
       "doc": "Link to changelog for the latest release, if available",
       "default": null
     },
     {
       "name": "lts",
-      "type": ["null", "model.AnyType"],
-      "doc": "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ",
+      "type": ["null", "model.CycleLts"],
+      "doc": "",
       "default": null
     },
     {
       "name": "support",
-      "type": ["null", "model.AnyType"],
-      "doc": "Whether this release cycle has active support",
+      "type": ["null", "model.CycleSupport"],
+      "doc": "",
       "default": null
     },
     {
       "name": "discontinued",
-      "type": ["null", "model.AnyType"],
-      "doc": "Whether this cycle is now discontinued.",
+      "type": ["null", "model.CycleDiscontinued"],
+      "doc": "",
       "default": null
     }
   ]

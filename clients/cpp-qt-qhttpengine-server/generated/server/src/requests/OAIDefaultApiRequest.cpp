@@ -54,10 +54,10 @@ void OAIDefaultApiRequest::getApiAll_jsonRequest(){
     qDebug() << "/api/all.json";
     connect(this, &OAIDefaultApiRequest::getApiAll_json, handler.data(), &OAIDefaultApiHandler::getApiAll_json);
 
+    
 
 
-
-    emit getApiAll_json();
+    Q_EMIT getApiAll_json();
 }
 
 
@@ -65,14 +65,14 @@ void OAIDefaultApiRequest::getApiProductCycle_jsonRequest(const QString& product
     qDebug() << "/api/{product}/{cycle}.json";
     connect(this, &OAIDefaultApiRequest::getApiProductCycle_json, handler.data(), &OAIDefaultApiHandler::getApiProductCycle_json);
 
-
-    OAIAnyType product;
+    
+    QString product;
     fromStringValue(productstr, product);
-        OAIAnyType cycle;
+        QString cycle;
     fromStringValue(cyclestr, cycle);
+    
 
-
-    emit getApiProductCycle_json(product, cycle);
+    Q_EMIT getApiProductCycle_json(product, cycle);
 }
 
 
@@ -80,20 +80,19 @@ void OAIDefaultApiRequest::getApiProduct_jsonRequest(const QString& productstr){
     qDebug() << "/api/{product}.json";
     connect(this, &OAIDefaultApiRequest::getApiProduct_json, handler.data(), &OAIDefaultApiHandler::getApiProduct_json);
 
-
-    OAIAnyType product;
+    
+    QString product;
     fromStringValue(productstr, product);
+    
 
-
-    emit getApiProduct_json(product);
+    Q_EMIT getApiProduct_json(product);
 }
 
 
 
-void OAIDefaultApiRequest::getApiAll_jsonResponse(const OAIAnyType& res){
+void OAIDefaultApiRequest::getApiAll_jsonResponse(const QList<QString>& res){
     setSocketResponseHeaders();
-    QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toObject());
-    socket->writeJson(resDoc);
+    socket->write(QString("["+::OpenAPI::toStringValue(res)+"]").toUtf8());
     if(socket->isOpen()){
         socket->close();
     }
@@ -108,9 +107,9 @@ void OAIDefaultApiRequest::getApiProductCycle_jsonResponse(const OAICycle& res){
     }
 }
 
-void OAIDefaultApiRequest::getApiProduct_jsonResponse(const OAIAnyType& res){
+void OAIDefaultApiRequest::getApiProduct_jsonResponse(const QList<OAICycle>& res){
     setSocketResponseHeaders();
-    QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toObject());
+    QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toArray());
     socket->writeJson(resDoc);
     if(socket->isOpen()){
         socket->close();
@@ -118,12 +117,11 @@ void OAIDefaultApiRequest::getApiProduct_jsonResponse(const OAIAnyType& res){
 }
 
 
-void OAIDefaultApiRequest::getApiAll_jsonError(const OAIAnyType& res, QNetworkReply::NetworkError error_type, QString& error_str){
+void OAIDefaultApiRequest::getApiAll_jsonError(const QList<QString>& res, QNetworkReply::NetworkError error_type, QString& error_str){
     Q_UNUSED(error_type); // TODO: Remap error_type to QHttpEngine::Socket errors
     setSocketResponseHeaders();
     Q_UNUSED(error_str);  // response will be used instead of error string
-    QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toObject());
-    socket->writeJson(resDoc);
+    socket->write(QString("["+::OpenAPI::toStringValue(res)+"]").toUtf8());
     if(socket->isOpen()){
         socket->close();
     }
@@ -140,11 +138,11 @@ void OAIDefaultApiRequest::getApiProductCycle_jsonError(const OAICycle& res, QNe
     }
 }
 
-void OAIDefaultApiRequest::getApiProduct_jsonError(const OAIAnyType& res, QNetworkReply::NetworkError error_type, QString& error_str){
+void OAIDefaultApiRequest::getApiProduct_jsonError(const QList<OAICycle>& res, QNetworkReply::NetworkError error_type, QString& error_str){
     Q_UNUSED(error_type); // TODO: Remap error_type to QHttpEngine::Socket errors
     setSocketResponseHeaders();
     Q_UNUSED(error_str);  // response will be used instead of error string
-    QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toObject());
+    QJsonDocument resDoc(::OpenAPI::toJsonValue(res).toArray());
     socket->writeJson(resDoc);
     if(socket->isOpen()){
         socket->close();

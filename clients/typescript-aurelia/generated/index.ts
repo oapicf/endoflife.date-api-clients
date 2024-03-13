@@ -15,4 +15,9 @@ export { AuthStorage } from './AuthStorage';
 export { DefaultApi } from './DefaultApi';
 export {
   Cycle,
+  CycleCycle,
+  CycleDiscontinued,
+  CycleEol,
+  CycleLts,
+  CycleSupport,
 } from './models';

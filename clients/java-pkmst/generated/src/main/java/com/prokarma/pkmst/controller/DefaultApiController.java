@@ -1,6 +1,7 @@
 package com.prokarma.pkmst.controller;
 
 import com.prokarma.pkmst.model.Cycle;
+import java.util.List;
 
 import io.swagger.annotations.*;
 
@@ -23,7 +24,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2023-09-16T14:43:23.018220Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-03-13T10:45:02.504380716Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 @Controller
 public class DefaultApiController implements DefaultApi {
     private final ObjectMapper objectMapper;
@@ -32,13 +33,18 @@ public class DefaultApiController implements DefaultApi {
         this.objectMapper = objectMapper;
     }
 
-    public ResponseEntity<Object> getApiAllJson(@RequestHeader(value = "Accept", required = false) String accept) throws Exception {
+    public ResponseEntity<List<String>> getApiAllJson(@RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
-        return new ResponseEntity<Object>(HttpStatus.OK);
+
+        if (accept != null && accept.contains("application/json")) {
+            return new ResponseEntity<List<String>>(objectMapper.readValue("", List.class), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<List<String>>(HttpStatus.OK);
     }
 
-    public ResponseEntity<Cycle> getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true ) @PathVariable("product") Object product,
-        @ApiParam(value = "Release Cycle for which the details must be fetched",required=true ) @PathVariable("cycle") Object cycle,
+    public ResponseEntity<Cycle> getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true ) @PathVariable("product") String product,
+        @ApiParam(value = "Release Cycle for which the details must be fetched",required=true ) @PathVariable("cycle") String cycle,
         @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
 
@@ -49,10 +55,15 @@ public class DefaultApiController implements DefaultApi {
         return new ResponseEntity<Cycle>(HttpStatus.OK);
     }
 
-    public ResponseEntity<Object> getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true ) @PathVariable("product") Object product,
+    public ResponseEntity<List<Cycle>> getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true ) @PathVariable("product") String product,
         @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
-        return new ResponseEntity<Object>(HttpStatus.OK);
+
+        if (accept != null && accept.contains("application/json")) {
+            return new ResponseEntity<List<Cycle>>(objectMapper.readValue("", List.class), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<List<Cycle>>(HttpStatus.OK);
     }
 
 }

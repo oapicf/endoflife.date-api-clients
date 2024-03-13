@@ -56,21 +56,61 @@ public class JsonUtil {
 
   public static Type getListTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
-
+    
     if ("Cycle".equalsIgnoreCase(className)) {
       return new TypeToken<List<Cycle>>(){}.getType();
     }
-
+    
+    if ("CycleCycle".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CycleCycle>>(){}.getType();
+    }
+    
+    if ("CycleDiscontinued".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CycleDiscontinued>>(){}.getType();
+    }
+    
+    if ("CycleEol".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CycleEol>>(){}.getType();
+    }
+    
+    if ("CycleLts".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CycleLts>>(){}.getType();
+    }
+    
+    if ("CycleSupport".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CycleSupport>>(){}.getType();
+    }
+    
     return new TypeToken<List<Object>>(){}.getType();
   }
 
   public static Type getTypeForDeserialization(Class cls) {
     String className = cls.getSimpleName();
-
+    
     if ("Cycle".equalsIgnoreCase(className)) {
       return new TypeToken<Cycle>(){}.getType();
     }
-
+    
+    if ("CycleCycle".equalsIgnoreCase(className)) {
+      return new TypeToken<CycleCycle>(){}.getType();
+    }
+    
+    if ("CycleDiscontinued".equalsIgnoreCase(className)) {
+      return new TypeToken<CycleDiscontinued>(){}.getType();
+    }
+    
+    if ("CycleEol".equalsIgnoreCase(className)) {
+      return new TypeToken<CycleEol>(){}.getType();
+    }
+    
+    if ("CycleLts".equalsIgnoreCase(className)) {
+      return new TypeToken<CycleLts>(){}.getType();
+    }
+    
+    if ("CycleSupport".equalsIgnoreCase(className)) {
+      return new TypeToken<CycleSupport>(){}.getType();
+    }
+    
     return new TypeToken<Object>(){}.getType();
   }
 

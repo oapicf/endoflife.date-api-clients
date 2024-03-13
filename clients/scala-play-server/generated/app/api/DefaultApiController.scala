@@ -5,16 +5,15 @@ import javax.inject.{Inject, Singleton}
 import play.api.libs.json._
 import play.api.mvc._
 import model.Cycle
-import model.OasAnyTypeNotMapped
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2023-09-16T14:49:07.439280Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-03-13T10:52:42.906253649Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 @Singleton
 class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) extends AbstractController(cc) {
   /**
     * GET /api/all.json
     */
   def getApiAllJson(): Action[AnyContent] = Action { request =>
-    def executeApi(): OasAnyTypeNotMapped = {
+    def executeApi(): List[String] = {
       api.getApiAllJson()
     }
 
@@ -28,7 +27,7 @@ class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) 
     * @param product Product URL as per the canonical URL on the endofife.date website
     * @param cycle Release Cycle for which the details must be fetched
     */
-  def getApiProductCycleJson(product: OasAnyTypeNotMapped, cycle: OasAnyTypeNotMapped): Action[AnyContent] = Action { request =>
+  def getApiProductCycleJson(product: String, cycle: String): Action[AnyContent] = Action { request =>
     def executeApi(): Cycle = {
       api.getApiProductCycleJson(product, cycle)
     }
@@ -42,8 +41,8 @@ class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) 
     * GET /api/:product.json
     * @param product Product URL as per the canonical URL on the endofife.date website
     */
-  def getApiProductJson(product: OasAnyTypeNotMapped): Action[AnyContent] = Action { request =>
-    def executeApi(): OasAnyTypeNotMapped = {
+  def getApiProductJson(product: String): Action[AnyContent] = Action { request =>
+    def executeApi(): List[Cycle] = {
       api.getApiProductJson(product)
     }
 

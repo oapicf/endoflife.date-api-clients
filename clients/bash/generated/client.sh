@@ -8,6 +8,7 @@
 # ! openapi-generator (https://openapi-generator.tech)
 # ! FROM OPENAPI SPECIFICATION IN JSON.
 # !
+# ! Generator version: 7.4.0
 # !
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -21,7 +22,7 @@
 # blah+oapicf@cliffano.com
 #
 # MORE INFORMATION:
-#
+# 
 #
 
 # For improved pattern matching in case statements
@@ -257,20 +258,24 @@ header_arguments_to_curl() {
 #
 ##############################################################################
 body_parameters_to_json() {
-    local body_json="-d '{"
-    local count=0
-    for key in "${!body_parameters[@]}"; do
-        if [[ $((count++)) -gt 0 ]]; then
-            body_json+=", "
-        fi
-        body_json+="\"${key}\": ${body_parameters[${key}]}"
-    done
-    body_json+="}'"
-
-    if [[ "${#body_parameters[@]}" -eq 0 ]]; then
-        echo ""
+    if [[ $RAW_BODY == "1" ]]; then
+        echo "-d '${body_parameters["RAW_BODY"]}'"
     else
-        echo "${body_json}"
+        local body_json="-d '{"
+        local count=0
+        for key in "${!body_parameters[@]}"; do
+            if [[ $((count++)) -gt 0 ]]; then
+                body_json+=", "
+            fi
+            body_json+="\"${key}\": ${body_parameters[${key}]}"
+        done
+        body_json+="}'"
+
+        if [[ "${#body_parameters[@]}" -eq 0 ]]; then
+            echo ""
+        else
+            echo "${body_json}"
+        fi
     fi
 }
 
@@ -585,8 +590,8 @@ print_getApiProductCycleJson_help() {
     echo -e "Gets details of a single cycle" | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}product${OFF} ${BLUE}[AnyType]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Product URL as per the canonical URL on the endofife.date website ${YELLOW}Specify as: product=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}cycle${OFF} ${BLUE}[AnyType]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Release Cycle for which the details must be fetched ${YELLOW}Specify as: cycle=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}product${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Product URL as per the canonical URL on the endofife.date website ${YELLOW}Specify as: product=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}cycle${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Release Cycle for which the details must be fetched ${YELLOW}Specify as: cycle=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -604,7 +609,7 @@ print_getApiProductJson_help() {
     echo -e "Get EoL dates of all cycles of a given product." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}product${OFF} ${BLUE}[AnyType]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Product URL as per the canonical URL on the endofife.date website ${YELLOW}Specify as: product=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}product${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Product URL as per the canonical URL on the endofife.date website ${YELLOW}Specify as: product=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
@@ -832,6 +837,16 @@ case $key in
     if [[ "$operation" ]]; then
         IFS='==' read -r body_key sep body_value <<< "$key"
         body_parameters[${body_key}]="\"${body_value}\""
+    fi
+    ;;
+    --body=*)
+    # Parse value of body as argument and convert it into only
+    # the raw body content
+    if [[ "$operation" ]]; then
+        IFS='--body=' read -r body_value <<< "$key"
+        body_value=${body_value##--body=}
+        body_parameters["RAW_BODY"]="${body_value}"
+        RAW_BODY=1
     fi
     ;;
     *:=*)

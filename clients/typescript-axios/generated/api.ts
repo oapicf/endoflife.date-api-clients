@@ -14,14 +14,14 @@
 
 
 import type { Configuration } from './configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
 import type { RequestArgs } from './base';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError } from './base';
+import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
@@ -30,53 +30,88 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError } from './base';
  */
 export interface Cycle {
     /**
-     * Release Cycle
-     * @type {any}
+     * 
+     * @type {CycleCycle}
      * @memberof Cycle
      */
-    'cycle'?: any;
+    'cycle'?: CycleCycle;
     /**
      * Release Date for the first release in this cycle
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    'releaseDate'?: any;
+    'releaseDate'?: string;
     /**
-     * End of Life Date for this release cycle
-     * @type {any}
+     * 
+     * @type {CycleEol}
      * @memberof Cycle
      */
-    'eol'?: any;
+    'eol'?: CycleEol;
     /**
      * Latest release in this cycle
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    'latest'?: any;
+    'latest'?: string;
     /**
      * Link to changelog for the latest release, if available
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    'link'?: any;
+    'link'?: string | null;
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-     * @type {any}
+     * 
+     * @type {CycleLts}
      * @memberof Cycle
      */
-    'lts'?: any;
+    'lts'?: CycleLts;
     /**
-     * Whether this release cycle has active support
-     * @type {any}
+     * 
+     * @type {CycleSupport}
      * @memberof Cycle
      */
-    'support'?: any;
+    'support'?: CycleSupport;
     /**
-     * Whether this cycle is now discontinued.
-     * @type {any}
+     * 
+     * @type {CycleDiscontinued}
      * @memberof Cycle
      */
-    'discontinued'?: any;
+    'discontinued'?: CycleDiscontinued;
+}
+/**
+ * Release Cycle
+ * @export
+ * @interface CycleCycle
+ */
+export interface CycleCycle {
+}
+/**
+ * Whether this cycle is now discontinued.
+ * @export
+ * @interface CycleDiscontinued
+ */
+export interface CycleDiscontinued {
+}
+/**
+ * End of Life Date for this release cycle
+ * @export
+ * @interface CycleEol
+ */
+export interface CycleEol {
+}
+/**
+ * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+ * @export
+ * @interface CycleLts
+ */
+export interface CycleLts {
+}
+/**
+ * Whether this release cycle has active support
+ * @export
+ * @interface CycleSupport
+ */
+export interface CycleSupport {
 }
 
 /**
@@ -91,7 +126,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiAllJson: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getApiAllJson: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/all.json`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -105,7 +140,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
 
-
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -118,12 +153,12 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Gets details of a single cycle
          * @summary Single cycle details
-         * @param {any} product Product URL as per the canonical URL on the endofife.date website
-         * @param {any} cycle Release Cycle for which the details must be fetched
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} cycle Release Cycle for which the details must be fetched
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiProductCycleJson: async (product: any, cycle: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getApiProductCycleJson: async (product: string, cycle: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'product' is not null or undefined
             assertParamExists('getApiProductCycleJson', 'product', product)
             // verify required parameter 'cycle' is not null or undefined
@@ -143,7 +178,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
 
-
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -156,11 +191,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Get EoL dates of all cycles of a given product.
          * @summary Get All Details
-         * @param {any} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiProductJson: async (product: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getApiProductJson: async (product: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'product' is not null or undefined
             assertParamExists('getApiProductJson', 'product', product)
             const localVarPath = `/api/{product}.json`
@@ -177,7 +212,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
 
-
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -203,32 +238,38 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getApiAllJson(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getApiAllJson(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApiAllJson(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getApiAllJson']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Gets details of a single cycle
          * @summary Single cycle details
-         * @param {any} product Product URL as per the canonical URL on the endofife.date website
-         * @param {any} cycle Release Cycle for which the details must be fetched
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} cycle Release Cycle for which the details must be fetched
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getApiProductCycleJson(product: any, cycle: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Cycle>> {
+        async getApiProductCycleJson(product: string, cycle: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Cycle>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApiProductCycleJson(product, cycle, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getApiProductCycleJson']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Get EoL dates of all cycles of a given product.
          * @summary Get All Details
-         * @param {any} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getApiProductJson(product: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getApiProductJson(product: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Cycle>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApiProductJson(product, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DefaultApi.getApiProductJson']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -246,28 +287,28 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiAllJson(options?: any): AxiosPromise<any> {
+        getApiAllJson(options?: any): AxiosPromise<Array<string>> {
             return localVarFp.getApiAllJson(options).then((request) => request(axios, basePath));
         },
         /**
          * Gets details of a single cycle
          * @summary Single cycle details
-         * @param {any} product Product URL as per the canonical URL on the endofife.date website
-         * @param {any} cycle Release Cycle for which the details must be fetched
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} cycle Release Cycle for which the details must be fetched
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiProductCycleJson(product: any, cycle: any, options?: any): AxiosPromise<Cycle> {
+        getApiProductCycleJson(product: string, cycle: string, options?: any): AxiosPromise<Cycle> {
             return localVarFp.getApiProductCycleJson(product, cycle, options).then((request) => request(axios, basePath));
         },
         /**
          * Get EoL dates of all cycles of a given product.
          * @summary Get All Details
-         * @param {any} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiProductJson(product: any, options?: any): AxiosPromise<any> {
+        getApiProductJson(product: string, options?: any): AxiosPromise<Array<Cycle>> {
             return localVarFp.getApiProductJson(product, options).then((request) => request(axios, basePath));
         },
     };
@@ -287,32 +328,32 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getApiAllJson(options?: AxiosRequestConfig) {
+    public getApiAllJson(options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getApiAllJson(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets details of a single cycle
      * @summary Single cycle details
-     * @param {any} product Product URL as per the canonical URL on the endofife.date website
-     * @param {any} cycle Release Cycle for which the details must be fetched
+     * @param {string} product Product URL as per the canonical URL on the endofife.date website
+     * @param {string} cycle Release Cycle for which the details must be fetched
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getApiProductCycleJson(product: any, cycle: any, options?: AxiosRequestConfig) {
+    public getApiProductCycleJson(product: string, cycle: string, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getApiProductCycleJson(product, cycle, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get EoL dates of all cycles of a given product.
      * @summary Get All Details
-     * @param {any} product Product URL as per the canonical URL on the endofife.date website
+     * @param {string} product Product URL as per the canonical URL on the endofife.date website
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getApiProductJson(product: any, options?: AxiosRequestConfig) {
+    public getApiProductJson(product: string, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getApiProductJson(product, options).then((request) => request(this.axios, this.basePath));
     }
 }

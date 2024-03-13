@@ -10,5 +10,10 @@ src/main/kotlin/org/openapitools/server/Paths.kt
 src/main/kotlin/org/openapitools/server/apis/DefaultApi.kt
 src/main/kotlin/org/openapitools/server/infrastructure/ApiKeyAuth.kt
 src/main/kotlin/org/openapitools/server/models/Cycle.kt
+src/main/kotlin/org/openapitools/server/models/CycleCycle.kt
+src/main/kotlin/org/openapitools/server/models/CycleDiscontinued.kt
+src/main/kotlin/org/openapitools/server/models/CycleEol.kt
+src/main/kotlin/org/openapitools/server/models/CycleLts.kt
+src/main/kotlin/org/openapitools/server/models/CycleSupport.kt
 src/main/resources/application.conf
 src/main/resources/logback.xml

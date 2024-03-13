@@ -29,7 +29,7 @@ type ApiGetApiAllJsonRequest struct {
 	ApiService *DefaultAPIService
 }
 
-func (r ApiGetApiAllJsonRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiGetApiAllJsonRequest) Execute() ([]string, *http.Response, error) {
 	return r.ApiService.GetApiAllJsonExecute(r)
 }
 
@@ -49,13 +49,13 @@ func (a *DefaultAPIService) GetApiAllJson(ctx context.Context) ApiGetApiAllJsonR
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *DefaultAPIService) GetApiAllJsonExecute(r ApiGetApiAllJsonRequest) (interface{}, *http.Response, error) {
+//  @return []string
+func (a *DefaultAPIService) GetApiAllJsonExecute(r ApiGetApiAllJsonRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetApiAllJson")
@@ -126,8 +126,8 @@ func (a *DefaultAPIService) GetApiAllJsonExecute(r ApiGetApiAllJsonRequest) (int
 type ApiGetApiProductCycleJsonRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	product interface{}
-	cycle interface{}
+	product string
+	cycle string
 }
 
 func (r ApiGetApiProductCycleJsonRequest) Execute() (*Cycle, *http.Response, error) {
@@ -144,7 +144,7 @@ Gets details of a single cycle
  @param cycle Release Cycle for which the details must be fetched
  @return ApiGetApiProductCycleJsonRequest
 */
-func (a *DefaultAPIService) GetApiProductCycleJson(ctx context.Context, product interface{}, cycle interface{}) ApiGetApiProductCycleJsonRequest {
+func (a *DefaultAPIService) GetApiProductCycleJson(ctx context.Context, product string, cycle string) ApiGetApiProductCycleJsonRequest {
 	return ApiGetApiProductCycleJsonRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -233,10 +233,10 @@ func (a *DefaultAPIService) GetApiProductCycleJsonExecute(r ApiGetApiProductCycl
 type ApiGetApiProductJsonRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	product interface{}
+	product string
 }
 
-func (r ApiGetApiProductJsonRequest) Execute() (interface{}, *http.Response, error) {
+func (r ApiGetApiProductJsonRequest) Execute() ([]Cycle, *http.Response, error) {
 	return r.ApiService.GetApiProductJsonExecute(r)
 }
 
@@ -249,7 +249,7 @@ Get EoL dates of all cycles of a given product.
  @param product Product URL as per the canonical URL on the endofife.date website
  @return ApiGetApiProductJsonRequest
 */
-func (a *DefaultAPIService) GetApiProductJson(ctx context.Context, product interface{}) ApiGetApiProductJsonRequest {
+func (a *DefaultAPIService) GetApiProductJson(ctx context.Context, product string) ApiGetApiProductJsonRequest {
 	return ApiGetApiProductJsonRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -258,13 +258,13 @@ func (a *DefaultAPIService) GetApiProductJson(ctx context.Context, product inter
 }
 
 // Execute executes the request
-//  @return interface{}
-func (a *DefaultAPIService) GetApiProductJsonExecute(r ApiGetApiProductJsonRequest) (interface{}, *http.Response, error) {
+//  @return []Cycle
+func (a *DefaultAPIService) GetApiProductJsonExecute(r ApiGetApiProductJsonRequest) ([]Cycle, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  interface{}
+		localVarReturnValue  []Cycle
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.GetApiProductJson")

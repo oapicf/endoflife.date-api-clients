@@ -14,13 +14,18 @@ private class OASDefaultApiTest {
 
         OASClient client;
         OASDefaultApi api;
-        oas_any_type_not_mapped response;
-        oas_any_type_not_mapped expectedResponse;
+        List<String> response;
+        List<String> expectedResponse;
         String js = '';
 
         api = new OASDefaultApi(new OASClient());
 
-        api.getApiAllJson();
+        js = JSON.serialize(new List<String>{''});
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody(js);
+        expectedResponse = new List<String>{''};
+        response = (List<String>) api.getApiAllJson();
+        System.assertEquals(expectedResponse, response);
     }
 
     /**
@@ -36,8 +41,8 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'product' => '',
-            'cycle' => ''
+            'product' => 'null',
+            'cycle' => 'null'
         };
 
         OASClient client;
@@ -69,17 +74,22 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'product' => ''
+            'product' => 'null'
         };
 
         OASClient client;
         OASDefaultApi api;
-        oas_any_type_not_mapped response;
-        oas_any_type_not_mapped expectedResponse;
+        List<OASCycle> response;
+        List<OASCycle> expectedResponse;
         String js = '';
 
         api = new OASDefaultApi(new OASClient());
 
-        api.getApiProductJson(params);
+        js = JSON.serialize(new List<OASCycle>{OASCycle.getExample()});
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody(js);
+        expectedResponse = new List<OASCycle>{OASCycle.getExample()};
+        response = (List<OASCycle>) api.getApiProductJson(params);
+        System.assertEquals(expectedResponse, response);
     }
 }

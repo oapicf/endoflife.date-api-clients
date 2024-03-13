@@ -75,7 +75,7 @@ class DefaultApiTest extends TestCase
      */
     public function testGetApiAllJson()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "getApiAllJson" method has not been implemented yet.'
         );
     }
@@ -89,7 +89,7 @@ class DefaultApiTest extends TestCase
      */
     public function testGetApiProductCycleJson()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "getApiProductCycleJson" method has not been implemented yet.'
         );
     }
@@ -103,7 +103,7 @@ class DefaultApiTest extends TestCase
      */
     public function testGetApiProductJson()
     {
-        $this->markTestIncomplete(
+        self::markTestIncomplete(
             'Test of "getApiProductJson" method has not been implemented yet.'
         );
     }

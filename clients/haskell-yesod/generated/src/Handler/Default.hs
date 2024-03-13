@@ -16,7 +16,7 @@ getApiAllJsonR = notImplemented
 --
 -- Get EoL dates of all cycles of a given product.
 -- operationId: getApiProduct.json
-getApi{Product}JsonR :: Value -- ^ Product URL as per the canonical URL on the endofife.date website
+getApi{Product}JsonR :: Text -- ^ Product URL as per the canonical URL on the endofife.date website
                      -> Handler Value
 getApi{Product}JsonR product = notImplemented
 
@@ -24,7 +24,7 @@ getApi{Product}JsonR product = notImplemented
 --
 -- Gets details of a single cycle
 -- operationId: getApiProductCycle.json
-getApiByValue{Cycle}JsonR :: Value -- ^ Product URL as per the canonical URL on the endofife.date website
-                          -> Value -- ^ Release Cycle for which the details must be fetched
-                          -> Handler Value
-getApiByValue{Cycle}JsonR product cycle = notImplemented
+getApiByText{Cycle}JsonR :: Text -- ^ Product URL as per the canonical URL on the endofife.date website
+                         -> Text -- ^ Release Cycle for which the details must be fetched
+                         -> Handler Value
+getApiByText{Cycle}JsonR product cycle = notImplemented

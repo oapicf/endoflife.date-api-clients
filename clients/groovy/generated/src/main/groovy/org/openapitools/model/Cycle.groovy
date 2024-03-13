@@ -4,23 +4,28 @@ import groovy.transform.Canonical
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.model.CycleCycle;
+import org.openapitools.model.CycleDiscontinued;
+import org.openapitools.model.CycleEol;
+import org.openapitools.model.CycleLts;
+import org.openapitools.model.CycleSupport;
 
 @Canonical
 class Cycle {
-    /* Release Cycle */
-    Object cycle = null
+    
+    CycleCycle cycle
     /* Release Date for the first release in this cycle */
-    Object releaseDate = null
-    /* End of Life Date for this release cycle */
-    Object eol = null
+    Date releaseDate
+    
+    CycleEol eol
     /* Latest release in this cycle */
-    Object latest = null
+    String latest
     /* Link to changelog for the latest release, if available */
-    Object link = null
-    /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-    Object lts = null
-    /* Whether this release cycle has active support */
-    Object support = null
-    /* Whether this cycle is now discontinued. */
-    Object discontinued = null
+    String link
+    
+    CycleLts lts
+    
+    CycleSupport support
+    
+    CycleDiscontinued discontinued
 }

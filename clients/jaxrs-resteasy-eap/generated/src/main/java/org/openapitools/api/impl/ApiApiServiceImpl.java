@@ -10,20 +10,22 @@ import java.util.List;
 
 import java.io.InputStream;
 
+import javax.validation.constraints.*;
+import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2023-09-16T14:44:06.235972Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-03-13T10:46:02.810514135Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ApiApiServiceImpl implements ApiApi {
       public Response getApiAllJson(SecurityContext securityContext) {
       // do some magic!
       return Response.ok().build();
   }
-      public Response getApiProductCycleJson(Object product,Object cycle,SecurityContext securityContext) {
+      public Response getApiProductCycleJson(String product,String cycle,SecurityContext securityContext) {
       // do some magic!
       return Response.ok().build();
   }
-      public Response getApiProductJson(Object product,SecurityContext securityContext) {
+      public Response getApiProductJson(String product,SecurityContext securityContext) {
       // do some magic!
       return Response.ok().build();
   }

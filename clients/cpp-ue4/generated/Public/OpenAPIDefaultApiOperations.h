@@ -40,7 +40,7 @@ public:
 	void SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode) final;
 	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
 
-    TSharedPtr<FJsonValue> Content;
+    TArray<FString> Content;
 };
 
 /* Single cycle details
@@ -55,9 +55,9 @@ public:
 	FString ComputePath() const final;
 
 	/* Product URL as per the canonical URL on the endofife.date website */
-	TSharedPtr<FJsonValue> Product;
+	FString Product;
 	/* Release Cycle for which the details must be fetched */
-	TSharedPtr<FJsonValue> Cycle;
+	FString Cycle;
 };
 
 class OPENAPI_API OpenAPIDefaultApi::GetApiProductCycleJsonResponse : public Response
@@ -82,7 +82,7 @@ public:
 	FString ComputePath() const final;
 
 	/* Product URL as per the canonical URL on the endofife.date website */
-	TSharedPtr<FJsonValue> Product;
+	FString Product;
 };
 
 class OPENAPI_API OpenAPIDefaultApi::GetApiProductJsonResponse : public Response
@@ -92,7 +92,7 @@ public:
 	void SetHttpResponseCode(EHttpResponseCodes::Type InHttpResponseCode) final;
 	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
 
-    TSharedPtr<FJsonValue> Content;
+    TArray<OpenAPICycle> Content;
 };
 
 }

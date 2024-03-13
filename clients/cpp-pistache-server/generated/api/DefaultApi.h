@@ -12,7 +12,7 @@
 /*
  * DefaultApi.h
  *
- *
+ * 
  */
 
 #ifndef DefaultApi_H_
@@ -29,7 +29,8 @@
 #include <utility>
 
 #include "Cycle.h"
-#include <nlohmann/json.hpp>
+#include <string>
+#include <vector>
 
 namespace org::openapitools::server::api
 {
@@ -79,7 +80,7 @@ private:
     /// </remarks>
     /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
     /// <param name="cycle">Release Cycle for which the details must be fetched</param>
-    virtual void get_api_product_cycle_json(const org::openapitools::server::model::nlohmann::json &product, const org::openapitools::server::model::nlohmann::json &cycle, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void get_api_product_cycle_json(const std::string &product, const std::string &cycle, Pistache::Http::ResponseWriter &response) = 0;
     /// <summary>
     /// Get All Details
     /// </summary>
@@ -87,7 +88,7 @@ private:
     /// Get EoL dates of all cycles of a given product.
     /// </remarks>
     /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-    virtual void get_api_product_json(const org::openapitools::server::model::nlohmann::json &product, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void get_api_product_json(const std::string &product, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

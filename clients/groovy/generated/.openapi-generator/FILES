@@ -4,3 +4,8 @@ build.gradle
 src/main/groovy/org/openapitools/api/ApiUtils.groovy
 src/main/groovy/org/openapitools/api/DefaultApi.groovy
 src/main/groovy/org/openapitools/model/Cycle.groovy
+src/main/groovy/org/openapitools/model/CycleCycle.groovy
+src/main/groovy/org/openapitools/model/CycleDiscontinued.groovy
+src/main/groovy/org/openapitools/model/CycleEol.groovy
+src/main/groovy/org/openapitools/model/CycleLts.groovy
+src/main/groovy/org/openapitools/model/CycleSupport.groovy

@@ -33,15 +33,18 @@ h4. Responses
 
     	|| Status Code | {status:colour=Green|title=200|subtle=false} |
     	|| Message | OK |
-    	|| Response Type | oas_any_type_not_mapped |
-    	|| Response Model | [oas_any_type_not_mapped Model|#oas_any_type_not_mappedModelAnchor|Jump to model] |
+    	|| Response Type | array[String] |
+    	|| Response Model | [array[String] Model|#array[String]ModelAnchor|Jump to model] |
     	|| Response Schema | {code:collapse=true}{
   "description" : "OK",
   "content" : {
     "application/json" : {
       "schema" : {
+        "type" : "array",
         "description" : "List of all products.",
-        "items" : { }
+        "items" : {
+          "type" : "string"
+        }
       },
       "examples" : {
         "all-products" : {
@@ -71,7 +74,7 @@ h3. getApiProduct.json
 h4. Parameters
 h5. Path Parameters
         ||Name||Description||Type||Required||Default||Pattern||Enum||Example||
-        |product |Product URL as per the canonical URL on the endofife.date website | oas_any_type_not_mapped | (/) |null |  |  |
+        |product |Product URL as per the canonical URL on the endofife.date website | String | (/) |null |  |  |
 
 
 
@@ -80,13 +83,14 @@ h4. Responses
 
     	|| Status Code | {status:colour=Green|title=200|subtle=false} |
     	|| Message | OK |
-    	|| Response Type | oas_any_type_not_mapped |
-    	|| Response Model | [oas_any_type_not_mapped Model|#oas_any_type_not_mappedModelAnchor|Jump to model] |
+    	|| Response Type | array[cycle] |
+    	|| Response Model | [array[cycle] Model|#array[cycle]ModelAnchor|Jump to model] |
     	|| Response Schema | {code:collapse=true}{
   "description" : "OK",
   "content" : {
     "application/json" : {
       "schema" : {
+        "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/cycle"
         }
@@ -150,7 +154,7 @@ h3. getApiProductCycle.json
 h4. Parameters
 h5. Path Parameters
         ||Name||Description||Type||Required||Default||Pattern||Enum||Example||
-        |product |Product URL as per the canonical URL on the endofife.date website | oas_any_type_not_mapped | (/) |null |  |  ||cycle |Release Cycle for which the details must be fetched | oas_any_type_not_mapped | (/) |null |  |  |
+        |product |Product URL as per the canonical URL on the endofife.date website | String | (/) |null |  |  ||cycle |Release Cycle for which the details must be fetched | String | (/) |null |  |  |
 
 
 
@@ -206,12 +210,52 @@ h2. Models
 
         
         ||Field Name||Required||Type||Description||Enum||Example||
-         |cycle |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Release Cycle |  | null
-         |releaseDate |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Release Date for the first release in this cycle |  | null
-         |eol |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | End of Life Date for this release cycle |  | null
-         |latest |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Latest release in this cycle |  | null
-         |link |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Link to changelog for the latest release, if available |  | null
-         |lts |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. |  | null
-         |support |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Whether this release cycle has active support |  | null
-         |discontinued |(x) |{noformat:nopanel=true}oas_any_type_not_mapped{noformat} | Whether this cycle is now discontinued. |  | null
+         |cycle |(x) |{noformat:nopanel=true}cycle_cycle{noformat} |  |  | null
+         |releaseDate |(x) |{noformat:nopanel=true}date{noformat} | Release Date for the first release in this cycle |  | null
+         |eol |(x) |{noformat:nopanel=true}cycle_eol{noformat} |  |  | null
+         |latest |(x) |{noformat:nopanel=true}String{noformat} | Latest release in this cycle |  | null
+         |link |(x) |{noformat:nopanel=true}String{noformat} | Link to changelog for the latest release, if available |  | null
+         |lts |(x) |{noformat:nopanel=true}cycle_lts{noformat} |  |  | null
+         |support |(x) |{noformat:nopanel=true}cycle_support{noformat} |  |  | null
+         |discontinued |(x) |{noformat:nopanel=true}cycle_discontinued{noformat} |  |  | null
+         
+        {anchor:CycleCycleModelAnchor}
+        h3. CycleCycle
+
+        Release Cycle
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         
+        {anchor:CycleDiscontinuedModelAnchor}
+        h3. CycleDiscontinued
+
+        Whether this cycle is now discontinued.
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         
+        {anchor:CycleEolModelAnchor}
+        h3. CycleEol
+
+        End of Life Date for this release cycle
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         
+        {anchor:CycleLtsModelAnchor}
+        h3. CycleLts
+
+        Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
+         
+        {anchor:CycleSupportModelAnchor}
+        h3. CycleSupport
+
+        Whether this release cycle has active support
+
+        
+        ||Field Name||Required||Type||Description||Enum||Example||
          

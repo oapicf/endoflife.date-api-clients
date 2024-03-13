@@ -12,7 +12,6 @@
 
 package org.openapitools.server.api
 
-import org.openapitools.server.model.AnyType
 import org.openapitools.server.model.Cycle
 
 import java.io.File
@@ -38,9 +37,9 @@ class DefaultApi(implicit val swagger: Swagger) extends ScalatraServlet
     contentType = formats("json")
     response.headers += ("Access-Control-Allow-Origin" -> "*")
   }
+  
 
-
-  val getApiAllJsonOperation = (apiOperation[AnyType]("getApiAllJson")
+  val getApiAllJsonOperation = (apiOperation[List[String]]("getApiAllJson")
     summary "All Products"
     parameters()
   )
@@ -48,11 +47,11 @@ class DefaultApi(implicit val swagger: Swagger) extends ScalatraServlet
   get("/api/all.json", operation(getApiAllJsonOperation)) {
   }
 
-
+  
 
   val getApiProductCycleJsonOperation = (apiOperation[Cycle]("getApiProductCycleJson")
     summary "Single cycle details"
-    parameters(pathParam[AnyType]("product").description(""), pathParam[AnyType]("cycle").description(""))
+    parameters(pathParam[String]("product").description(""), pathParam[String]("cycle").description(""))
   )
 
   get("/api/:product/{cycle}.json", operation(getApiProductCycleJsonOperation)) {
@@ -62,11 +61,11 @@ class DefaultApi(implicit val swagger: Swagger) extends ScalatraServlet
     //println("cycle: " + cycle)
   }
 
+  
 
-
-  val getApiProductJsonOperation = (apiOperation[AnyType]("getApiProductJson")
+  val getApiProductJsonOperation = (apiOperation[List[Cycle]]("getApiProductJson")
     summary "Get All Details"
-    parameters(pathParam[AnyType]("product").description(""))
+    parameters(pathParam[String]("product").description(""))
   )
 
   get("/api/{product}.json", operation(getApiProductJsonOperation)) {

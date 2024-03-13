@@ -7,50 +7,45 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(Cycle, () {
-    // Release Cycle
-    // JsonObject cycle
+    // CycleCycle cycle
     test('to test the property `cycle`', () async {
       // TODO
     });
 
     // Release Date for the first release in this cycle
-    // JsonObject releaseDate
+    // Date releaseDate
     test('to test the property `releaseDate`', () async {
       // TODO
     });
 
-    // End of Life Date for this release cycle
-    // JsonObject eol
+    // CycleEol eol
     test('to test the property `eol`', () async {
       // TODO
     });
 
     // Latest release in this cycle
-    // JsonObject latest
+    // String latest
     test('to test the property `latest`', () async {
       // TODO
     });
 
     // Link to changelog for the latest release, if available
-    // JsonObject link
+    // String link
     test('to test the property `link`', () async {
       // TODO
     });
 
-    // Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
-    // JsonObject lts
+    // CycleLts lts
     test('to test the property `lts`', () async {
       // TODO
     });
 
-    // Whether this release cycle has active support
-    // JsonObject support
+    // CycleSupport support
     test('to test the property `support`', () async {
       // TODO
     });
 
-    // Whether this cycle is now discontinued.
-    // JsonObject discontinued
+    // CycleDiscontinued discontinued
     test('to test the property `discontinued`', () async {
       // TODO
     });

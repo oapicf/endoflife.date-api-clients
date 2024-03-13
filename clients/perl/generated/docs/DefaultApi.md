@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **get_api_all_json**
-> AnyType get_api_all_json()
+> ARRAY[string] get_api_all_json()
 
 All Products
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AnyType**](AnyType.md)
+**ARRAY[string]**
 
 ### Authorization
 
@@ -70,8 +70,8 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $product = new WWW::OpenAPIClient.AnyType(); # AnyType | Product URL as per the canonical URL on the endofife.date website
-my $cycle = new WWW::OpenAPIClient.AnyType(); # AnyType | Release Cycle for which the details must be fetched
+my $product = "product_example"; # string | Product URL as per the canonical URL on the endofife.date website
+my $cycle = "cycle_example"; # string | Release Cycle for which the details must be fetched
 
 eval {
     my $result = $api_instance->get_api_product_cycle_json(product => $product, cycle => $cycle);
@@ -86,8 +86,8 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](.md)| Product URL as per the canonical URL on the endofife.date website | 
- **cycle** | [**AnyType**](.md)| Release Cycle for which the details must be fetched | 
+ **product** | **string**| Product URL as per the canonical URL on the endofife.date website | 
+ **cycle** | **string**| Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -105,7 +105,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_product_json**
-> AnyType get_api_product_json(product => $product)
+> ARRAY[Cycle] get_api_product_json(product => $product)
 
 Get All Details
 
@@ -118,7 +118,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $product = new WWW::OpenAPIClient.AnyType(); # AnyType | Product URL as per the canonical URL on the endofife.date website
+my $product = "product_example"; # string | Product URL as per the canonical URL on the endofife.date website
 
 eval {
     my $result = $api_instance->get_api_product_json(product => $product);
@@ -133,11 +133,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](.md)| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **string**| Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-[**AnyType**](AnyType.md)
+[**ARRAY[Cycle]**](Cycle.md)
 
 ### Authorization
 

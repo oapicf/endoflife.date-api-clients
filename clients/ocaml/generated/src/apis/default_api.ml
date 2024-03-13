@@ -10,14 +10,14 @@ let get_api_all_json () =
     let uri = Request.build_uri "/api/all.json" in
     let headers = Request.default_headers in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.unwrap Any_type.of_yojson) resp body
+    Request.read_json_body_as_list_of (JsonSupport.to_string) resp body
 
 let get_api_product_cycle_json ~product ~cycle =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/{product}/{cycle}.json" in
     let headers = Request.default_headers in
-    let uri = Request.replace_path_param uri "product"  product in
-    let uri = Request.replace_path_param uri "cycle"  cycle in
+    let uri = Request.replace_path_param uri "product" (fun x -> x) product in
+    let uri = Request.replace_path_param uri "cycle" (fun x -> x) cycle in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
     Request.read_json_body_as (JsonSupport.unwrap Cycle.of_yojson) resp body
 
@@ -25,7 +25,7 @@ let get_api_product_json ~product =
     let open Lwt.Infix in
     let uri = Request.build_uri "/api/{product}.json" in
     let headers = Request.default_headers in
-    let uri = Request.replace_path_param uri "product"  product in
+    let uri = Request.replace_path_param uri "product" (fun x -> x) product in
     Cohttp_lwt_unix.Client.call `GET uri ~headers >>= fun (resp, body) ->
-    Request.read_json_body_as (JsonSupport.unwrap Any_type.of_yojson) resp body
+    Request.read_json_body_as_list_of (JsonSupport.unwrap Cycle.of_yojson) resp body
 

@@ -5,3 +5,8 @@ project.clj
 src/endoflife/date/api/default.clj
 src/endoflife/date/core.clj
 src/endoflife/date/specs/cycle.clj
+src/endoflife/date/specs/cycle_cycle.clj
+src/endoflife/date/specs/cycle_discontinued.clj
+src/endoflife/date/specs/cycle_eol.clj
+src/endoflife/date/specs/cycle_lts.clj
+src/endoflife/date/specs/cycle_support.clj

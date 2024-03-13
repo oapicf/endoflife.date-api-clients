@@ -9,43 +9,33 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { CycleLts } from './cycleLts';
+import { CycleDiscontinued } from './cycleDiscontinued';
+import { CycleSupport } from './cycleSupport';
+import { CycleCycle } from './cycleCycle';
+import { CycleEol } from './cycleEol';
 
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
-export interface Cycle {
-    /**
-     * Release Cycle
-     */
-    cycle?: any | null;
+export interface Cycle { 
+    cycle?: CycleCycle;
     /**
      * Release Date for the first release in this cycle
      */
-    releaseDate?: any | null;
-    /**
-     * End of Life Date for this release cycle
-     */
-    eol?: any | null;
+    releaseDate?: string;
+    eol?: CycleEol;
     /**
      * Latest release in this cycle
      */
-    latest?: any | null;
+    latest?: string;
     /**
      * Link to changelog for the latest release, if available
      */
-    link?: any | null;
-    /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-     */
-    lts?: any | null;
-    /**
-     * Whether this release cycle has active support
-     */
-    support?: any | null;
-    /**
-     * Whether this cycle is now discontinued.
-     */
-    discontinued?: any | null;
+    link?: string | null;
+    lts?: CycleLts;
+    support?: CycleSupport;
+    discontinued?: CycleDiscontinued;
 }
 

@@ -9,6 +9,11 @@ encoder.ts
 git_push.sh
 index.ts
 model/cycle.ts
+model/cycleCycle.ts
+model/cycleDiscontinued.ts
+model/cycleEol.ts
+model/cycleLts.ts
+model/cycleSupport.ts
 model/models.ts
 param.ts
 variables.ts

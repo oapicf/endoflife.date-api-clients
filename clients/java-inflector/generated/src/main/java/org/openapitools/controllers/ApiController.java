@@ -11,8 +11,9 @@ import java.util.List;
 import org.openapitools.model.*;
 
 import org.openapitools.model.Cycle;
+import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2023-09-16T14:43:04.538005Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-03-13T10:44:44.765865256Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ApiController  {
   /**
    * Uncomment and implement as you see fit.  These operations will map
@@ -27,13 +28,13 @@ public class ApiController  {
   */
 
   /*
-    public ResponseContext getApiProductCycleJson(RequestContext request , Object product, Object cycle) {
+    public ResponseContext getApiProductCycleJson(RequestContext request , String product, String cycle) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext getApiProductJson(RequestContext request , Object product) {
+    public ResponseContext getApiProductJson(RequestContext request , String product) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */

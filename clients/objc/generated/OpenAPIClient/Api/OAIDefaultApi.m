@@ -1,7 +1,6 @@
 #import "OAIDefaultApi.h"
 #import "OAIQueryParamCollection.h"
 #import "OAIApiClient.h"
-#import "OAIAnyType.h"
 #import "OAICycle.h"
 
 
@@ -53,10 +52,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// All Products
 /// Return a list of all products. Each of these can be used for the other API endpoints.
-///  @returns OAIAnyType*
+///  @returns NSArray<NSString*>*
 ///
 -(NSURLSessionTask*) getApiAllJsonWithCompletionHandler: 
-    (void (^)(OAIAnyType* output, NSError* error)) handler {
+    (void (^)(NSArray<NSString*>* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/api/all.json"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -94,10 +93,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIAnyType*"
+                              responseType: @"NSArray<NSString*>*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIAnyType*)data, error);
+                                    handler((NSArray<NSString*>*)data, error);
                                 }
                             }];
 }
@@ -111,8 +110,8 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 ///  @returns OAICycle*
 ///
--(NSURLSessionTask*) getApiProductCycleJsonWithProduct: (OAIAnyType*) product
-    cycle: (OAIAnyType*) cycle
+-(NSURLSessionTask*) getApiProductCycleJsonWithProduct: (NSString*) product
+    cycle: (NSString*) cycle
     completionHandler: (void (^)(OAICycle* output, NSError* error)) handler {
     // verify the required parameter 'product' is set
     if (product == nil) {
@@ -192,10 +191,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// Get EoL dates of all cycles of a given product.
 ///  @param product Product URL as per the canonical URL on the endofife.date website 
 ///
-///  @returns OAIAnyType*
+///  @returns NSArray<OAICycle>*
 ///
--(NSURLSessionTask*) getApiProductJsonWithProduct: (OAIAnyType*) product
-    completionHandler: (void (^)(OAIAnyType* output, NSError* error)) handler {
+-(NSURLSessionTask*) getApiProductJsonWithProduct: (NSString*) product
+    completionHandler: (void (^)(NSArray<OAICycle>* output, NSError* error)) handler {
     // verify the required parameter 'product' is set
     if (product == nil) {
         NSParameterAssert(product);
@@ -247,10 +246,10 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"OAIAnyType*"
+                              responseType: @"NSArray<OAICycle>*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((OAIAnyType*)data, error);
+                                    handler((NSArray<OAICycle>*)data, error);
                                 }
                             }];
 }

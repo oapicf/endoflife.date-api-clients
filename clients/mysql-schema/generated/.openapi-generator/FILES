@@ -1,4 +1,9 @@
 .openapi-generator-ignore
 Model/Cycle.sql
+Model/CycleCycle.sql
+Model/CycleDiscontinued.sql
+Model/CycleEol.sql
+Model/CycleLts.sql
+Model/CycleSupport.sql
 README.md
 mysql_schema.sql

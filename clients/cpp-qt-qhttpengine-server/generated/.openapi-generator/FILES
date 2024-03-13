@@ -12,6 +12,16 @@ server/src/handlers/OAIDefaultApiHandler.h
 server/src/main.cpp
 server/src/models/OAICycle.cpp
 server/src/models/OAICycle.h
+server/src/models/OAICycle_cycle.cpp
+server/src/models/OAICycle_cycle.h
+server/src/models/OAICycle_discontinued.cpp
+server/src/models/OAICycle_discontinued.h
+server/src/models/OAICycle_eol.cpp
+server/src/models/OAICycle_eol.h
+server/src/models/OAICycle_lts.cpp
+server/src/models/OAICycle_lts.h
+server/src/models/OAICycle_support.cpp
+server/src/models/OAICycle_support.h
 server/src/models/OAIEnum.h
 server/src/models/OAIHelpers.cpp
 server/src/models/OAIHelpers.h

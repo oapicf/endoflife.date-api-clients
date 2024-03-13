@@ -15,7 +15,13 @@ package org.openapitools.model;
 import java.util.Objects;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.model.CycleCycle;
+import org.openapitools.model.CycleDiscontinued;
+import org.openapitools.model.CycleEol;
+import org.openapitools.model.CycleLts;
+import org.openapitools.model.CycleSupport;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.validation.constraints.*;
@@ -37,59 +43,60 @@ import javax.annotation.Generated;
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
 @JsonTypeName("cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2023-09-16T14:43:07.983480Z[Etc/UTC]")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-03-13T10:44:48.803665066Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 @Introspected
 public class Cycle {
     public static final String JSON_PROPERTY_CYCLE = "cycle";
-    private Object cycle = null;
+    private CycleCycle cycle;
 
     public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
-    private Object releaseDate = null;
+    private LocalDate releaseDate;
 
     public static final String JSON_PROPERTY_EOL = "eol";
-    private Object eol = null;
+    private CycleEol eol;
 
     public static final String JSON_PROPERTY_LATEST = "latest";
-    private Object latest = null;
+    private String latest;
 
     public static final String JSON_PROPERTY_LINK = "link";
-    private Object link = null;
+    private String link;
 
     public static final String JSON_PROPERTY_LTS = "lts";
-    private Object lts = null;
+    private CycleLts lts;
 
     public static final String JSON_PROPERTY_SUPPORT = "support";
-    private Object support = null;
+    private CycleSupport support;
 
     public static final String JSON_PROPERTY_DISCONTINUED = "discontinued";
-    private Object discontinued = null;
+    private CycleDiscontinued discontinued;
 
     public Cycle() {
     }
 
-    public Cycle cycle(Object cycle) {
+    public Cycle cycle(CycleCycle cycle) {
         this.cycle = cycle;
         return this;
     }
 
     /**
-     * Release Cycle
+     * Get cycle
      * @return cycle
      **/
+    @Valid
     @Nullable
     @JsonProperty(JSON_PROPERTY_CYCLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getCycle() {
+    public CycleCycle getCycle() {
         return cycle;
     }
 
     @JsonProperty(JSON_PROPERTY_CYCLE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setCycle(Object cycle) {
+    public void setCycle(CycleCycle cycle) {
         this.cycle = cycle;
     }
 
-    public Cycle releaseDate(Object releaseDate) {
+    public Cycle releaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
         return this;
     }
@@ -102,40 +109,42 @@ public class Cycle {
     @Size(min=10, max=10)
     @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getReleaseDate() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
     @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setReleaseDate(Object releaseDate) {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 
-    public Cycle eol(Object eol) {
+    public Cycle eol(CycleEol eol) {
         this.eol = eol;
         return this;
     }
 
     /**
-     * End of Life Date for this release cycle
+     * Get eol
      * @return eol
      **/
+    @Valid
     @Nullable
-    @Size(min=1)
     @JsonProperty(JSON_PROPERTY_EOL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getEol() {
+    public CycleEol getEol() {
         return eol;
     }
 
     @JsonProperty(JSON_PROPERTY_EOL)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setEol(Object eol) {
+    public void setEol(CycleEol eol) {
         this.eol = eol;
     }
 
-    public Cycle latest(Object latest) {
+    public Cycle latest(String latest) {
         this.latest = latest;
         return this;
     }
@@ -148,17 +157,17 @@ public class Cycle {
     @Size(min=1)
     @JsonProperty(JSON_PROPERTY_LATEST)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getLatest() {
+    public String getLatest() {
         return latest;
     }
 
     @JsonProperty(JSON_PROPERTY_LATEST)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLatest(Object latest) {
+    public void setLatest(String latest) {
         this.latest = latest;
     }
 
-    public Cycle link(Object link) {
+    public Cycle link(String link) {
         this.link = link;
         return this;
     }
@@ -171,81 +180,82 @@ public class Cycle {
     @Size(min=1)
     @JsonProperty(JSON_PROPERTY_LINK)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getLink() {
+    public String getLink() {
         return link;
     }
 
     @JsonProperty(JSON_PROPERTY_LINK)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLink(Object link) {
+    public void setLink(String link) {
         this.link = link;
     }
 
-    public Cycle lts(Object lts) {
+    public Cycle lts(CycleLts lts) {
         this.lts = lts;
         return this;
     }
 
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+     * Get lts
      * @return lts
      **/
+    @Valid
     @Nullable
     @JsonProperty(JSON_PROPERTY_LTS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getLts() {
+    public CycleLts getLts() {
         return lts;
     }
 
     @JsonProperty(JSON_PROPERTY_LTS)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setLts(Object lts) {
+    public void setLts(CycleLts lts) {
         this.lts = lts;
     }
 
-    public Cycle support(Object support) {
+    public Cycle support(CycleSupport support) {
         this.support = support;
         return this;
     }
 
     /**
-     * Whether this release cycle has active support
+     * Get support
      * @return support
      **/
+    @Valid
     @Nullable
-    @Size(min=10, max=10)
     @JsonProperty(JSON_PROPERTY_SUPPORT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getSupport() {
+    public CycleSupport getSupport() {
         return support;
     }
 
     @JsonProperty(JSON_PROPERTY_SUPPORT)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setSupport(Object support) {
+    public void setSupport(CycleSupport support) {
         this.support = support;
     }
 
-    public Cycle discontinued(Object discontinued) {
+    public Cycle discontinued(CycleDiscontinued discontinued) {
         this.discontinued = discontinued;
         return this;
     }
 
     /**
-     * Whether this cycle is now discontinued.
+     * Get discontinued
      * @return discontinued
      **/
+    @Valid
     @Nullable
-    @Size(min=10, max=10)
     @JsonProperty(JSON_PROPERTY_DISCONTINUED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getDiscontinued() {
+    public CycleDiscontinued getDiscontinued() {
         return discontinued;
     }
 
     @JsonProperty(JSON_PROPERTY_DISCONTINUED)
     @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public void setDiscontinued(Object discontinued) {
+    public void setDiscontinued(CycleDiscontinued discontinued) {
         this.discontinued = discontinued;
     }
 

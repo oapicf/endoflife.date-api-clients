@@ -15,38 +15,36 @@
 
 import unittest
 
-import endoflifedate
-from endoflifedate.api.default_api import DefaultApi  # noqa: E501
-from endoflifedate.rest import ApiException
+from endoflifedate.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):
     """DefaultApi unit test stubs"""
 
-    def setUp(self):
-        self.api = endoflifedate.api.default_api.DefaultApi()  # noqa: E501
+    def setUp(self) -> None:
+        self.api = DefaultApi()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         pass
 
-    def test_get_api_all_json(self):
+    def test_get_api_all_json(self) -> None:
         """Test case for get_api_all_json
 
-        All Products  # noqa: E501
+        All Products
         """
         pass
 
-    def test_get_api_product_cycle_json(self):
+    def test_get_api_product_cycle_json(self) -> None:
         """Test case for get_api_product_cycle_json
 
-        Single cycle details  # noqa: E501
+        Single cycle details
         """
         pass
 
-    def test_get_api_product_json(self):
+    def test_get_api_product_json(self) -> None:
         """Test case for get_api_product_json
 
-        Get All Details  # noqa: E501
+        Get All Details
         """
         pass
 

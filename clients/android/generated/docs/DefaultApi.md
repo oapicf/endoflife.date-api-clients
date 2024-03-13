@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## getApiAllJson
 
-> OasAnyTypeNotMapped getApiAllJson()
+> List&lt;String&gt; getApiAllJson()
 
 All Products
 
@@ -26,7 +26,7 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 DefaultApi apiInstance = new DefaultApi();
 try {
-    OasAnyTypeNotMapped result = apiInstance.getApiAllJson();
+    List<String> result = apiInstance.getApiAllJson();
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getApiAllJson");
@@ -40,7 +40,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OasAnyTypeNotMapped**](OasAnyTypeNotMapped.md)
+**List&lt;String&gt;**
 
 ### Authorization
 
@@ -67,8 +67,8 @@ Gets details of a single cycle
 //import org.openapitools.client.api.DefaultApi;
 
 DefaultApi apiInstance = new DefaultApi();
-OasAnyTypeNotMapped product = null; // OasAnyTypeNotMapped | Product URL as per the canonical URL on the endofife.date website
-OasAnyTypeNotMapped cycle = null; // OasAnyTypeNotMapped | Release Cycle for which the details must be fetched
+String product = null; // String | Product URL as per the canonical URL on the endofife.date website
+String cycle = null; // String | Release Cycle for which the details must be fetched
 try {
     Cycle result = apiInstance.getApiProductCycleJson(product, cycle);
     System.out.println(result);
@@ -83,8 +83,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**OasAnyTypeNotMapped**](.md)| Product URL as per the canonical URL on the endofife.date website | [default to null]
- **cycle** | [**OasAnyTypeNotMapped**](.md)| Release Cycle for which the details must be fetched | [default to null]
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **cycle** | **String**| Release Cycle for which the details must be fetched | [default to null]
 
 ### Return type
 
@@ -102,7 +102,7 @@ No authorization required
 
 ## getApiProductJson
 
-> OasAnyTypeNotMapped getApiProductJson(product)
+> List&lt;Cycle&gt; getApiProductJson(product)
 
 Get All Details
 
@@ -115,9 +115,9 @@ Get EoL dates of all cycles of a given product.
 //import org.openapitools.client.api.DefaultApi;
 
 DefaultApi apiInstance = new DefaultApi();
-OasAnyTypeNotMapped product = null; // OasAnyTypeNotMapped | Product URL as per the canonical URL on the endofife.date website
+String product = null; // String | Product URL as per the canonical URL on the endofife.date website
 try {
-    OasAnyTypeNotMapped result = apiInstance.getApiProductJson(product);
+    List<Cycle> result = apiInstance.getApiProductJson(product);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#getApiProductJson");
@@ -130,11 +130,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**OasAnyTypeNotMapped**](.md)| Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website | [default to null]
 
 ### Return type
 
-[**OasAnyTypeNotMapped**](OasAnyTypeNotMapped.md)
+[**List&lt;Cycle&gt;**](Cycle.md)
 
 ### Authorization
 

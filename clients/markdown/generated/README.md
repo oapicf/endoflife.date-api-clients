@@ -16,6 +16,11 @@ All URIs are relative to *https://endoflife.date*
 ## Documentation for Models
 
  - [cycle](./Models/cycle.md)
+ - [cycle_cycle](./Models/cycle_cycle.md)
+ - [cycle_discontinued](./Models/cycle_discontinued.md)
+ - [cycle_eol](./Models/cycle_eol.md)
+ - [cycle_lts](./Models/cycle_lts.md)
+ - [cycle_support](./Models/cycle_support.md)
 
 
 <a name="documentation-for-authorization"></a>

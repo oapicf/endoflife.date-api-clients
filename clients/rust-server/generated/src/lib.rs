@@ -18,7 +18,7 @@ pub const API_VERSION: &str = "0.0.1";
 pub enum GetApiAllPeriodJsonResponse {
     /// OK
     OK
-    (serde_json::Value)
+    (Vec<String>)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -32,7 +32,7 @@ pub enum GetApiProductCyclePeriodJsonResponse {
 pub enum GetApiProductPeriodJsonResponse {
     /// OK
     OK
-    (serde_json::Value)
+    (Vec<models::Cycle>)
 }
 
 /// API
@@ -51,14 +51,14 @@ pub trait Api<C: Send + Sync> {
     /// Single cycle details
     async fn get_api_product_cycle_period_json(
         &self,
-        product: serde_json::Value,
-        cycle: serde_json::Value,
+        product: String,
+        cycle: String,
         context: &C) -> Result<GetApiProductCyclePeriodJsonResponse, ApiError>;
 
     /// Get All Details
     async fn get_api_product_period_json(
         &self,
-        product: serde_json::Value,
+        product: String,
         context: &C) -> Result<GetApiProductPeriodJsonResponse, ApiError>;
 
 }
@@ -80,14 +80,14 @@ pub trait ApiNoContext<C: Send + Sync> {
     /// Single cycle details
     async fn get_api_product_cycle_period_json(
         &self,
-        product: serde_json::Value,
-        cycle: serde_json::Value,
+        product: String,
+        cycle: String,
         ) -> Result<GetApiProductCyclePeriodJsonResponse, ApiError>;
 
     /// Get All Details
     async fn get_api_product_period_json(
         &self,
-        product: serde_json::Value,
+        product: String,
         ) -> Result<GetApiProductPeriodJsonResponse, ApiError>;
 
 }
@@ -127,8 +127,8 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
     /// Single cycle details
     async fn get_api_product_cycle_period_json(
         &self,
-        product: serde_json::Value,
-        cycle: serde_json::Value,
+        product: String,
+        cycle: String,
         ) -> Result<GetApiProductCyclePeriodJsonResponse, ApiError>
     {
         let context = self.context().clone();
@@ -138,7 +138,7 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for Contex
     /// Get All Details
     async fn get_api_product_period_json(
         &self,
-        product: serde_json::Value,
+        product: String,
         ) -> Result<GetApiProductPeriodJsonResponse, ApiError>
     {
         let context = self.context().clone();

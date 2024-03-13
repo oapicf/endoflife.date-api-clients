@@ -56,7 +56,7 @@ bool OpenAPIDefaultApi::GetApiAllJsonResponse::FromJson(const TSharedPtr<FJsonVa
 
 FString OpenAPIDefaultApi::GetApiProductCycleJsonRequest::ComputePath() const
 {
-	TMap<FString, FStringFormatArg> PathParams = {
+	TMap<FString, FStringFormatArg> PathParams = { 
 	{ TEXT("product"), FStringFormatArg(ToUrlString(Product)) },
 	{ TEXT("cycle"), FStringFormatArg(ToUrlString(Cycle)) } };
 
@@ -92,7 +92,7 @@ bool OpenAPIDefaultApi::GetApiProductCycleJsonResponse::FromJson(const TSharedPt
 
 FString OpenAPIDefaultApi::GetApiProductJsonRequest::ComputePath() const
 {
-	TMap<FString, FStringFormatArg> PathParams = {
+	TMap<FString, FStringFormatArg> PathParams = { 
 	{ TEXT("product"), FStringFormatArg(ToUrlString(Product)) } };
 
 	FString Path = FString::Format(TEXT("/api/{product}.json"), PathParams);

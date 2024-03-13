@@ -85,7 +85,15 @@ func (c *DefaultAPIController) GetApiAllJson(w http.ResponseWriter, r *http.Requ
 func (c *DefaultAPIController) GetApiProductCycleJson(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	productParam := params["product"]
+	if productParam == "" {
+		c.errorHandler(w, r, &RequiredError{"product"}, nil)
+		return
+	}
 	cycleParam := params["cycle"]
+	if cycleParam == "" {
+		c.errorHandler(w, r, &RequiredError{"cycle"}, nil)
+		return
+	}
 	result, err := c.service.GetApiProductCycleJson(r.Context(), productParam, cycleParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
@@ -100,6 +108,10 @@ func (c *DefaultAPIController) GetApiProductCycleJson(w http.ResponseWriter, r *
 func (c *DefaultAPIController) GetApiProductJson(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	productParam := params["product"]
+	if productParam == "" {
+		c.errorHandler(w, r, &RequiredError{"product"}, nil)
+		return
+	}
 	result, err := c.service.GetApiProductJson(r.Context(), productParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {

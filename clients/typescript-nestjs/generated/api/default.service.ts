@@ -46,7 +46,7 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getApiAllJson(): Observable<AxiosResponse<any>>;
+    public getApiAllJson(): Observable<AxiosResponse<Array<string>>>;
     public getApiAllJson(): Observable<any> {
 
         let headers = {...this.defaultHeaders};
@@ -63,7 +63,7 @@ export class DefaultService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        return this.httpClient.get<any>(`${this.basePath}/api/all.json`,
+        return this.httpClient.get<Array<string>>(`${this.basePath}/api/all.json`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers
@@ -78,8 +78,8 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getApiProductCycleJson(product: any, cycle: any, ): Observable<AxiosResponse<Cycle>>;
-    public getApiProductCycleJson(product: any, cycle: any, ): Observable<any> {
+    public getApiProductCycleJson(product: string, cycle: string, ): Observable<AxiosResponse<Cycle>>;
+    public getApiProductCycleJson(product: string, cycle: string, ): Observable<any> {
 
         if (product === null || product === undefined) {
             throw new Error('Required parameter product was null or undefined when calling getApiProductCycleJson.');
@@ -117,8 +117,8 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getApiProductJson(product: any, ): Observable<AxiosResponse<any>>;
-    public getApiProductJson(product: any, ): Observable<any> {
+    public getApiProductJson(product: string, ): Observable<AxiosResponse<Array<Cycle>>>;
+    public getApiProductJson(product: string, ): Observable<any> {
 
         if (product === null || product === undefined) {
             throw new Error('Required parameter product was null or undefined when calling getApiProductJson.');
@@ -138,7 +138,7 @@ export class DefaultService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        return this.httpClient.get<any>(`${this.basePath}/api/${encodeURIComponent(String(product))}.json`,
+        return this.httpClient.get<Array<Cycle>>(`${this.basePath}/api/${encodeURIComponent(String(product))}.json`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers

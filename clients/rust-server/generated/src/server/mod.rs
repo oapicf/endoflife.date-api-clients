@@ -178,8 +178,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("application/json")
                                                             .expect("Unable to create Content-Type header for GET_API_ALL_PERIOD_JSON_OK"));
-                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -205,7 +205,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     );
 
                 let param_product = match percent_encoding::percent_decode(path_params["product"].as_bytes()).decode_utf8() {
-                    Ok(param_product) => match param_product.parse::<serde_json::Value>() {
+                    Ok(param_product) => match param_product.parse::<String>() {
                         Ok(param_product) => param_product,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -219,7 +219,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                 };
 
                 let param_cycle = match percent_encoding::percent_decode(path_params["cycle"].as_bytes()).decode_utf8() {
-                    Ok(param_cycle) => match param_cycle.parse::<serde_json::Value>() {
+                    Ok(param_cycle) => match param_cycle.parse::<String>() {
                         Ok(param_cycle) => param_cycle,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -253,8 +253,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("application/json")
                                                             .expect("Unable to create Content-Type header for GET_API_PRODUCT_CYCLE_PERIOD_JSON_OK"));
-                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {
@@ -280,7 +280,7 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                     );
 
                 let param_product = match percent_encoding::percent_decode(path_params["product"].as_bytes()).decode_utf8() {
-                    Ok(param_product) => match param_product.parse::<serde_json::Value>() {
+                    Ok(param_product) => match param_product.parse::<String>() {
                         Ok(param_product) => param_product,
                         Err(e) => return Ok(Response::builder()
                                         .status(StatusCode::BAD_REQUEST)
@@ -313,8 +313,8 @@ impl<T, C> hyper::service::Service<(Request<Body>, C)> for Service<T, C> where
                                                         CONTENT_TYPE,
                                                         HeaderValue::from_str("application/json")
                                                             .expect("Unable to create Content-Type header for GET_API_PRODUCT_PERIOD_JSON_OK"));
-                                                    let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-                                                    *response.body_mut() = Body::from(body);
+                                                    let body_content = serde_json::to_string(&body).expect("impossible to fail to serialize");
+                                                    *response.body_mut() = Body::from(body_content);
                                                 },
                                             },
                                             Err(_) => {

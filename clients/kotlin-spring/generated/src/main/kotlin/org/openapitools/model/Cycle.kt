@@ -2,6 +2,11 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
+import org.openapitools.model.CycleCycle
+import org.openapitools.model.CycleDiscontinued
+import org.openapitools.model.CycleEol
+import org.openapitools.model.CycleLts
+import org.openapitools.model.CycleSupport
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
 import javax.validation.constraints.Email
@@ -15,54 +20,49 @@ import io.swagger.v3.oas.annotations.media.Schema
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
- * @param cycle Release Cycle
+ * @param cycle 
  * @param releaseDate Release Date for the first release in this cycle
- * @param eol End of Life Date for this release cycle
+ * @param eol 
  * @param latest Latest release in this cycle
  * @param link Link to changelog for the latest release, if available
- * @param lts Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
- * @param support Whether this release cycle has active support
- * @param discontinued Whether this cycle is now discontinued.
+ * @param lts 
+ * @param support 
+ * @param discontinued 
  */
 data class Cycle(
 
     @field:Valid
-    @Schema(example = "null", description = "Release Cycle")
-    @get:JsonProperty("cycle") val cycle: kotlin.Any? = null,
+    @Schema(example = "null", description = "")
+    @get:JsonProperty("cycle") val cycle: CycleCycle? = null,
 
     @field:Valid
     @get:Size(min=10,max=10)
     @Schema(example = "null", description = "Release Date for the first release in this cycle")
-    @get:JsonProperty("releaseDate") val releaseDate: kotlin.Any? = null,
+    @get:JsonProperty("releaseDate") val releaseDate: java.time.LocalDate? = null,
 
     @field:Valid
-    @get:Size(min=1)
-    @Schema(example = "null", description = "End of Life Date for this release cycle")
-    @get:JsonProperty("eol") val eol: kotlin.Any? = null,
+    @Schema(example = "null", description = "")
+    @get:JsonProperty("eol") val eol: CycleEol? = null,
 
-    @field:Valid
     @get:Size(min=1)
     @Schema(example = "null", description = "Latest release in this cycle")
-    @get:JsonProperty("latest") val latest: kotlin.Any? = null,
+    @get:JsonProperty("latest") val latest: kotlin.String? = null,
 
-    @field:Valid
     @get:Size(min=1)
     @Schema(example = "null", description = "Link to changelog for the latest release, if available")
-    @get:JsonProperty("link") val link: kotlin.Any? = null,
+    @get:JsonProperty("link") val link: kotlin.String? = null,
 
     @field:Valid
-    @Schema(example = "null", description = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
-    @get:JsonProperty("lts") val lts: kotlin.Any? = null,
+    @Schema(example = "null", description = "")
+    @get:JsonProperty("lts") val lts: CycleLts? = null,
 
     @field:Valid
-    @get:Size(min=10,max=10)
-    @Schema(example = "null", description = "Whether this release cycle has active support")
-    @get:JsonProperty("support") val support: kotlin.Any? = null,
+    @Schema(example = "null", description = "")
+    @get:JsonProperty("support") val support: CycleSupport? = null,
 
     @field:Valid
-    @get:Size(min=10,max=10)
-    @Schema(example = "null", description = "Whether this cycle is now discontinued.")
-    @get:JsonProperty("discontinued") val discontinued: kotlin.Any? = null
+    @Schema(example = "null", description = "")
+    @get:JsonProperty("discontinued") val discontinued: CycleDiscontinued? = null
 ) {
 
 }

@@ -3,7 +3,7 @@
   "info" : {
     "contact" : {
       "email" : "blah+oapicf@cliffano.com",
-      "name" : "Cliffano Subagio",
+      "name" : "OpenAPI Clients Factory",
       "url" : "https://github.com/oapicf/endoflife.date-api-clients"
     },
     "description" : "Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)",
@@ -29,7 +29,9 @@
           "in" : "path",
           "name" : "product",
           "required" : true,
-          "schema" : { },
+          "schema" : {
+            "type" : "string"
+          },
           "style" : "simple"
         } ],
         "responses" : {
@@ -75,7 +77,8 @@
                 "schema" : {
                   "items" : {
                     "$ref" : "#/components/schemas/cycle"
-                  }
+                  },
+                  "type" : "array"
                 }
               }
             },
@@ -96,7 +99,9 @@
           "in" : "path",
           "name" : "product",
           "required" : true,
-          "schema" : { },
+          "schema" : {
+            "type" : "string"
+          },
           "style" : "simple"
         }, {
           "description" : "Release Cycle for which the details must be fetched",
@@ -104,7 +109,9 @@
           "in" : "path",
           "name" : "cycle",
           "required" : true,
-          "schema" : { },
+          "schema" : {
+            "type" : "string"
+          },
           "style" : "simple"
         } ],
         "responses" : {
@@ -158,7 +165,10 @@
                 },
                 "schema" : {
                   "description" : "List of all products.",
-                  "items" : { }
+                  "items" : {
+                    "type" : "string"
+                  },
+                  "type" : "array"
                 }
               }
             },
@@ -176,40 +186,37 @@
         "description" : "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.",
         "properties" : {
           "cycle" : {
-            "description" : "Release Cycle"
+            "$ref" : "#/components/schemas/cycle_cycle"
           },
           "releaseDate" : {
             "description" : "Release Date for the first release in this cycle",
             "format" : "date",
             "maxLength" : 10,
-            "minLength" : 10
+            "minLength" : 10,
+            "type" : "string"
           },
           "eol" : {
-            "description" : "End of Life Date for this release cycle",
-            "minLength" : 1
+            "$ref" : "#/components/schemas/cycle_eol"
           },
           "latest" : {
             "description" : "Latest release in this cycle",
-            "minLength" : 1
+            "minLength" : 1,
+            "type" : "string"
           },
           "link" : {
             "description" : "Link to changelog for the latest release, if available",
-            "minLength" : 1
+            "minLength" : 1,
+            "nullable" : true,
+            "type" : "string"
           },
           "lts" : {
-            "description" : "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.\n"
+            "$ref" : "#/components/schemas/cycle_lts"
           },
           "support" : {
-            "description" : "Whether this release cycle has active support",
-            "format" : "date",
-            "maxLength" : 10,
-            "minLength" : 10
+            "$ref" : "#/components/schemas/cycle_support"
           },
           "discontinued" : {
-            "description" : "Whether this cycle is now discontinued.",
-            "format" : "date",
-            "maxLength" : 10,
-            "minLength" : 10
+            "$ref" : "#/components/schemas/cycle_discontinued"
           }
         },
         "title" : "Cycle",
@@ -315,6 +322,53 @@
             "latest" : "14.04.6"
           } ]
         }
+      },
+      "cycle_cycle" : {
+        "anyOf" : [ {
+          "type" : "number"
+        }, {
+          "type" : "string"
+        } ],
+        "description" : "Release Cycle"
+      },
+      "cycle_eol" : {
+        "anyOf" : [ {
+          "type" : "string"
+        }, {
+          "type" : "boolean"
+        } ],
+        "description" : "End of Life Date for this release cycle",
+        "minLength" : 1
+      },
+      "cycle_lts" : {
+        "anyOf" : [ {
+          "type" : "boolean"
+        }, {
+          "type" : "string"
+        } ],
+        "description" : "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.\n"
+      },
+      "cycle_support" : {
+        "anyOf" : [ {
+          "type" : "string"
+        }, {
+          "type" : "boolean"
+        } ],
+        "description" : "Whether this release cycle has active support",
+        "format" : "date",
+        "maxLength" : 10,
+        "minLength" : 10
+      },
+      "cycle_discontinued" : {
+        "anyOf" : [ {
+          "type" : "string"
+        }, {
+          "type" : "boolean"
+        } ],
+        "description" : "Whether this cycle is now discontinued.",
+        "format" : "date",
+        "maxLength" : 10,
+        "minLength" : 10
       }
     }
   }

@@ -11,24 +11,20 @@
  */
 package org.openapitools.client.model
 
+import java.time.LocalDate
 import org.openapitools.client.core.ApiModel
 
 case class Cycle (
-  /* Release Cycle */
-  cycle: Option[AnyType] = None,
+  cycle: Option[CycleCycle] = None,
   /* Release Date for the first release in this cycle */
-  releaseDate: Option[AnyType] = None,
-  /* End of Life Date for this release cycle */
-  eol: Option[AnyType] = None,
+  releaseDate: Option[LocalDate] = None,
+  eol: Option[CycleEol] = None,
   /* Latest release in this cycle */
-  latest: Option[AnyType] = None,
+  latest: Option[String] = None,
   /* Link to changelog for the latest release, if available */
-  link: Option[AnyType] = None,
-  /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-  lts: Option[AnyType] = None,
-  /* Whether this release cycle has active support */
-  support: Option[AnyType] = None,
-  /* Whether this cycle is now discontinued. */
-  discontinued: Option[AnyType] = None
+  link: Option[String] = None,
+  lts: Option[CycleLts] = None,
+  support: Option[CycleSupport] = None,
+  discontinued: Option[CycleDiscontinued] = None
 ) extends ApiModel
 

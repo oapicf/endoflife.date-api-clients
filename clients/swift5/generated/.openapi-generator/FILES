@@ -13,6 +13,11 @@ OpenAPIClient/Classes/OpenAPIs/JSONDataEncoding.swift
 OpenAPIClient/Classes/OpenAPIs/JSONEncodingHelper.swift
 OpenAPIClient/Classes/OpenAPIs/Models.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Cycle.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CycleCycle.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CycleDiscontinued.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CycleEol.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CycleLts.swift
+OpenAPIClient/Classes/OpenAPIs/Models/CycleSupport.swift
 OpenAPIClient/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
 OpenAPIClient/Classes/OpenAPIs/SynchronizedDictionary.swift
 OpenAPIClient/Classes/OpenAPIs/URLSessionImplementations.swift
@@ -20,6 +25,11 @@ OpenAPIClient/Classes/OpenAPIs/Validation.swift
 Package.swift
 README.md
 docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
 docs/DefaultAPI.md
 git_push.sh
 project.yml

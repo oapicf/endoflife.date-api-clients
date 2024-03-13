@@ -46,7 +46,7 @@ OASDefaultApi api = new OASDefaultApi();
 
 try {
     // cross your fingers
-    oas_any_type_not_mapped result = api.getApiAllJson();
+    List<String> result = api.getApiAllJson();
     System.debug(result);
 } catch (OAS.ApiException e) {
     // ...handle your exceptions
@@ -67,6 +67,11 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [OASCycle](OASCycle.md)
+ - [OASCycleCycle](OASCycleCycle.md)
+ - [OASCycleDiscontinued](OASCycleDiscontinued.md)
+ - [OASCycleEol](OASCycleEol.md)
+ - [OASCycleLts](OASCycleLts.md)
+ - [OASCycleSupport](OASCycleSupport.md)
 
 
 ## Documentation for Authorization

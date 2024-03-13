@@ -29,7 +29,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2023-09-16T14:43:59.034891Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-03-13T10:45:52.103127445Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ApiApi  {
    private final ApiApiService delegate;
 
@@ -58,9 +58,9 @@ public class ApiApi  {
     @Path("/all.json")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "All Products", notes = "Return a list of all products. Each of these can be used for the other API endpoints.", response = Object.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "All Products", notes = "Return a list of all products. Each of these can be used for the other API endpoints.", response = String.class, responseContainer = "List", tags={  })
     @io.swagger.annotations.ApiResponses(value = {
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Object.class)
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List")
     })
     public Response getApiAllJson(@Context SecurityContext securityContext)
     throws NotFoundException {
@@ -74,7 +74,7 @@ public class ApiApi  {
     @io.swagger.annotations.ApiResponses(value = {
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Cycle.class)
     })
-    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathParam("product") @NotNull @Valid  Object product,@ApiParam(value = "Release Cycle for which the details must be fetched", required = true) @PathParam("cycle") @NotNull @Valid  Object cycle,@Context SecurityContext securityContext)
+    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathParam("product") @NotNull  String product,@ApiParam(value = "Release Cycle for which the details must be fetched", required = true) @PathParam("cycle") @NotNull  String cycle,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getApiProductCycleJson(product, cycle, securityContext);
     }
@@ -82,11 +82,11 @@ public class ApiApi  {
     @Path("/{product}.json")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Object.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Cycle.class, responseContainer = "List", tags={  })
     @io.swagger.annotations.ApiResponses(value = {
-        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Object.class)
+        @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Cycle.class, responseContainer = "List")
     })
-    public Response getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathParam("product") @NotNull @Valid  Object product,@Context SecurityContext securityContext)
+    public Response getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathParam("product") @NotNull  String product,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getApiProductJson(product, securityContext);
     }

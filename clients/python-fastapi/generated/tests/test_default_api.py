@@ -14,11 +14,12 @@ def test_get_api_all_json(client: TestClient):
 
     headers = {
     }
-    response = client.request(
-        "GET",
-        "/api/all.json",
-        headers=headers,
-    )
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/api/all.json",
+    #    headers=headers,
+    #)
 
     # uncomment below to assert the status code of the HTTP response
     #assert response.status_code == 200
@@ -32,11 +33,12 @@ def test_get_api_product_cycle_json(client: TestClient):
 
     headers = {
     }
-    response = client.request(
-        "GET",
-        "/api/{product}/{cycle}.json".format(product=None, cycle=None),
-        headers=headers,
-    )
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/api/{product}/{cycle}.json".format(product='product_example', cycle='cycle_example'),
+    #    headers=headers,
+    #)
 
     # uncomment below to assert the status code of the HTTP response
     #assert response.status_code == 200
@@ -50,11 +52,12 @@ def test_get_api_product_json(client: TestClient):
 
     headers = {
     }
-    response = client.request(
-        "GET",
-        "/api/{product}.json".format(product=None),
-        headers=headers,
-    )
+    # uncomment below to make a request
+    #response = client.request(
+    #    "GET",
+    #    "/api/{product}.json".format(product='product_example'),
+    #    headers=headers,
+    #)
 
     # uncomment below to assert the status code of the HTTP response
     #assert response.status_code == 200

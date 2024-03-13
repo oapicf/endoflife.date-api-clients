@@ -6,6 +6,11 @@ openapi.opam
 src/apis/default_api.ml
 src/apis/default_api.mli
 src/models/cycle.ml
+src/models/cycle_cycle.ml
+src/models/cycle_discontinued.ml
+src/models/cycle_eol.ml
+src/models/cycle_lts.ml
+src/models/cycle_support.ml
 src/support/enums.ml
 src/support/jsonSupport.ml
 src/support/request.ml

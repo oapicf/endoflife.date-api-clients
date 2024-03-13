@@ -35,8 +35,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object GetApiAllJson(int operationIndex = 0);
+        /// <returns>List&lt;string&gt;</returns>
+        List<string> GetApiAllJson(int operationIndex = 0);
 
         /// <summary>
         /// All Products
@@ -46,8 +46,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GetApiAllJsonWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;string&gt;</returns>
+        ApiResponse<List<string>> GetApiAllJsonWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Single cycle details
         /// </summary>
@@ -59,7 +59,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="cycle">Release Cycle for which the details must be fetched</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Cycle</returns>
-        Cycle GetApiProductCycleJson(Object product, Object cycle, int operationIndex = 0);
+        Cycle GetApiProductCycleJson(string product, string cycle, int operationIndex = 0);
 
         /// <summary>
         /// Single cycle details
@@ -72,7 +72,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="cycle">Release Cycle for which the details must be fetched</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Cycle</returns>
-        ApiResponse<Cycle> GetApiProductCycleJsonWithHttpInfo(Object product, Object cycle, int operationIndex = 0);
+        ApiResponse<Cycle> GetApiProductCycleJsonWithHttpInfo(string product, string cycle, int operationIndex = 0);
         /// <summary>
         /// Get All Details
         /// </summary>
@@ -82,8 +82,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        Object GetApiProductJson(Object product, int operationIndex = 0);
+        /// <returns>List&lt;Cycle&gt;</returns>
+        List<Cycle> GetApiProductJson(string product, int operationIndex = 0);
 
         /// <summary>
         /// Get All Details
@@ -94,8 +94,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GetApiProductJsonWithHttpInfo(Object product, int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;Cycle&gt;</returns>
+        ApiResponse<List<Cycle>> GetApiProductJsonWithHttpInfo(string product, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -114,8 +114,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GetApiAllJsonAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;string&gt;</returns>
+        System.Threading.Tasks.Task<List<string>> GetApiAllJsonAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// All Products
@@ -126,8 +126,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetApiAllJsonWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<string>>> GetApiAllJsonWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Single cycle details
         /// </summary>
@@ -140,7 +140,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Cycle</returns>
-        System.Threading.Tasks.Task<Cycle> GetApiProductCycleJsonAsync(Object product, Object cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Cycle> GetApiProductCycleJsonAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Single cycle details
@@ -154,7 +154,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Cycle)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Cycle>> GetApiProductCycleJsonWithHttpInfoAsync(Object product, Object cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Cycle>> GetApiProductCycleJsonWithHttpInfoAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get All Details
         /// </summary>
@@ -165,8 +165,8 @@ namespace Org.OpenAPITools.Api
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GetApiProductJsonAsync(Object product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;Cycle&gt;</returns>
+        System.Threading.Tasks.Task<List<Cycle>> GetApiProductJsonAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get All Details
@@ -178,8 +178,8 @@ namespace Org.OpenAPITools.Api
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetApiProductJsonWithHttpInfoAsync(Object product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;Cycle&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Cycle>>> GetApiProductJsonWithHttpInfoAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -305,10 +305,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object GetApiAllJson(int operationIndex = 0)
+        /// <returns>List&lt;string&gt;</returns>
+        public List<string> GetApiAllJson(int operationIndex = 0)
         {
-            Org.OpenAPITools.Client.ApiResponse<Object> localVarResponse = GetApiAllJsonWithHttpInfo();
+            Org.OpenAPITools.Client.ApiResponse<List<string>> localVarResponse = GetApiAllJsonWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -317,8 +317,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public Org.OpenAPITools.Client.ApiResponse<Object> GetApiAllJsonWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;string&gt;</returns>
+        public Org.OpenAPITools.Client.ApiResponse<List<string>> GetApiAllJsonWithHttpInfo(int operationIndex = 0)
         {
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
 
@@ -348,7 +348,7 @@ namespace Org.OpenAPITools.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/api/all.json", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<string>>("/api/all.json", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetApiAllJson", localVarResponse);
@@ -367,10 +367,10 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GetApiAllJsonAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;string&gt;</returns>
+        public async System.Threading.Tasks.Task<List<string>> GetApiAllJsonAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<Object> localVarResponse = await GetApiAllJsonWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<List<string>> localVarResponse = await GetApiAllJsonWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -380,8 +380,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<Object>> GetApiAllJsonWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<List<string>>> GetApiAllJsonWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -412,7 +412,7 @@ namespace Org.OpenAPITools.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/api/all.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/api/all.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -434,7 +434,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="cycle">Release Cycle for which the details must be fetched</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Cycle</returns>
-        public Cycle GetApiProductCycleJson(Object product, Object cycle, int operationIndex = 0)
+        public Cycle GetApiProductCycleJson(string product, string cycle, int operationIndex = 0)
         {
             Org.OpenAPITools.Client.ApiResponse<Cycle> localVarResponse = GetApiProductCycleJsonWithHttpInfo(product, cycle);
             return localVarResponse.Data;
@@ -448,7 +448,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="cycle">Release Cycle for which the details must be fetched</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Cycle</returns>
-        public Org.OpenAPITools.Client.ApiResponse<Cycle> GetApiProductCycleJsonWithHttpInfo(Object product, Object cycle, int operationIndex = 0)
+        public Org.OpenAPITools.Client.ApiResponse<Cycle> GetApiProductCycleJsonWithHttpInfo(string product, string cycle, int operationIndex = 0)
         {
             // verify the required parameter 'product' is set
             if (product == null)
@@ -514,7 +514,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Cycle</returns>
-        public async System.Threading.Tasks.Task<Cycle> GetApiProductCycleJsonAsync(Object product, Object cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Cycle> GetApiProductCycleJsonAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Org.OpenAPITools.Client.ApiResponse<Cycle> localVarResponse = await GetApiProductCycleJsonWithHttpInfoAsync(product, cycle, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -529,7 +529,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Cycle)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<Cycle>> GetApiProductCycleJsonWithHttpInfoAsync(Object product, Object cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<Cycle>> GetApiProductCycleJsonWithHttpInfoAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'product' is set
             if (product == null)
@@ -594,10 +594,10 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Object</returns>
-        public Object GetApiProductJson(Object product, int operationIndex = 0)
+        /// <returns>List&lt;Cycle&gt;</returns>
+        public List<Cycle> GetApiProductJson(string product, int operationIndex = 0)
         {
-            Org.OpenAPITools.Client.ApiResponse<Object> localVarResponse = GetApiProductJsonWithHttpInfo(product);
+            Org.OpenAPITools.Client.ApiResponse<List<Cycle>> localVarResponse = GetApiProductJsonWithHttpInfo(product);
             return localVarResponse.Data;
         }
 
@@ -607,8 +607,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public Org.OpenAPITools.Client.ApiResponse<Object> GetApiProductJsonWithHttpInfo(Object product, int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;Cycle&gt;</returns>
+        public Org.OpenAPITools.Client.ApiResponse<List<Cycle>> GetApiProductJsonWithHttpInfo(string product, int operationIndex = 0)
         {
             // verify the required parameter 'product' is set
             if (product == null)
@@ -645,7 +645,7 @@ namespace Org.OpenAPITools.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/api/{product}.json", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<Cycle>>("/api/{product}.json", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetApiProductJson", localVarResponse);
@@ -665,10 +665,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GetApiProductJsonAsync(Object product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;Cycle&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Cycle>> GetApiProductJsonAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<Object> localVarResponse = await GetApiProductJsonWithHttpInfoAsync(product, operationIndex, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<List<Cycle>> localVarResponse = await GetApiProductJsonWithHttpInfoAsync(product, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -679,8 +679,8 @@ namespace Org.OpenAPITools.Api
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<Object>> GetApiProductJsonWithHttpInfoAsync(Object product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;Cycle&gt;)</returns>
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<List<Cycle>>> GetApiProductJsonWithHttpInfoAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'product' is set
             if (product == null)
@@ -718,7 +718,7 @@ namespace Org.OpenAPITools.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/api/{product}.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Cycle>>("/api/{product}.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

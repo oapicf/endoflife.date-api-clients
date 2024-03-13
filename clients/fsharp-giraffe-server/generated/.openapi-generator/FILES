@@ -17,3 +17,8 @@ OpenAPI/src/helpers/Helpers.fs
 OpenAPI/src/impl/CustomHandlers.fs
 OpenAPI/src/impl/DefaultApiService.fs
 OpenAPI/src/model/Cycle.fs
+OpenAPI/src/model/CycleCycle.fs
+OpenAPI/src/model/CycleDiscontinued.fs
+OpenAPI/src/model/CycleEol.fs
+OpenAPI/src/model/CycleLts.fs
+OpenAPI/src/model/CycleSupport.fs

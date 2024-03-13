@@ -8,4 +8,14 @@ api/DefaultApi.h
 git_push.sh
 model/Cycle.cpp
 model/Cycle.h
+model/Cycle_cycle.cpp
+model/Cycle_cycle.h
+model/Cycle_discontinued.cpp
+model/Cycle_discontinued.h
+model/Cycle_eol.cpp
+model/Cycle_eol.h
+model/Cycle_lts.cpp
+model/Cycle_lts.h
+model/Cycle_support.cpp
+model/Cycle_support.h
 model/helpers.h

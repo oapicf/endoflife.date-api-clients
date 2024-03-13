@@ -21,7 +21,7 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-AnyType
+String[]
 #>
 function Get-ApiAllJson {
     [CmdletBinding()]
@@ -58,7 +58,7 @@ function Get-ApiAllJson {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "AnyType" `
+                                -ReturnType "String[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {
@@ -96,10 +96,10 @@ function Get-ApiProductCycleJson {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
+        [String]
         ${Product},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
+        [String]
         ${Cycle},
         [Switch]
         $WithHttpInfo
@@ -170,13 +170,13 @@ A switch when turned on will return a hash table of Response, StatusCode and Hea
 
 .OUTPUTS
 
-AnyType
+Cycle[]
 #>
 function Get-ApiProductJson {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [PSCustomObject]
+        [String]
         ${Product},
         [Switch]
         $WithHttpInfo
@@ -214,7 +214,7 @@ function Get-ApiProductJson {
                                 -QueryParameters $LocalVarQueryParameters `
                                 -FormParameters $LocalVarFormParameters `
                                 -CookieParameters $LocalVarCookieParameters `
-                                -ReturnType "AnyType" `
+                                -ReturnType "Cycle[]" `
                                 -IsBodyNullable $false
 
         if ($WithHttpInfo.IsPresent) {

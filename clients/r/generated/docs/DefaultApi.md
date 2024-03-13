@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **GetApiAllJson**
-> AnyType GetApiAllJson()
+> array[character] GetApiAllJson()
 
 All Products
 
@@ -35,7 +35,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AnyType**](AnyType.md)
+**array[character]**
 
 ### Authorization
 
@@ -65,8 +65,8 @@ library(openapi)
 # Single cycle details
 #
 # prepare function argument(s)
-var_product <- TODO # AnyType | Product URL as per the canonical URL on the endofife.date website
-var_cycle <- TODO # AnyType | Release Cycle for which the details must be fetched
+var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website
+var_cycle <- "cycle_example" # character | Release Cycle for which the details must be fetched
 
 api_instance <- DefaultApi$new()
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
@@ -79,8 +79,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](.md)| Product URL as per the canonical URL on the endofife.date website | 
- **cycle** | [**AnyType**](.md)| Release Cycle for which the details must be fetched | 
+ **product** | **character**| Product URL as per the canonical URL on the endofife.date website | 
+ **cycle** | **character**| Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -101,7 +101,7 @@ No authorization required
 | **200** | OK |  -  |
 
 # **GetApiProductJson**
-> AnyType GetApiProductJson(product)
+> array[Cycle] GetApiProductJson(product)
 
 Get All Details
 
@@ -114,7 +114,7 @@ library(openapi)
 # Get All Details
 #
 # prepare function argument(s)
-var_product <- TODO # AnyType | Product URL as per the canonical URL on the endofife.date website
+var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website
 
 api_instance <- DefaultApi$new()
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
@@ -127,11 +127,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](.md)| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **character**| Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-[**AnyType**](AnyType.md)
+[**array[Cycle]**](cycle.md)
 
 ### Authorization
 

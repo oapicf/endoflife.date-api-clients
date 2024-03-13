@@ -11,72 +11,70 @@ use Articus\DataTransfer\Annotation as DTA;
 class Cycle
 {
     /**
-     * Release Cycle
      * @DTA\Data(field="cycle", nullable=true)
-     * @DTA\Validator(name="Scalar", options={"type":"mixed"})
-     * @var mixed|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\CycleCycle::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\CycleCycle::class})
+     * @var \App\DTO\CycleCycle|null
      */
     public $cycle;
 
     /**
      * Release Date for the first release in this cycle
      * @DTA\Data(field="releaseDate", nullable=true)
-     * @DTA\Validator(name="Scalar", options={"type":"mixed"})
+     * @DTA\Strategy(name="Date")
+     * @DTA\Validator(name="Date")
      * @DTA\Validator(name="StringLength", options={"min":10, "max":10})
-     * @var mixed|null
+     * @var \DateTime|null
      */
     public $release_date;
 
     /**
-     * End of Life Date for this release cycle
      * @DTA\Data(field="eol", nullable=true)
-     * @DTA\Validator(name="Scalar", options={"type":"mixed"})
-     * @DTA\Validator(name="StringLength", options={"min":1})
-     * @var mixed|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\CycleEol::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\CycleEol::class})
+     * @var \App\DTO\CycleEol|null
      */
     public $eol;
 
     /**
      * Latest release in this cycle
      * @DTA\Data(field="latest", nullable=true)
-     * @DTA\Validator(name="Scalar", options={"type":"mixed"})
+     * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="StringLength", options={"min":1})
-     * @var mixed|null
+     * @var string|null
      */
     public $latest;
 
     /**
      * Link to changelog for the latest release, if available
      * @DTA\Data(field="link", nullable=true)
-     * @DTA\Validator(name="Scalar", options={"type":"mixed"})
+     * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="StringLength", options={"min":1})
-     * @var mixed|null
+     * @var string|null
      */
     public $link;
 
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
      * @DTA\Data(field="lts", nullable=true)
-     * @DTA\Validator(name="Scalar", options={"type":"mixed"})
-     * @var mixed|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\CycleLts::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\CycleLts::class})
+     * @var \App\DTO\CycleLts|null
      */
     public $lts;
 
     /**
-     * Whether this release cycle has active support
      * @DTA\Data(field="support", nullable=true)
-     * @DTA\Validator(name="Scalar", options={"type":"mixed"})
-     * @DTA\Validator(name="StringLength", options={"min":10, "max":10})
-     * @var mixed|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\CycleSupport::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\CycleSupport::class})
+     * @var \App\DTO\CycleSupport|null
      */
     public $support;
 
     /**
-     * Whether this cycle is now discontinued.
      * @DTA\Data(field="discontinued", nullable=true)
-     * @DTA\Validator(name="Scalar", options={"type":"mixed"})
-     * @DTA\Validator(name="StringLength", options={"min":10, "max":10})
-     * @var mixed|null
+     * @DTA\Strategy(name="Object", options={"type":\App\DTO\CycleDiscontinued::class})
+     * @DTA\Validator(name="TypeCompliant", options={"type":\App\DTO\CycleDiscontinued::class})
+     * @var \App\DTO\CycleDiscontinued|null
      */
     public $discontinued;
 

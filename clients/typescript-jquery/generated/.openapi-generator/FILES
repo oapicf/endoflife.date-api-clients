@@ -5,5 +5,10 @@ configuration.ts
 git_push.sh
 index.ts
 model/Cycle.ts
+model/CycleCycle.ts
+model/CycleDiscontinued.ts
+model/CycleEol.ts
+model/CycleLts.ts
+model/CycleSupport.ts
 model/models.ts
 variables.ts

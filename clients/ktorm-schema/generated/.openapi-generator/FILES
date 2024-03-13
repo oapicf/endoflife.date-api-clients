@@ -2,6 +2,16 @@
 README.md
 build.gradle
 docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
 ktorm_schema.sql
 settings.gradle
 src/main/kotlin/org/openapitools/database/models/Cycle.kt
+src/main/kotlin/org/openapitools/database/models/CycleCycle.kt
+src/main/kotlin/org/openapitools/database/models/CycleDiscontinued.kt
+src/main/kotlin/org/openapitools/database/models/CycleEol.kt
+src/main/kotlin/org/openapitools/database/models/CycleLts.kt
+src/main/kotlin/org/openapitools/database/models/CycleSupport.kt

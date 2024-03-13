@@ -4,6 +4,11 @@ inflector.yaml
 pom.xml
 src/gen/java/org/openapitools/controllers/StringUtil.java
 src/gen/java/org/openapitools/model/Cycle.java
+src/gen/java/org/openapitools/model/CycleCycle.java
+src/gen/java/org/openapitools/model/CycleDiscontinued.java
+src/gen/java/org/openapitools/model/CycleEol.java
+src/gen/java/org/openapitools/model/CycleLts.java
+src/gen/java/org/openapitools/model/CycleSupport.java
 src/main/java/org/openapitools/controllers/ApiController.java
 src/main/openapi/openapi.yaml
 src/main/webapp/WEB-INF/web.xml

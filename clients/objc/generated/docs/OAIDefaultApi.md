@@ -12,7 +12,7 @@ Method | HTTP request | Description
 # **getApiAllJson**
 ```objc
 -(NSURLSessionTask*) getApiAllJsonWithCompletionHandler: 
-        (void (^)(OAIAnyType* output, NSError* error)) handler;
+        (void (^)(NSArray<NSString*>* output, NSError* error)) handler;
 ```
 
 All Products
@@ -27,7 +27,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // All Products
 [apiInstance getApiAllJsonWithCompletionHandler: 
-          ^(OAIAnyType* output, NSError* error) {
+          ^(NSArray<NSString*>* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -42,7 +42,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**OAIAnyType***](OAIAnyType.md)
+**NSArray<NSString*>***
 
 ### Authorization
 
@@ -57,8 +57,8 @@ No authorization required
 
 # **getApiProductCycleJson**
 ```objc
--(NSURLSessionTask*) getApiProductCycleJsonWithProduct: (OAIAnyType*) product
-    cycle: (OAIAnyType*) cycle
+-(NSURLSessionTask*) getApiProductCycleJsonWithProduct: (NSString*) product
+    cycle: (NSString*) cycle
         completionHandler: (void (^)(OAICycle* output, NSError* error)) handler;
 ```
 
@@ -69,8 +69,8 @@ Gets details of a single cycle
 ### Example
 ```objc
 
-OAIAnyType* product = [[OAIAnyType alloc] init]; // Product URL as per the canonical URL on the endofife.date website
-OAIAnyType* cycle = [[OAIAnyType alloc] init]; // Release Cycle for which the details must be fetched
+NSString* product = @"product_example"; // Product URL as per the canonical URL on the endofife.date website
+NSString* cycle = @"cycle_example"; // Release Cycle for which the details must be fetched
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
@@ -91,8 +91,8 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**OAIAnyType***](.md)| Product URL as per the canonical URL on the endofife.date website | 
- **cycle** | [**OAIAnyType***](.md)| Release Cycle for which the details must be fetched | 
+ **product** | **NSString***| Product URL as per the canonical URL on the endofife.date website | 
+ **cycle** | **NSString***| Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -111,8 +111,8 @@ No authorization required
 
 # **getApiProductJson**
 ```objc
--(NSURLSessionTask*) getApiProductJsonWithProduct: (OAIAnyType*) product
-        completionHandler: (void (^)(OAIAnyType* output, NSError* error)) handler;
+-(NSURLSessionTask*) getApiProductJsonWithProduct: (NSString*) product
+        completionHandler: (void (^)(NSArray<OAICycle>* output, NSError* error)) handler;
 ```
 
 Get All Details
@@ -122,13 +122,13 @@ Get EoL dates of all cycles of a given product.
 ### Example
 ```objc
 
-OAIAnyType* product = [[OAIAnyType alloc] init]; // Product URL as per the canonical URL on the endofife.date website
+NSString* product = @"product_example"; // Product URL as per the canonical URL on the endofife.date website
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 // Get All Details
 [apiInstance getApiProductJsonWithProduct:product
-          completionHandler: ^(OAIAnyType* output, NSError* error) {
+          completionHandler: ^(NSArray<OAICycle>* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -142,11 +142,11 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**OAIAnyType***](.md)| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **NSString***| Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-[**OAIAnyType***](OAIAnyType.md)
+[**NSArray<OAICycle>***](OAICycle.md)
 
 ### Authorization
 

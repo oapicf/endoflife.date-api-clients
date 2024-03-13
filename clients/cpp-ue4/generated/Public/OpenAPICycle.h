@@ -13,6 +13,11 @@
 #pragma once
 
 #include "OpenAPIBaseModel.h"
+#include "OpenAPICycleCycle.h"
+#include "OpenAPICycleDiscontinued.h"
+#include "OpenAPICycleEol.h"
+#include "OpenAPICycleLts.h"
+#include "OpenAPICycleSupport.h"
 
 namespace OpenAPI
 {
@@ -29,22 +34,17 @@ public:
 	bool FromJson(const TSharedPtr<FJsonValue>& JsonValue) final;
 	void WriteJson(JsonWriter& Writer) const final;
 
-	/* Release Cycle */
-	TOptional<TSharedPtr<FJsonValue>> Cycle;
+	TOptional<OpenAPICycleCycle> Cycle;
 	/* Release Date for the first release in this cycle */
-	TOptional<TSharedPtr<FJsonValue>> ReleaseDate;
-	/* End of Life Date for this release cycle */
-	TOptional<TSharedPtr<FJsonValue>> Eol;
+	TOptional<FDateTime> ReleaseDate;
+	TOptional<OpenAPICycleEol> Eol;
 	/* Latest release in this cycle */
-	TOptional<TSharedPtr<FJsonValue>> Latest;
+	TOptional<FString> Latest;
 	/* Link to changelog for the latest release, if available */
-	TOptional<TSharedPtr<FJsonValue>> Link;
-	/* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-	TOptional<TSharedPtr<FJsonValue>> Lts;
-	/* Whether this release cycle has active support */
-	TOptional<TSharedPtr<FJsonValue>> Support;
-	/* Whether this cycle is now discontinued. */
-	TOptional<TSharedPtr<FJsonValue>> Discontinued;
+	TOptional<FString> Link;
+	TOptional<OpenAPICycleLts> Lts;
+	TOptional<OpenAPICycleSupport> Support;
+	TOptional<OpenAPICycleDiscontinued> Discontinued;
 };
 
 }

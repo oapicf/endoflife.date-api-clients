@@ -7,6 +7,11 @@ authors     = ["F. Bar (foo@bar.baz)"]
 
 imports {
   Root = tosca.resourceTypes.Root
+  CycleCycle = openapi_server.resourceTypes.CycleCycle
+  CycleDiscontinued = openapi_server.resourceTypes.CycleDiscontinued
+  CycleEol = openapi_server.resourceTypes.CycleEol
+  CycleLts = openapi_server.resourceTypes.CycleLts
+  CycleSupport = openapi_server.resourceTypes.CycleSupport
 }
 resourceTypes {
 
@@ -16,43 +21,43 @@ resourceTypes {
     derivedFrom = Root
     properties {
         cycle {
-          type =  
-          description = "Release Cycle"
+          type = CycleCycle
+          description = ""
           optional = false
         }
         release_date {
-          type =  
+          type =  string
           description = "Release Date for the first release in this cycle"
           optional = false
         }
         eol {
-          type =  
-          description = "End of Life Date for this release cycle"
+          type = CycleEol
+          description = ""
           optional = false
         }
         latest {
-          type =  
+          type =  string
           description = "Latest release in this cycle"
           optional = false
         }
         link {
-          type =  
+          type =  string
           description = "Link to changelog for the latest release, if available"
           optional = false
         }
         lts {
-          type =  
-          description = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. "
+          type = CycleLts
+          description = ""
           optional = false
         }
         support {
-          type =  
-          description = "Whether this release cycle has active support"
+          type = CycleSupport
+          description = ""
           optional = false
         }
         discontinued {
-          type =  
-          description = "Whether this cycle is now discontinued."
+          type = CycleDiscontinued
+          description = ""
           optional = false
         }
     }

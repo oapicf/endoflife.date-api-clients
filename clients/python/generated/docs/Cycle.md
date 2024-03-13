@@ -3,16 +3,17 @@
 Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cycle** | **object** | Release Cycle | [optional] 
-**release_date** | **object** | Release Date for the first release in this cycle | [optional] 
-**eol** | **object** | End of Life Date for this release cycle | [optional] 
-**latest** | **object** | Latest release in this cycle | [optional] 
-**link** | **object** | Link to changelog for the latest release, if available | [optional] 
-**lts** | **object** | Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  | [optional] 
-**support** | **object** | Whether this release cycle has active support | [optional] 
-**discontinued** | **object** | Whether this cycle is now discontinued. | [optional] 
+**cycle** | [**CycleCycle**](CycleCycle.md) |  | [optional] 
+**release_date** | **date** | Release Date for the first release in this cycle | [optional] 
+**eol** | [**CycleEol**](CycleEol.md) |  | [optional] 
+**latest** | **str** | Latest release in this cycle | [optional] 
+**link** | **str** | Link to changelog for the latest release, if available | [optional] 
+**lts** | [**CycleLts**](CycleLts.md) |  | [optional] 
+**support** | [**CycleSupport**](CycleSupport.md) |  | [optional] 
+**discontinued** | [**CycleDiscontinued**](CycleDiscontinued.md) |  | [optional] 
 
 ## Example
 
@@ -24,7 +25,7 @@ json = "{}"
 # create an instance of Cycle from a JSON string
 cycle_instance = Cycle.from_json(json)
 # print the JSON string representation of the object
-print Cycle.to_json()
+print(Cycle.to_json())
 
 # convert the object into a dict
 cycle_dict = cycle_instance.to_dict()

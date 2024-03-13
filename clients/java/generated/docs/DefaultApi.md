@@ -11,7 +11,7 @@ All URIs are relative to *https://endoflife.date*
 
 <a id="getApiAllJson"></a>
 # **getApiAllJson**
-> Object getApiAllJson()
+> List&lt;String&gt; getApiAllJson()
 
 All Products
 
@@ -20,11 +20,11 @@ Return a list of all products. Each of these can be used for the other API endpo
 ### Example
 ```java
 // Import classes:
-import com.cliffano.endoflifedate.ApiClient;
-import com.cliffano.endoflifedate.ApiException;
-import com.cliffano.endoflifedate.Configuration;
-import com.cliffano.endoflifedate.models.*;
-import com.cliffano.endoflifedate.api.DefaultApi;
+import com.github.oapicf.endoflifedate.ApiClient;
+import com.github.oapicf.endoflifedate.ApiException;
+import com.github.oapicf.endoflifedate.Configuration;
+import com.github.oapicf.endoflifedate.models.*;
+import com.github.oapicf.endoflifedate.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
-      Object result = apiInstance.getApiAllJson();
+      List<String> result = apiInstance.getApiAllJson();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getApiAllJson");
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+**List&lt;String&gt;**
 
 ### Authorization
 
@@ -78,11 +78,11 @@ Gets details of a single cycle
 ### Example
 ```java
 // Import classes:
-import com.cliffano.endoflifedate.ApiClient;
-import com.cliffano.endoflifedate.ApiException;
-import com.cliffano.endoflifedate.Configuration;
-import com.cliffano.endoflifedate.models.*;
-import com.cliffano.endoflifedate.api.DefaultApi;
+import com.github.oapicf.endoflifedate.ApiClient;
+import com.github.oapicf.endoflifedate.ApiException;
+import com.github.oapicf.endoflifedate.Configuration;
+import com.github.oapicf.endoflifedate.models.*;
+import com.github.oapicf.endoflifedate.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -90,8 +90,8 @@ public class Example {
     defaultClient.setBasePath("https://endoflife.date");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    Object product = null; // Object | Product URL as per the canonical URL on the endofife.date website
-    Object cycle = null; // Object | Release Cycle for which the details must be fetched
+    String product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website
+    String cycle = "cycle_example"; // String | Release Cycle for which the details must be fetched
     try {
       Cycle result = apiInstance.getApiProductCycleJson(product, cycle);
       System.out.println(result);
@@ -110,8 +110,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **product** | [**Object**](.md)| Product URL as per the canonical URL on the endofife.date website | |
-| **cycle** | [**Object**](.md)| Release Cycle for which the details must be fetched | |
+| **product** | **String**| Product URL as per the canonical URL on the endofife.date website | |
+| **cycle** | **String**| Release Cycle for which the details must be fetched | |
 
 ### Return type
 
@@ -133,7 +133,7 @@ No authorization required
 
 <a id="getApiProductJson"></a>
 # **getApiProductJson**
-> Object getApiProductJson(product)
+> List&lt;Cycle&gt; getApiProductJson(product)
 
 Get All Details
 
@@ -142,11 +142,11 @@ Get EoL dates of all cycles of a given product.
 ### Example
 ```java
 // Import classes:
-import com.cliffano.endoflifedate.ApiClient;
-import com.cliffano.endoflifedate.ApiException;
-import com.cliffano.endoflifedate.Configuration;
-import com.cliffano.endoflifedate.models.*;
-import com.cliffano.endoflifedate.api.DefaultApi;
+import com.github.oapicf.endoflifedate.ApiClient;
+import com.github.oapicf.endoflifedate.ApiException;
+import com.github.oapicf.endoflifedate.Configuration;
+import com.github.oapicf.endoflifedate.models.*;
+import com.github.oapicf.endoflifedate.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -154,9 +154,9 @@ public class Example {
     defaultClient.setBasePath("https://endoflife.date");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    Object product = null; // Object | Product URL as per the canonical URL on the endofife.date website
+    String product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website
     try {
-      Object result = apiInstance.getApiProductJson(product);
+      List<Cycle> result = apiInstance.getApiProductJson(product);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getApiProductJson");
@@ -173,11 +173,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **product** | [**Object**](.md)| Product URL as per the canonical URL on the endofife.date website | |
+| **product** | **String**| Product URL as per the canonical URL on the endofife.date website | |
 
 ### Return type
 
-**Object**
+[**List&lt;Cycle&gt;**](Cycle.md)
 
 ### Authorization
 

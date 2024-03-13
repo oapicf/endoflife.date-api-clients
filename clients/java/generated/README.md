@@ -2,7 +2,8 @@
 
 endoflife.date
 - API version: 0.0.1
-  - Build date: 2023-09-16T14:43:00.888961Z[Etc/UTC]
+  - Build date: 2024-03-13T10:44:29.461124575Z[Etc/UTC]
+  - Generator version: 7.4.0
 
 Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 
@@ -39,7 +40,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>com.cliffano</groupId>
+  <groupId>com.github.oapicf</groupId>
   <artifactId>endoflifedate</artifactId>
   <version>1.0.0-pre.0</version>
   <scope>compile</scope>
@@ -57,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cliffano:endoflifedate:1.0.0-pre.0"
+     implementation "com.github.oapicf:endoflifedate:1.0.0-pre.0"
   }
 ```
 
@@ -81,11 +82,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import com.cliffano.endoflifedate.ApiClient;
-import com.cliffano.endoflifedate.ApiException;
-import com.cliffano.endoflifedate.Configuration;
-import com.cliffano.endoflifedate.models.*;
-import com.cliffano.endoflifedate.api.DefaultApi;
+import com.github.oapicf.endoflifedate.ApiClient;
+import com.github.oapicf.endoflifedate.ApiException;
+import com.github.oapicf.endoflifedate.Configuration;
+import com.github.oapicf.endoflifedate.models.*;
+import com.github.oapicf.endoflifedate.api.DefaultApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -94,7 +95,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     try {
-      Object result = apiInstance.getApiAllJson();
+      List<String> result = apiInstance.getApiAllJson();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getApiAllJson");
@@ -122,6 +123,11 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Cycle](docs/Cycle.md)
+ - [CycleCycle](docs/CycleCycle.md)
+ - [CycleDiscontinued](docs/CycleDiscontinued.md)
+ - [CycleEol](docs/CycleEol.md)
+ - [CycleLts](docs/CycleLts.md)
+ - [CycleSupport](docs/CycleSupport.md)
 
 
 <a id="documentation-for-authorization"></a>

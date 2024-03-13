@@ -16,21 +16,21 @@ No summary available.
 Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 
 .PARAMETER Cycle
-Release Cycle
+No description available.
 .PARAMETER ReleaseDate
 Release Date for the first release in this cycle
 .PARAMETER Eol
-End of Life Date for this release cycle
+No description available.
 .PARAMETER Latest
 Latest release in this cycle
 .PARAMETER Link
 Link to changelog for the latest release, if available
 .PARAMETER Lts
-Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+No description available.
 .PARAMETER Support
-Whether this release cycle has active support
+No description available.
 .PARAMETER Discontinued
-Whether this cycle is now discontinued.
+No description available.
 .OUTPUTS
 
 Cycle<PSCustomObject>
@@ -43,16 +43,16 @@ function Initialize-Cycle {
         [PSCustomObject]
         ${Cycle},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [System.Nullable[System.DateTime]]
         ${ReleaseDate},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
         ${Eol},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Latest},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [PSCustomObject]
+        [String]
         ${Link},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [PSCustomObject]
@@ -77,32 +77,12 @@ function Initialize-Cycle {
             throw "invalid value for 'ReleaseDate', the character length must be great than or equal to 10."
         }
 
-        if (!$Eol -and $Eol.length -lt 1) {
-            throw "invalid value for 'Eol', the character length must be great than or equal to 1."
-        }
-
         if (!$Latest -and $Latest.length -lt 1) {
             throw "invalid value for 'Latest', the character length must be great than or equal to 1."
         }
 
         if (!$Link -and $Link.length -lt 1) {
             throw "invalid value for 'Link', the character length must be great than or equal to 1."
-        }
-
-        if (!$Support -and $Support.length -gt 10) {
-            throw "invalid value for 'Support', the character length must be smaller than or equal to 10."
-        }
-
-        if (!$Support -and $Support.length -lt 10) {
-            throw "invalid value for 'Support', the character length must be great than or equal to 10."
-        }
-
-        if (!$Discontinued -and $Discontinued.length -gt 10) {
-            throw "invalid value for 'Discontinued', the character length must be smaller than or equal to 10."
-        }
-
-        if (!$Discontinued -and $Discontinued.length -lt 10) {
-            throw "invalid value for 'Discontinued', the character length must be great than or equal to 10."
         }
 
 

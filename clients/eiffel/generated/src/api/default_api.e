@@ -24,12 +24,12 @@ inherit
 feature -- API Access
 
 
-	api_all_json : detachable ANY
+	api_all_json : detachable LIST [STRING_32]
 			-- All Products
 			-- Return a list of all products. Each of these can be used for the other API endpoints.
-			--
-			--
-			-- Result ANY
+			-- 
+			-- 
+			-- Result LIST [STRING_32]
 		require
 		local
   			l_path: STRING
@@ -38,7 +38,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-
+			
 			l_path := "/api/all.json"
 
 
@@ -50,22 +50,22 @@ feature -- API Access
 			l_response := api_client.call_api (l_path, "Get", l_request, Void, agent deserializer)
 			if l_response.has_error then
 				last_error := l_response.error
-			elseif attached { ANY } l_response.data ({ ANY }) as l_data then
+			elseif attached { LIST [STRING_32] } l_response.data ({ LIST [STRING_32] }) as l_data then
 				Result := l_data
 			else
 				create last_error.make ("Unknown error: Status response [ " + l_response.status.out + "]")
 			end
 		end
 
-	api_product_cycle_json (product: ANY; cycle: ANY): detachable CYCLE
+	api_product_cycle_json (product: STRING_32; cycle: STRING_32): detachable CYCLE
 			-- Single cycle details
 			-- Gets details of a single cycle
-			--
+			-- 
 			-- argument: product Product URL as per the canonical URL on the endofife.date website (required)
-			--
+			-- 
 			-- argument: cycle Release Cycle for which the details must be fetched (required)
-			--
-			--
+			-- 
+			-- 
 			-- Result CYCLE
 		require
 		local
@@ -75,7 +75,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-
+			
 			l_path := "/api/{product}/{cycle}.json"
 			l_path.replace_substring_all ("{"+"product"+"}", api_client.url_encode (product.out))
 			l_path.replace_substring_all ("{"+"cycle"+"}", api_client.url_encode (cycle.out))
@@ -96,14 +96,14 @@ feature -- API Access
 			end
 		end
 
-	api_product_json (product: ANY): detachable ANY
+	api_product_json (product: STRING_32): detachable LIST [CYCLE]
 			-- Get All Details
 			-- Get EoL dates of all cycles of a given product.
-			--
+			-- 
 			-- argument: product Product URL as per the canonical URL on the endofife.date website (required)
-			--
-			--
-			-- Result ANY
+			-- 
+			-- 
+			-- Result LIST [CYCLE]
 		require
 		local
   			l_path: STRING
@@ -112,7 +112,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-
+			
 			l_path := "/api/{product}.json"
 			l_path.replace_substring_all ("{"+"product"+"}", api_client.url_encode (product.out))
 
@@ -125,7 +125,7 @@ feature -- API Access
 			l_response := api_client.call_api (l_path, "Get", l_request, Void, agent deserializer)
 			if l_response.has_error then
 				last_error := l_response.error
-			elseif attached { ANY } l_response.data ({ ANY }) as l_data then
+			elseif attached { LIST [CYCLE] } l_response.data ({ LIST [CYCLE] }) as l_data then
 				Result := l_data
 			else
 				create last_error.make ("Unknown error: Status response [ " + l_response.status.out + "]")

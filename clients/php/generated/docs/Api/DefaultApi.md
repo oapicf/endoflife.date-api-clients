@@ -12,7 +12,7 @@ All URIs are relative to https://endoflife.date, except if the operation defines
 ## `getApiAllJson()`
 
 ```php
-getApiAllJson(): mixed
+getApiAllJson(): string[]
 ```
 
 All Products
@@ -47,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**mixed**
+**string[]**
 
 ### Authorization
 
@@ -85,8 +85,8 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$product = NULL; // mixed | Product URL as per the canonical URL on the endofife.date website
-$cycle = NULL; // mixed | Release Cycle for which the details must be fetched
+$product = 'product_example'; // string | Product URL as per the canonical URL on the endofife.date website
+$cycle = 'cycle_example'; // string | Release Cycle for which the details must be fetched
 
 try {
     $result = $apiInstance->getApiProductCycleJson($product, $cycle);
@@ -100,8 +100,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **product** | [**mixed**](../Model/.md)| Product URL as per the canonical URL on the endofife.date website | |
-| **cycle** | [**mixed**](../Model/.md)| Release Cycle for which the details must be fetched | |
+| **product** | **string**| Product URL as per the canonical URL on the endofife.date website | |
+| **cycle** | **string**| Release Cycle for which the details must be fetched | |
 
 ### Return type
 
@@ -123,7 +123,7 @@ No authorization required
 ## `getApiProductJson()`
 
 ```php
-getApiProductJson($product): mixed
+getApiProductJson($product): \OpenAPI\Client\Model\Cycle[]
 ```
 
 Get All Details
@@ -143,7 +143,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$product = NULL; // mixed | Product URL as per the canonical URL on the endofife.date website
+$product = 'product_example'; // string | Product URL as per the canonical URL on the endofife.date website
 
 try {
     $result = $apiInstance->getApiProductJson($product);
@@ -157,11 +157,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **product** | [**mixed**](../Model/.md)| Product URL as per the canonical URL on the endofife.date website | |
+| **product** | **string**| Product URL as per the canonical URL on the endofife.date website | |
 
 ### Return type
 
-**mixed**
+[**\OpenAPI\Client\Model\Cycle[]**](../Model/Cycle.md)
 
 ### Authorization
 

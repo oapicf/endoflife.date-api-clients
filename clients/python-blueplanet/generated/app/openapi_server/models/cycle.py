@@ -6,6 +6,11 @@ from datetime import date, datetime  # noqa: F401
 from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model import Model
+from app.openapi_server.models.cycle_cycle import CycleCycle  # noqa: F401,E501
+from app.openapi_server.models.cycle_discontinued import CycleDiscontinued  # noqa: F401,E501
+from app.openapi_server.models.cycle_eol import CycleEol  # noqa: F401,E501
+from app.openapi_server.models.cycle_lts import CycleLts  # noqa: F401,E501
+from app.openapi_server.models.cycle_support import CycleSupport  # noqa: F401,E501
 from openapi_server import util
 
 
@@ -15,35 +20,35 @@ class Cycle(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, cycle: object=None, release_date: object=None, eol: object=None, latest: object=None, link: object=None, lts: object=None, support: object=None, discontinued: object=None):  # noqa: E501
+    def __init__(self, cycle: CycleCycle=None, release_date: date=None, eol: CycleEol=None, latest: str=None, link: str=None, lts: CycleLts=None, support: CycleSupport=None, discontinued: CycleDiscontinued=None):  # noqa: E501
         """Cycle - a model defined in Swagger
 
         :param cycle: The cycle of this Cycle.  # noqa: E501
-        :type cycle: object
+        :type cycle: CycleCycle
         :param release_date: The release_date of this Cycle.  # noqa: E501
-        :type release_date: object
+        :type release_date: date
         :param eol: The eol of this Cycle.  # noqa: E501
-        :type eol: object
+        :type eol: CycleEol
         :param latest: The latest of this Cycle.  # noqa: E501
-        :type latest: object
+        :type latest: str
         :param link: The link of this Cycle.  # noqa: E501
-        :type link: object
+        :type link: str
         :param lts: The lts of this Cycle.  # noqa: E501
-        :type lts: object
+        :type lts: CycleLts
         :param support: The support of this Cycle.  # noqa: E501
-        :type support: object
+        :type support: CycleSupport
         :param discontinued: The discontinued of this Cycle.  # noqa: E501
-        :type discontinued: object
+        :type discontinued: CycleDiscontinued
         """
         self.swagger_types = {
-            'cycle': object,
-            'release_date': object,
-            'eol': object,
-            'latest': object,
-            'link': object,
-            'lts': object,
-            'support': object,
-            'discontinued': object
+            'cycle': CycleCycle,
+            'release_date': date,
+            'eol': CycleEol,
+            'latest': str,
+            'link': str,
+            'lts': CycleLts,
+            'support': CycleSupport,
+            'discontinued': CycleDiscontinued
         }
 
         self.attribute_map = {
@@ -78,47 +83,45 @@ class Cycle(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def cycle(self) -> object:
+    def cycle(self) -> CycleCycle:
         """Gets the cycle of this Cycle.
 
-        Release Cycle  # noqa: E501
 
         :return: The cycle of this Cycle.
-        :rtype: object
+        :rtype: CycleCycle
         """
         return self._cycle
 
     @cycle.setter
-    def cycle(self, cycle: object):
+    def cycle(self, cycle: CycleCycle):
         """Sets the cycle of this Cycle.
 
-        Release Cycle  # noqa: E501
 
         :param cycle: The cycle of this Cycle.
-        :type cycle: object
+        :type cycle: CycleCycle
         """
 
         self._cycle = cycle
 
     @property
-    def release_date(self) -> object:
+    def release_date(self) -> date:
         """Gets the release_date of this Cycle.
 
         Release Date for the first release in this cycle  # noqa: E501
 
         :return: The release_date of this Cycle.
-        :rtype: object
+        :rtype: date
         """
         return self._release_date
 
     @release_date.setter
-    def release_date(self, release_date: object):
+    def release_date(self, release_date: date):
         """Sets the release_date of this Cycle.
 
         Release Date for the first release in this cycle  # noqa: E501
 
         :param release_date: The release_date of this Cycle.
-        :type release_date: object
+        :type release_date: date
         """
         if release_date is not None and len(release_date) > 10:
             raise ValueError("Invalid value for `release_date`, length must be less than or equal to `10`")  # noqa: E501
@@ -128,49 +131,45 @@ class Cycle(Model):
         self._release_date = release_date
 
     @property
-    def eol(self) -> object:
+    def eol(self) -> CycleEol:
         """Gets the eol of this Cycle.
 
-        End of Life Date for this release cycle  # noqa: E501
 
         :return: The eol of this Cycle.
-        :rtype: object
+        :rtype: CycleEol
         """
         return self._eol
 
     @eol.setter
-    def eol(self, eol: object):
+    def eol(self, eol: CycleEol):
         """Sets the eol of this Cycle.
 
-        End of Life Date for this release cycle  # noqa: E501
 
         :param eol: The eol of this Cycle.
-        :type eol: object
+        :type eol: CycleEol
         """
-        if eol is not None and len(eol) < 1:
-            raise ValueError("Invalid value for `eol`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._eol = eol
 
     @property
-    def latest(self) -> object:
+    def latest(self) -> str:
         """Gets the latest of this Cycle.
 
         Latest release in this cycle  # noqa: E501
 
         :return: The latest of this Cycle.
-        :rtype: object
+        :rtype: str
         """
         return self._latest
 
     @latest.setter
-    def latest(self, latest: object):
+    def latest(self, latest: str):
         """Sets the latest of this Cycle.
 
         Latest release in this cycle  # noqa: E501
 
         :param latest: The latest of this Cycle.
-        :type latest: object
+        :type latest: str
         """
         if latest is not None and len(latest) < 1:
             raise ValueError("Invalid value for `latest`, length must be greater than or equal to `1`")  # noqa: E501
@@ -178,24 +177,24 @@ class Cycle(Model):
         self._latest = latest
 
     @property
-    def link(self) -> object:
+    def link(self) -> str:
         """Gets the link of this Cycle.
 
         Link to changelog for the latest release, if available  # noqa: E501
 
         :return: The link of this Cycle.
-        :rtype: object
+        :rtype: str
         """
         return self._link
 
     @link.setter
-    def link(self, link: object):
+    def link(self, link: str):
         """Sets the link of this Cycle.
 
         Link to changelog for the latest release, if available  # noqa: E501
 
         :param link: The link of this Cycle.
-        :type link: object
+        :type link: str
         """
         if link is not None and len(link) < 1:
             raise ValueError("Invalid value for `link`, length must be greater than or equal to `1`")  # noqa: E501
@@ -203,78 +202,64 @@ class Cycle(Model):
         self._link = link
 
     @property
-    def lts(self) -> object:
+    def lts(self) -> CycleLts:
         """Gets the lts of this Cycle.
 
-        Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.   # noqa: E501
 
         :return: The lts of this Cycle.
-        :rtype: object
+        :rtype: CycleLts
         """
         return self._lts
 
     @lts.setter
-    def lts(self, lts: object):
+    def lts(self, lts: CycleLts):
         """Sets the lts of this Cycle.
 
-        Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.   # noqa: E501
 
         :param lts: The lts of this Cycle.
-        :type lts: object
+        :type lts: CycleLts
         """
 
         self._lts = lts
 
     @property
-    def support(self) -> object:
+    def support(self) -> CycleSupport:
         """Gets the support of this Cycle.
 
-        Whether this release cycle has active support  # noqa: E501
 
         :return: The support of this Cycle.
-        :rtype: object
+        :rtype: CycleSupport
         """
         return self._support
 
     @support.setter
-    def support(self, support: object):
+    def support(self, support: CycleSupport):
         """Sets the support of this Cycle.
 
-        Whether this release cycle has active support  # noqa: E501
 
         :param support: The support of this Cycle.
-        :type support: object
+        :type support: CycleSupport
         """
-        if support is not None and len(support) > 10:
-            raise ValueError("Invalid value for `support`, length must be less than or equal to `10`")  # noqa: E501
-        if support is not None and len(support) < 10:
-            raise ValueError("Invalid value for `support`, length must be greater than or equal to `10`")  # noqa: E501
 
         self._support = support
 
     @property
-    def discontinued(self) -> object:
+    def discontinued(self) -> CycleDiscontinued:
         """Gets the discontinued of this Cycle.
 
-        Whether this cycle is now discontinued.  # noqa: E501
 
         :return: The discontinued of this Cycle.
-        :rtype: object
+        :rtype: CycleDiscontinued
         """
         return self._discontinued
 
     @discontinued.setter
-    def discontinued(self, discontinued: object):
+    def discontinued(self, discontinued: CycleDiscontinued):
         """Sets the discontinued of this Cycle.
 
-        Whether this cycle is now discontinued.  # noqa: E501
 
         :param discontinued: The discontinued of this Cycle.
-        :type discontinued: object
+        :type discontinued: CycleDiscontinued
         """
-        if discontinued is not None and len(discontinued) > 10:
-            raise ValueError("Invalid value for `discontinued`, length must be less than or equal to `10`")  # noqa: E501
-        if discontinued is not None and len(discontinued) < 10:
-            raise ValueError("Invalid value for `discontinued`, length must be greater than or equal to `10`")  # noqa: E501
 
         self._discontinued = discontinued

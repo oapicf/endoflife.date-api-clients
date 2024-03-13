@@ -14,9 +14,21 @@
 */
 
 
-#import "OAIAnyType.h"
-@protocol OAIAnyType;
-@class OAIAnyType;
+#import "OAICycleCycle.h"
+#import "OAICycleDiscontinued.h"
+#import "OAICycleEol.h"
+#import "OAICycleLts.h"
+#import "OAICycleSupport.h"
+@protocol OAICycleCycle;
+@class OAICycleCycle;
+@protocol OAICycleDiscontinued;
+@class OAICycleDiscontinued;
+@protocol OAICycleEol;
+@class OAICycleEol;
+@protocol OAICycleLts;
+@class OAICycleLts;
+@protocol OAICycleSupport;
+@class OAICycleSupport;
 
 
 
@@ -25,29 +37,24 @@
 
 @interface OAICycle : OAIObject
 
-/* Release Cycle [optional]
- */
-@property(nonatomic) OAIAnyType* cycle;
+
+@property(nonatomic) OAICycleCycle* cycle;
 /* Release Date for the first release in this cycle [optional]
  */
-@property(nonatomic) OAIAnyType* releaseDate;
-/* End of Life Date for this release cycle [optional]
- */
-@property(nonatomic) OAIAnyType* eol;
+@property(nonatomic) NSDate* releaseDate;
+
+@property(nonatomic) OAICycleEol* eol;
 /* Latest release in this cycle [optional]
  */
-@property(nonatomic) OAIAnyType* latest;
+@property(nonatomic) NSString* latest;
 /* Link to changelog for the latest release, if available [optional]
  */
-@property(nonatomic) OAIAnyType* link;
-/* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  [optional]
- */
-@property(nonatomic) OAIAnyType* lts;
-/* Whether this release cycle has active support [optional]
- */
-@property(nonatomic) OAIAnyType* support;
-/* Whether this cycle is now discontinued. [optional]
- */
-@property(nonatomic) OAIAnyType* discontinued;
+@property(nonatomic) NSString* link;
+
+@property(nonatomic) OAICycleLts* lts;
+
+@property(nonatomic) OAICycleSupport* support;
+
+@property(nonatomic) OAICycleDiscontinued* discontinued;
 
 @end

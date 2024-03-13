@@ -24,9 +24,9 @@ class ApiAllJson
      *
      * @throws PHException\HttpCode 501 if the method is not implemented
      *
-     * @return mixed
+     * @return \App\DTO\Collection1
      */
-    public function getApiAllJson(ServerRequestInterface $request): mixed
+    public function getApiAllJson(ServerRequestInterface $request): \App\DTO\Collection1
     {
         //TODO implement method
         throw new PHException\HttpCode(501, "Not implemented");

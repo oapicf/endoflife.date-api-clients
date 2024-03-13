@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2023-09-16T14:43:12.768562Z[Etc/UTC]")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-03-13T10:44:53.444691347Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 @Controller
 @Tag(name = "Default", description = "The Default API")
 public class DefaultController {
@@ -45,21 +45,21 @@ public class DefaultController {
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
      *
-     * @return Object
+     * @return List&lt;String&gt;
      */
     @Operation(
         operationId = "getApiAllJson",
         summary = "All Products",
         responses = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Object.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))
             })
         }
     )
     @Get(uri="/api/all.json")
     @Produces(value = {"application/json"})
     @Secured({SecurityRule.IS_ANONYMOUS})
-    public Mono<Object> getApiAllJson() {
+    public Mono<List<String>> getApiAllJson() {
         // TODO implement getApiAllJson();
         return Mono.error(new HttpStatusException(HttpStatus.NOT_IMPLEMENTED, null));
     }
@@ -90,8 +90,8 @@ public class DefaultController {
     @Produces(value = {"application/json"})
     @Secured({SecurityRule.IS_ANONYMOUS})
     public Mono<Cycle> getApiProductCycleJson(
-        @PathVariable(value="product") @NotNull Object product,
-        @PathVariable(value="cycle") @NotNull Object cycle
+        @PathVariable(value="product") @NotNull String product, 
+        @PathVariable(value="cycle") @NotNull String cycle
     ) {
         // TODO implement getApiProductCycleJson();
         return Mono.error(new HttpStatusException(HttpStatus.NOT_IMPLEMENTED, null));
@@ -103,14 +103,14 @@ public class DefaultController {
      * Get EoL dates of all cycles of a given product.
      *
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @return Object
+     * @return List&lt;Cycle&gt;
      */
     @Operation(
         operationId = "getApiProductJson",
         summary = "Get All Details",
         responses = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Object.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Cycle.class))
             })
         },
         parameters = {
@@ -120,8 +120,8 @@ public class DefaultController {
     @Get(uri="/api/{product}.json")
     @Produces(value = {"application/json"})
     @Secured({SecurityRule.IS_ANONYMOUS})
-    public Mono<Object> getApiProductJson(
-        @PathVariable(value="product") @NotNull Object product
+    public Mono<List<Cycle>> getApiProductJson(
+        @PathVariable(value="product") @NotNull String product
     ) {
         // TODO implement getApiProductJson();
         return Mono.error(new HttpStatusException(HttpStatus.NOT_IMPLEMENTED, null));

@@ -12,7 +12,12 @@
 
 package org.openapitools.client.model;
 
-import org.openapitools.client.model.OasAnyTypeNotMapped;
+import java.util.Date;
+import org.openapitools.client.model.CycleCycle;
+import org.openapitools.client.model.CycleDiscontinued;
+import org.openapitools.client.model.CycleEol;
+import org.openapitools.client.model.CycleLts;
+import org.openapitools.client.model.CycleSupport;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -21,32 +26,31 @@ import com.google.gson.annotations.SerializedName;
  **/
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 public class Cycle {
-
+  
   @SerializedName("cycle")
-  private OasAnyTypeNotMapped cycle = null;
+  private CycleCycle cycle = null;
   @SerializedName("releaseDate")
-  private OasAnyTypeNotMapped releaseDate = null;
+  private Date releaseDate = null;
   @SerializedName("eol")
-  private OasAnyTypeNotMapped eol = null;
+  private CycleEol eol = null;
   @SerializedName("latest")
-  private OasAnyTypeNotMapped latest = null;
+  private String latest = null;
   @SerializedName("link")
-  private OasAnyTypeNotMapped link = null;
+  private String link = null;
   @SerializedName("lts")
-  private OasAnyTypeNotMapped lts = null;
+  private CycleLts lts = null;
   @SerializedName("support")
-  private OasAnyTypeNotMapped support = null;
+  private CycleSupport support = null;
   @SerializedName("discontinued")
-  private OasAnyTypeNotMapped discontinued = null;
+  private CycleDiscontinued discontinued = null;
 
   /**
-   * Release Cycle
    **/
-  @ApiModelProperty(value = "Release Cycle")
-  public OasAnyTypeNotMapped getCycle() {
+  @ApiModelProperty(value = "")
+  public CycleCycle getCycle() {
     return cycle;
   }
-  public void setCycle(OasAnyTypeNotMapped cycle) {
+  public void setCycle(CycleCycle cycle) {
     this.cycle = cycle;
   }
 
@@ -54,21 +58,20 @@ public class Cycle {
    * Release Date for the first release in this cycle
    **/
   @ApiModelProperty(value = "Release Date for the first release in this cycle")
-  public OasAnyTypeNotMapped getReleaseDate() {
+  public Date getReleaseDate() {
     return releaseDate;
   }
-  public void setReleaseDate(OasAnyTypeNotMapped releaseDate) {
+  public void setReleaseDate(Date releaseDate) {
     this.releaseDate = releaseDate;
   }
 
   /**
-   * End of Life Date for this release cycle
    **/
-  @ApiModelProperty(value = "End of Life Date for this release cycle")
-  public OasAnyTypeNotMapped getEol() {
+  @ApiModelProperty(value = "")
+  public CycleEol getEol() {
     return eol;
   }
-  public void setEol(OasAnyTypeNotMapped eol) {
+  public void setEol(CycleEol eol) {
     this.eol = eol;
   }
 
@@ -76,10 +79,10 @@ public class Cycle {
    * Latest release in this cycle
    **/
   @ApiModelProperty(value = "Latest release in this cycle")
-  public OasAnyTypeNotMapped getLatest() {
+  public String getLatest() {
     return latest;
   }
-  public void setLatest(OasAnyTypeNotMapped latest) {
+  public void setLatest(String latest) {
     this.latest = latest;
   }
 
@@ -87,43 +90,40 @@ public class Cycle {
    * Link to changelog for the latest release, if available
    **/
   @ApiModelProperty(value = "Link to changelog for the latest release, if available")
-  public OasAnyTypeNotMapped getLink() {
+  public String getLink() {
     return link;
   }
-  public void setLink(OasAnyTypeNotMapped link) {
+  public void setLink(String link) {
     this.link = link;
   }
 
   /**
-   * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
    **/
-  @ApiModelProperty(value = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
-  public OasAnyTypeNotMapped getLts() {
+  @ApiModelProperty(value = "")
+  public CycleLts getLts() {
     return lts;
   }
-  public void setLts(OasAnyTypeNotMapped lts) {
+  public void setLts(CycleLts lts) {
     this.lts = lts;
   }
 
   /**
-   * Whether this release cycle has active support
    **/
-  @ApiModelProperty(value = "Whether this release cycle has active support")
-  public OasAnyTypeNotMapped getSupport() {
+  @ApiModelProperty(value = "")
+  public CycleSupport getSupport() {
     return support;
   }
-  public void setSupport(OasAnyTypeNotMapped support) {
+  public void setSupport(CycleSupport support) {
     this.support = support;
   }
 
   /**
-   * Whether this cycle is now discontinued.
    **/
-  @ApiModelProperty(value = "Whether this cycle is now discontinued.")
-  public OasAnyTypeNotMapped getDiscontinued() {
+  @ApiModelProperty(value = "")
+  public CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
-  public void setDiscontinued(OasAnyTypeNotMapped discontinued) {
+  public void setDiscontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 
@@ -165,7 +165,7 @@ public class Cycle {
   public String toString()  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Cycle {\n");
-
+    
     sb.append("  cycle: ").append(cycle).append("\n");
     sb.append("  releaseDate: ").append(releaseDate).append("\n");
     sb.append("  eol: ").append(eol).append("\n");

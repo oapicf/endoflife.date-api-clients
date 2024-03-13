@@ -10,30 +10,26 @@
  */
 
 package org.openapitools.server.model
+import java.time.LocalDate
 
 case class Cycle(
-  /* Release Cycle */
-  cycle: Option[AnyType],
+  cycle: Option[CycleCycle],
 
   /* Release Date for the first release in this cycle */
-  releaseDate: Option[AnyType],
+  releaseDate: Option[LocalDate],
 
-  /* End of Life Date for this release cycle */
-  eol: Option[AnyType],
+  eol: Option[CycleEol],
 
   /* Latest release in this cycle */
-  latest: Option[AnyType],
+  latest: Option[String],
 
   /* Link to changelog for the latest release, if available */
-  link: Option[AnyType],
+  link: Option[String],
 
-  /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-  lts: Option[AnyType],
+  lts: Option[CycleLts],
 
-  /* Whether this release cycle has active support */
-  support: Option[AnyType],
+  support: Option[CycleSupport],
 
-  /* Whether this cycle is now discontinued. */
-  discontinued: Option[AnyType]
+  discontinued: Option[CycleDiscontinued]
 
  )

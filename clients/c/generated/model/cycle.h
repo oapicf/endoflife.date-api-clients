@@ -15,31 +15,35 @@
 
 typedef struct cycle_t cycle_t;
 
-#include "any_type.h"
+#include "cycle_cycle.h"
+#include "cycle_discontinued.h"
+#include "cycle_eol.h"
+#include "cycle_lts.h"
+#include "cycle_support.h"
 
 
 
 typedef struct cycle_t {
-    any_type_t *cycle; // custom
-    any_type_t *release_date; // custom
-    any_type_t *eol; // custom
-    any_type_t *latest; // custom
-    any_type_t *link; // custom
-    any_type_t *lts; // custom
-    any_type_t *support; // custom
-    any_type_t *discontinued; // custom
+    struct cycle_cycle_t *cycle; //model
+    char *release_date; //date
+    struct cycle_eol_t *eol; //model
+    char *latest; // string
+    char *link; // string
+    struct cycle_lts_t *lts; //model
+    struct cycle_support_t *support; //model
+    struct cycle_discontinued_t *discontinued; //model
 
 } cycle_t;
 
 cycle_t *cycle_create(
-    any_type_t *cycle,
-    any_type_t *release_date,
-    any_type_t *eol,
-    any_type_t *latest,
-    any_type_t *link,
-    any_type_t *lts,
-    any_type_t *support,
-    any_type_t *discontinued
+    cycle_cycle_t *cycle,
+    char *release_date,
+    cycle_eol_t *eol,
+    char *latest,
+    char *link,
+    cycle_lts_t *lts,
+    cycle_support_t *support,
+    cycle_discontinued_t *discontinued
 );
 
 void cycle_free(cycle_t *cycle);

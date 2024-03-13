@@ -1,5 +1,4 @@
 namespace OpenAPI
-open OpenAPI.Model.AnyType
 open OpenAPI.Model.Cycle
 open DefaultApiHandlerParams
 open DefaultApiServiceInterface
@@ -13,7 +12,7 @@ module DefaultApiServiceImplementation =
       interface IDefaultApiService with
 
         member this.GetApiAllJson () =
-            let content = "OK" :> obj :?> AnyType // this cast is obviously wrong, and is only intended to allow generated project to compile   
+            let content = "OK" :> obj :?> string[] // this cast is obviously wrong, and is only intended to allow generated project to compile   
             GetApiAllJsonStatusCode200 { content = content }
 
         member this.GetApiProductCycleJson () =
@@ -21,7 +20,7 @@ module DefaultApiServiceImplementation =
             GetApiProductCycleJsonStatusCode200 { content = content }
 
         member this.GetApiProductJson () =
-            let content = "OK" :> obj :?> AnyType // this cast is obviously wrong, and is only intended to allow generated project to compile   
+            let content = "OK" :> obj :?> Cycle[] // this cast is obviously wrong, and is only intended to allow generated project to compile   
             GetApiProductJsonStatusCode200 { content = content }
 
       //#endregion

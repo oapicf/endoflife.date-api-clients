@@ -59,8 +59,8 @@ private:
     QJsonObject jObj;
 };
 
-inline bool operator==(const OAIObject& left, const OAIObject& right){
-    return (left.asJsonObject() == right.asJsonObject());
+inline bool operator==(const OAIObject& left, const OAIObject& right){  
+    return (left.asJsonObject() == right.asJsonObject());  
 }
 
 inline

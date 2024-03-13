@@ -18,7 +18,7 @@ package body .Servers is
    procedure Get_Api_All_Json
       (Server : in out Server_Type
        ;
-       Result  : out .Models.AnyType_Type;
+       Result  : out ;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -29,8 +29,8 @@ package body .Servers is
    overriding
    procedure Get_Api_Product_Cycle_Json
       (Server : in out Server_Type;
-       Product : in .Models.AnyType_Type;
-       Cycle : in .Models.AnyType_Type;
+       Product : in Swagger.UString;
+       Cycle : in Swagger.UString;
        Result  : out .Models.Cycle_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
@@ -42,8 +42,8 @@ package body .Servers is
    overriding
    procedure Get_Api_Product_Json
       (Server : in out Server_Type;
-       Product : in .Models.AnyType_Type;
-       Result  : out .Models.AnyType_Type;
+       Product : in Swagger.UString;
+       Result  : out ;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;

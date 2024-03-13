@@ -12,6 +12,11 @@ src/main/java/com/prokarma/pkmst/controller/DefaultApi.java
 src/main/java/com/prokarma/pkmst/controller/DefaultApiController.java
 src/main/java/com/prokarma/pkmst/logging/HttpLoggingFilter.java
 src/main/java/com/prokarma/pkmst/model/Cycle.java
+src/main/java/com/prokarma/pkmst/model/CycleCycle.java
+src/main/java/com/prokarma/pkmst/model/CycleDiscontinued.java
+src/main/java/com/prokarma/pkmst/model/CycleEol.java
+src/main/java/com/prokarma/pkmst/model/CycleLts.java
+src/main/java/com/prokarma/pkmst/model/CycleSupport.java
 src/main/java/com/prokarma/pkmst/security/AuthorizationServerConfiguration.java
 src/main/java/com/prokarma/pkmst/security/OAuth2SecurityConfiguration.java
 src/main/java/com/prokarma/pkmst/security/ResourceServerConfiguration.java

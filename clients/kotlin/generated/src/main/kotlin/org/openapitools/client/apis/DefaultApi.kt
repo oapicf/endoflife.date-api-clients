@@ -48,7 +48,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
-     * @return kotlin.Any
+     * @return kotlin.collections.List<kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -57,11 +57,11 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getApiAllJson() : kotlin.Any {
+    fun getApiAllJson() : kotlin.collections.List<kotlin.String> {
         val localVarResponse = getApiAllJsonWithHttpInfo()
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.String>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -70,7 +70,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -78,16 +78,16 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getApiAllJsonWithHttpInfo() : ApiResponse<kotlin.Any?> {
+    fun getApiAllJsonWithHttpInfo() : ApiResponse<kotlin.collections.List<kotlin.String>?> {
         val localVariableConfig = getApiAllJsonRequestConfig()
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, kotlin.collections.List<kotlin.String>>(
             localVariableConfig
         )
     }
@@ -127,7 +127,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getApiProductCycleJson(product: kotlin.Any, cycle: kotlin.Any) : Cycle {
+    fun getApiProductCycleJson(product: kotlin.String, cycle: kotlin.String) : Cycle {
         val localVarResponse = getApiProductCycleJsonWithHttpInfo(product = product, cycle = cycle)
 
         return when (localVarResponse.responseType) {
@@ -140,7 +140,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -156,7 +156,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getApiProductCycleJsonWithHttpInfo(product: kotlin.Any, cycle: kotlin.Any) : ApiResponse<Cycle?> {
+    fun getApiProductCycleJsonWithHttpInfo(product: kotlin.String, cycle: kotlin.String) : ApiResponse<Cycle?> {
         val localVariableConfig = getApiProductCycleJsonRequestConfig(product = product, cycle = cycle)
 
         return request<Unit, Cycle>(
@@ -171,7 +171,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param cycle Release Cycle for which the details must be fetched
      * @return RequestConfig
      */
-    fun getApiProductCycleJsonRequestConfig(product: kotlin.Any, cycle: kotlin.Any) : RequestConfig<Unit> {
+    fun getApiProductCycleJsonRequestConfig(product: kotlin.String, cycle: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -191,7 +191,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Get All Details
      * Get EoL dates of all cycles of a given product.
      * @param product Product URL as per the canonical URL on the endofife.date website
-     * @return kotlin.Any
+     * @return kotlin.collections.List<Cycle>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -200,11 +200,11 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getApiProductJson(product: kotlin.Any) : kotlin.Any {
+    fun getApiProductJson(product: kotlin.String) : kotlin.collections.List<Cycle> {
         val localVarResponse = getApiProductJsonWithHttpInfo(product = product)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Any
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<Cycle>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -213,7 +213,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -222,16 +222,16 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Get All Details
      * Get EoL dates of all cycles of a given product.
      * @param product Product URL as per the canonical URL on the endofife.date website
-     * @return ApiResponse<kotlin.Any?>
+     * @return ApiResponse<kotlin.collections.List<Cycle>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getApiProductJsonWithHttpInfo(product: kotlin.Any) : ApiResponse<kotlin.Any?> {
+    fun getApiProductJsonWithHttpInfo(product: kotlin.String) : ApiResponse<kotlin.collections.List<Cycle>?> {
         val localVariableConfig = getApiProductJsonRequestConfig(product = product)
 
-        return request<Unit, kotlin.Any>(
+        return request<Unit, kotlin.collections.List<Cycle>>(
             localVariableConfig
         )
     }
@@ -242,7 +242,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param product Product URL as per the canonical URL on the endofife.date website
      * @return RequestConfig
      */
-    fun getApiProductJsonRequestConfig(product: kotlin.Any) : RequestConfig<Unit> {
+    fun getApiProductJsonRequestConfig(product: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

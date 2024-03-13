@@ -20,12 +20,12 @@ import type {
 } from '../models';
 
 export interface GetApiProductCycleJsonRequest {
-    product: any;
-    cycle: any;
+    product: string;
+    cycle: string;
 }
 
 export interface GetApiProductJsonRequest {
-    product: any;
+    product: string;
 }
 
 /**
@@ -37,10 +37,10 @@ export class DefaultApi extends BaseAPI {
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * All Products
      */
-    getApiAllJson(): Observable<any>
-    getApiAllJson(opts?: OperationOpts): Observable<AjaxResponse<any>>
-    getApiAllJson(opts?: OperationOpts): Observable<any | AjaxResponse<any>> {
-        return this.request<any>({
+    getApiAllJson(): Observable<Array<string>>
+    getApiAllJson(opts?: OperationOpts): Observable<AjaxResponse<Array<string>>>
+    getApiAllJson(opts?: OperationOpts): Observable<Array<string> | AjaxResponse<Array<string>>> {
+        return this.request<Array<string>>({
             url: '/api/all.json',
             method: 'GET',
         }, opts?.responseOpts);
@@ -66,12 +66,12 @@ export class DefaultApi extends BaseAPI {
      * Get EoL dates of all cycles of a given product.
      * Get All Details
      */
-    getApiProductJson({ product }: GetApiProductJsonRequest): Observable<any>
-    getApiProductJson({ product }: GetApiProductJsonRequest, opts?: OperationOpts): Observable<AjaxResponse<any>>
-    getApiProductJson({ product }: GetApiProductJsonRequest, opts?: OperationOpts): Observable<any | AjaxResponse<any>> {
+    getApiProductJson({ product }: GetApiProductJsonRequest): Observable<Array<Cycle>>
+    getApiProductJson({ product }: GetApiProductJsonRequest, opts?: OperationOpts): Observable<AjaxResponse<Array<Cycle>>>
+    getApiProductJson({ product }: GetApiProductJsonRequest, opts?: OperationOpts): Observable<Array<Cycle> | AjaxResponse<Array<Cycle>>> {
         throwIfNullOrUndefined(product, 'product', 'getApiProductJson');
 
-        return this.request<any>({
+        return this.request<Array<Cycle>>({
             url: '/api/{product}.json'.replace('{product}', encodeURI(product)),
             method: 'GET',
         }, opts?.responseOpts);

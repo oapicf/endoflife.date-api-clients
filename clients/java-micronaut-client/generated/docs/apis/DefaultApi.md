@@ -40,7 +40,7 @@ More information can be found inside [Inversion of Control guide section](https:
 <a id="getApiAllJson"></a>
 # **getApiAllJson**
 ```java
-Mono<Object> DefaultApi.getApiAllJson()
+Mono<List<String>> DefaultApi.getApiAllJson()
 ```
 
 All Products
@@ -50,7 +50,7 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 
 ### Return type
-`Object`
+`List&lt;String&gt;`
 
 
 
@@ -71,8 +71,8 @@ Gets details of a single cycle
 ### Parameters
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **product** | [**Object**](.md)| Product URL as per the canonical URL on the endofife.date website | |
-| **cycle** | [**Object**](.md)| Release Cycle for which the details must be fetched | |
+| **product** | `String`| Product URL as per the canonical URL on the endofife.date website | |
+| **cycle** | `String`| Release Cycle for which the details must be fetched | |
 
 
 ### Return type
@@ -87,7 +87,7 @@ Gets details of a single cycle
 <a id="getApiProductJson"></a>
 # **getApiProductJson**
 ```java
-Mono<Object> DefaultApi.getApiProductJson(product)
+Mono<List<Cycle>> DefaultApi.getApiProductJson(product)
 ```
 
 Get All Details
@@ -97,11 +97,11 @@ Get EoL dates of all cycles of a given product.
 ### Parameters
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **product** | [**Object**](.md)| Product URL as per the canonical URL on the endofife.date website | |
+| **product** | `String`| Product URL as per the canonical URL on the endofife.date website | |
 
 
 ### Return type
-`Object`
+[**List&lt;Cycle&gt;**](Cycle.md)
 
 
 

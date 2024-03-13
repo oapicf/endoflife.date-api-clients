@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="GetApiAllJson"></a>
 # **GetApiAllJson**
-> AnyType GetApiAllJson()
+> String! GetApiAllJson()
 
 All Products
 
@@ -25,7 +25,7 @@ Single cycle details
 Gets details of a single cycle
 <a name="GetApiProductJson"></a>
 # **GetApiProductJson**
-> AnyType GetApiProductJson(product)
+> Cycle GetApiProductJson(product)
 
 Get All Details
 

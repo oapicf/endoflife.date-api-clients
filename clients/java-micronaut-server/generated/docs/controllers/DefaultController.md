@@ -13,7 +13,7 @@ Method | HTTP request | Description
 <a id="getApiAllJson"></a>
 # **getApiAllJson**
 ```java
-Mono<Object> DefaultController.getApiAllJson()
+Mono<List<String>> DefaultController.getApiAllJson()
 ```
 
 All Products
@@ -22,7 +22,7 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 
 ### Return type
-`Object`
+`List&lt;String&gt;`
 
 
 ### HTTP request headers
@@ -42,8 +42,8 @@ Gets details of a single cycle
 ### Parameters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**product** | [**Object**](../../docs/models/.md) | Product URL as per the canonical URL on the endofife.date website |
-**cycle** | [**Object**](../../docs/models/.md) | Release Cycle for which the details must be fetched |
+**product** | `String` | Product URL as per the canonical URL on the endofife.date website |
+**cycle** | `String` | Release Cycle for which the details must be fetched |
 
 ### Return type
 [**Cycle**](../../docs/models/Cycle.md)
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 <a id="getApiProductJson"></a>
 # **getApiProductJson**
 ```java
-Mono<Object> DefaultController.getApiProductJson(product)
+Mono<List<Cycle>> DefaultController.getApiProductJson(product)
 ```
 
 Get All Details
@@ -66,10 +66,10 @@ Get EoL dates of all cycles of a given product.
 ### Parameters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**product** | [**Object**](../../docs/models/.md) | Product URL as per the canonical URL on the endofife.date website |
+**product** | `String` | Product URL as per the canonical URL on the endofife.date website |
 
 ### Return type
-`Object`
+[**List&lt;Cycle&gt;**](../../docs/models/Cycle.md)
 
 
 ### HTTP request headers

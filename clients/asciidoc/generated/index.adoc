@@ -6,8 +6,8 @@ blah+oapicf@cliffano.com
 :toclevels: 4
 :source-highlighter: highlightjs
 :keywords: openapi, rest, endoflife.date
-:specDir:
-:snippetDir:
+:specDir: 
+:snippetDir: 
 :generator-template: v1 2019-12-20
 :info-url: https://github.com/oapicf/endoflife.date-api-clients
 :app-name: endoflife.date
@@ -55,7 +55,7 @@ Return a list of all products. Each of these can be used for the other API endpo
 ===== Return Type
 
 
-<<oas_any_type_not_mapped>>
+<<List>>
 
 
 ===== Content Type
@@ -72,7 +72,7 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 | 200
 | OK
-|  <<oas_any_type_not_mapped>>
+| List[<<string>>] 
 
 |===
 
@@ -123,10 +123,10 @@ Get EoL dates of all cycles of a given product.
 |Name| Description| Required| Default| Pattern
 
 | product
-| Product URL as per the canonical URL on the endofife.date website
+| Product URL as per the canonical URL on the endofife.date website 
 | X
 | null
-|
+| 
 
 |===
 
@@ -137,8 +137,7 @@ Get EoL dates of all cycles of a given product.
 
 ===== Return Type
 
-
-<<oas_any_type_not_mapped>>
+array[<<cycle>>]
 
 
 ===== Content Type
@@ -155,7 +154,7 @@ Get EoL dates of all cycles of a given product.
 
 | 200
 | OK
-|  <<oas_any_type_not_mapped>>
+| List[<<cycle>>] 
 
 |===
 
@@ -206,16 +205,16 @@ Gets details of a single cycle
 |Name| Description| Required| Default| Pattern
 
 | product
-| Product URL as per the canonical URL on the endofife.date website
+| Product URL as per the canonical URL on the endofife.date website 
 | X
 | null
-|
+| 
 
 | cycle
-| Release Cycle for which the details must be fetched
+| Release Cycle for which the details must be fetched 
 | X
 | null
-|
+| 
 
 |===
 
@@ -278,59 +277,145 @@ endif::internal-generation[]
 
 Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 
+
 [.fields-Cycle]
-[cols="2,1,2,4,1"]
+[cols="2,1,1,2,4,1"]
 |===
-| Field Name| Required| Type| Description| Format
+| Field Name| Required| Nullable | Type| Description | Format
 
 | cycle
-|
-| oas_any_type_not_mapped
-| Release Cycle
-|
+| 
+| 
+| <<cycle_cycle>>    
+| 
+|     
 
 | releaseDate
-|
-| oas_any_type_not_mapped
+| 
+| 
+|   date  
 | Release Date for the first release in this cycle
-| date
+| date    
 
 | eol
-|
-| oas_any_type_not_mapped
-| End of Life Date for this release cycle
-|
+| 
+| 
+| <<cycle_eol>>    
+| 
+|     
 
 | latest
-|
-| oas_any_type_not_mapped
+| 
+| 
+|   String  
 | Latest release in this cycle
-|
+|     
 
 | link
-|
-| oas_any_type_not_mapped
+| 
+| X
+|   String  
 | Link to changelog for the latest release, if available
-|
+|     
 
 | lts
-|
-| oas_any_type_not_mapped
-| Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-|
+| 
+| 
+| <<cycle_lts>>    
+| 
+|     
 
 | support
-|
-| oas_any_type_not_mapped
-| Whether this release cycle has active support
-| date
+| 
+| 
+| <<cycle_support>>    
+| 
+|     
 
 | discontinued
-|
-| oas_any_type_not_mapped
-| Whether this cycle is now discontinued.
-| date
+| 
+| 
+| <<cycle_discontinued>>    
+| 
+|     
 
 |===
+
+
+
+[#CycleCycle]
+=== _CycleCycle_ 
+
+Release Cycle
+
+
+[.fields-CycleCycle]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+|===
+
+
+
+[#CycleDiscontinued]
+=== _CycleDiscontinued_ 
+
+Whether this cycle is now discontinued.
+
+
+[.fields-CycleDiscontinued]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+|===
+
+
+
+[#CycleEol]
+=== _CycleEol_ 
+
+End of Life Date for this release cycle
+
+
+[.fields-CycleEol]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+|===
+
+
+
+[#CycleLts]
+=== _CycleLts_ 
+
+Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+
+
+
+[.fields-CycleLts]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+|===
+
+
+
+[#CycleSupport]
+=== _CycleSupport_ 
+
+Whether this release cycle has active support
+
+
+[.fields-CycleSupport]
+[cols="2,1,1,2,4,1"]
+|===
+| Field Name| Required| Nullable | Type| Description | Format
+
+|===
+
 
 

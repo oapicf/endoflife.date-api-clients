@@ -1,2 +1,7 @@
 .openapi-generator-ignore
 Cycle.avsc
+CycleCycle.avsc
+CycleDiscontinued.avsc
+CycleEol.avsc
+CycleLts.avsc
+CycleSupport.avsc

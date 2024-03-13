@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 # **getApiAllJson**
 ```swift
-    open class func getApiAllJson(completion: @escaping (_ data: AnyCodable?, _ error: Error?) -> Void)
+    open class func getApiAllJson(completion: @escaping (_ data: [String]?, _ error: Error?) -> Void)
 ```
 
 All Products
@@ -42,7 +42,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**AnyCodable**
+**[String]**
 
 ### Authorization
 
@@ -57,7 +57,7 @@ No authorization required
 
 # **getApiProductCycleJson**
 ```swift
-    open class func getApiProductCycleJson(product: AnyCodable, cycle: AnyCodable, completion: @escaping (_ data: Cycle?, _ error: Error?) -> Void)
+    open class func getApiProductCycleJson(product: String, cycle: String, completion: @escaping (_ data: Cycle?, _ error: Error?) -> Void)
 ```
 
 Single cycle details
@@ -69,8 +69,8 @@ Gets details of a single cycle
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let product =  // AnyCodable | Product URL as per the canonical URL on the endofife.date website
-let cycle =  // AnyCodable | Release Cycle for which the details must be fetched
+let product = "product_example" // String | Product URL as per the canonical URL on the endofife.date website
+let cycle = "cycle_example" // String | Release Cycle for which the details must be fetched
 
 // Single cycle details
 DefaultAPI.getApiProductCycleJson(product: product, cycle: cycle) { (response, error) in
@@ -89,8 +89,8 @@ DefaultAPI.getApiProductCycleJson(product: product, cycle: cycle) { (response, e
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyCodable**](.md) | Product URL as per the canonical URL on the endofife.date website | 
- **cycle** | [**AnyCodable**](.md) | Release Cycle for which the details must be fetched | 
+ **product** | **String** | Product URL as per the canonical URL on the endofife.date website | 
+ **cycle** | **String** | Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -109,7 +109,7 @@ No authorization required
 
 # **getApiProductJson**
 ```swift
-    open class func getApiProductJson(product: AnyCodable, completion: @escaping (_ data: AnyCodable?, _ error: Error?) -> Void)
+    open class func getApiProductJson(product: String, completion: @escaping (_ data: [Cycle]?, _ error: Error?) -> Void)
 ```
 
 Get All Details
@@ -121,7 +121,7 @@ Get EoL dates of all cycles of a given product.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let product =  // AnyCodable | Product URL as per the canonical URL on the endofife.date website
+let product = "product_example" // String | Product URL as per the canonical URL on the endofife.date website
 
 // Get All Details
 DefaultAPI.getApiProductJson(product: product) { (response, error) in
@@ -140,11 +140,11 @@ DefaultAPI.getApiProductJson(product: product) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyCodable**](.md) | Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **String** | Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-**AnyCodable**
+[**[Cycle]**](Cycle.md)
 
 ### Authorization
 

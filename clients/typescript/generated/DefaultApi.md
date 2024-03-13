@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **getApiAllJson**
-> any getApiAllJson()
+> Array<string> getApiAllJson()
 
 Return a list of all products. Each of these can be used for the other API endpoints.
 
@@ -38,7 +38,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**any**
+**Array<string>**
 
 ### Authorization
 
@@ -73,10 +73,10 @@ const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
 let body:.DefaultApiGetApiProductCycleJsonRequest = {
-  // any | Product URL as per the canonical URL on the endofife.date website
-  product: null,
-  // any | Release Cycle for which the details must be fetched
-  cycle: null,
+  // string | Product URL as per the canonical URL on the endofife.date website
+  product: "product_example",
+  // string | Release Cycle for which the details must be fetched
+  cycle: "cycle_example",
 };
 
 apiInstance.getApiProductCycleJson(body).then((data:any) => {
@@ -89,8 +89,8 @@ apiInstance.getApiProductCycleJson(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **any** | Product URL as per the canonical URL on the endofife.date website | defaults to undefined
- **cycle** | **any** | Release Cycle for which the details must be fetched | defaults to undefined
+ **product** | [**string**] | Product URL as per the canonical URL on the endofife.date website | defaults to undefined
+ **cycle** | [**string**] | Release Cycle for which the details must be fetched | defaults to undefined
 
 
 ### Return type
@@ -115,7 +115,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getApiProductJson**
-> any getApiProductJson()
+> Array<Cycle> getApiProductJson()
 
 Get EoL dates of all cycles of a given product.
 
@@ -130,8 +130,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .DefaultApi(configuration);
 
 let body:.DefaultApiGetApiProductJsonRequest = {
-  // any | Product URL as per the canonical URL on the endofife.date website
-  product: null,
+  // string | Product URL as per the canonical URL on the endofife.date website
+  product: "product_example",
 };
 
 apiInstance.getApiProductJson(body).then((data:any) => {
@@ -144,12 +144,12 @@ apiInstance.getApiProductJson(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **any** | Product URL as per the canonical URL on the endofife.date website | defaults to undefined
+ **product** | [**string**] | Product URL as per the canonical URL on the endofife.date website | defaults to undefined
 
 
 ### Return type
 
-**any**
+**Array<Cycle>**
 
 ### Authorization
 

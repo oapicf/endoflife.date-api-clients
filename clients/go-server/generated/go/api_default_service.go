@@ -32,14 +32,14 @@ func (s *DefaultAPIService) GetApiAllJson(ctx context.Context) (ImplResponse, er
 	// TODO - update GetApiAllJson with the required logic for this service method.
 	// Add api_default_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	// TODO: Uncomment the next line to return response Response(200, interface{}{}) or use other options such as http.Ok ...
-	// return Response(200, interface{}{}), nil
+	// TODO: Uncomment the next line to return response Response(200, []string{}) or use other options such as http.Ok ...
+	// return Response(200, []string{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("GetApiAllJson method not implemented")
 }
 
 // GetApiProductCycleJson - Single cycle details
-func (s *DefaultAPIService) GetApiProductCycleJson(ctx context.Context, product interface{}, cycle interface{}) (ImplResponse, error) {
+func (s *DefaultAPIService) GetApiProductCycleJson(ctx context.Context, product string, cycle string) (ImplResponse, error) {
 	// TODO - update GetApiProductCycleJson with the required logic for this service method.
 	// Add api_default_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
@@ -50,12 +50,12 @@ func (s *DefaultAPIService) GetApiProductCycleJson(ctx context.Context, product 
 }
 
 // GetApiProductJson - Get All Details
-func (s *DefaultAPIService) GetApiProductJson(ctx context.Context, product interface{}) (ImplResponse, error) {
+func (s *DefaultAPIService) GetApiProductJson(ctx context.Context, product string) (ImplResponse, error) {
 	// TODO - update GetApiProductJson with the required logic for this service method.
 	// Add api_default_service.go to the .openapi-generator-ignore to avoid overwriting this service implementation when updating open api generation.
 
-	// TODO: Uncomment the next line to return response Response(200, interface{}{}) or use other options such as http.Ok ...
-	// return Response(200, interface{}{}), nil
+	// TODO: Uncomment the next line to return response Response(200, []Cycle{}) or use other options such as http.Ok ...
+	// return Response(200, []Cycle{}), nil
 
 	return Response(http.StatusNotImplemented, nil), errors.New("GetApiProductJson method not implemented")
 }

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,7 +21,7 @@ void main() {
     //
     // Return a list of all products. Each of these can be used for the other API endpoints.
     //
-    //Future<Object> getApiAllJson() async
+    //Future<List<String>> getApiAllJson() async
     test('test getApiAllJson', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Gets details of a single cycle
     //
-    //Future<Cycle> getApiProductCycleJson(Object product, Object cycle) async
+    //Future<Cycle> getApiProductCycleJson(String product, String cycle) async
     test('test getApiProductCycleJson', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Get EoL dates of all cycles of a given product.
     //
-    //Future<Object> getApiProductJson(Object product) async
+    //Future<List<Cycle>> getApiProductJson(String product) async
     test('test getApiProductJson', () async {
       // TODO
     });

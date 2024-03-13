@@ -36,7 +36,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Validator\Constraints as Assert;
 use OpenAPI\Server\Api\DefaultApiInterface;
-use OpenAPI\Server\Model\AnyType;
 use OpenAPI\Server\Model\Cycle;
 
 /**
@@ -141,8 +140,8 @@ class DefaultController extends Controller
 
         // Deserialize the input values that needs it
         try {
-            $product = $this->deserialize($product, 'AnyType', 'string');
-            $cycle = $this->deserialize($cycle, 'AnyType', 'string');
+            $product = $this->deserialize($product, 'string', 'string');
+            $cycle = $this->deserialize($cycle, 'string', 'string');
         } catch (SerializerRuntimeException $exception) {
             return $this->createBadRequestResponse($exception->getMessage());
         }
@@ -150,16 +149,14 @@ class DefaultController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("AnyType");
-        $asserts[] = new Assert\Valid();
+        $asserts[] = new Assert\Type("string");
         $response = $this->validate($product, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("AnyType");
-        $asserts[] = new Assert\Valid();
+        $asserts[] = new Assert\Type("string");
         $response = $this->validate($cycle, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -229,7 +226,7 @@ class DefaultController extends Controller
 
         // Deserialize the input values that needs it
         try {
-            $product = $this->deserialize($product, 'AnyType', 'string');
+            $product = $this->deserialize($product, 'string', 'string');
         } catch (SerializerRuntimeException $exception) {
             return $this->createBadRequestResponse($exception->getMessage());
         }
@@ -237,8 +234,7 @@ class DefaultController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("AnyType");
-        $asserts[] = new Assert\Valid();
+        $asserts[] = new Assert\Type("string");
         $response = $this->validate($product, $asserts);
         if ($response instanceof Response) {
             return $response;

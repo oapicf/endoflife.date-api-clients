@@ -27,10 +27,10 @@ DefaultApiImpl::DefaultApiImpl(const std::shared_ptr<Pistache::Rest::Router>& rt
 void DefaultApiImpl::get_api_all_json(Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
-void DefaultApiImpl::get_api_product_cycle_json(const org::openapitools::server::model::nlohmann::json &product, const org::openapitools::server::model::nlohmann::json &cycle, Pistache::Http::ResponseWriter &response) {
+void DefaultApiImpl::get_api_product_cycle_json(const std::string &product, const std::string &cycle, Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
-void DefaultApiImpl::get_api_product_json(const org::openapitools::server::model::nlohmann::json &product, Pistache::Http::ResponseWriter &response) {
+void DefaultApiImpl::get_api_product_json(const std::string &product, Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
 

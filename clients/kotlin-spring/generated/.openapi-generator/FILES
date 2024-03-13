@@ -10,6 +10,11 @@ src/main/kotlin/org/openapitools/api/ApiApiController.kt
 src/main/kotlin/org/openapitools/api/ApiUtil.kt
 src/main/kotlin/org/openapitools/api/Exceptions.kt
 src/main/kotlin/org/openapitools/model/Cycle.kt
+src/main/kotlin/org/openapitools/model/CycleCycle.kt
+src/main/kotlin/org/openapitools/model/CycleDiscontinued.kt
+src/main/kotlin/org/openapitools/model/CycleEol.kt
+src/main/kotlin/org/openapitools/model/CycleLts.kt
+src/main/kotlin/org/openapitools/model/CycleSupport.kt
 src/main/resources/application.yaml
 src/main/resources/openapi.yaml
 src/test/kotlin/org/openapitools/api/ApiApiTest.kt

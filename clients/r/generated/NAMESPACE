@@ -14,6 +14,11 @@ export(ApiResponse)
 
 # Models
 export(Cycle)
+export(CycleCycle)
+export(CycleDiscontinued)
+export(CycleEol)
+export(CycleLts)
+export(CycleSupport)
 
 # APIs
 export(DefaultApi)

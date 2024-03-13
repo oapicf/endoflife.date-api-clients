@@ -11,12 +11,15 @@ import java.util.List;
 
 import java.io.InputStream;
 
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2023-09-16T14:43:55.215930Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-03-13T10:45:46.705389032Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ApiApiServiceImpl implements ApiApiService {
       @Override
       public Response getApiAllJson(SecurityContext securityContext) {
@@ -24,12 +27,12 @@ public class ApiApiServiceImpl implements ApiApiService {
       return Response.ok().entity("magic!").build();
   }
       @Override
-      public Response getApiProductCycleJson(Object product, Object cycle, SecurityContext securityContext) {
+      public Response getApiProductCycleJson(String product, String cycle, SecurityContext securityContext) {
       // do some magic!
       return Response.ok().entity("magic!").build();
   }
       @Override
-      public Response getApiProductJson(Object product, SecurityContext securityContext) {
+      public Response getApiProductJson(String product, SecurityContext securityContext) {
       // do some magic!
       return Response.ok().entity("magic!").build();
   }

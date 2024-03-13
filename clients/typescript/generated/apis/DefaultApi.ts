@@ -45,7 +45,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param product Product URL as per the canonical URL on the endofife.date website
      * @param cycle Release Cycle for which the details must be fetched
      */
-    public async getApiProductCycleJson(product: any, cycle: any, _options?: Configuration): Promise<RequestContext> {
+    public async getApiProductCycleJson(product: string, cycle: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'product' is not null or undefined
@@ -84,7 +84,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * Get All Details
      * @param product Product URL as per the canonical URL on the endofife.date website
      */
-    public async getApiProductJson(product: any, _options?: Configuration): Promise<RequestContext> {
+    public async getApiProductJson(product: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'product' is not null or undefined
@@ -122,22 +122,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to getApiAllJson
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getApiAllJsonWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async getApiAllJsonWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<string> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: Array<string> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "Array<string>", ""
+            ) as Array<string>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: Array<string> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "Array<string>", ""
+            ) as Array<string>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -180,22 +180,22 @@ export class DefaultApiResponseProcessor {
      * @params response Response returned by the server for a request to getApiProductJson
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getApiProductJsonWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any >> {
+     public async getApiProductJsonWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Cycle> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: Array<Cycle> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "Array<Cycle>", ""
+            ) as Array<Cycle>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: any = ObjectSerializer.deserialize(
+            const body: Array<Cycle> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "any", ""
-            ) as any;
+                "Array<Cycle>", ""
+            ) as Array<Cycle>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

@@ -19,37 +19,37 @@ import .*
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
- * @param cycle Release Cycle
+ * @param cycle 
  * @param releaseDate Release Date for the first release in this cycle
- * @param eol End of Life Date for this release cycle
+ * @param eol 
  * @param latest Latest release in this cycle
  * @param link Link to changelog for the latest release, if available
- * @param lts Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
- * @param support Whether this release cycle has active support
- * @param discontinued Whether this cycle is now discontinued.
+ * @param lts 
+ * @param support 
+ * @param discontinued 
  */
 object Cycles : BaseTable<Cycle>("cycle") {
-    val cycle = blob("cycle") /* null */ /* Release Cycle */
-    val releaseDate = blob("releaseDate") /* null */ /* Release Date for the first release in this cycle */
-    val eol = blob("eol") /* null */ /* End of Life Date for this release cycle */
-    val latest = blob("latest") /* null */ /* Latest release in this cycle */
-    val link = blob("link") /* null */ /* Link to changelog for the latest release, if available */
-    val lts = blob("lts") /* null */ /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-    val support = blob("support") /* null */ /* Whether this release cycle has active support */
-    val discontinued = blob("discontinued") /* null */ /* Whether this cycle is now discontinued. */
+    val cycle = long("cycle") /* null */
+    val releaseDate = date("releaseDate") /* null */ /* Release Date for the first release in this cycle */
+    val eol = long("eol") /* null */
+    val latest = text("latest") /* null */ /* Latest release in this cycle */
+    val link = text("link") /* null */ /* Link to changelog for the latest release, if available */
+    val lts = long("lts") /* null */
+    val support = long("support") /* null */
+    val discontinued = long("discontinued") /* null */
 
     /**
      * Create an entity of type Cycle from the model
      */
     override fun doCreateEntity(row: QueryRowSet, withReferences: Boolean) = Cycle(
-        cycle = row[cycle]  /* kotlin.Any? */ /* Release Cycle */,
-        releaseDate = row[releaseDate]  /* kotlin.Any? */ /* Release Date for the first release in this cycle */,
-        eol = row[eol]  /* kotlin.Any? */ /* End of Life Date for this release cycle */,
-        latest = row[latest]  /* kotlin.Any? */ /* Latest release in this cycle */,
-        link = row[link]  /* kotlin.Any? */ /* Link to changelog for the latest release, if available */,
-        lts = row[lts]  /* kotlin.Any? */ /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */,
-        support = row[support]  /* kotlin.Any? */ /* Whether this release cycle has active support */,
-        discontinued = row[discontinued]  /* kotlin.Any? */ /* Whether this cycle is now discontinued. */
+        cycle = CycleCycles.createEntity(row, withReferences) /* CycleCycle? */,
+        releaseDate = row[releaseDate]  /* java.time.LocalDate? */ /* Release Date for the first release in this cycle */,
+        eol = CycleEols.createEntity(row, withReferences) /* CycleEol? */,
+        latest = row[latest]  /* kotlin.String? */ /* Latest release in this cycle */,
+        link = row[link]  /* kotlin.String? */ /* Link to changelog for the latest release, if available */,
+        lts = CycleLtss.createEntity(row, withReferences) /* CycleLts? */,
+        support = CycleSupports.createEntity(row, withReferences) /* CycleSupport? */,
+        discontinued = CycleDiscontinueds.createEntity(row, withReferences) /* CycleDiscontinued? */
     )
 
     /**

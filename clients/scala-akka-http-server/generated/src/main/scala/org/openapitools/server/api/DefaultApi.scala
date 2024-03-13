@@ -7,7 +7,6 @@ import akka.http.scaladsl.marshalling.ToEntityMarshaller
 import akka.http.scaladsl.unmarshalling.FromEntityUnmarshaller
 import akka.http.scaladsl.unmarshalling.FromStringUnmarshaller
 import org.openapitools.server.AkkaHttpHelper._
-import org.openapitools.server.model.AnyType
 import org.openapitools.server.model.Cycle
 
 
@@ -40,13 +39,12 @@ class DefaultApi(
 
 trait DefaultApiService {
 
-  def getApiAllJson200(responseAnyType: AnyType)(implicit toEntityMarshallerAnyType: ToEntityMarshaller[AnyType]): Route =
-    complete((200, responseAnyType))
+  def getApiAllJson200(responseStringarray: Seq[String])(implicit toEntityMarshallerStringarray: ToEntityMarshaller[Seq[String]]): Route =
+    complete((200, responseStringarray))
   /**
-   * Code: 200, Message: OK, DataType: AnyType
+   * Code: 200, Message: OK, DataType: Seq[String]
    */
-  def getApiAllJson()
-      (implicit toEntityMarshallerAnyType: ToEntityMarshaller[AnyType]): Route
+  def getApiAllJson(): Route
 
   def getApiProductCycleJson200(responseCycle: Cycle)(implicit toEntityMarshallerCycle: ToEntityMarshaller[Cycle]): Route =
     complete((200, responseCycle))
@@ -56,13 +54,13 @@ trait DefaultApiService {
   def getApiProductCycleJson(product: String, cycle: String)
       (implicit toEntityMarshallerCycle: ToEntityMarshaller[Cycle]): Route
 
-  def getApiProductJson200(responseAnyType: AnyType)(implicit toEntityMarshallerAnyType: ToEntityMarshaller[AnyType]): Route =
-    complete((200, responseAnyType))
+  def getApiProductJson200(responseCyclearray: Seq[Cycle])(implicit toEntityMarshallerCyclearray: ToEntityMarshaller[Seq[Cycle]]): Route =
+    complete((200, responseCyclearray))
   /**
-   * Code: 200, Message: OK, DataType: AnyType
+   * Code: 200, Message: OK, DataType: Seq[Cycle]
    */
   def getApiProductJson(product: String)
-      (implicit toEntityMarshallerAnyType: ToEntityMarshaller[AnyType]): Route
+      (implicit toEntityMarshallerCyclearray: ToEntityMarshaller[Seq[Cycle]]): Route
 
 }
 
@@ -71,7 +69,7 @@ trait DefaultApiMarshaller {
 
   implicit def toEntityMarshallerCycle: ToEntityMarshaller[Cycle]
 
-  implicit def toEntityMarshallerAnyType: ToEntityMarshaller[AnyType]
+  implicit def toEntityMarshallerCyclearray: ToEntityMarshaller[Seq[Cycle]]
 
 }
 

@@ -4,6 +4,11 @@ src/apis/DefaultApi.ts
 src/apis/index.ts
 src/index.ts
 src/models/Cycle.ts
+src/models/CycleCycle.ts
+src/models/CycleDiscontinued.ts
+src/models/CycleEol.ts
+src/models/CycleLts.ts
+src/models/CycleSupport.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.json

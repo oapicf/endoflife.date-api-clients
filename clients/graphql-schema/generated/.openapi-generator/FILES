@@ -1,3 +1,8 @@
 .openapi-generator-ignore
 openapi2graphql/api/default_api.graphql
 openapi2graphql/model/cycle.graphql
+openapi2graphql/model/cycle_cycle.graphql
+openapi2graphql/model/cycle_discontinued.graphql
+openapi2graphql/model/cycle_eol.graphql
+openapi2graphql/model/cycle_lts.graphql
+openapi2graphql/model/cycle_support.graphql

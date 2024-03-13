@@ -5,6 +5,11 @@ from datetime import date, datetime
 from typing import List, Dict, Type
 
 from openapi_server.models.base_model import Model
+from openapi_server.models.cycle_cycle import CycleCycle
+from openapi_server.models.cycle_discontinued import CycleDiscontinued
+from openapi_server.models.cycle_eol import CycleEol
+from openapi_server.models.cycle_lts import CycleLts
+from openapi_server.models.cycle_support import CycleSupport
 from openapi_server import util
 
 
@@ -14,7 +19,7 @@ class Cycle(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, cycle: object=None, release_date: object=None, eol: object=None, latest: object=None, link: object=None, lts: object=None, support: object=None, discontinued: object=None):
+    def __init__(self, cycle: CycleCycle=None, release_date: date=None, eol: CycleEol=None, latest: str=None, link: str=None, lts: CycleLts=None, support: CycleSupport=None, discontinued: CycleDiscontinued=None):
         """Cycle - a model defined in OpenAPI
 
         :param cycle: The cycle of this Cycle.
@@ -27,14 +32,14 @@ class Cycle(Model):
         :param discontinued: The discontinued of this Cycle.
         """
         self.openapi_types = {
-            'cycle': object,
-            'release_date': object,
-            'eol': object,
-            'latest': object,
-            'link': object,
-            'lts': object,
-            'support': object,
-            'discontinued': object
+            'cycle': CycleCycle,
+            'release_date': date,
+            'eol': CycleEol,
+            'latest': str,
+            'link': str,
+            'lts': CycleLts,
+            'support': CycleSupport,
+            'discontinued': CycleDiscontinued
         }
 
         self.attribute_map = {
@@ -70,10 +75,9 @@ class Cycle(Model):
     def cycle(self):
         """Gets the cycle of this Cycle.
 
-        Release Cycle
 
         :return: The cycle of this Cycle.
-        :rtype: object
+        :rtype: CycleCycle
         """
         return self._cycle
 
@@ -81,10 +85,9 @@ class Cycle(Model):
     def cycle(self, cycle):
         """Sets the cycle of this Cycle.
 
-        Release Cycle
 
         :param cycle: The cycle of this Cycle.
-        :type cycle: object
+        :type cycle: CycleCycle
         """
 
         self._cycle = cycle
@@ -96,7 +99,7 @@ class Cycle(Model):
         Release Date for the first release in this cycle
 
         :return: The release_date of this Cycle.
-        :rtype: object
+        :rtype: date
         """
         return self._release_date
 
@@ -107,7 +110,7 @@ class Cycle(Model):
         Release Date for the first release in this cycle
 
         :param release_date: The release_date of this Cycle.
-        :type release_date: object
+        :type release_date: date
         """
         if release_date is not None and len(release_date) > 10:
             raise ValueError("Invalid value for `release_date`, length must be less than or equal to `10`")
@@ -120,10 +123,9 @@ class Cycle(Model):
     def eol(self):
         """Gets the eol of this Cycle.
 
-        End of Life Date for this release cycle
 
         :return: The eol of this Cycle.
-        :rtype: object
+        :rtype: CycleEol
         """
         return self._eol
 
@@ -131,13 +133,10 @@ class Cycle(Model):
     def eol(self, eol):
         """Sets the eol of this Cycle.
 
-        End of Life Date for this release cycle
 
         :param eol: The eol of this Cycle.
-        :type eol: object
+        :type eol: CycleEol
         """
-        if eol is not None and len(eol) < 1:
-            raise ValueError("Invalid value for `eol`, length must be greater than or equal to `1`")
 
         self._eol = eol
 
@@ -148,7 +147,7 @@ class Cycle(Model):
         Latest release in this cycle
 
         :return: The latest of this Cycle.
-        :rtype: object
+        :rtype: str
         """
         return self._latest
 
@@ -159,7 +158,7 @@ class Cycle(Model):
         Latest release in this cycle
 
         :param latest: The latest of this Cycle.
-        :type latest: object
+        :type latest: str
         """
         if latest is not None and len(latest) < 1:
             raise ValueError("Invalid value for `latest`, length must be greater than or equal to `1`")
@@ -173,7 +172,7 @@ class Cycle(Model):
         Link to changelog for the latest release, if available
 
         :return: The link of this Cycle.
-        :rtype: object
+        :rtype: str
         """
         return self._link
 
@@ -184,7 +183,7 @@ class Cycle(Model):
         Link to changelog for the latest release, if available
 
         :param link: The link of this Cycle.
-        :type link: object
+        :type link: str
         """
         if link is not None and len(link) < 1:
             raise ValueError("Invalid value for `link`, length must be greater than or equal to `1`")
@@ -195,10 +194,9 @@ class Cycle(Model):
     def lts(self):
         """Gets the lts of this Cycle.
 
-        Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
 
         :return: The lts of this Cycle.
-        :rtype: object
+        :rtype: CycleLts
         """
         return self._lts
 
@@ -206,10 +204,9 @@ class Cycle(Model):
     def lts(self, lts):
         """Sets the lts of this Cycle.
 
-        Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
 
         :param lts: The lts of this Cycle.
-        :type lts: object
+        :type lts: CycleLts
         """
 
         self._lts = lts
@@ -218,10 +215,9 @@ class Cycle(Model):
     def support(self):
         """Gets the support of this Cycle.
 
-        Whether this release cycle has active support
 
         :return: The support of this Cycle.
-        :rtype: object
+        :rtype: CycleSupport
         """
         return self._support
 
@@ -229,15 +225,10 @@ class Cycle(Model):
     def support(self, support):
         """Sets the support of this Cycle.
 
-        Whether this release cycle has active support
 
         :param support: The support of this Cycle.
-        :type support: object
+        :type support: CycleSupport
         """
-        if support is not None and len(support) > 10:
-            raise ValueError("Invalid value for `support`, length must be less than or equal to `10`")
-        if support is not None and len(support) < 10:
-            raise ValueError("Invalid value for `support`, length must be greater than or equal to `10`")
 
         self._support = support
 
@@ -245,10 +236,9 @@ class Cycle(Model):
     def discontinued(self):
         """Gets the discontinued of this Cycle.
 
-        Whether this cycle is now discontinued.
 
         :return: The discontinued of this Cycle.
-        :rtype: object
+        :rtype: CycleDiscontinued
         """
         return self._discontinued
 
@@ -256,14 +246,9 @@ class Cycle(Model):
     def discontinued(self, discontinued):
         """Sets the discontinued of this Cycle.
 
-        Whether this cycle is now discontinued.
 
         :param discontinued: The discontinued of this Cycle.
-        :type discontinued: object
+        :type discontinued: CycleDiscontinued
         """
-        if discontinued is not None and len(discontinued) > 10:
-            raise ValueError("Invalid value for `discontinued`, length must be less than or equal to `10`")
-        if discontinued is not None and len(discontinued) < 10:
-            raise ValueError("Invalid value for `discontinued`, length must be greater than or equal to `10`")
 
         self._discontinued = discontinued

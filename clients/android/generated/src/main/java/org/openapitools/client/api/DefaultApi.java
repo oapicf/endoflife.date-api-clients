@@ -24,7 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.Cycle;
-import org.openapitools.client.model.OasAnyTypeNotMapped;
+import java.util.*;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -59,9 +59,9 @@ public class DefaultApi {
   /**
   * All Products
   * Return a list of all products. Each of these can be used for the other API endpoints.
-   * @return OasAnyTypeNotMapped
+   * @return List<String>
   */
-  public OasAnyTypeNotMapped getApiAllJson () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<String> getApiAllJson () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -91,7 +91,7 @@ public class DefaultApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (OasAnyTypeNotMapped) ApiInvoker.deserialize(localVarResponse, "", OasAnyTypeNotMapped.class);
+         return (List<String>) ApiInvoker.deserialize(localVarResponse, "array", String.class);
       } else {
          return null;
       }
@@ -117,7 +117,7 @@ public class DefaultApi {
    * Return a list of all products. Each of these can be used for the other API endpoints.
 
   */
-  public void getApiAllJson (final Response.Listener<OasAnyTypeNotMapped> responseListener, final Response.ErrorListener errorListener) {
+  public void getApiAllJson (final Response.Listener<List<String>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -134,14 +134,14 @@ public class DefaultApi {
 
 
     String[] contentTypes = {
-
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
@@ -157,7 +157,7 @@ public class DefaultApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((OasAnyTypeNotMapped) ApiInvoker.deserialize(localVarResponse,  "", OasAnyTypeNotMapped.class));
+              responseListener.onResponse((List<String>) ApiInvoker.deserialize(localVarResponse,  "array", String.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -179,7 +179,7 @@ public class DefaultApi {
    * @param cycle Release Cycle for which the details must be fetched
    * @return Cycle
   */
-  public Cycle getApiProductCycleJson (OasAnyTypeNotMapped product, OasAnyTypeNotMapped cycle) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Cycle getApiProductCycleJson (String product, String cycle) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'product' is set
     if (product == null) {
@@ -245,7 +245,7 @@ public class DefaultApi {
    * Gets details of a single cycle
    * @param product Product URL as per the canonical URL on the endofife.date website   * @param cycle Release Cycle for which the details must be fetched
   */
-  public void getApiProductCycleJson (OasAnyTypeNotMapped product, OasAnyTypeNotMapped cycle, final Response.Listener<Cycle> responseListener, final Response.ErrorListener errorListener) {
+  public void getApiProductCycleJson (String product, String cycle, final Response.Listener<Cycle> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'product' is set
@@ -272,14 +272,14 @@ public class DefaultApi {
 
 
     String[] contentTypes = {
-
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
@@ -314,9 +314,9 @@ public class DefaultApi {
   * Get All Details
   * Get EoL dates of all cycles of a given product.
    * @param product Product URL as per the canonical URL on the endofife.date website
-   * @return OasAnyTypeNotMapped
+   * @return List<Cycle>
   */
-  public OasAnyTypeNotMapped getApiProductJson (OasAnyTypeNotMapped product) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Cycle> getApiProductJson (String product) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'product' is set
     if (product == null) {
@@ -351,7 +351,7 @@ public class DefaultApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (OasAnyTypeNotMapped) ApiInvoker.deserialize(localVarResponse, "", OasAnyTypeNotMapped.class);
+         return (List<Cycle>) ApiInvoker.deserialize(localVarResponse, "array", Cycle.class);
       } else {
          return null;
       }
@@ -377,7 +377,7 @@ public class DefaultApi {
    * Get EoL dates of all cycles of a given product.
    * @param product Product URL as per the canonical URL on the endofife.date website
   */
-  public void getApiProductJson (OasAnyTypeNotMapped product, final Response.Listener<OasAnyTypeNotMapped> responseListener, final Response.ErrorListener errorListener) {
+  public void getApiProductJson (String product, final Response.Listener<List<Cycle>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'product' is set
@@ -399,14 +399,14 @@ public class DefaultApi {
 
 
     String[] contentTypes = {
-
+      
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-
+      
 
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
@@ -422,7 +422,7 @@ public class DefaultApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((OasAnyTypeNotMapped) ApiInvoker.deserialize(localVarResponse,  "", OasAnyTypeNotMapped.class));
+              responseListener.onResponse((List<Cycle>) ApiInvoker.deserialize(localVarResponse,  "array", Cycle.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

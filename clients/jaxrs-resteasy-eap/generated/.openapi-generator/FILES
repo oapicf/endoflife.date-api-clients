@@ -5,6 +5,11 @@ pom.xml
 settings.gradle
 src/gen/java/org/openapitools/api/ApiApi.java
 src/gen/java/org/openapitools/model/Cycle.java
+src/gen/java/org/openapitools/model/CycleCycle.java
+src/gen/java/org/openapitools/model/CycleDiscontinued.java
+src/gen/java/org/openapitools/model/CycleEol.java
+src/gen/java/org/openapitools/model/CycleLts.java
+src/gen/java/org/openapitools/model/CycleSupport.java
 src/main/java/org/openapitools/api/JacksonConfig.java
 src/main/java/org/openapitools/api/RestApplication.java
 src/main/java/org/openapitools/api/impl/ApiApiServiceImpl.java

@@ -3,5 +3,10 @@ apis/DefaultApi.ts
 apis/index.ts
 index.ts
 models/Cycle.ts
+models/CycleCycle.ts
+models/CycleDiscontinued.ts
+models/CycleEol.ts
+models/CycleLts.ts
+models/CycleSupport.ts
 models/index.ts
 runtime.ts

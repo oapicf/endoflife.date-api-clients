@@ -12,11 +12,16 @@
  */
 
 import ApiClient from '../ApiClient';
+import CycleCycle from './CycleCycle';
+import CycleDiscontinued from './CycleDiscontinued';
+import CycleEol from './CycleEol';
+import CycleLts from './CycleLts';
+import CycleSupport from './CycleSupport';
 
 /**
  * The Cycle model module.
  * @module model/Cycle
- * @version 0.9.0-pre.0
+ * @version 0.10.1-pre.0
  */
 class Cycle {
     /**
@@ -24,8 +29,8 @@ class Cycle {
      * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
      * @alias module:model/Cycle
      */
-    constructor() {
-
+    constructor() { 
+        
         Cycle.initialize(this);
     }
 
@@ -34,7 +39,7 @@ class Cycle {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**
@@ -49,28 +54,28 @@ class Cycle {
             obj = obj || new Cycle();
 
             if (data.hasOwnProperty('cycle')) {
-                obj['cycle'] = ApiClient.convertToType(data['cycle'], Object);
+                obj['cycle'] = CycleCycle.constructFromObject(data['cycle']);
             }
             if (data.hasOwnProperty('releaseDate')) {
-                obj['releaseDate'] = ApiClient.convertToType(data['releaseDate'], Object);
+                obj['releaseDate'] = ApiClient.convertToType(data['releaseDate'], 'Date');
             }
             if (data.hasOwnProperty('eol')) {
-                obj['eol'] = ApiClient.convertToType(data['eol'], Object);
+                obj['eol'] = CycleEol.constructFromObject(data['eol']);
             }
             if (data.hasOwnProperty('latest')) {
-                obj['latest'] = ApiClient.convertToType(data['latest'], Object);
+                obj['latest'] = ApiClient.convertToType(data['latest'], 'String');
             }
             if (data.hasOwnProperty('link')) {
-                obj['link'] = ApiClient.convertToType(data['link'], Object);
+                obj['link'] = ApiClient.convertToType(data['link'], 'String');
             }
             if (data.hasOwnProperty('lts')) {
-                obj['lts'] = ApiClient.convertToType(data['lts'], Object);
+                obj['lts'] = CycleLts.constructFromObject(data['lts']);
             }
             if (data.hasOwnProperty('support')) {
-                obj['support'] = ApiClient.convertToType(data['support'], Object);
+                obj['support'] = CycleSupport.constructFromObject(data['support']);
             }
             if (data.hasOwnProperty('discontinued')) {
-                obj['discontinued'] = ApiClient.convertToType(data['discontinued'], Object);
+                obj['discontinued'] = CycleDiscontinued.constructFromObject(data['discontinued']);
             }
         }
         return obj;
@@ -82,6 +87,34 @@ class Cycle {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Cycle</code>.
      */
     static validateJSON(data) {
+        // validate the optional field `cycle`
+        if (data['cycle']) { // data not null
+          CycleCycle.validateJSON(data['cycle']);
+        }
+        // validate the optional field `eol`
+        if (data['eol']) { // data not null
+          CycleEol.validateJSON(data['eol']);
+        }
+        // ensure the json data is a string
+        if (data['latest'] && !(typeof data['latest'] === 'string' || data['latest'] instanceof String)) {
+            throw new Error("Expected the field `latest` to be a primitive type in the JSON string but got " + data['latest']);
+        }
+        // ensure the json data is a string
+        if (data['link'] && !(typeof data['link'] === 'string' || data['link'] instanceof String)) {
+            throw new Error("Expected the field `link` to be a primitive type in the JSON string but got " + data['link']);
+        }
+        // validate the optional field `lts`
+        if (data['lts']) { // data not null
+          CycleLts.validateJSON(data['lts']);
+        }
+        // validate the optional field `support`
+        if (data['support']) { // data not null
+          CycleSupport.validateJSON(data['support']);
+        }
+        // validate the optional field `discontinued`
+        if (data['discontinued']) { // data not null
+          CycleDiscontinued.validateJSON(data['discontinued']);
+        }
 
         return true;
     }
@@ -92,50 +125,45 @@ class Cycle {
 
 
 /**
- * Release Cycle
- * @member {Object} cycle
+ * @member {module:model/CycleCycle} cycle
  */
 Cycle.prototype['cycle'] = undefined;
 
 /**
  * Release Date for the first release in this cycle
- * @member {Object} releaseDate
+ * @member {Date} releaseDate
  */
 Cycle.prototype['releaseDate'] = undefined;
 
 /**
- * End of Life Date for this release cycle
- * @member {Object} eol
+ * @member {module:model/CycleEol} eol
  */
 Cycle.prototype['eol'] = undefined;
 
 /**
  * Latest release in this cycle
- * @member {Object} latest
+ * @member {String} latest
  */
 Cycle.prototype['latest'] = undefined;
 
 /**
  * Link to changelog for the latest release, if available
- * @member {Object} link
+ * @member {String} link
  */
 Cycle.prototype['link'] = undefined;
 
 /**
- * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
- * @member {Object} lts
+ * @member {module:model/CycleLts} lts
  */
 Cycle.prototype['lts'] = undefined;
 
 /**
- * Whether this release cycle has active support
- * @member {Object} support
+ * @member {module:model/CycleSupport} support
  */
 Cycle.prototype['support'] = undefined;
 
 /**
- * Whether this cycle is now discontinued.
- * @member {Object} discontinued
+ * @member {module:model/CycleDiscontinued} discontinued
  */
 Cycle.prototype['discontinued'] = undefined;
 

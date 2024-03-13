@@ -2,6 +2,11 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 
 import { Cycle } from '../models/Cycle';
+import { CycleCycle } from '../models/CycleCycle';
+import { CycleDiscontinued } from '../models/CycleDiscontinued';
+import { CycleEol } from '../models/CycleEol';
+import { CycleLts } from '../models/CycleLts';
+import { CycleSupport } from '../models/CycleSupport';
 
 import { ObservableDefaultApi } from "./ObservableAPI";
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
@@ -12,25 +17,25 @@ export interface DefaultApiGetApiAllJsonRequest {
 export interface DefaultApiGetApiProductCycleJsonRequest {
     /**
      * Product URL as per the canonical URL on the endofife.date website
-     * @type any
+     * @type string
      * @memberof DefaultApigetApiProductCycleJson
      */
-    product: any
+    product: string
     /**
      * Release Cycle for which the details must be fetched
-     * @type any
+     * @type string
      * @memberof DefaultApigetApiProductCycleJson
      */
-    cycle: any
+    cycle: string
 }
 
 export interface DefaultApiGetApiProductJsonRequest {
     /**
      * Product URL as per the canonical URL on the endofife.date website
-     * @type any
+     * @type string
      * @memberof DefaultApigetApiProductJson
      */
-    product: any
+    product: string
 }
 
 export class ObjectDefaultApi {
@@ -45,7 +50,7 @@ export class ObjectDefaultApi {
      * All Products
      * @param param the request object
      */
-    public getApiAllJsonWithHttpInfo(param: DefaultApiGetApiAllJsonRequest = {}, options?: Configuration): Promise<HttpInfo<any>> {
+    public getApiAllJsonWithHttpInfo(param: DefaultApiGetApiAllJsonRequest = {}, options?: Configuration): Promise<HttpInfo<Array<string>>> {
         return this.api.getApiAllJsonWithHttpInfo( options).toPromise();
     }
 
@@ -54,7 +59,7 @@ export class ObjectDefaultApi {
      * All Products
      * @param param the request object
      */
-    public getApiAllJson(param: DefaultApiGetApiAllJsonRequest = {}, options?: Configuration): Promise<any> {
+    public getApiAllJson(param: DefaultApiGetApiAllJsonRequest = {}, options?: Configuration): Promise<Array<string>> {
         return this.api.getApiAllJson( options).toPromise();
     }
 
@@ -81,7 +86,7 @@ export class ObjectDefaultApi {
      * Get All Details
      * @param param the request object
      */
-    public getApiProductJsonWithHttpInfo(param: DefaultApiGetApiProductJsonRequest, options?: Configuration): Promise<HttpInfo<any>> {
+    public getApiProductJsonWithHttpInfo(param: DefaultApiGetApiProductJsonRequest, options?: Configuration): Promise<HttpInfo<Array<Cycle>>> {
         return this.api.getApiProductJsonWithHttpInfo(param.product,  options).toPromise();
     }
 
@@ -90,7 +95,7 @@ export class ObjectDefaultApi {
      * Get All Details
      * @param param the request object
      */
-    public getApiProductJson(param: DefaultApiGetApiProductJsonRequest, options?: Configuration): Promise<any> {
+    public getApiProductJson(param: DefaultApiGetApiProductJsonRequest, options?: Configuration): Promise<Array<Cycle>> {
         return this.api.getApiProductJson(param.product,  options).toPromise();
     }
 

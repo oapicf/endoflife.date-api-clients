@@ -18,12 +18,11 @@
 #' Return a list of all products. Each of these can be used for the other API endpoints.
 #'
 #' \itemize{
-#' \item \emph{ @returnType } \link{AnyType} \cr
 #'
 #'
 #' \item status code : 200 | OK
 #'
-#' \item return type : AnyType
+#' \item return type : array[character]
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -34,8 +33,8 @@
 #' Gets details of a single cycle
 #'
 #' \itemize{
-#' \item \emph{ @param } product \link{AnyType}
-#' \item \emph{ @param } cycle \link{AnyType}
+#' \item \emph{ @param } product character
+#' \item \emph{ @param } cycle character
 #' \item \emph{ @returnType } \link{Cycle} \cr
 #'
 #'
@@ -52,13 +51,13 @@
 #' Get EoL dates of all cycles of a given product.
 #'
 #' \itemize{
-#' \item \emph{ @param } product \link{AnyType}
-#' \item \emph{ @returnType } \link{AnyType} \cr
+#' \item \emph{ @param } product character
+#' \item \emph{ @returnType } list( \link{cycle} ) \cr
 #'
 #'
 #' \item status code : 200 | OK
 #'
-#' \item return type : AnyType
+#' \item return type : array[Cycle]
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -86,8 +85,8 @@
 #' ####################  GetApiProductCycleJson  ####################
 #'
 #' library(openapi)
-#' var_product <- TODO # AnyType | Product URL as per the canonical URL on the endofife.date website
-#' var_cycle <- TODO # AnyType | Release Cycle for which the details must be fetched
+#' var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website
+#' var_cycle <- "cycle_example" # character | Release Cycle for which the details must be fetched
 #'
 #' #Single cycle details
 #' api_instance <- DefaultApi$new()
@@ -101,7 +100,7 @@
 #' ####################  GetApiProductJson  ####################
 #'
 #' library(openapi)
-#' var_product <- TODO # AnyType | Product URL as per the canonical URL on the endofife.date website
+#' var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website
 #'
 #' #Get All Details
 #' api_instance <- DefaultApi$new()
@@ -141,7 +140,7 @@ DefaultApi <- R6::R6Class(
     #'
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return AnyType
+    #' @return array[character]
     #' @export
     GetApiAllJson = function(data_file = NULL, ...) {
       local_var_response <- self$GetApiAllJsonWithHttpInfo(data_file = data_file, ...)
@@ -162,7 +161,7 @@ DefaultApi <- R6::R6Class(
     #'
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return API response (AnyType) with additional information such as HTTP status code, headers
+    #' @return API response (array[character]) with additional information such as HTTP status code, headers
     #' @export
     GetApiAllJsonWithHttpInfo = function(data_file = NULL, ...) {
       args <- list(...)
@@ -202,7 +201,7 @@ DefaultApi <- R6::R6Class(
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response, "AnyType", loadNamespace("openapi")),
+          self$api_client$deserialize(local_var_resp$response_as_text(), "array[character]", loadNamespace("openapi")),
           error = function(e) {
             stop("Failed to deserialize response")
           }
@@ -310,7 +309,7 @@ DefaultApi <- R6::R6Class(
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response, "Cycle", loadNamespace("openapi")),
+          self$api_client$deserialize(local_var_resp$response_as_text(), "Cycle", loadNamespace("openapi")),
           error = function(e) {
             stop("Failed to deserialize response")
           }
@@ -336,7 +335,7 @@ DefaultApi <- R6::R6Class(
     #' @param product Product URL as per the canonical URL on the endofife.date website
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return AnyType
+    #' @return array[Cycle]
     #' @export
     GetApiProductJson = function(product, data_file = NULL, ...) {
       local_var_response <- self$GetApiProductJsonWithHttpInfo(product, data_file = data_file, ...)
@@ -358,7 +357,7 @@ DefaultApi <- R6::R6Class(
     #' @param product Product URL as per the canonical URL on the endofife.date website
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
-    #' @return API response (AnyType) with additional information such as HTTP status code, headers
+    #' @return API response (array[Cycle]) with additional information such as HTTP status code, headers
     #' @export
     GetApiProductJsonWithHttpInfo = function(product, data_file = NULL, ...) {
       args <- list(...)
@@ -407,7 +406,7 @@ DefaultApi <- R6::R6Class(
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response, "AnyType", loadNamespace("openapi")),
+          self$api_client$deserialize(local_var_resp$response_as_text(), "array[Cycle]", loadNamespace("openapi")),
           error = function(e) {
             stop("Failed to deserialize response")
           }

@@ -151,7 +151,7 @@ void OAIDefaultApi::enableResponseCompression() {
 }
 
 void OAIDefaultApi::abortRequests() {
-    emit abortRequestsSignal();
+    Q_EMIT abortRequestsSignal();
 }
 
 QString OAIDefaultApi::getParamStylePrefix(const QString &style) {
@@ -219,7 +219,7 @@ QString OAIDefaultApi::getParamStyleDelimiter(const QString &style, const QStrin
 
 void OAIDefaultApi::getApiAll_json() {
     QString fullPath = QString(_serverConfigs["getApiAll_json"][_serverIndices.value("getApiAll_json")].URL()+"/api/all.json");
-
+    
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
@@ -240,7 +240,7 @@ void OAIDefaultApi::getApiAll_json() {
     connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -254,22 +254,57 @@ void OAIDefaultApi::getApiAll_jsonCallback(OAIHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    QJsonValue output(QString(worker->response));
+    QList<QString> output;
+    QString json(worker->response);
+    QByteArray array(json.toStdString().c_str());
+    QJsonDocument doc = QJsonDocument::fromJson(array);
+    QJsonArray jsonArray = doc.array();
+    for (QJsonValue obj : jsonArray) {
+        QString val;
+        ::OpenAPI::fromJsonValue(val, obj);
+        output.append(val);
+    }
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit getApiAll_jsonSignal(output);
-        emit getApiAll_jsonSignalFull(worker, output);
+        Q_EMIT getApiAll_jsonSignal(output);
+        Q_EMIT getApiAll_jsonSignalFull(worker, output);
     } else {
-        emit getApiAll_jsonSignalE(output, error_type, error_str);
-        emit getApiAll_jsonSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT getApiAll_jsonSignalE(output, error_type, error_str);
+        Q_EMIT getApiAll_jsonSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT getApiAll_jsonSignalError(output, error_type, error_str);
+        Q_EMIT getApiAll_jsonSignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void OAIDefaultApi::getApiProductCycle_json(const QJsonValue &product, const QJsonValue &cycle) {
+void OAIDefaultApi::getApiProductCycle_json(const QString &product, const QString &cycle) {
     QString fullPath = QString(_serverConfigs["getApiProductCycle_json"][_serverIndices.value("getApiProductCycle_json")].URL()+"/api/{product}/{cycle}.json");
-
-
+    
+    
     {
         QString productPathParam("{");
         productPathParam.append("product").append("}");
@@ -280,50 +315,10 @@ void OAIDefaultApi::getApiProductCycle_json(const QJsonValue &product, const QJs
         pathPrefix = getParamStylePrefix(pathStyle);
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "product", false);
-        QString paramString = (pathStyle == "matrix" && false) ? pathPrefix : pathPrefix+"product"+pathSuffix;
-        QJsonObject parameter = product.asJsonObject();
-        qint32 count = 0;
-        for(const QString& key : parameter.keys()) {
-            if (count > 0) {
-                pathDelimiter = (pathStyle == "matrix" && false) ? ";" : getParamStyleDelimiter(pathStyle, key, false);
-                paramString.append(pathDelimiter);
-            }
-            QString assignOperator = (false) ? "=" : ",";
-            switch(parameter.value(key).type()) {
-                case QJsonValue::String:
-                {
-                    paramString.append(key+assignOperator+parameter.value(key).toString());
-                    break;
-                }
-                case QJsonValue::Double:
-                {
-                    paramString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
-                    break;
-                }
-                case QJsonValue::Bool:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
-                    break;
-                }
-                case QJsonValue::Array:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
-                    break;
-                }
-                case QJsonValue::Object:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
-                    break;
-                }
-                case QJsonValue::Null:
-                case QJsonValue::Undefined:
-                    break;
-            }
-            count++;
-        }
-        fullPath.replace(productPathParam, QUrl::toPercentEncoding(paramString));
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"product"+pathSuffix : pathPrefix;
+        fullPath.replace(productPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(product)));
     }
-
+    
     {
         QString cyclePathParam("{");
         cyclePathParam.append("cycle").append("}");
@@ -334,48 +329,8 @@ void OAIDefaultApi::getApiProductCycle_json(const QJsonValue &product, const QJs
         pathPrefix = getParamStylePrefix(pathStyle);
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "cycle", false);
-        QString paramString = (pathStyle == "matrix" && false) ? pathPrefix : pathPrefix+"cycle"+pathSuffix;
-        QJsonObject parameter = cycle.asJsonObject();
-        qint32 count = 0;
-        for(const QString& key : parameter.keys()) {
-            if (count > 0) {
-                pathDelimiter = (pathStyle == "matrix" && false) ? ";" : getParamStyleDelimiter(pathStyle, key, false);
-                paramString.append(pathDelimiter);
-            }
-            QString assignOperator = (false) ? "=" : ",";
-            switch(parameter.value(key).type()) {
-                case QJsonValue::String:
-                {
-                    paramString.append(key+assignOperator+parameter.value(key).toString());
-                    break;
-                }
-                case QJsonValue::Double:
-                {
-                    paramString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
-                    break;
-                }
-                case QJsonValue::Bool:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
-                    break;
-                }
-                case QJsonValue::Array:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
-                    break;
-                }
-                case QJsonValue::Object:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
-                    break;
-                }
-                case QJsonValue::Null:
-                case QJsonValue::Undefined:
-                    break;
-            }
-            count++;
-        }
-        fullPath.replace(cyclePathParam, QUrl::toPercentEncoding(paramString));
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"cycle"+pathSuffix : pathPrefix;
+        fullPath.replace(cyclePathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(cycle)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -397,7 +352,7 @@ void OAIDefaultApi::getApiProductCycle_json(const QJsonValue &product, const QJs
     connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -415,18 +370,44 @@ void OAIDefaultApi::getApiProductCycle_jsonCallback(OAIHttpRequestWorker *worker
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit getApiProductCycle_jsonSignal(output);
-        emit getApiProductCycle_jsonSignalFull(worker, output);
+        Q_EMIT getApiProductCycle_jsonSignal(output);
+        Q_EMIT getApiProductCycle_jsonSignalFull(worker, output);
     } else {
-        emit getApiProductCycle_jsonSignalE(output, error_type, error_str);
-        emit getApiProductCycle_jsonSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT getApiProductCycle_jsonSignalE(output, error_type, error_str);
+        Q_EMIT getApiProductCycle_jsonSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT getApiProductCycle_jsonSignalError(output, error_type, error_str);
+        Q_EMIT getApiProductCycle_jsonSignalErrorFull(worker, error_type, error_str);
     }
 }
 
-void OAIDefaultApi::getApiProduct_json(const QJsonValue &product) {
+void OAIDefaultApi::getApiProduct_json(const QString &product) {
     QString fullPath = QString(_serverConfigs["getApiProduct_json"][_serverIndices.value("getApiProduct_json")].URL()+"/api/{product}.json");
-
-
+    
+    
     {
         QString productPathParam("{");
         productPathParam.append("product").append("}");
@@ -437,48 +418,8 @@ void OAIDefaultApi::getApiProduct_json(const QJsonValue &product) {
         pathPrefix = getParamStylePrefix(pathStyle);
         pathSuffix = getParamStyleSuffix(pathStyle);
         pathDelimiter = getParamStyleDelimiter(pathStyle, "product", false);
-        QString paramString = (pathStyle == "matrix" && false) ? pathPrefix : pathPrefix+"product"+pathSuffix;
-        QJsonObject parameter = product.asJsonObject();
-        qint32 count = 0;
-        for(const QString& key : parameter.keys()) {
-            if (count > 0) {
-                pathDelimiter = (pathStyle == "matrix" && false) ? ";" : getParamStyleDelimiter(pathStyle, key, false);
-                paramString.append(pathDelimiter);
-            }
-            QString assignOperator = (false) ? "=" : ",";
-            switch(parameter.value(key).type()) {
-                case QJsonValue::String:
-                {
-                    paramString.append(key+assignOperator+parameter.value(key).toString());
-                    break;
-                }
-                case QJsonValue::Double:
-                {
-                    paramString.append(key+assignOperator+QString::number(parameter.value(key).toDouble()));
-                    break;
-                }
-                case QJsonValue::Bool:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toBool()).toString());
-                    break;
-                }
-                case QJsonValue::Array:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toArray()).toString());
-                    break;
-                }
-                case QJsonValue::Object:
-                {
-                    paramString.append(key+assignOperator+QVariant(parameter.value(key).toObject()).toString());
-                    break;
-                }
-                case QJsonValue::Null:
-                case QJsonValue::Undefined:
-                    break;
-            }
-            count++;
-        }
-        fullPath.replace(productPathParam, QUrl::toPercentEncoding(paramString));
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"product"+pathSuffix : pathPrefix;
+        fullPath.replace(productPathParam, paramString+QUrl::toPercentEncoding(::OpenAPI::toStringValue(product)));
     }
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -500,7 +441,7 @@ void OAIDefaultApi::getApiProduct_json(const QJsonValue &product) {
     connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater);
     connect(worker, &QObject::destroyed, this, [this]() {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
-            emit allPendingRequestsCompleted();
+            Q_EMIT allPendingRequestsCompleted();
         }
     });
 
@@ -514,15 +455,50 @@ void OAIDefaultApi::getApiProduct_jsonCallback(OAIHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    QJsonValue output(QString(worker->response));
+    QList<OAICycle> output;
+    QString json(worker->response);
+    QByteArray array(json.toStdString().c_str());
+    QJsonDocument doc = QJsonDocument::fromJson(array);
+    QJsonArray jsonArray = doc.array();
+    for (QJsonValue obj : jsonArray) {
+        OAICycle val;
+        ::OpenAPI::fromJsonValue(val, obj);
+        output.append(val);
+    }
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
-        emit getApiProduct_jsonSignal(output);
-        emit getApiProduct_jsonSignalFull(worker, output);
+        Q_EMIT getApiProduct_jsonSignal(output);
+        Q_EMIT getApiProduct_jsonSignalFull(worker, output);
     } else {
-        emit getApiProduct_jsonSignalE(output, error_type, error_str);
-        emit getApiProduct_jsonSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+// For MSVC
+#pragma warning(push)
+#pragma warning(disable : 4996)
+#elif defined(__clang__)
+// For Clang
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#elif defined(__GNUC__)
+// For GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+
+        Q_EMIT getApiProduct_jsonSignalE(output, error_type, error_str);
+        Q_EMIT getApiProduct_jsonSignalEFull(worker, error_type, error_str);
+
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#elif defined(__clang__)
+#pragma clang diagnostic pop
+#elif defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+        Q_EMIT getApiProduct_jsonSignalError(output, error_type, error_str);
+        Q_EMIT getApiProduct_jsonSignalErrorFull(worker, error_type, error_str);
     }
 }
 

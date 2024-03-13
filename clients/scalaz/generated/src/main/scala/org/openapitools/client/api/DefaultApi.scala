@@ -21,7 +21,6 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
-import org.openapitools.client.api.AnyType
 import org.openapitools.client.api.Cycle
 
 object DefaultApi {
@@ -30,8 +29,8 @@ object DefaultApi {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getApiAllJson(host: String): Task[AnyType] = {
-    implicit val returnTypeDecoder: EntityDecoder[AnyType] = jsonOf[AnyType]
+  def getApiAllJson(host: String): Task[List[String]] = {
+    implicit val returnTypeDecoder: EntityDecoder[List[String]] = jsonOf[List[String]]
 
     val path = "/api/all.json"
 
@@ -46,12 +45,12 @@ object DefaultApi {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[AnyType](req)
+      resp          <- client.expect[List[String]](req)
 
     } yield resp
   }
 
-  def getApiProductCycleJson(host: String, product: AnyType, cycle: AnyType): Task[Cycle] = {
+  def getApiProductCycleJson(host: String, product: String, cycle: String): Task[Cycle] = {
     implicit val returnTypeDecoder: EntityDecoder[Cycle] = jsonOf[Cycle]
 
     val path = "/api/{product}/{cycle}.json".replaceAll("\\{" + "product" + "\\}",escape(product.toString)).replaceAll("\\{" + "cycle" + "\\}",escape(cycle.toString))
@@ -72,8 +71,8 @@ object DefaultApi {
     } yield resp
   }
 
-  def getApiProductJson(host: String, product: AnyType): Task[AnyType] = {
-    implicit val returnTypeDecoder: EntityDecoder[AnyType] = jsonOf[AnyType]
+  def getApiProductJson(host: String, product: String): Task[List[Cycle]] = {
+    implicit val returnTypeDecoder: EntityDecoder[List[Cycle]] = jsonOf[List[Cycle]]
 
     val path = "/api/{product}.json".replaceAll("\\{" + "product" + "\\}",escape(product.toString))
 
@@ -88,7 +87,7 @@ object DefaultApi {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[AnyType](req)
+      resp          <- client.expect[List[Cycle]](req)
 
     } yield resp
   }
@@ -100,8 +99,8 @@ class HttpServiceDefaultApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def getApiAllJson(): Task[AnyType] = {
-    implicit val returnTypeDecoder: EntityDecoder[AnyType] = jsonOf[AnyType]
+  def getApiAllJson(): Task[List[String]] = {
+    implicit val returnTypeDecoder: EntityDecoder[List[String]] = jsonOf[List[String]]
 
     val path = "/api/all.json"
 
@@ -116,12 +115,12 @@ class HttpServiceDefaultApi(service: HttpService) {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[AnyType](req)
+      resp          <- client.expect[List[String]](req)
 
     } yield resp
   }
 
-  def getApiProductCycleJson(product: AnyType, cycle: AnyType): Task[Cycle] = {
+  def getApiProductCycleJson(product: String, cycle: String): Task[Cycle] = {
     implicit val returnTypeDecoder: EntityDecoder[Cycle] = jsonOf[Cycle]
 
     val path = "/api/{product}/{cycle}.json".replaceAll("\\{" + "product" + "\\}",escape(product.toString)).replaceAll("\\{" + "cycle" + "\\}",escape(cycle.toString))
@@ -142,8 +141,8 @@ class HttpServiceDefaultApi(service: HttpService) {
     } yield resp
   }
 
-  def getApiProductJson(product: AnyType): Task[AnyType] = {
-    implicit val returnTypeDecoder: EntityDecoder[AnyType] = jsonOf[AnyType]
+  def getApiProductJson(product: String): Task[List[Cycle]] = {
+    implicit val returnTypeDecoder: EntityDecoder[List[Cycle]] = jsonOf[List[Cycle]]
 
     val path = "/api/{product}.json".replaceAll("\\{" + "product" + "\\}",escape(product.toString))
 
@@ -158,7 +157,7 @@ class HttpServiceDefaultApi(service: HttpService) {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
       uriWithParams =  uri.copy(query = queryParams)
       req           =  Request(method = httpMethod, uri = uriWithParams, headers = headers.put(contentType))
-      resp          <- client.expect[AnyType](req)
+      resp          <- client.expect[List[Cycle]](req)
 
     } yield resp
   }

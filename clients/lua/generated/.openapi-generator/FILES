@@ -4,5 +4,15 @@ git_push.sh
 openapiclient-1.0.0-1.rockspec
 openapiclient/api/default_api.lua
 openapiclient/model/cycle.lua
+openapiclient/model/cycle_cycle.lua
+openapiclient/model/cycle_discontinued.lua
+openapiclient/model/cycle_eol.lua
+openapiclient/model/cycle_lts.lua
+openapiclient/model/cycle_support.lua
+spec/cycle_cycle_spec.lua
+spec/cycle_discontinued_spec.lua
+spec/cycle_eol_spec.lua
+spec/cycle_lts_spec.lua
 spec/cycle_spec.lua
+spec/cycle_support_spec.lua
 spec/default_api_spec.lua

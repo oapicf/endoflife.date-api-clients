@@ -20,8 +20,8 @@
 #include <QSharedPointer>
 
 #include <qhttpengine/socket.h>
-#include "OAIAnyType.h"
 #include "OAICycle.h"
+#include <QList>
 #include <QString>
 #include "OAIDefaultApiHandler.h"
 
@@ -38,17 +38,17 @@ public:
     void getApiAll_jsonRequest();
     void getApiProductCycle_jsonRequest(const QString& product, const QString& cycle);
     void getApiProduct_jsonRequest(const QString& product);
+    
 
-
-    void getApiAll_jsonResponse(const OAIAnyType& res);
+    void getApiAll_jsonResponse(const QList<QString>& res);
     void getApiProductCycle_jsonResponse(const OAICycle& res);
-    void getApiProduct_jsonResponse(const OAIAnyType& res);
+    void getApiProduct_jsonResponse(const QList<OAICycle>& res);
+    
 
-
-    void getApiAll_jsonError(const OAIAnyType& res, QNetworkReply::NetworkError error_type, QString& error_str);
+    void getApiAll_jsonError(const QList<QString>& res, QNetworkReply::NetworkError error_type, QString& error_str);
     void getApiProductCycle_jsonError(const OAICycle& res, QNetworkReply::NetworkError error_type, QString& error_str);
-    void getApiProduct_jsonError(const OAIAnyType& res, QNetworkReply::NetworkError error_type, QString& error_str);
-
+    void getApiProduct_jsonError(const QList<OAICycle>& res, QNetworkReply::NetworkError error_type, QString& error_str);
+    
 
     void sendCustomResponse(QByteArray & res, QNetworkReply::NetworkError error_type);
 
@@ -60,11 +60,11 @@ public:
 
     void setResponseHeaders(const QMultiMap<QString,QString>& headers);
 
-signals:
+Q_SIGNALS:
     void getApiAll_json();
-    void getApiProductCycle_json(OAIAnyType product, OAIAnyType cycle);
-    void getApiProduct_json(OAIAnyType product);
-
+    void getApiProductCycle_json(QString product, QString cycle);
+    void getApiProduct_json(QString product);
+    
 
 private:
     QMap<QString, QString> requestHeaders;

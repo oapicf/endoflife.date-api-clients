@@ -12,7 +12,38 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { CycleCycle } from './CycleCycle';
+import {
+    CycleCycleFromJSON,
+    CycleCycleFromJSONTyped,
+    CycleCycleToJSON,
+} from './CycleCycle';
+import type { CycleDiscontinued } from './CycleDiscontinued';
+import {
+    CycleDiscontinuedFromJSON,
+    CycleDiscontinuedFromJSONTyped,
+    CycleDiscontinuedToJSON,
+} from './CycleDiscontinued';
+import type { CycleEol } from './CycleEol';
+import {
+    CycleEolFromJSON,
+    CycleEolFromJSONTyped,
+    CycleEolToJSON,
+} from './CycleEol';
+import type { CycleLts } from './CycleLts';
+import {
+    CycleLtsFromJSON,
+    CycleLtsFromJSONTyped,
+    CycleLtsToJSON,
+} from './CycleLts';
+import type { CycleSupport } from './CycleSupport';
+import {
+    CycleSupportFromJSON,
+    CycleSupportFromJSONTyped,
+    CycleSupportToJSON,
+} from './CycleSupport';
+
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  * @export
@@ -20,62 +51,60 @@ import { exists, mapValues } from '../runtime';
  */
 export interface Cycle {
     /**
-     * Release Cycle
-     * @type {any}
+     * 
+     * @type {CycleCycle}
      * @memberof Cycle
      */
-    cycle?: any | null;
+    cycle?: CycleCycle;
     /**
      * Release Date for the first release in this cycle
-     * @type {any}
+     * @type {Date}
      * @memberof Cycle
      */
-    releaseDate?: any | null;
+    releaseDate?: Date;
     /**
-     * End of Life Date for this release cycle
-     * @type {any}
+     * 
+     * @type {CycleEol}
      * @memberof Cycle
      */
-    eol?: any | null;
+    eol?: CycleEol;
     /**
      * Latest release in this cycle
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    latest?: any | null;
+    latest?: string;
     /**
      * Link to changelog for the latest release, if available
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    link?: any | null;
+    link?: string;
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-     * @type {any}
+     * 
+     * @type {CycleLts}
      * @memberof Cycle
      */
-    lts?: any | null;
+    lts?: CycleLts;
     /**
-     * Whether this release cycle has active support
-     * @type {any}
+     * 
+     * @type {CycleSupport}
      * @memberof Cycle
      */
-    support?: any | null;
+    support?: CycleSupport;
     /**
-     * Whether this cycle is now discontinued.
-     * @type {any}
+     * 
+     * @type {CycleDiscontinued}
      * @memberof Cycle
      */
-    discontinued?: any | null;
+    discontinued?: CycleDiscontinued;
 }
 
 /**
  * Check if a given object implements the Cycle interface.
  */
 export function instanceOfCycle(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+    return true;
 }
 
 export function CycleFromJSON(json: any): Cycle {
@@ -83,39 +112,36 @@ export function CycleFromJSON(json: any): Cycle {
 }
 
 export function CycleFromJSONTyped(json: any, ignoreDiscriminator: boolean): Cycle {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
-
-        'cycle': !exists(json, 'cycle') ? undefined : json['cycle'],
-        'releaseDate': !exists(json, 'releaseDate') ? undefined : json['releaseDate'],
-        'eol': !exists(json, 'eol') ? undefined : json['eol'],
-        'latest': !exists(json, 'latest') ? undefined : json['latest'],
-        'link': !exists(json, 'link') ? undefined : json['link'],
-        'lts': !exists(json, 'lts') ? undefined : json['lts'],
-        'support': !exists(json, 'support') ? undefined : json['support'],
-        'discontinued': !exists(json, 'discontinued') ? undefined : json['discontinued'],
+        
+        'cycle': json['cycle'] == null ? undefined : CycleCycleFromJSON(json['cycle']),
+        'releaseDate': json['releaseDate'] == null ? undefined : (new Date(json['releaseDate'])),
+        'eol': json['eol'] == null ? undefined : CycleEolFromJSON(json['eol']),
+        'latest': json['latest'] == null ? undefined : json['latest'],
+        'link': json['link'] == null ? undefined : json['link'],
+        'lts': json['lts'] == null ? undefined : CycleLtsFromJSON(json['lts']),
+        'support': json['support'] == null ? undefined : CycleSupportFromJSON(json['support']),
+        'discontinued': json['discontinued'] == null ? undefined : CycleDiscontinuedFromJSON(json['discontinued']),
     };
 }
 
 export function CycleToJSON(value?: Cycle | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
-
-        'cycle': value.cycle,
-        'releaseDate': value.releaseDate,
-        'eol': value.eol,
-        'latest': value.latest,
-        'link': value.link,
-        'lts': value.lts,
-        'support': value.support,
-        'discontinued': value.discontinued,
+        
+        'cycle': CycleCycleToJSON(value['cycle']),
+        'releaseDate': value['releaseDate'] == null ? undefined : ((value['releaseDate']).toISOString().substring(0,10)),
+        'eol': CycleEolToJSON(value['eol']),
+        'latest': value['latest'],
+        'link': value['link'],
+        'lts': CycleLtsToJSON(value['lts']),
+        'support': CycleSupportToJSON(value['support']),
+        'discontinued': CycleDiscontinuedToJSON(value['discontinued']),
     };
 }
 

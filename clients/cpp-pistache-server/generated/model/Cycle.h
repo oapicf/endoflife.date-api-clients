@@ -19,7 +19,12 @@
 #define Cycle_H_
 
 
-#include <nlohmann/json.hpp>
+#include "Cycle_support.h"
+#include "Cycle_eol.h"
+#include <string>
+#include "Cycle_cycle.h"
+#include "Cycle_discontinued.h"
+#include "Cycle_lts.h"
 #include <nlohmann/json.hpp>
 
 namespace org::openapitools::server::model
@@ -59,82 +64,82 @@ public:
     /// Cycle members
 
     /// <summary>
-    /// Release Cycle
+    /// 
     /// </summary>
-    org::openapitools::server::model::nlohmann::json getCycle() const;
-    void setCycle(org::openapitools::server::model::nlohmann::json const& value);
+    org::openapitools::server::model::Cycle_cycle getCycle() const;
+    void setCycle(org::openapitools::server::model::Cycle_cycle const& value);
     bool cycleIsSet() const;
     void unsetCycle();
     /// <summary>
     /// Release Date for the first release in this cycle
     /// </summary>
-    org::openapitools::server::model::nlohmann::json getReleaseDate() const;
-    void setReleaseDate(org::openapitools::server::model::nlohmann::json const& value);
+    std::string getReleaseDate() const;
+    void setReleaseDate(std::string const& value);
     bool releaseDateIsSet() const;
     void unsetReleaseDate();
     /// <summary>
-    /// End of Life Date for this release cycle
+    /// 
     /// </summary>
-    org::openapitools::server::model::nlohmann::json getEol() const;
-    void setEol(org::openapitools::server::model::nlohmann::json const& value);
+    org::openapitools::server::model::Cycle_eol getEol() const;
+    void setEol(org::openapitools::server::model::Cycle_eol const& value);
     bool eolIsSet() const;
     void unsetEol();
     /// <summary>
     /// Latest release in this cycle
     /// </summary>
-    org::openapitools::server::model::nlohmann::json getLatest() const;
-    void setLatest(org::openapitools::server::model::nlohmann::json const& value);
+    std::string getLatest() const;
+    void setLatest(std::string const& value);
     bool latestIsSet() const;
     void unsetLatest();
     /// <summary>
     /// Link to changelog for the latest release, if available
     /// </summary>
-    org::openapitools::server::model::nlohmann::json getLink() const;
-    void setLink(org::openapitools::server::model::nlohmann::json const& value);
+    std::string getLink() const;
+    void setLink(std::string const& value);
     bool linkIsSet() const;
     void unsetLink();
     /// <summary>
-    /// Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+    /// 
     /// </summary>
-    org::openapitools::server::model::nlohmann::json getLts() const;
-    void setLts(org::openapitools::server::model::nlohmann::json const& value);
+    org::openapitools::server::model::Cycle_lts getLts() const;
+    void setLts(org::openapitools::server::model::Cycle_lts const& value);
     bool ltsIsSet() const;
     void unsetLts();
     /// <summary>
-    /// Whether this release cycle has active support
+    /// 
     /// </summary>
-    org::openapitools::server::model::nlohmann::json getSupport() const;
-    void setSupport(org::openapitools::server::model::nlohmann::json const& value);
+    org::openapitools::server::model::Cycle_support getSupport() const;
+    void setSupport(org::openapitools::server::model::Cycle_support const& value);
     bool supportIsSet() const;
     void unsetSupport();
     /// <summary>
-    /// Whether this cycle is now discontinued.
+    /// 
     /// </summary>
-    org::openapitools::server::model::nlohmann::json getDiscontinued() const;
-    void setDiscontinued(org::openapitools::server::model::nlohmann::json const& value);
+    org::openapitools::server::model::Cycle_discontinued getDiscontinued() const;
+    void setDiscontinued(org::openapitools::server::model::Cycle_discontinued const& value);
     bool discontinuedIsSet() const;
     void unsetDiscontinued();
 
     friend  void to_json(nlohmann::json& j, const Cycle& o);
     friend  void from_json(const nlohmann::json& j, Cycle& o);
 protected:
-    org::openapitools::server::model::nlohmann::json m_Cycle;
+    org::openapitools::server::model::Cycle_cycle m_Cycle;
     bool m_CycleIsSet;
-    org::openapitools::server::model::nlohmann::json m_ReleaseDate;
+    std::string m_ReleaseDate;
     bool m_ReleaseDateIsSet;
-    org::openapitools::server::model::nlohmann::json m_Eol;
+    org::openapitools::server::model::Cycle_eol m_Eol;
     bool m_EolIsSet;
-    org::openapitools::server::model::nlohmann::json m_Latest;
+    std::string m_Latest;
     bool m_LatestIsSet;
-    org::openapitools::server::model::nlohmann::json m_Link;
+    std::string m_Link;
     bool m_LinkIsSet;
-    org::openapitools::server::model::nlohmann::json m_Lts;
+    org::openapitools::server::model::Cycle_lts m_Lts;
     bool m_LtsIsSet;
-    org::openapitools::server::model::nlohmann::json m_Support;
+    org::openapitools::server::model::Cycle_support m_Support;
     bool m_SupportIsSet;
-    org::openapitools::server::model::nlohmann::json m_Discontinued;
+    org::openapitools::server::model::Cycle_discontinued m_Discontinued;
     bool m_DiscontinuedIsSet;
-
+    
 };
 
 } // namespace org::openapitools::server::model

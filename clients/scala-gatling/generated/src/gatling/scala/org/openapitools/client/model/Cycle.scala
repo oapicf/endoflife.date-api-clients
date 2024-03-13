@@ -1,24 +1,20 @@
 
 package org.openapitools.client.model
 
+import java.time.LocalDate
 
 case class Cycle (
-    /* Release Cycle */
-    _cycle: Option[AnyType],
+    _cycle: Option[CycleCycle],
     /* Release Date for the first release in this cycle */
-    _releaseDate: Option[AnyType],
-    /* End of Life Date for this release cycle */
-    _eol: Option[AnyType],
+    _releaseDate: Option[LocalDate],
+    _eol: Option[CycleEol],
     /* Latest release in this cycle */
-    _latest: Option[AnyType],
+    _latest: Option[String],
     /* Link to changelog for the latest release, if available */
-    _link: Option[AnyType],
-    /* Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-    _lts: Option[AnyType],
-    /* Whether this release cycle has active support */
-    _support: Option[AnyType],
-    /* Whether this cycle is now discontinued. */
-    _discontinued: Option[AnyType]
+    _link: Option[String],
+    _lts: Option[CycleLts],
+    _support: Option[CycleSupport],
+    _discontinued: Option[CycleDiscontinued]
 )
 object Cycle {
     def toStringBody(var_cycle: Object, var_releaseDate: Object, var_eol: Object, var_latest: Object, var_link: Object, var_lts: Object, var_support: Object, var_discontinued: Object) =

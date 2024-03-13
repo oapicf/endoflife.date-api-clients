@@ -51,43 +51,35 @@ static gpointer __DefaultManagerthreadFunc(gpointer data)
 static bool getApiAllJsonProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
 	void(* voidHandler)())
 {
-	void(* handler)(AnyType, Error, void* )
-	= reinterpret_cast<void(*)(AnyType, Error, void* )> (voidHandler);
+	void(* handler)(std::list<std::string>, Error, void* )
+	= reinterpret_cast<void(*)(std::list<std::string>, Error, void* )> (voidHandler);
 	
 	JsonNode* pJson;
 	char * data = p_chunk.memory;
 
+	std::list<std::string> out;
 	
-	AnyType out;
 
 	if (code >= 200 && code < 300) {
 		Error error(code, string("No Error"));
 
 
 
-
-		if (isprimitive("AnyType")) {
-			pJson = json_from_string(data, NULL);
-			jsonToValue(&out, pJson, "AnyType", "AnyType");
-			json_node_free(pJson);
-
-			if ("AnyType" == "std::string") {
-				string* val = (std::string*)(&out);
-				if (val->empty() && p_chunk.size>4) {
-					*val = string(p_chunk.memory, p_chunk.size);
-				}
-			}
-		} else {
-			
-			out.fromJson(data);
-			char *jsonStr =  out.toJson();
-			printf("\n%s\n", jsonStr);
-			g_free(static_cast<gpointer>(jsonStr));
-			
+		pJson = json_from_string(data, NULL);
+		JsonArray * jsonarray = json_node_get_array (pJson);
+		guint length = json_array_get_length (jsonarray);
+		for(guint i = 0; i < length; i++){
+			JsonNode* myJson = json_array_get_element (jsonarray, i);
+			char * singlenodestr = json_to_string(myJson, false);
+			std::string singlemodel;
+			singlemodel.fromJson(singlenodestr);
+			out.push_front(singlemodel);
+			g_free(static_cast<gpointer>(singlenodestr));
+			json_node_free(myJson);
 		}
-		handler(out, error, userData);
-		return true;
-		//TODO: handle case where json parsing has an error
+		json_array_unref (jsonarray);
+		json_node_free(pJson);
+
 
 	} else {
 		Error error;
@@ -105,7 +97,7 @@ static bool getApiAllJsonProcessor(MemoryStruct_s p_chunk, long code, char* erro
 
 static bool getApiAllJsonHelper(char * accessToken,
 	
-	void(* handler)(AnyType, Error, void* )
+	void(* handler)(std::list<std::string>, Error, void* )
 	, void* userData, bool isAsync)
 {
 
@@ -176,7 +168,7 @@ static bool getApiAllJsonHelper(char * accessToken,
 
 bool DefaultManager::getApiAllJsonAsync(char * accessToken,
 	
-	void(* handler)(AnyType, Error, void* )
+	void(* handler)(std::list<std::string>, Error, void* )
 	, void* userData)
 {
 	return getApiAllJsonHelper(accessToken,
@@ -186,7 +178,7 @@ bool DefaultManager::getApiAllJsonAsync(char * accessToken,
 
 bool DefaultManager::getApiAllJsonSync(char * accessToken,
 	
-	void(* handler)(AnyType, Error, void* )
+	void(* handler)(std::list<std::string>, Error, void* )
 	, void* userData)
 {
 	return getApiAllJsonHelper(accessToken,
@@ -250,7 +242,7 @@ static bool getApiProductCycleJsonProcessor(MemoryStruct_s p_chunk, long code, c
 }
 
 static bool getApiProductCycleJsonHelper(char * accessToken,
-	AnyType product, AnyType cycle, 
+	std::string product, std::string cycle, 
 	void(* handler)(Cycle, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -279,13 +271,13 @@ static bool getApiProductCycleJsonHelper(char * accessToken,
 	s_product.append("}");
 	pos = url.find(s_product);
 	url.erase(pos, s_product.length());
-	url.insert(pos, stringify(&product, "AnyType"));
+	url.insert(pos, stringify(&product, "std::string"));
 	string s_cycle("{");
 	s_cycle.append("cycle");
 	s_cycle.append("}");
 	pos = url.find(s_cycle);
 	url.erase(pos, s_cycle.length());
-	url.insert(pos, stringify(&cycle, "AnyType"));
+	url.insert(pos, stringify(&cycle, "std::string"));
 
 	//TODO: free memory of errormsg, memorystruct
 	MemoryStruct_s* p_chunk = new MemoryStruct_s();
@@ -333,7 +325,7 @@ static bool getApiProductCycleJsonHelper(char * accessToken,
 
 
 bool DefaultManager::getApiProductCycleJsonAsync(char * accessToken,
-	AnyType product, AnyType cycle, 
+	std::string product, std::string cycle, 
 	void(* handler)(Cycle, Error, void* )
 	, void* userData)
 {
@@ -343,7 +335,7 @@ bool DefaultManager::getApiProductCycleJsonAsync(char * accessToken,
 }
 
 bool DefaultManager::getApiProductCycleJsonSync(char * accessToken,
-	AnyType product, AnyType cycle, 
+	std::string product, std::string cycle, 
 	void(* handler)(Cycle, Error, void* )
 	, void* userData)
 {
@@ -355,43 +347,35 @@ bool DefaultManager::getApiProductCycleJsonSync(char * accessToken,
 static bool getApiProductJsonProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
 	void(* voidHandler)())
 {
-	void(* handler)(AnyType, Error, void* )
-	= reinterpret_cast<void(*)(AnyType, Error, void* )> (voidHandler);
+	void(* handler)(std::list<Cycle>, Error, void* )
+	= reinterpret_cast<void(*)(std::list<Cycle>, Error, void* )> (voidHandler);
 	
 	JsonNode* pJson;
 	char * data = p_chunk.memory;
 
+	std::list<Cycle> out;
 	
-	AnyType out;
 
 	if (code >= 200 && code < 300) {
 		Error error(code, string("No Error"));
 
 
 
-
-		if (isprimitive("AnyType")) {
-			pJson = json_from_string(data, NULL);
-			jsonToValue(&out, pJson, "AnyType", "AnyType");
-			json_node_free(pJson);
-
-			if ("AnyType" == "std::string") {
-				string* val = (std::string*)(&out);
-				if (val->empty() && p_chunk.size>4) {
-					*val = string(p_chunk.memory, p_chunk.size);
-				}
-			}
-		} else {
-			
-			out.fromJson(data);
-			char *jsonStr =  out.toJson();
-			printf("\n%s\n", jsonStr);
-			g_free(static_cast<gpointer>(jsonStr));
-			
+		pJson = json_from_string(data, NULL);
+		JsonArray * jsonarray = json_node_get_array (pJson);
+		guint length = json_array_get_length (jsonarray);
+		for(guint i = 0; i < length; i++){
+			JsonNode* myJson = json_array_get_element (jsonarray, i);
+			char * singlenodestr = json_to_string(myJson, false);
+			Cycle singlemodel;
+			singlemodel.fromJson(singlenodestr);
+			out.push_front(singlemodel);
+			g_free(static_cast<gpointer>(singlenodestr));
+			json_node_free(myJson);
 		}
-		handler(out, error, userData);
-		return true;
-		//TODO: handle case where json parsing has an error
+		json_array_unref (jsonarray);
+		json_node_free(pJson);
+
 
 	} else {
 		Error error;
@@ -408,8 +392,8 @@ static bool getApiProductJsonProcessor(MemoryStruct_s p_chunk, long code, char* 
 }
 
 static bool getApiProductJsonHelper(char * accessToken,
-	AnyType product, 
-	void(* handler)(AnyType, Error, void* )
+	std::string product, 
+	void(* handler)(std::list<Cycle>, Error, void* )
 	, void* userData, bool isAsync)
 {
 
@@ -437,7 +421,7 @@ static bool getApiProductJsonHelper(char * accessToken,
 	s_product.append("}");
 	pos = url.find(s_product);
 	url.erase(pos, s_product.length());
-	url.insert(pos, stringify(&product, "AnyType"));
+	url.insert(pos, stringify(&product, "std::string"));
 
 	//TODO: free memory of errormsg, memorystruct
 	MemoryStruct_s* p_chunk = new MemoryStruct_s();
@@ -485,8 +469,8 @@ static bool getApiProductJsonHelper(char * accessToken,
 
 
 bool DefaultManager::getApiProductJsonAsync(char * accessToken,
-	AnyType product, 
-	void(* handler)(AnyType, Error, void* )
+	std::string product, 
+	void(* handler)(std::list<Cycle>, Error, void* )
 	, void* userData)
 {
 	return getApiProductJsonHelper(accessToken,
@@ -495,8 +479,8 @@ bool DefaultManager::getApiProductJsonAsync(char * accessToken,
 }
 
 bool DefaultManager::getApiProductJsonSync(char * accessToken,
-	AnyType product, 
-	void(* handler)(AnyType, Error, void* )
+	std::string product, 
+	void(* handler)(std::list<Cycle>, Error, void* )
 	, void* userData)
 {
 	return getApiProductJsonHelper(accessToken,

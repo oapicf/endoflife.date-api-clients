@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import "OAIAnyType.h"
 #import "OAICycle.h"
 #import "OAIApi.h"
 
@@ -27,12 +26,12 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// All Products
 /// Return a list of all products. Each of these can be used for the other API endpoints.
 ///
-///
+/// 
 ///  code:200 message:"OK"
 ///
-/// @return OAIAnyType*
--(NSURLSessionTask*) getApiAllJsonWithCompletionHandler:
-    (void (^)(OAIAnyType* output, NSError* error)) handler;
+/// @return NSArray<NSString*>*
+-(NSURLSessionTask*) getApiAllJsonWithCompletionHandler: 
+    (void (^)(NSArray<NSString*>* output, NSError* error)) handler;
 
 
 /// Single cycle details
@@ -40,12 +39,12 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 ///
 /// @param product Product URL as per the canonical URL on the endofife.date website
 /// @param cycle Release Cycle for which the details must be fetched
-///
+/// 
 ///  code:200 message:"OK"
 ///
 /// @return OAICycle*
--(NSURLSessionTask*) getApiProductCycleJsonWithProduct: (OAIAnyType*) product
-    cycle: (OAIAnyType*) cycle
+-(NSURLSessionTask*) getApiProductCycleJsonWithProduct: (NSString*) product
+    cycle: (NSString*) cycle
     completionHandler: (void (^)(OAICycle* output, NSError* error)) handler;
 
 
@@ -53,12 +52,12 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// Get EoL dates of all cycles of a given product.
 ///
 /// @param product Product URL as per the canonical URL on the endofife.date website
-///
+/// 
 ///  code:200 message:"OK"
 ///
-/// @return OAIAnyType*
--(NSURLSessionTask*) getApiProductJsonWithProduct: (OAIAnyType*) product
-    completionHandler: (void (^)(OAIAnyType* output, NSError* error)) handler;
+/// @return NSArray<OAICycle>*
+-(NSURLSessionTask*) getApiProductJsonWithProduct: (NSString*) product
+    completionHandler: (void (^)(NSArray<OAICycle>* output, NSError* error)) handler;
 
 
 

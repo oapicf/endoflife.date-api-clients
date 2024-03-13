@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.9.0-pre.0"
+__version__ = "0.10.1-pre.0"
 
 # import apis into sdk package
 from endoflifedate.api.default_api import DefaultApi
@@ -33,3 +33,8 @@ from endoflifedate.exceptions import ApiException
 
 # import models into sdk package
 from endoflifedate.models.cycle import Cycle
+from endoflifedate.models.cycle_cycle import CycleCycle
+from endoflifedate.models.cycle_discontinued import CycleDiscontinued
+from endoflifedate.models.cycle_eol import CycleEol
+from endoflifedate.models.cycle_lts import CycleLts
+from endoflifedate.models.cycle_support import CycleSupport

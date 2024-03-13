@@ -21,4 +21,9 @@ main =
     describe "JSON instances" $ do
       pure ()
       propMimeEq MimeJSON (Proxy :: Proxy Cycle)
+      propMimeEq MimeJSON (Proxy :: Proxy CycleCycle)
+      propMimeEq MimeJSON (Proxy :: Proxy CycleDiscontinued)
+      propMimeEq MimeJSON (Proxy :: Proxy CycleEol)
+      propMimeEq MimeJSON (Proxy :: Proxy CycleLts)
+      propMimeEq MimeJSON (Proxy :: Proxy CycleSupport)
       

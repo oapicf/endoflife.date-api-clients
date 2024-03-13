@@ -26,18 +26,18 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2023-09-16T14:43:07.983480Z[Etc/UTC]")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-03-13T10:44:48.803665066Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 @Client("${openapi-micronaut-client-base-path}")
 public interface DefaultApi {
     /**
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
      *
-     * @return Object
+     * @return List&lt;String&gt;
      */
     @Get(uri="/api/all.json")
     @Consumes({"application/json"})
-    Mono<Object> getApiAllJson();
+    Mono<List<String>> getApiAllJson();
 
     /**
      * Single cycle details
@@ -50,8 +50,8 @@ public interface DefaultApi {
     @Get(uri="/api/{product}/{cycle}.json")
     @Consumes({"application/json"})
     Mono<Cycle> getApiProductCycleJson(
-        @PathVariable(name="product") @NotNull Object product,
-        @PathVariable(name="cycle") @NotNull Object cycle
+        @PathVariable(name="product") @NotNull String product, 
+        @PathVariable(name="cycle") @NotNull String cycle
     );
 
     /**
@@ -59,12 +59,12 @@ public interface DefaultApi {
      * Get EoL dates of all cycles of a given product.
      *
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @return Object
+     * @return List&lt;Cycle&gt;
      */
     @Get(uri="/api/{product}.json")
     @Consumes({"application/json"})
-    Mono<Object> getApiProductJson(
-        @PathVariable(name="product") @NotNull Object product
+    Mono<List<Cycle>> getApiProductJson(
+        @PathVariable(name="product") @NotNull String product
     );
 
 }

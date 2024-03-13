@@ -2,6 +2,11 @@
 README.md
 build.sbt
 docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
 docs/DefaultApi.md
 pom.xml
 project/build.properties
@@ -14,3 +19,8 @@ src/main/scala/org/openapitools/client/core/ApiSettings.scala
 src/main/scala/org/openapitools/client/core/Serializers.scala
 src/main/scala/org/openapitools/client/core/requests.scala
 src/main/scala/org/openapitools/client/model/Cycle.scala
+src/main/scala/org/openapitools/client/model/CycleCycle.scala
+src/main/scala/org/openapitools/client/model/CycleDiscontinued.scala
+src/main/scala/org/openapitools/client/model/CycleEol.scala
+src/main/scala/org/openapitools/client/model/CycleLts.scala
+src/main/scala/org/openapitools/client/model/CycleSupport.scala

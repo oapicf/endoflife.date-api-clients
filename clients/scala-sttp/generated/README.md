@@ -2,6 +2,7 @@
 
 endoflife.date
 - API version: 0.0.1
+  - Generator version: 7.4.0
 
 Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 
@@ -74,6 +75,11 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Cycle](Cycle.md)
+ - [CycleCycle](CycleCycle.md)
+ - [CycleDiscontinued](CycleDiscontinued.md)
+ - [CycleEol](CycleEol.md)
+ - [CycleLts](CycleLts.md)
+ - [CycleSupport](CycleSupport.md)
 
 
 <a id="documentation-for-authorization"></a>

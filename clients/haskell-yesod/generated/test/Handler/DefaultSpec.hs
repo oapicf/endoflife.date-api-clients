@@ -15,10 +15,10 @@ spec = withApp $ do
 
     describe "getApi{Product}JsonR" $
         it "returns 501 Not Implemented" $ do
-            get $ Api{Product}JsonR unknown
+            get $ Api{Product}JsonR "product_example"
             statusIs 501
 
-    describe "getApiByValue{Cycle}JsonR" $
+    describe "getApiByText{Cycle}JsonR" $
         it "returns 501 Not Implemented" $ do
-            get $ ApiByValue{Cycle}JsonR unknown unknown
+            get $ ApiByText{Cycle}JsonR "product_example" "cycle_example"
             statusIs 501

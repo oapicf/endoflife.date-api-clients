@@ -111,6 +111,11 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Cycle](docs/Cycle.md)
+ - [CycleCycle](docs/CycleCycle.md)
+ - [CycleDiscontinued](docs/CycleDiscontinued.md)
+ - [CycleEol](docs/CycleEol.md)
+ - [CycleLts](docs/CycleLts.md)
+ - [CycleSupport](docs/CycleSupport.md)
 
 
 ## Documentation For Authorization

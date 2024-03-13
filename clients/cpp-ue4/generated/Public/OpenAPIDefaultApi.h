@@ -44,20 +44,20 @@ public:
 	class GetApiProductCycleJsonResponse;
 	class GetApiProductJsonRequest;
 	class GetApiProductJsonResponse;
-
+	
     DECLARE_DELEGATE_OneParam(FGetApiAllJsonDelegate, const GetApiAllJsonResponse&);
     DECLARE_DELEGATE_OneParam(FGetApiProductCycleJsonDelegate, const GetApiProductCycleJsonResponse&);
     DECLARE_DELEGATE_OneParam(FGetApiProductJsonDelegate, const GetApiProductJsonResponse&);
-
+    
     FHttpRequestPtr GetApiAllJson(const GetApiAllJsonRequest& Request, const FGetApiAllJsonDelegate& Delegate = FGetApiAllJsonDelegate()) const;
     FHttpRequestPtr GetApiProductCycleJson(const GetApiProductCycleJsonRequest& Request, const FGetApiProductCycleJsonDelegate& Delegate = FGetApiProductCycleJsonDelegate()) const;
     FHttpRequestPtr GetApiProductJson(const GetApiProductJsonRequest& Request, const FGetApiProductJsonDelegate& Delegate = FGetApiProductJsonDelegate()) const;
-
+    
 private:
     void OnGetApiAllJsonResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FGetApiAllJsonDelegate Delegate) const;
     void OnGetApiProductCycleJsonResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FGetApiProductCycleJsonDelegate Delegate) const;
     void OnGetApiProductJsonResponse(FHttpRequestPtr HttpRequest, FHttpResponsePtr HttpResponse, bool bSucceeded, FGetApiProductJsonDelegate Delegate) const;
-
+    
 	FHttpRequestRef CreateHttpRequest(const Request& Request) const;
 	bool IsValid() const;
 	void HandleResponse(FHttpResponsePtr HttpResponse, bool bSucceeded, Response& InOutResponse) const;

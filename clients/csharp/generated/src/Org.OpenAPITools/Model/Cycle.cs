@@ -30,20 +30,20 @@ namespace Org.OpenAPITools.Model
     /// Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
     /// </summary>
     [DataContract(Name = "cycle")]
-    public partial class Cycle : IEquatable<Cycle>, IValidatableObject
+    public partial class Cycle : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Cycle" /> class.
         /// </summary>
-        /// <param name="varCycle">Release Cycle.</param>
+        /// <param name="varCycle">varCycle.</param>
         /// <param name="releaseDate">Release Date for the first release in this cycle.</param>
-        /// <param name="eol">End of Life Date for this release cycle.</param>
+        /// <param name="eol">eol.</param>
         /// <param name="latest">Latest release in this cycle.</param>
         /// <param name="link">Link to changelog for the latest release, if available.</param>
-        /// <param name="lts">Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. .</param>
-        /// <param name="support">Whether this release cycle has active support.</param>
-        /// <param name="discontinued">Whether this cycle is now discontinued..</param>
-        public Cycle(Object varCycle = default(Object), Object releaseDate = default(Object), Object eol = default(Object), Object latest = default(Object), Object link = default(Object), Object lts = default(Object), Object support = default(Object), Object discontinued = default(Object))
+        /// <param name="lts">lts.</param>
+        /// <param name="support">support.</param>
+        /// <param name="discontinued">discontinued.</param>
+        public Cycle(CycleCycle varCycle = default(CycleCycle), DateOnly releaseDate = default(DateOnly), CycleEol eol = default(CycleEol), string latest = default(string), string link = default(string), CycleLts lts = default(CycleLts), CycleSupport support = default(CycleSupport), CycleDiscontinued discontinued = default(CycleDiscontinued))
         {
             this.VarCycle = varCycle;
             this.ReleaseDate = releaseDate;
@@ -56,60 +56,56 @@ namespace Org.OpenAPITools.Model
         }
 
         /// <summary>
-        /// Release Cycle
+        /// Gets or Sets VarCycle
         /// </summary>
-        /// <value>Release Cycle</value>
-        [DataMember(Name = "cycle", EmitDefaultValue = true)]
-        public Object VarCycle { get; set; }
+        [DataMember(Name = "cycle", EmitDefaultValue = false)]
+        public CycleCycle VarCycle { get; set; }
 
         /// <summary>
         /// Release Date for the first release in this cycle
         /// </summary>
         /// <value>Release Date for the first release in this cycle</value>
-        [DataMember(Name = "releaseDate", EmitDefaultValue = true)]
-        public Object ReleaseDate { get; set; }
+        [DataMember(Name = "releaseDate", EmitDefaultValue = false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateOnly ReleaseDate { get; set; }
 
         /// <summary>
-        /// End of Life Date for this release cycle
+        /// Gets or Sets Eol
         /// </summary>
-        /// <value>End of Life Date for this release cycle</value>
-        [DataMember(Name = "eol", EmitDefaultValue = true)]
-        public Object Eol { get; set; }
+        [DataMember(Name = "eol", EmitDefaultValue = false)]
+        public CycleEol Eol { get; set; }
 
         /// <summary>
         /// Latest release in this cycle
         /// </summary>
         /// <value>Latest release in this cycle</value>
-        [DataMember(Name = "latest", EmitDefaultValue = true)]
-        public Object Latest { get; set; }
+        [DataMember(Name = "latest", EmitDefaultValue = false)]
+        public string Latest { get; set; }
 
         /// <summary>
         /// Link to changelog for the latest release, if available
         /// </summary>
         /// <value>Link to changelog for the latest release, if available</value>
         [DataMember(Name = "link", EmitDefaultValue = true)]
-        public Object Link { get; set; }
+        public string Link { get; set; }
 
         /// <summary>
-        /// Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+        /// Gets or Sets Lts
         /// </summary>
-        /// <value>Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. </value>
-        [DataMember(Name = "lts", EmitDefaultValue = true)]
-        public Object Lts { get; set; }
+        [DataMember(Name = "lts", EmitDefaultValue = false)]
+        public CycleLts Lts { get; set; }
 
         /// <summary>
-        /// Whether this release cycle has active support
+        /// Gets or Sets Support
         /// </summary>
-        /// <value>Whether this release cycle has active support</value>
-        [DataMember(Name = "support", EmitDefaultValue = true)]
-        public Object Support { get; set; }
+        [DataMember(Name = "support", EmitDefaultValue = false)]
+        public CycleSupport Support { get; set; }
 
         /// <summary>
-        /// Whether this cycle is now discontinued.
+        /// Gets or Sets Discontinued
         /// </summary>
-        /// <value>Whether this cycle is now discontinued.</value>
-        [DataMember(Name = "discontinued", EmitDefaultValue = true)]
-        public Object Discontinued { get; set; }
+        [DataMember(Name = "discontinued", EmitDefaultValue = false)]
+        public CycleDiscontinued Discontinued { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -141,173 +137,34 @@ namespace Org.OpenAPITools.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Cycle);
-        }
-
-        /// <summary>
-        /// Returns true if Cycle instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Cycle to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Cycle input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return
-                (
-                    this.VarCycle == input.VarCycle ||
-                    (this.VarCycle != null &&
-                    this.VarCycle.Equals(input.VarCycle))
-                ) &&
-                (
-                    this.ReleaseDate == input.ReleaseDate ||
-                    (this.ReleaseDate != null &&
-                    this.ReleaseDate.Equals(input.ReleaseDate))
-                ) &&
-                (
-                    this.Eol == input.Eol ||
-                    (this.Eol != null &&
-                    this.Eol.Equals(input.Eol))
-                ) &&
-                (
-                    this.Latest == input.Latest ||
-                    (this.Latest != null &&
-                    this.Latest.Equals(input.Latest))
-                ) &&
-                (
-                    this.Link == input.Link ||
-                    (this.Link != null &&
-                    this.Link.Equals(input.Link))
-                ) &&
-                (
-                    this.Lts == input.Lts ||
-                    (this.Lts != null &&
-                    this.Lts.Equals(input.Lts))
-                ) &&
-                (
-                    this.Support == input.Support ||
-                    (this.Support != null &&
-                    this.Support.Equals(input.Support))
-                ) &&
-                (
-                    this.Discontinued == input.Discontinued ||
-                    (this.Discontinued != null &&
-                    this.Discontinued.Equals(input.Discontinued))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.VarCycle != null)
-                {
-                    hashCode = (hashCode * 59) + this.VarCycle.GetHashCode();
-                }
-                if (this.ReleaseDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReleaseDate.GetHashCode();
-                }
-                if (this.Eol != null)
-                {
-                    hashCode = (hashCode * 59) + this.Eol.GetHashCode();
-                }
-                if (this.Latest != null)
-                {
-                    hashCode = (hashCode * 59) + this.Latest.GetHashCode();
-                }
-                if (this.Link != null)
-                {
-                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
-                }
-                if (this.Lts != null)
-                {
-                    hashCode = (hashCode * 59) + this.Lts.GetHashCode();
-                }
-                if (this.Support != null)
-                {
-                    hashCode = (hashCode * 59) + this.Support.GetHashCode();
-                }
-                if (this.Discontinued != null)
-                {
-                    hashCode = (hashCode * 59) + this.Discontinued.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReleaseDate (Object) maxLength
+            // ReleaseDate (DateOnly) maxLength
             if (this.ReleaseDate != null && this.ReleaseDate.Length > 10)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseDate, length must be less than 10.", new [] { "ReleaseDate" });
             }
 
-            // ReleaseDate (Object) minLength
+            // ReleaseDate (DateOnly) minLength
             if (this.ReleaseDate != null && this.ReleaseDate.Length < 10)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseDate, length must be greater than 10.", new [] { "ReleaseDate" });
             }
 
-            // Eol (Object) minLength
-            if (this.Eol != null && this.Eol.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Eol, length must be greater than 1.", new [] { "Eol" });
-            }
-
-            // Latest (Object) minLength
+            // Latest (string) minLength
             if (this.Latest != null && this.Latest.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Latest, length must be greater than 1.", new [] { "Latest" });
             }
 
-            // Link (Object) minLength
+            // Link (string) minLength
             if (this.Link != null && this.Link.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Link, length must be greater than 1.", new [] { "Link" });
-            }
-
-            // Support (Object) maxLength
-            if (this.Support != null && this.Support.Length > 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Support, length must be less than 10.", new [] { "Support" });
-            }
-
-            // Support (Object) minLength
-            if (this.Support != null && this.Support.Length < 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Support, length must be greater than 10.", new [] { "Support" });
-            }
-
-            // Discontinued (Object) maxLength
-            if (this.Discontinued != null && this.Discontinued.Length > 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Discontinued, length must be less than 10.", new [] { "Discontinued" });
-            }
-
-            // Discontinued (Object) minLength
-            if (this.Discontinued != null && this.Discontinued.Length < 10)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Discontinued, length must be greater than 10.", new [] { "Discontinued" });
             }
 
             yield break;

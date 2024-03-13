@@ -38,8 +38,8 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var product interface{}
-		var cycle interface{}
+		var product string
+		var cycle string
 
 		resp, httpRes, err := apiClient.DefaultAPI.GetApiProductCycleJson(context.Background(), product, cycle).Execute()
 
@@ -53,7 +53,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var product interface{}
+		var product string
 
 		resp, httpRes, err := apiClient.DefaultAPI.GetApiProductJson(context.Background(), product).Execute()
 

@@ -1,6 +1,6 @@
 #
 # endoflife.date
-#
+# 
 # Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 # The version of the OpenAPI document: 0.0.1
 # Contact: blah+oapicf@cliffano.com
@@ -9,8 +9,18 @@
 
 # Models
 import openapiclient/models/model_cycle
+import openapiclient/models/model_cycle_cycle
+import openapiclient/models/model_cycle_discontinued
+import openapiclient/models/model_cycle_eol
+import openapiclient/models/model_cycle_lts
+import openapiclient/models/model_cycle_support
 
 export model_cycle
+export model_cycle_cycle
+export model_cycle_discontinued
+export model_cycle_eol
+export model_cycle_lts
+export model_cycle_support
 
 # APIs
 import openapiclient/apis/api_default

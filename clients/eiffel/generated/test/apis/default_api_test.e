@@ -18,7 +18,7 @@ feature -- Test routines
             --
             -- Return a list of all products. Each of these can be used for the other API endpoints.
         local
-            l_response: ANY
+            l_response: LIST [STRING_32]
         do
             -- TODO: Initialize required params.
 
@@ -32,8 +32,8 @@ feature -- Test routines
             -- Gets details of a single cycle
         local
             l_response: CYCLE
-            l_product: ANY
-            l_cycle: ANY
+            l_product: STRING_32
+            l_cycle: STRING_32
         do
             -- TODO: Initialize required params.
             -- l_product
@@ -48,8 +48,8 @@ feature -- Test routines
             --
             -- Get EoL dates of all cycles of a given product.
         local
-            l_response: ANY
-            l_product: ANY
+            l_response: LIST [CYCLE]
+            l_product: STRING_32
         do
             -- TODO: Initialize required params.
             -- l_product

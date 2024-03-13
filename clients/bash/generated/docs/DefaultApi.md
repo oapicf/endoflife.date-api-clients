@@ -28,7 +28,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AnyType**](AnyType.md)
+**array[string]**
 
 ### Authorization
 
@@ -59,8 +59,8 @@ Gets details of a single cycle
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](.md) | Product URL as per the canonical URL on the endofife.date website | [default to null]
- **cycle** | [**AnyType**](.md) | Release Cycle for which the details must be fetched | [default to null]
+ **product** | **string** | Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **cycle** | **string** | Release Cycle for which the details must be fetched | [default to null]
 
 ### Return type
 
@@ -95,11 +95,11 @@ Get EoL dates of all cycles of a given product.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**AnyType**](.md) | Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **product** | **string** | Product URL as per the canonical URL on the endofife.date website | [default to null]
 
 ### Return type
 
-[**AnyType**](AnyType.md)
+[**array[Cycle]**](Cycle.md)
 
 ### Authorization
 

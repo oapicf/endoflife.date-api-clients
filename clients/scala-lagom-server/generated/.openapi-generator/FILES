@@ -6,3 +6,8 @@ project/build.properties
 project/plugins.sbt
 src/main/scala/io/swagger/client/api/DefaultApi.scala
 src/main/scala/io/swagger/client/model/Cycle.scala
+src/main/scala/io/swagger/client/model/CycleCycle.scala
+src/main/scala/io/swagger/client/model/CycleDiscontinued.scala
+src/main/scala/io/swagger/client/model/CycleEol.scala
+src/main/scala/io/swagger/client/model/CycleLts.scala
+src/main/scala/io/swagger/client/model/CycleSupport.scala

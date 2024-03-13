@@ -16,11 +16,27 @@
 
 module Api.Data exposing
     ( Cycle
+    , CycleCycle
+    , CycleDiscontinued
+    , CycleEol
+    , CycleLts
+    , CycleSupport
     , encodeCycle
+    , encodeCycleCycle
+    , encodeCycleDiscontinued
+    , encodeCycleEol
+    , encodeCycleLts
+    , encodeCycleSupport
     , cycleDecoder
+    , cycleCycleDecoder
+    , cycleDiscontinuedDecoder
+    , cycleEolDecoder
+    , cycleLtsDecoder
+    , cycleSupportDecoder
     )
 
 import Api
+import Api.Time exposing (Posix)
 import Dict
 import Json.Decode
 import Json.Encode
@@ -32,15 +48,45 @@ import Json.Encode
 {-| Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 -}
 type alias Cycle =
-    { cycle : Maybe AnyType
-    , releaseDate : Maybe AnyType
-    , eol : Maybe AnyType
-    , latest : Maybe AnyType
-    , link : Maybe AnyType
-    , lts : Maybe AnyType
-    , support : Maybe AnyType
-    , discontinued : Maybe AnyType
+    { cycle : Maybe CycleCycle
+    , releaseDate : Maybe Posix
+    , eol : Maybe CycleEol
+    , latest : Maybe String
+    , link : Maybe String
+    , lts : Maybe CycleLts
+    , support : Maybe CycleSupport
+    , discontinued : Maybe CycleDiscontinued
     }
+
+
+{-| Release Cycle
+-}
+type alias CycleCycle =
+    { }
+
+
+{-| Whether this cycle is now discontinued.
+-}
+type alias CycleDiscontinued =
+    { }
+
+
+{-| End of Life Date for this release cycle
+-}
+type alias CycleEol =
+    { }
+
+
+{-| Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+-}
+type alias CycleLts =
+    { }
+
+
+{-| Whether this release cycle has active support
+-}
+type alias CycleSupport =
+    { }
 
 
 -- ENCODER
@@ -60,14 +106,109 @@ encodeCyclePairs : Cycle -> List EncodedField
 encodeCyclePairs model =
     let
         pairs =
-            [ maybeEncodeNullable "cycle" encodeAnyType model.cycle
-            , maybeEncodeNullable "releaseDate" encodeAnyType model.releaseDate
-            , maybeEncodeNullable "eol" encodeAnyType model.eol
-            , maybeEncodeNullable "latest" encodeAnyType model.latest
-            , maybeEncodeNullable "link" encodeAnyType model.link
-            , maybeEncodeNullable "lts" encodeAnyType model.lts
-            , maybeEncodeNullable "support" encodeAnyType model.support
-            , maybeEncodeNullable "discontinued" encodeAnyType model.discontinued
+            [ maybeEncode "cycle" encodeCycleCycle model.cycle
+            , maybeEncode "releaseDate" Api.Time.encodeDate model.releaseDate
+            , maybeEncode "eol" encodeCycleEol model.eol
+            , maybeEncode "latest" Json.Encode.string model.latest
+            , maybeEncodeNullable "link" Json.Encode.string model.link
+            , maybeEncode "lts" encodeCycleLts model.lts
+            , maybeEncode "support" encodeCycleSupport model.support
+            , maybeEncode "discontinued" encodeCycleDiscontinued model.discontinued
+            ]
+    in
+    pairs
+
+
+encodeCycleCycle : CycleCycle -> Json.Encode.Value
+encodeCycleCycle =
+    encodeObject << encodeCycleCyclePairs
+
+
+encodeCycleCycleWithTag : ( String, String ) -> CycleCycle -> Json.Encode.Value
+encodeCycleCycleWithTag (tagField, tag) model =
+    encodeObject (encodeCycleCyclePairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeCycleCyclePairs : CycleCycle -> List EncodedField
+encodeCycleCyclePairs model =
+    let
+        pairs =
+            ]
+    in
+    pairs
+
+
+encodeCycleDiscontinued : CycleDiscontinued -> Json.Encode.Value
+encodeCycleDiscontinued =
+    encodeObject << encodeCycleDiscontinuedPairs
+
+
+encodeCycleDiscontinuedWithTag : ( String, String ) -> CycleDiscontinued -> Json.Encode.Value
+encodeCycleDiscontinuedWithTag (tagField, tag) model =
+    encodeObject (encodeCycleDiscontinuedPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeCycleDiscontinuedPairs : CycleDiscontinued -> List EncodedField
+encodeCycleDiscontinuedPairs model =
+    let
+        pairs =
+            ]
+    in
+    pairs
+
+
+encodeCycleEol : CycleEol -> Json.Encode.Value
+encodeCycleEol =
+    encodeObject << encodeCycleEolPairs
+
+
+encodeCycleEolWithTag : ( String, String ) -> CycleEol -> Json.Encode.Value
+encodeCycleEolWithTag (tagField, tag) model =
+    encodeObject (encodeCycleEolPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeCycleEolPairs : CycleEol -> List EncodedField
+encodeCycleEolPairs model =
+    let
+        pairs =
+            ]
+    in
+    pairs
+
+
+encodeCycleLts : CycleLts -> Json.Encode.Value
+encodeCycleLts =
+    encodeObject << encodeCycleLtsPairs
+
+
+encodeCycleLtsWithTag : ( String, String ) -> CycleLts -> Json.Encode.Value
+encodeCycleLtsWithTag (tagField, tag) model =
+    encodeObject (encodeCycleLtsPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeCycleLtsPairs : CycleLts -> List EncodedField
+encodeCycleLtsPairs model =
+    let
+        pairs =
+            ]
+    in
+    pairs
+
+
+encodeCycleSupport : CycleSupport -> Json.Encode.Value
+encodeCycleSupport =
+    encodeObject << encodeCycleSupportPairs
+
+
+encodeCycleSupportWithTag : ( String, String ) -> CycleSupport -> Json.Encode.Value
+encodeCycleSupportWithTag (tagField, tag) model =
+    encodeObject (encodeCycleSupportPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeCycleSupportPairs : CycleSupport -> List EncodedField
+encodeCycleSupportPairs model =
+    let
+        pairs =
             ]
     in
     pairs
@@ -79,14 +220,39 @@ encodeCyclePairs model =
 cycleDecoder : Json.Decode.Decoder Cycle
 cycleDecoder =
     Json.Decode.succeed Cycle
-        |> maybeDecodeNullable "cycle" anyTypeDecoder Nothing
-        |> maybeDecodeNullable "releaseDate" anyTypeDecoder Nothing
-        |> maybeDecodeNullable "eol" anyTypeDecoder Nothing
-        |> maybeDecodeNullable "latest" anyTypeDecoder Nothing
-        |> maybeDecodeNullable "link" anyTypeDecoder Nothing
-        |> maybeDecodeNullable "lts" anyTypeDecoder Nothing
-        |> maybeDecodeNullable "support" anyTypeDecoder Nothing
-        |> maybeDecodeNullable "discontinued" anyTypeDecoder Nothing
+        |> maybeDecode "cycle" cycleCycleDecoder Nothing
+        |> maybeDecode "releaseDate" Api.Time.dateDecoder Nothing
+        |> maybeDecode "eol" cycleEolDecoder Nothing
+        |> maybeDecode "latest" Json.Decode.string Nothing
+        |> maybeDecodeNullable "link" Json.Decode.string Nothing
+        |> maybeDecode "lts" cycleLtsDecoder Nothing
+        |> maybeDecode "support" cycleSupportDecoder Nothing
+        |> maybeDecode "discontinued" cycleDiscontinuedDecoder Nothing
+
+
+cycleCycleDecoder : Json.Decode.Decoder CycleCycle
+cycleCycleDecoder =
+    Json.Decode.succeed CycleCycle
+
+
+cycleDiscontinuedDecoder : Json.Decode.Decoder CycleDiscontinued
+cycleDiscontinuedDecoder =
+    Json.Decode.succeed CycleDiscontinued
+
+
+cycleEolDecoder : Json.Decode.Decoder CycleEol
+cycleEolDecoder =
+    Json.Decode.succeed CycleEol
+
+
+cycleLtsDecoder : Json.Decode.Decoder CycleLts
+cycleLtsDecoder =
+    Json.Decode.succeed CycleLts
+
+
+cycleSupportDecoder : Json.Decode.Decoder CycleSupport
+cycleSupportDecoder =
+    Json.Decode.succeed CycleSupport
 
 
 

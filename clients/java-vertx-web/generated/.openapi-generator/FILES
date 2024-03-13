@@ -7,4 +7,9 @@ src/main/java/org/openapitools/vertxweb/server/api/DefaultApi.java
 src/main/java/org/openapitools/vertxweb/server/api/DefaultApiHandler.java
 src/main/java/org/openapitools/vertxweb/server/api/DefaultApiImpl.java
 src/main/java/org/openapitools/vertxweb/server/model/Cycle.java
+src/main/java/org/openapitools/vertxweb/server/model/CycleCycle.java
+src/main/java/org/openapitools/vertxweb/server/model/CycleDiscontinued.java
+src/main/java/org/openapitools/vertxweb/server/model/CycleEol.java
+src/main/java/org/openapitools/vertxweb/server/model/CycleLts.java
+src/main/java/org/openapitools/vertxweb/server/model/CycleSupport.java
 src/main/resources/openapi.yaml

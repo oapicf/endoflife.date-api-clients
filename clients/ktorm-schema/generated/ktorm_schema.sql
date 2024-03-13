@@ -6,14 +6,14 @@
 --
 
 CREATE TABLE IF NOT EXISTS `cycle` (
-  `cycle` blob /*Release Cycle*/,
-  `releaseDate` blob /*Release Date for the first release in this cycle*/,
-  `eol` blob /*End of Life Date for this release cycle*/,
-  `latest` blob /*Latest release in this cycle*/,
-  `link` blob /*Link to changelog for the latest release, if available*/,
-  `lts` blob /*Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. */,
-  `support` blob /*Whether this release cycle has active support*/,
-  `discontinued` blob /*Whether this cycle is now discontinued.*/
+  `cycle` long,
+  `releaseDate` date /*Release Date for the first release in this cycle*/,
+  `eol` long,
+  `latest` text /*Latest release in this cycle*/,
+  `link` text /*Link to changelog for the latest release, if available*/,
+  `lts` long,
+  `support` long,
+  `discontinued` long
 );  /*Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.*/
 
 

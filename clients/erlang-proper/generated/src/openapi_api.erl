@@ -20,7 +20,7 @@ get_api_all_json() ->
 
 %% @doc Single cycle details
 %% Gets details of a single cycle
--spec get_api_product_cycle_json(openapi_any_type:openapi_any_type(), openapi_any_type:openapi_any_type()) ->
+-spec get_api_product_cycle_json(binary(), binary()) ->
   openapi_utils:response().
 get_api_product_cycle_json(Product, Cycle) ->
   Method      = get,
@@ -31,7 +31,7 @@ get_api_product_cycle_json(Product, Cycle) ->
 
 %% @doc Get All Details
 %% Get EoL dates of all cycles of a given product.
--spec get_api_product_json(openapi_any_type:openapi_any_type()) ->
+-spec get_api_product_json(binary()) ->
   openapi_utils:response().
 get_api_product_json(Product) ->
   Method      = get,

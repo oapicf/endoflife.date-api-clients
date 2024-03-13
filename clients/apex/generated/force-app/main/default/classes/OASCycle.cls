@@ -15,68 +15,68 @@
  */
 public class OASCycle {
     /**
-     * Release Cycle
+     * Get cycle
      * @return cycle
      */
-    public oas_any_type_not_mapped cycle { get; set; }
+    public OASCycleCycle cycle { get; set; }
 
     /**
      * Release Date for the first release in this cycle
      * @return releaseDate
      */
-    public oas_any_type_not_mapped releaseDate { get; set; }
+    public Date releaseDate { get; set; }
 
     /**
-     * End of Life Date for this release cycle
+     * Get eol
      * @return eol
      */
-    public oas_any_type_not_mapped eol { get; set; }
+    public OASCycleEol eol { get; set; }
 
     /**
      * Latest release in this cycle
      * @return latest
      */
-    public oas_any_type_not_mapped latest { get; set; }
+    public String latest { get; set; }
 
     /**
      * Link to changelog for the latest release, if available
      * @return link
      */
-    public oas_any_type_not_mapped link { get; set; }
+    public String link { get; set; }
 
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.\n
+     * Get lts
      * @return lts
      */
-    public oas_any_type_not_mapped lts { get; set; }
+    public OASCycleLts lts { get; set; }
 
     /**
-     * Whether this release cycle has active support
+     * Get support
      * @return support
      */
-    public oas_any_type_not_mapped support { get; set; }
+    public OASCycleSupport support { get; set; }
 
     /**
-     * Whether this cycle is now discontinued.
+     * Get discontinued
      * @return discontinued
      */
-    public oas_any_type_not_mapped discontinued { get; set; }
+    public OASCycleDiscontinued discontinued { get; set; }
 
     public static OASCycle getExample() {
         OASCycle cycle = new OASCycle();
-          cycle.cycle = oas_any_type_not_mapped.getExample();
-          cycle.releaseDate = oas_any_type_not_mapped.getExample();
-          cycle.eol = oas_any_type_not_mapped.getExample();
-          cycle.latest = oas_any_type_not_mapped.getExample();
-          cycle.link = oas_any_type_not_mapped.getExample();
-          cycle.lts = oas_any_type_not_mapped.getExample();
-          cycle.support = oas_any_type_not_mapped.getExample();
-          cycle.discontinued = oas_any_type_not_mapped.getExample();
+          cycle.cycle = OASCycleCycle.getExample();
+          cycle.releaseDate = Date.newInstance(2000, 1, 23);
+          cycle.eol = OASCycleEol.getExample();
+          cycle.latest = '';
+          cycle.link = '';
+          cycle.lts = OASCycleLts.getExample();
+          cycle.support = OASCycleSupport.getExample();
+          cycle.discontinued = OASCycleDiscontinued.getExample();
         return cycle;
     }
 
     public Boolean equals(Object obj) {
-        if (obj instanceof OASCycle) {
+        if (obj instanceof OASCycle) {           
             OASCycle cycle = (OASCycle) obj;
             return this.cycle == cycle.cycle
                 && this.releaseDate == cycle.releaseDate

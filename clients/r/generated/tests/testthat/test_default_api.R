@@ -10,7 +10,7 @@ test_that("GetApiAllJson", {
   # base path: https://endoflife.date
   # All Products
   # Return a list of all products. Each of these can be used for the other API endpoints.
-  # @return [AnyType]
+  # @return [array[character]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -21,8 +21,8 @@ test_that("GetApiProductCycleJson", {
   # base path: https://endoflife.date
   # Single cycle details
   # Gets details of a single cycle
-  # @param product AnyType Product URL as per the canonical URL on the endofife.date website
-  # @param cycle AnyType Release Cycle for which the details must be fetched
+  # @param product character Product URL as per the canonical URL on the endofife.date website
+  # @param cycle character Release Cycle for which the details must be fetched
   # @return [Cycle]
 
   # uncomment below to test the operation
@@ -34,8 +34,8 @@ test_that("GetApiProductJson", {
   # base path: https://endoflife.date
   # Get All Details
   # Get EoL dates of all cycles of a given product.
-  # @param product AnyType Product URL as per the canonical URL on the endofife.date website
-  # @return [AnyType]
+  # @param product character Product URL as per the canonical URL on the endofife.date website
+  # @return [array[Cycle]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

@@ -38,14 +38,14 @@ class ApiApiController() {
         operationId = "getApiAllJson",
         description = """Return a list of all products. Each of these can be used for the other API endpoints.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "OK", content = [Content(schema = Schema(implementation = kotlin.Any::class))]) ]
+            ApiResponse(responseCode = "200", description = "OK", content = [Content(array = ArraySchema(schema = Schema(implementation = kotlin.String::class)))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
         value = ["/api/all.json"],
         produces = ["application/json"]
     )
-    fun getApiAllJson(): ResponseEntity<kotlin.Any> {
+    fun getApiAllJson(): ResponseEntity<List<kotlin.String>> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -61,7 +61,7 @@ class ApiApiController() {
         value = ["/api/{product}/{cycle}.json"],
         produces = ["application/json"]
     )
-    fun getApiProductCycleJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathVariable("product") product: kotlin.Any,@Parameter(description = "Release Cycle for which the details must be fetched", required = true) @PathVariable("cycle") cycle: kotlin.Any): ResponseEntity<Cycle> {
+    fun getApiProductCycleJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathVariable("product") product: kotlin.String,@Parameter(description = "Release Cycle for which the details must be fetched", required = true) @PathVariable("cycle") cycle: kotlin.String): ResponseEntity<Cycle> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -70,14 +70,14 @@ class ApiApiController() {
         operationId = "getApiProductJson",
         description = """Get EoL dates of all cycles of a given product.""",
         responses = [
-            ApiResponse(responseCode = "200", description = "OK", content = [Content(schema = Schema(implementation = kotlin.Any::class))]) ]
+            ApiResponse(responseCode = "200", description = "OK", content = [Content(array = ArraySchema(schema = Schema(implementation = Cycle::class)))]) ]
     )
     @RequestMapping(
         method = [RequestMethod.GET],
         value = ["/api/{product}.json"],
         produces = ["application/json"]
     )
-    fun getApiProductJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathVariable("product") product: kotlin.Any): ResponseEntity<kotlin.Any> {
+    fun getApiProductJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathVariable("product") product: kotlin.String): ResponseEntity<List<Cycle>> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }

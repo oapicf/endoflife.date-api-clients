@@ -33,31 +33,66 @@ fun Route.DefaultApi() {
     val empty = mutableMapOf<String, Any?>()
 
     get<Paths.getApiAllJson> {
-        call.respond(HttpStatusCode.NotImplemented)
-    }
-
-    get<Paths.getApiProductCycleJson> {
         val exampleContentType = "application/json"
-        val exampleContentString = """{
-          "eol" : "",
-          "releaseDate" : "",
-          "link" : "",
-          "lts" : "",
-          "discontinued" : "",
-          "cycle" : "",
-          "support" : "",
-          "latest" : ""
-        }"""
-
+        val exampleContentString = """[ "", "" ]"""
+        
         when (exampleContentType) {
             "application/json" -> call.respond(gson.fromJson(exampleContentString, empty::class.java))
             "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
             else -> call.respondText(exampleContentString)
         }
+        
+    }
+
+    get<Paths.getApiProductCycleJson> {
+        val exampleContentType = "application/json"
+        val exampleContentString = """{
+          "eol" : "cycle_eol",
+          "releaseDate" : "2000-01-23",
+          "link" : "link",
+          "lts" : true,
+          "discontinued" : "cycle_discontinued",
+          "cycle" : 0.8008281904610115,
+          "support" : "cycle_support",
+          "latest" : "latest"
+        }"""
+        
+        when (exampleContentType) {
+            "application/json" -> call.respond(gson.fromJson(exampleContentString, empty::class.java))
+            "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
+            else -> call.respondText(exampleContentString)
+        }
+        
     }
 
     get<Paths.getApiProductJson> {
-        call.respond(HttpStatusCode.NotImplemented)
+        val exampleContentType = "application/json"
+        val exampleContentString = """[ {
+          "eol" : "cycle_eol",
+          "releaseDate" : "2000-01-23",
+          "link" : "link",
+          "lts" : true,
+          "discontinued" : "cycle_discontinued",
+          "cycle" : 0.8008281904610115,
+          "support" : "cycle_support",
+          "latest" : "latest"
+        }, {
+          "eol" : "cycle_eol",
+          "releaseDate" : "2000-01-23",
+          "link" : "link",
+          "lts" : true,
+          "discontinued" : "cycle_discontinued",
+          "cycle" : 0.8008281904610115,
+          "support" : "cycle_support",
+          "latest" : "latest"
+        } ]"""
+        
+        when (exampleContentType) {
+            "application/json" -> call.respond(gson.fromJson(exampleContentString, empty::class.java))
+            "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
+            else -> call.respondText(exampleContentString)
+        }
+        
     }
 
 }

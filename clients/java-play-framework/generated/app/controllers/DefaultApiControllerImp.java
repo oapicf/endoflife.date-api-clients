@@ -10,24 +10,25 @@ import java.util.LinkedHashSet;
 import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2023-09-16T14:43:28.067343Z[Etc/UTC]")
+import javax.validation.Valid;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-03-13T10:45:07.097392421Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DefaultApiControllerImp extends DefaultApiControllerImpInterface {
     @Override
-    public Object getApiAllJson(Http.Request request) throws Exception {
+    public List<String> getApiAllJson(Http.Request request) throws Exception {
         //Do your magic!!!
-        return new Object();
+        return new ArrayList<String>();
     }
 
     @Override
-    public Cycle getApiProductCycleJson(Http.Request request, Object product, Object cycle) throws Exception {
+    public Cycle getApiProductCycleJson(Http.Request request, String product, String cycle) throws Exception {
         //Do your magic!!!
         return new Cycle();
     }
 
     @Override
-    public Object getApiProductJson(Http.Request request, Object product) throws Exception {
+    public List<Cycle> getApiProductJson(Http.Request request, String product) throws Exception {
         //Do your magic!!!
-        return new Object();
+        return new ArrayList<Cycle>();
     }
 
 }

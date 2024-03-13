@@ -15,8 +15,8 @@
 
 #include <QObject>
 
-#include "OAIAnyType.h"
 #include "OAICycle.h"
+#include <QList>
 #include <QString>
 
 namespace OpenAPI {
@@ -30,11 +30,11 @@ public:
     virtual ~OAIDefaultApiHandler();
 
 
-public slots:
+public Q_SLOTS:
     virtual void getApiAll_json();
-    virtual void getApiProductCycle_json(OAIAnyType product, OAIAnyType cycle);
-    virtual void getApiProduct_json(OAIAnyType product);
-
+    virtual void getApiProductCycle_json(QString product, QString cycle);
+    virtual void getApiProduct_json(QString product);
+    
 
 };
 

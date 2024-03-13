@@ -15,6 +15,11 @@ include/CppRestOpenAPIClient/MultipartFormData.h
 include/CppRestOpenAPIClient/Object.h
 include/CppRestOpenAPIClient/api/DefaultApi.h
 include/CppRestOpenAPIClient/model/Cycle.h
+include/CppRestOpenAPIClient/model/Cycle_cycle.h
+include/CppRestOpenAPIClient/model/Cycle_discontinued.h
+include/CppRestOpenAPIClient/model/Cycle_eol.h
+include/CppRestOpenAPIClient/model/Cycle_lts.h
+include/CppRestOpenAPIClient/model/Cycle_support.h
 src/ApiClient.cpp
 src/ApiConfiguration.cpp
 src/ApiException.cpp
@@ -25,3 +30,8 @@ src/MultipartFormData.cpp
 src/Object.cpp
 src/api/DefaultApi.cpp
 src/model/Cycle.cpp
+src/model/Cycle_cycle.cpp
+src/model/Cycle_discontinued.cpp
+src/model/Cycle_eol.cpp
+src/model/Cycle_lts.cpp
+src/model/Cycle_support.cpp

@@ -33,11 +33,11 @@ void OAIDefaultApiHandler::getApiAll_json() {
     auto reqObj = qobject_cast<OAIDefaultApiRequest*>(sender());
     if( reqObj != nullptr )
     {
-        OAIAnyType res;
+        QList<QString> res;
         reqObj->getApiAll_jsonResponse(res);
     }
 }
-void OAIDefaultApiHandler::getApiProductCycle_json(OAIAnyType product, OAIAnyType cycle) {
+void OAIDefaultApiHandler::getApiProductCycle_json(QString product, QString cycle) {
     Q_UNUSED(product);
     Q_UNUSED(cycle);
     auto reqObj = qobject_cast<OAIDefaultApiRequest*>(sender());
@@ -47,12 +47,12 @@ void OAIDefaultApiHandler::getApiProductCycle_json(OAIAnyType product, OAIAnyTyp
         reqObj->getApiProductCycle_jsonResponse(res);
     }
 }
-void OAIDefaultApiHandler::getApiProduct_json(OAIAnyType product) {
+void OAIDefaultApiHandler::getApiProduct_json(QString product) {
     Q_UNUSED(product);
     auto reqObj = qobject_cast<OAIDefaultApiRequest*>(sender());
     if( reqObj != nullptr )
     {
-        OAIAnyType res;
+        QList<OAICycle> res;
         reqObj->getApiProduct_jsonResponse(res);
     }
 }

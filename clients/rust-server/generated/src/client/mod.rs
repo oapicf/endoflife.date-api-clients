@@ -432,7 +432,7 @@ impl<S, C> Api<C> for Client<S, C> where
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
-                let body = serde_json::from_str::<serde_json::Value>(body).map_err(|e| {
+                let body = serde_json::from_str::<Vec<String>>(body).map_err(|e| {
                     ApiError(format!("Response body did not match the schema: {}", e))
                 })?;
                 Ok(GetApiAllPeriodJsonResponse::OK
@@ -461,8 +461,8 @@ impl<S, C> Api<C> for Client<S, C> where
 
     async fn get_api_product_cycle_period_json(
         &self,
-        param_product: serde_json::Value,
-        param_cycle: serde_json::Value,
+        param_product: String,
+        param_cycle: String,
         context: &C) -> Result<GetApiProductCyclePeriodJsonResponse, ApiError>
     {
         let mut client_service = self.client_service.clone();
@@ -542,7 +542,7 @@ impl<S, C> Api<C> for Client<S, C> where
 
     async fn get_api_product_period_json(
         &self,
-        param_product: serde_json::Value,
+        param_product: String,
         context: &C) -> Result<GetApiProductPeriodJsonResponse, ApiError>
     {
         let mut client_service = self.client_service.clone();
@@ -592,7 +592,7 @@ impl<S, C> Api<C> for Client<S, C> where
                         .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
                 let body = str::from_utf8(&body)
                     .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
-                let body = serde_json::from_str::<serde_json::Value>(body).map_err(|e| {
+                let body = serde_json::from_str::<Vec<models::Cycle>>(body).map_err(|e| {
                     ApiError(format!("Response body did not match the schema: {}", e))
                 })?;
                 Ok(GetApiProductPeriodJsonResponse::OK

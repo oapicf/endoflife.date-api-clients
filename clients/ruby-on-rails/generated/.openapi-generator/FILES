@@ -11,6 +11,11 @@ app/jobs/application_job.rb
 app/mailers/application_mailer.rb
 app/models/application_record.rb
 app/models/cycle.rb
+app/models/cycle_cycle.rb
+app/models/cycle_discontinued.rb
+app/models/cycle_eol.rb
+app/models/cycle_lts.rb
+app/models/cycle_support.rb
 app/views/layouts/mailer.html.erb
 app/views/layouts/mailer.text.erb
 bin/bundle

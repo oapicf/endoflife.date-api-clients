@@ -1,4 +1,9 @@
 .openapi-generator-ignore
 README.md
 models/cycle.proto
+models/cycle_cycle.proto
+models/cycle_discontinued.proto
+models/cycle_eol.proto
+models/cycle_lts.proto
+models/cycle_support.proto
 services/default_service.proto

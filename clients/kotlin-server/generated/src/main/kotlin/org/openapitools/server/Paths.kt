@@ -25,16 +25,16 @@ object Paths {
     /**
      * Single cycle details
      * Gets details of a single cycle
-     * @param product Product URL as per the canonical URL on the endofife.date website
-     * @param cycle Release Cycle for which the details must be fetched
+     * @param product Product URL as per the canonical URL on the endofife.date website 
+     * @param cycle Release Cycle for which the details must be fetched 
      */
-    @Serializable @Resource("/api/{product}/{cycle}.json") class getApiProductCycleJson(val product: kotlin.Any, val cycle: kotlin.Any)
+    @Serializable @Resource("/api/{product}/{cycle}.json") class getApiProductCycleJson(val product: kotlin.String, val cycle: kotlin.String)
 
     /**
      * Get All Details
      * Get EoL dates of all cycles of a given product.
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website 
      */
-    @Serializable @Resource("/api/{product}.json") class getApiProductJson(val product: kotlin.Any)
+    @Serializable @Resource("/api/{product}.json") class getApiProductJson(val product: kotlin.String)
 
 }

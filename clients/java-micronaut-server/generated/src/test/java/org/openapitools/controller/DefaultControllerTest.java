@@ -61,7 +61,7 @@ public class DefaultControllerTest {
         // given
 
         // when
-        Object result = controller.getApiAllJson().block();
+        List<String> result = controller.getApiAllJson().block();
 
         // then
         Assertions.assertTrue(true);
@@ -82,7 +82,7 @@ public class DefaultControllerTest {
             .accept("application/json");
 
         // when
-        HttpResponse<?> response = client.toBlocking().exchange(request, Object.class);
+        HttpResponse<?> response = client.toBlocking().exchange(request, Argument.of(List.class, String.class));
 
         // then
         Assertions.assertEquals(HttpStatus.OK, response.status());
@@ -101,8 +101,8 @@ public class DefaultControllerTest {
     @Disabled("Not Implemented")
     void getApiProductCycleJsonMethodTest() {
         // given
-        Object product = null;
-        Object cycle = null;
+        String product = "example";
+        String cycle = "example";
 
         // when
         Cycle result = controller.getApiProductCycleJson(product, cycle).block();
@@ -123,8 +123,8 @@ public class DefaultControllerTest {
         // given
         String uri = UriTemplate.of("/api/{product}/{cycle}.json").expand(new HashMap<String, Object>(){{
             // Fill in the path variables
-            put("product", null);
-            put("cycle", null);
+            put("product", "example");
+            put("cycle", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
             .accept("application/json");
@@ -149,10 +149,10 @@ public class DefaultControllerTest {
     @Disabled("Not Implemented")
     void getApiProductJsonMethodTest() {
         // given
-        Object product = null;
+        String product = "example";
 
         // when
-        Object result = controller.getApiProductJson(product).block();
+        List<Cycle> result = controller.getApiProductJson(product).block();
 
         // then
         Assertions.assertTrue(true);
@@ -170,13 +170,13 @@ public class DefaultControllerTest {
         // given
         String uri = UriTemplate.of("/api/{product}.json").expand(new HashMap<String, Object>(){{
             // Fill in the path variables
-            put("product", null);
+            put("product", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
             .accept("application/json");
 
         // when
-        HttpResponse<?> response = client.toBlocking().exchange(request, Object.class);
+        HttpResponse<?> response = client.toBlocking().exchange(request, Argument.of(List.class, Cycle.class));
 
         // then
         Assertions.assertEquals(HttpStatus.OK, response.status());

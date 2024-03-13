@@ -21,12 +21,12 @@ import {
 } from '../models';
 
 export interface GetApiProductCycleJsonRequest {
-    product: any;
-    cycle: any;
+    product: string;
+    cycle: string;
 }
 
 export interface GetApiProductJsonRequest {
-    product: any;
+    product: string;
 }
 
 
@@ -34,7 +34,7 @@ export interface GetApiProductJsonRequest {
  * Return a list of all products. Each of these can be used for the other API endpoints.
  * All Products
  */
-function getApiAllJsonRaw<T>( requestConfig: runtime.TypedQueryConfig<T, any> = {}): QueryConfig<T> {
+function getApiAllJsonRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<string>> = {}): QueryConfig<T> {
     let queryParameters = null;
 
 
@@ -60,7 +60,6 @@ function getApiAllJsonRaw<T>( requestConfig: runtime.TypedQueryConfig<T, any> = 
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        throw "OH NO";
     }
 
     return config;
@@ -70,7 +69,7 @@ function getApiAllJsonRaw<T>( requestConfig: runtime.TypedQueryConfig<T, any> = 
 * Return a list of all products. Each of these can be used for the other API endpoints.
 * All Products
 */
-export function getApiAllJson<T>( requestConfig?: runtime.TypedQueryConfig<T, any>): QueryConfig<T> {
+export function getApiAllJson<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<string>>): QueryConfig<T> {
     return getApiAllJsonRaw( requestConfig);
 }
 
@@ -130,7 +129,7 @@ export function getApiProductCycleJson<T>(requestParameters: GetApiProductCycleJ
  * Get EoL dates of all cycles of a given product.
  * Get All Details
  */
-function getApiProductJsonRaw<T>(requestParameters: GetApiProductJsonRequest, requestConfig: runtime.TypedQueryConfig<T, any> = {}): QueryConfig<T> {
+function getApiProductJsonRaw<T>(requestParameters: GetApiProductJsonRequest, requestConfig: runtime.TypedQueryConfig<T, Array<Cycle>> = {}): QueryConfig<T> {
     if (requestParameters.product === null || requestParameters.product === undefined) {
         throw new runtime.RequiredError('product','Required parameter requestParameters.product was null or undefined when calling getApiProductJson.');
     }
@@ -160,7 +159,7 @@ function getApiProductJsonRaw<T>(requestParameters: GetApiProductJsonRequest, re
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
-        throw "OH NO";
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(CycleFromJSON), text);
     }
 
     return config;
@@ -170,7 +169,7 @@ function getApiProductJsonRaw<T>(requestParameters: GetApiProductJsonRequest, re
 * Get EoL dates of all cycles of a given product.
 * Get All Details
 */
-export function getApiProductJson<T>(requestParameters: GetApiProductJsonRequest, requestConfig?: runtime.TypedQueryConfig<T, any>): QueryConfig<T> {
+export function getApiProductJson<T>(requestParameters: GetApiProductJsonRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<Cycle>>): QueryConfig<T> {
     return getApiProductJsonRaw(requestParameters, requestConfig);
 }
 

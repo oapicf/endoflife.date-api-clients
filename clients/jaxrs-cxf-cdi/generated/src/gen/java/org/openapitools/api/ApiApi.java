@@ -20,13 +20,14 @@ import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 import java.util.Map;
 import java.util.List;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
 @Path("/api")
 @RequestScoped
 
 @Api(description = "the api API")
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2023-09-16T14:43:55.215930Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-03-13T10:45:46.705389032Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 
 public class ApiApi  {
 
@@ -39,9 +40,9 @@ public class ApiApi  {
     @Path("/all.json")
     
     @Produces({ "application/json" })
-    @ApiOperation(value = "All Products", notes = "Return a list of all products. Each of these can be used for the other API endpoints.", response = Object.class, tags={  })
+    @ApiOperation(value = "All Products", notes = "Return a list of all products. Each of these can be used for the other API endpoints.", response = String.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Object.class) })
+        @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
     public Response getApiAllJson() {
         return delegate.getApiAllJson(securityContext);
     }
@@ -53,7 +54,7 @@ public class ApiApi  {
     @ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle", response = Cycle.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class) })
-    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") Object product, @ApiParam(value = "Release Cycle for which the details must be fetched",required=true) @PathParam("cycle") Object cycle) {
+    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") String product, @ApiParam(value = "Release Cycle for which the details must be fetched",required=true) @PathParam("cycle") String cycle) {
         return delegate.getApiProductCycleJson(product, cycle, securityContext);
     }
 
@@ -61,10 +62,10 @@ public class ApiApi  {
     @Path("/{product}.json")
     
     @Produces({ "application/json" })
-    @ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Object.class, tags={  })
+    @ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Cycle.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = Object.class) })
-    public Response getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") Object product) {
+        @ApiResponse(code = 200, message = "OK", response = Cycle.class, responseContainer = "List") })
+    public Response getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") String product) {
         return delegate.getApiProductJson(product, securityContext);
     }
 }

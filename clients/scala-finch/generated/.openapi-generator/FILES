@@ -10,3 +10,8 @@ src/main/scala/endpoint.scala
 src/main/scala/errors.scala
 src/main/scala/org/openapitools/apis/DefaultApi.scala
 src/main/scala/org/openapitools/models/Cycle.scala
+src/main/scala/org/openapitools/models/CycleCycle.scala
+src/main/scala/org/openapitools/models/CycleDiscontinued.scala
+src/main/scala/org/openapitools/models/CycleEol.scala
+src/main/scala/org/openapitools/models/CycleLts.scala
+src/main/scala/org/openapitools/models/CycleSupport.scala

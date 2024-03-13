@@ -25,5 +25,10 @@ build = {
 	modules = {
 		["openapiclient.api.default_api"] = "openapiclient/api/default_api.lua";
 		["openapiclient.model.cycle"] = "openapiclient/model/cycle.lua";
+		["openapiclient.model.cycle_cycle"] = "openapiclient/model/cycle_cycle.lua";
+		["openapiclient.model.cycle_discontinued"] = "openapiclient/model/cycle_discontinued.lua";
+		["openapiclient.model.cycle_eol"] = "openapiclient/model/cycle_eol.lua";
+		["openapiclient.model.cycle_lts"] = "openapiclient/model/cycle_lts.lua";
+		["openapiclient.model.cycle_support"] = "openapiclient/model/cycle_support.lua";
 	}
 }

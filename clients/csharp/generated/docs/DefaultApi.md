@@ -10,7 +10,7 @@ All URIs are relative to *https://endoflife.date*
 
 <a id="getapialljson"></a>
 # **GetApiAllJson**
-> Object GetApiAllJson ()
+> List&lt;string&gt; GetApiAllJson ()
 
 All Products
 
@@ -37,7 +37,7 @@ namespace Example
             try
             {
                 // All Products
-                Object result = apiInstance.GetApiAllJson();
+                List<string> result = apiInstance.GetApiAllJson();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -58,7 +58,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // All Products
-    ApiResponse<Object> response = apiInstance.GetApiAllJsonWithHttpInfo();
+    ApiResponse<List<string>> response = apiInstance.GetApiAllJsonWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -75,7 +75,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-**Object**
+**List<string>**
 
 ### Authorization
 
@@ -96,7 +96,7 @@ No authorization required
 
 <a id="getapiproductcyclejson"></a>
 # **GetApiProductCycleJson**
-> Cycle GetApiProductCycleJson (Object product, Object cycle)
+> Cycle GetApiProductCycleJson (string product, string cycle)
 
 Single cycle details
 
@@ -119,8 +119,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://endoflife.date";
             var apiInstance = new DefaultApi(config);
-            var product = new Object(); // Object | Product URL as per the canonical URL on the endofife.date website
-            var cycle = new Object(); // Object | Release Cycle for which the details must be fetched
+            var product = "product_example";  // string | Product URL as per the canonical URL on the endofife.date website
+            var cycle = "cycle_example";  // string | Release Cycle for which the details must be fetched
 
             try
             {
@@ -163,8 +163,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **product** | [**Object**](Object.md) | Product URL as per the canonical URL on the endofife.date website |  |
-| **cycle** | [**Object**](Object.md) | Release Cycle for which the details must be fetched |  |
+| **product** | **string** | Product URL as per the canonical URL on the endofife.date website |  |
+| **cycle** | **string** | Release Cycle for which the details must be fetched |  |
 
 ### Return type
 
@@ -189,7 +189,7 @@ No authorization required
 
 <a id="getapiproductjson"></a>
 # **GetApiProductJson**
-> Object GetApiProductJson (Object product)
+> List&lt;Cycle&gt; GetApiProductJson (string product)
 
 Get All Details
 
@@ -212,12 +212,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://endoflife.date";
             var apiInstance = new DefaultApi(config);
-            var product = new Object(); // Object | Product URL as per the canonical URL on the endofife.date website
+            var product = "product_example";  // string | Product URL as per the canonical URL on the endofife.date website
 
             try
             {
                 // Get All Details
-                Object result = apiInstance.GetApiProductJson(product);
+                List<Cycle> result = apiInstance.GetApiProductJson(product);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -238,7 +238,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get All Details
-    ApiResponse<Object> response = apiInstance.GetApiProductJsonWithHttpInfo(product);
+    ApiResponse<List<Cycle>> response = apiInstance.GetApiProductJsonWithHttpInfo(product);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -255,11 +255,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **product** | [**Object**](Object.md) | Product URL as per the canonical URL on the endofife.date website |  |
+| **product** | **string** | Product URL as per the canonical URL on the endofife.date website |  |
 
 ### Return type
 
-**Object**
+[**List&lt;Cycle&gt;**](Cycle.md)
 
 ### Authorization
 

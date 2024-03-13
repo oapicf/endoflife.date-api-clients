@@ -16,20 +16,20 @@ trait DataAccessor {
 
         /**
         * 
-        * @return A AnyType
+        * @return A Seq[String]
         */
-        def Default_getApiAll.json(): Either[CommonError,AnyType] = Left(TODO)
+        def Default_getApiAll.json(): Either[CommonError,Seq[String]] = Left(TODO)
 
         /**
         * 
-        * @return A AnyType
+        * @return A Seq[Cycle]
         */
-        def Default_getApiProduct.json(product: AnyType): Either[CommonError,AnyType] = Left(TODO)
+        def Default_getApiProduct.json(product: String): Either[CommonError,Seq[Cycle]] = Left(TODO)
 
         /**
         * 
         * @return A Cycle
         */
-        def Default_getApiProductCycle.json(product: AnyType, cycle: AnyType): Either[CommonError,Cycle] = Left(TODO)
+        def Default_getApiProductCycle.json(product: String, cycle: String): Either[CommonError,Cycle] = Left(TODO)
 
 }

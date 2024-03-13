@@ -19,6 +19,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Date;
+import org.openapitools.model.CycleCycle;
+import org.openapitools.model.CycleDiscontinued;
+import org.openapitools.model.CycleEol;
+import org.openapitools.model.CycleLts;
+import org.openapitools.model.CycleSupport;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
@@ -37,61 +43,61 @@ import javax.validation.Valid;
   Cycle.JSON_PROPERTY_SUPPORT,
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2023-09-16T14:43:59.034891Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-03-13T10:45:52.103127445Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class Cycle   {
   public static final String JSON_PROPERTY_CYCLE = "cycle";
   @JsonProperty(JSON_PROPERTY_CYCLE)
-  private Object cycle = null;
+  private CycleCycle cycle;
 
   public static final String JSON_PROPERTY_RELEASE_DATE = "releaseDate";
   @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
-  private Object releaseDate = null;
+  private Date releaseDate;
 
   public static final String JSON_PROPERTY_EOL = "eol";
   @JsonProperty(JSON_PROPERTY_EOL)
-  private Object eol = null;
+  private CycleEol eol;
 
   public static final String JSON_PROPERTY_LATEST = "latest";
   @JsonProperty(JSON_PROPERTY_LATEST)
-  private Object latest = null;
+  private String latest;
 
   public static final String JSON_PROPERTY_LINK = "link";
   @JsonProperty(JSON_PROPERTY_LINK)
-  private Object link = null;
+  private String link;
 
   public static final String JSON_PROPERTY_LTS = "lts";
   @JsonProperty(JSON_PROPERTY_LTS)
-  private Object lts = null;
+  private CycleLts lts;
 
   public static final String JSON_PROPERTY_SUPPORT = "support";
   @JsonProperty(JSON_PROPERTY_SUPPORT)
-  private Object support = null;
+  private CycleSupport support;
 
   public static final String JSON_PROPERTY_DISCONTINUED = "discontinued";
   @JsonProperty(JSON_PROPERTY_DISCONTINUED)
-  private Object discontinued = null;
+  private CycleDiscontinued discontinued;
 
-  public Cycle cycle(Object cycle) {
+  public Cycle cycle(CycleCycle cycle) {
     this.cycle = cycle;
     return this;
   }
 
   /**
-   * Release Cycle
+   * Get cycle
    * @return cycle
    **/
   @JsonProperty(value = "cycle")
-  @ApiModelProperty(value = "Release Cycle")
-
-  public Object getCycle() {
+  @ApiModelProperty(value = "")
+  @Valid 
+  public CycleCycle getCycle() {
     return cycle;
   }
 
-  public void setCycle(Object cycle) {
+  public void setCycle(CycleCycle cycle) {
     this.cycle = cycle;
   }
 
-  public Cycle releaseDate(Object releaseDate) {
+  public Cycle releaseDate(Date releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
@@ -103,35 +109,35 @@ public class Cycle   {
   @JsonProperty(value = "releaseDate")
   @ApiModelProperty(value = "Release Date for the first release in this cycle")
    @Size(min=10,max=10)
-  public Object getReleaseDate() {
+  public Date getReleaseDate() {
     return releaseDate;
   }
 
-  public void setReleaseDate(Object releaseDate) {
+  public void setReleaseDate(Date releaseDate) {
     this.releaseDate = releaseDate;
   }
 
-  public Cycle eol(Object eol) {
+  public Cycle eol(CycleEol eol) {
     this.eol = eol;
     return this;
   }
 
   /**
-   * End of Life Date for this release cycle
+   * Get eol
    * @return eol
    **/
   @JsonProperty(value = "eol")
-  @ApiModelProperty(value = "End of Life Date for this release cycle")
-   @Size(min=1)
-  public Object getEol() {
+  @ApiModelProperty(value = "")
+  @Valid 
+  public CycleEol getEol() {
     return eol;
   }
 
-  public void setEol(Object eol) {
+  public void setEol(CycleEol eol) {
     this.eol = eol;
   }
 
-  public Cycle latest(Object latest) {
+  public Cycle latest(String latest) {
     this.latest = latest;
     return this;
   }
@@ -143,15 +149,15 @@ public class Cycle   {
   @JsonProperty(value = "latest")
   @ApiModelProperty(value = "Latest release in this cycle")
    @Size(min=1)
-  public Object getLatest() {
+  public String getLatest() {
     return latest;
   }
 
-  public void setLatest(Object latest) {
+  public void setLatest(String latest) {
     this.latest = latest;
   }
 
-  public Cycle link(Object link) {
+  public Cycle link(String link) {
     this.link = link;
     return this;
   }
@@ -163,71 +169,71 @@ public class Cycle   {
   @JsonProperty(value = "link")
   @ApiModelProperty(value = "Link to changelog for the latest release, if available")
    @Size(min=1)
-  public Object getLink() {
+  public String getLink() {
     return link;
   }
 
-  public void setLink(Object link) {
+  public void setLink(String link) {
     this.link = link;
   }
 
-  public Cycle lts(Object lts) {
+  public Cycle lts(CycleLts lts) {
     this.lts = lts;
     return this;
   }
 
   /**
-   * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+   * Get lts
    * @return lts
    **/
   @JsonProperty(value = "lts")
-  @ApiModelProperty(value = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
-
-  public Object getLts() {
+  @ApiModelProperty(value = "")
+  @Valid 
+  public CycleLts getLts() {
     return lts;
   }
 
-  public void setLts(Object lts) {
+  public void setLts(CycleLts lts) {
     this.lts = lts;
   }
 
-  public Cycle support(Object support) {
+  public Cycle support(CycleSupport support) {
     this.support = support;
     return this;
   }
 
   /**
-   * Whether this release cycle has active support
+   * Get support
    * @return support
    **/
   @JsonProperty(value = "support")
-  @ApiModelProperty(value = "Whether this release cycle has active support")
-   @Size(min=10,max=10)
-  public Object getSupport() {
+  @ApiModelProperty(value = "")
+  @Valid 
+  public CycleSupport getSupport() {
     return support;
   }
 
-  public void setSupport(Object support) {
+  public void setSupport(CycleSupport support) {
     this.support = support;
   }
 
-  public Cycle discontinued(Object discontinued) {
+  public Cycle discontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
     return this;
   }
 
   /**
-   * Whether this cycle is now discontinued.
+   * Get discontinued
    * @return discontinued
    **/
   @JsonProperty(value = "discontinued")
-  @ApiModelProperty(value = "Whether this cycle is now discontinued.")
-   @Size(min=10,max=10)
-  public Object getDiscontinued() {
+  @ApiModelProperty(value = "")
+  @Valid 
+  public CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
 
-  public void setDiscontinued(Object discontinued) {
+  public void setDiscontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 
@@ -241,14 +247,14 @@ public class Cycle   {
       return false;
     }
     Cycle cycle = (Cycle) o;
-    return Objects.equals(cycle, cycle.cycle) &&
-        Objects.equals(releaseDate, cycle.releaseDate) &&
-        Objects.equals(eol, cycle.eol) &&
-        Objects.equals(latest, cycle.latest) &&
-        Objects.equals(link, cycle.link) &&
-        Objects.equals(lts, cycle.lts) &&
-        Objects.equals(support, cycle.support) &&
-        Objects.equals(discontinued, cycle.discontinued);
+    return Objects.equals(this.cycle, cycle.cycle) &&
+        Objects.equals(this.releaseDate, cycle.releaseDate) &&
+        Objects.equals(this.eol, cycle.eol) &&
+        Objects.equals(this.latest, cycle.latest) &&
+        Objects.equals(this.link, cycle.link) &&
+        Objects.equals(this.lts, cycle.lts) &&
+        Objects.equals(this.support, cycle.support) &&
+        Objects.equals(this.discontinued, cycle.discontinued);
   }
 
   @Override
@@ -260,7 +266,7 @@ public class Cycle   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Cycle {\n");
-
+    
     sb.append("    cycle: ").append(toIndentedString(cycle)).append("\n");
     sb.append("    releaseDate: ").append(toIndentedString(releaseDate)).append("\n");
     sb.append("    eol: ").append(toIndentedString(eol)).append("\n");

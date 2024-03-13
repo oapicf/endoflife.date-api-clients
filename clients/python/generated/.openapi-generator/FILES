@@ -5,6 +5,11 @@
 .travis.yml
 README.md
 docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
 docs/DefaultApi.md
 endoflifedate/__init__.py
 endoflifedate/api/__init__.py
@@ -15,6 +20,11 @@ endoflifedate/configuration.py
 endoflifedate/exceptions.py
 endoflifedate/models/__init__.py
 endoflifedate/models/cycle.py
+endoflifedate/models/cycle_cycle.py
+endoflifedate/models/cycle_discontinued.py
+endoflifedate/models/cycle_eol.py
+endoflifedate/models/cycle_lts.py
+endoflifedate/models/cycle_support.py
 endoflifedate/py.typed
 endoflifedate/rest.py
 git_push.sh
@@ -25,5 +35,10 @@ setup.py
 test-requirements.txt
 test/__init__.py
 test/test_cycle.py
+test/test_cycle_cycle.py
+test/test_cycle_discontinued.py
+test/test_cycle_eol.py
+test/test_cycle_lts.py
+test/test_cycle_support.py
 test/test_default_api.py
 tox.ini

@@ -5,5 +5,10 @@ go.mod
 go/README.md
 go/api_default.go
 go/model_cycle.go
+go/model_cycle_cycle.go
+go/model_cycle_discontinued.go
+go/model_cycle_eol.go
+go/model_cycle_lts.go
+go/model_cycle_support.go
 go/routers.go
 main.go

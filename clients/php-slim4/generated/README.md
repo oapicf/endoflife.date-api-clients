@@ -160,5 +160,10 @@ Class | Method | HTTP request | Description
 ## Models
 
 * OpenAPIServer\Model\Cycle
+* OpenAPIServer\Model\CycleCycle
+* OpenAPIServer\Model\CycleDiscontinued
+* OpenAPIServer\Model\CycleEol
+* OpenAPIServer\Model\CycleLts
+* OpenAPIServer\Model\CycleSupport
 
 

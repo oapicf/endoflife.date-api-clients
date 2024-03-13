@@ -7,7 +7,6 @@ open FSharp.Control.Tasks.V2.ContextInsensitive
 open DefaultApiHandlerParams
 open DefaultApiServiceInterface
 open DefaultApiServiceImplementation
-open OpenAPI.Model.AnyType
 open OpenAPI.Model.Cycle
 
 module DefaultApiHandler =
@@ -27,7 +26,7 @@ module DefaultApiHandler =
           let result = DefaultApiService.GetApiAllJson ctx 
           return! (match result with
                       | GetApiAllJsonStatusCode200 resolved ->
-                            setStatusCode 200 >=> json resolved.content
+                            setStatusCode 200 >=> text resolved.content
           ) next ctx
         }
     //#endregion

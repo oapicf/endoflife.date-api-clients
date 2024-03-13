@@ -31,6 +31,7 @@ namespace OpenAPI\Server\Model;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\Accessor;
 use JMS\Serializer\Annotation\SerializedName;
 
 /**
@@ -42,25 +43,23 @@ use JMS\Serializer\Annotation\SerializedName;
  * @author  OpenAPI Generator team
  */
 
-class Cycle
+class Cycle 
 {
         /**
-     * Release Cycle
-     *
-     * @var
+     * @var CycleCycle|null
      * @SerializedName("cycle")
-     * @Assert\Type("AnyType")
-     * @Type("AnyType")
+     * @Assert\Type("OpenAPI\Server\Model\CycleCycle")
+     * @Type("OpenAPI\Server\Model\CycleCycle")
      */
-    protected  $cycle = null;
+    protected ?CycleCycle $cycle = null;
 
     /**
      * Release Date for the first release in this cycle
      *
-     * @var
+     * @var \DateTime|null
      * @SerializedName("releaseDate")
-     * @Assert\Type("AnyType")
-     * @Type("AnyType")
+     * @Assert\Type("\Date")
+     * @Type("DateTime<'Y-m-d'>")
      * @Assert\Length(
      *   max = 10
      * )
@@ -68,88 +67,65 @@ class Cycle
      *   min = 10
      * )
      */
-    protected  $releaseDate = null;
+    protected ?\DateTime $releaseDate = null;
 
     /**
-     * End of Life Date for this release cycle
-     *
-     * @var
+     * @var CycleEol|null
      * @SerializedName("eol")
-     * @Assert\Type("AnyType")
-     * @Type("AnyType")
-     * @Assert\Length(
-     *   min = 1
-     * )
+     * @Assert\Type("OpenAPI\Server\Model\CycleEol")
+     * @Type("OpenAPI\Server\Model\CycleEol")
      */
-    protected  $eol = null;
+    protected ?CycleEol $eol = null;
 
     /**
      * Latest release in this cycle
      *
-     * @var
+     * @var string|null
      * @SerializedName("latest")
-     * @Assert\Type("AnyType")
-     * @Type("AnyType")
+     * @Assert\Type("string")
+     * @Type("string")
      * @Assert\Length(
      *   min = 1
      * )
      */
-    protected  $latest = null;
+    protected ?string $latest = null;
 
     /**
      * Link to changelog for the latest release, if available
      *
-     * @var
+     * @var string|null
      * @SerializedName("link")
-     * @Assert\Type("AnyType")
-     * @Type("AnyType")
+     * @Assert\Type("string")
+     * @Type("string")
      * @Assert\Length(
      *   min = 1
      * )
      */
-    protected  $link = null;
+    protected ?string $link = null;
 
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-     *
-     * @var
+     * @var CycleLts|null
      * @SerializedName("lts")
-     * @Assert\Type("AnyType")
-     * @Type("AnyType")
+     * @Assert\Type("OpenAPI\Server\Model\CycleLts")
+     * @Type("OpenAPI\Server\Model\CycleLts")
      */
-    protected  $lts = null;
+    protected ?CycleLts $lts = null;
 
     /**
-     * Whether this release cycle has active support
-     *
-     * @var
+     * @var CycleSupport|null
      * @SerializedName("support")
-     * @Assert\Type("AnyType")
-     * @Type("AnyType")
-     * @Assert\Length(
-     *   max = 10
-     * )
-     * @Assert\Length(
-     *   min = 10
-     * )
+     * @Assert\Type("OpenAPI\Server\Model\CycleSupport")
+     * @Type("OpenAPI\Server\Model\CycleSupport")
      */
-    protected  $support = null;
+    protected ?CycleSupport $support = null;
 
     /**
-     * Whether this cycle is now discontinued.
-     *
-     * @var
+     * @var CycleDiscontinued|null
      * @SerializedName("discontinued")
-     * @Assert\Type("AnyType")
-     * @Type("AnyType")
-     * @Assert\Length(
-     *   max = 10
-     * )
-     * @Assert\Length(
-     *   min = 10
-     * )
+     * @Assert\Type("OpenAPI\Server\Model\CycleDiscontinued")
+     * @Type("OpenAPI\Server\Model\CycleDiscontinued")
      */
-    protected  $discontinued = null;
+    protected ?CycleDiscontinued $discontinued = null;
 
     /**
      * Constructor
@@ -157,34 +133,38 @@ class Cycle
      */
     public function __construct(array $data = null)
     {
-        $this->cycle = $data['cycle'] ?? null;
-        $this->releaseDate = $data['releaseDate'] ?? null;
-        $this->eol = $data['eol'] ?? null;
-        $this->latest = $data['latest'] ?? null;
-        $this->link = $data['link'] ?? null;
-        $this->lts = $data['lts'] ?? null;
-        $this->support = $data['support'] ?? null;
-        $this->discontinued = $data['discontinued'] ?? null;
+        if (is_array($data)) {
+            $this->cycle = array_key_exists('cycle', $data) ? $data['cycle'] : $this->cycle;
+            $this->releaseDate = array_key_exists('releaseDate', $data) ? $data['releaseDate'] : $this->releaseDate;
+            $this->eol = array_key_exists('eol', $data) ? $data['eol'] : $this->eol;
+            $this->latest = array_key_exists('latest', $data) ? $data['latest'] : $this->latest;
+            $this->link = array_key_exists('link', $data) ? $data['link'] : $this->link;
+            $this->lts = array_key_exists('lts', $data) ? $data['lts'] : $this->lts;
+            $this->support = array_key_exists('support', $data) ? $data['support'] : $this->support;
+            $this->discontinued = array_key_exists('discontinued', $data) ? $data['discontinued'] : $this->discontinued;
+        }
     }
 
     /**
      * Gets cycle.
      *
-     * @return
+     * @return CycleCycle|null
      */
-    public function getCycle():
+    public function getCycle(): ?CycleCycle
     {
         return $this->cycle;
     }
 
+
+
     /**
      * Sets cycle.
      *
-     * @param  $cycle  Release Cycle
+     * @param CycleCycle|null $cycle
      *
      * @return $this
      */
-    public function setCycle( $cycle = null): self
+    public function setCycle(?CycleCycle $cycle = null): self
     {
         $this->cycle = $cycle;
 
@@ -194,21 +174,23 @@ class Cycle
     /**
      * Gets releaseDate.
      *
-     * @return
+     * @return \DateTime|null
      */
-    public function getReleaseDate():
+    public function getReleaseDate(): ?\DateTime
     {
         return $this->releaseDate;
     }
 
+
+
     /**
      * Sets releaseDate.
      *
-     * @param  $releaseDate  Release Date for the first release in this cycle
+     * @param \DateTime|null $releaseDate  Release Date for the first release in this cycle
      *
      * @return $this
      */
-    public function setReleaseDate( $releaseDate = null): self
+    public function setReleaseDate(?\DateTime $releaseDate = null): self
     {
         $this->releaseDate = $releaseDate;
 
@@ -218,21 +200,23 @@ class Cycle
     /**
      * Gets eol.
      *
-     * @return
+     * @return CycleEol|null
      */
-    public function getEol():
+    public function getEol(): ?CycleEol
     {
         return $this->eol;
     }
 
+
+
     /**
      * Sets eol.
      *
-     * @param  $eol  End of Life Date for this release cycle
+     * @param CycleEol|null $eol
      *
      * @return $this
      */
-    public function setEol( $eol = null): self
+    public function setEol(?CycleEol $eol = null): self
     {
         $this->eol = $eol;
 
@@ -242,21 +226,23 @@ class Cycle
     /**
      * Gets latest.
      *
-     * @return
+     * @return string|null
      */
-    public function getLatest():
+    public function getLatest(): ?string
     {
         return $this->latest;
     }
 
+
+
     /**
      * Sets latest.
      *
-     * @param  $latest  Latest release in this cycle
+     * @param string|null $latest  Latest release in this cycle
      *
      * @return $this
      */
-    public function setLatest( $latest = null): self
+    public function setLatest(?string $latest = null): self
     {
         $this->latest = $latest;
 
@@ -266,21 +252,23 @@ class Cycle
     /**
      * Gets link.
      *
-     * @return
+     * @return string|null
      */
-    public function getLink():
+    public function getLink(): ?string
     {
         return $this->link;
     }
 
+
+
     /**
      * Sets link.
      *
-     * @param  $link  Link to changelog for the latest release, if available
+     * @param string|null $link  Link to changelog for the latest release, if available
      *
      * @return $this
      */
-    public function setLink( $link = null): self
+    public function setLink(?string $link = null): self
     {
         $this->link = $link;
 
@@ -290,21 +278,23 @@ class Cycle
     /**
      * Gets lts.
      *
-     * @return
+     * @return CycleLts|null
      */
-    public function getLts():
+    public function getLts(): ?CycleLts
     {
         return $this->lts;
     }
 
+
+
     /**
      * Sets lts.
      *
-     * @param  $lts  Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+     * @param CycleLts|null $lts
      *
      * @return $this
      */
-    public function setLts( $lts = null): self
+    public function setLts(?CycleLts $lts = null): self
     {
         $this->lts = $lts;
 
@@ -314,21 +304,23 @@ class Cycle
     /**
      * Gets support.
      *
-     * @return
+     * @return CycleSupport|null
      */
-    public function getSupport():
+    public function getSupport(): ?CycleSupport
     {
         return $this->support;
     }
 
+
+
     /**
      * Sets support.
      *
-     * @param  $support  Whether this release cycle has active support
+     * @param CycleSupport|null $support
      *
      * @return $this
      */
-    public function setSupport( $support = null): self
+    public function setSupport(?CycleSupport $support = null): self
     {
         $this->support = $support;
 
@@ -338,21 +330,23 @@ class Cycle
     /**
      * Gets discontinued.
      *
-     * @return
+     * @return CycleDiscontinued|null
      */
-    public function getDiscontinued():
+    public function getDiscontinued(): ?CycleDiscontinued
     {
         return $this->discontinued;
     }
 
+
+
     /**
      * Sets discontinued.
      *
-     * @param  $discontinued  Whether this cycle is now discontinued.
+     * @param CycleDiscontinued|null $discontinued
      *
      * @return $this
      */
-    public function setDiscontinued( $discontinued = null): self
+    public function setDiscontinued(?CycleDiscontinued $discontinued = null): self
     {
         $this->discontinued = $discontinued;
 

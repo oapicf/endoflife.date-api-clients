@@ -11,7 +11,7 @@ All URIs are relative to *https://endoflife.date*
 
 ## get_api_all_json
 
-> Object get_api_all_json
+> Array&lt;String&gt; get_api_all_json
 
 All Products
 
@@ -38,7 +38,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> get_api_all_json_with_http_info
+> <Array(Array&lt;String&gt;, Integer, Hash)> get_api_all_json_with_http_info
 
 ```ruby
 begin
@@ -46,7 +46,7 @@ begin
   data, status_code, headers = api_instance.get_api_all_json_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => Array&lt;String&gt;
 rescue EndOfLifeDateApiClient::ApiError => e
   puts "Error when calling DefaultApi->get_api_all_json_with_http_info: #{e}"
 end
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+**Array&lt;String&gt;**
 
 ### Authorization
 
@@ -85,8 +85,8 @@ require 'time'
 require 'endoflife_date'
 
 api_instance = EndOfLifeDateApiClient::DefaultApi.new
-product = TODO # Object | Product URL as per the canonical URL on the endofife.date website
-cycle = TODO # Object | Release Cycle for which the details must be fetched
+product = 'product_example' # String | Product URL as per the canonical URL on the endofife.date website
+cycle = 'cycle_example' # String | Release Cycle for which the details must be fetched
 
 begin
   # Single cycle details
@@ -119,8 +119,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **product** | [**Object**](.md) | Product URL as per the canonical URL on the endofife.date website |  |
-| **cycle** | [**Object**](.md) | Release Cycle for which the details must be fetched |  |
+| **product** | **String** | Product URL as per the canonical URL on the endofife.date website |  |
+| **cycle** | **String** | Release Cycle for which the details must be fetched |  |
 
 ### Return type
 
@@ -138,7 +138,7 @@ No authorization required
 
 ## get_api_product_json
 
-> Object get_api_product_json(product)
+> <Array<Cycle>> get_api_product_json(product)
 
 Get All Details
 
@@ -151,7 +151,7 @@ require 'time'
 require 'endoflife_date'
 
 api_instance = EndOfLifeDateApiClient::DefaultApi.new
-product = TODO # Object | Product URL as per the canonical URL on the endofife.date website
+product = 'product_example' # String | Product URL as per the canonical URL on the endofife.date website
 
 begin
   # Get All Details
@@ -166,7 +166,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> get_api_product_json_with_http_info(product)
+> <Array(<Array<Cycle>>, Integer, Hash)> get_api_product_json_with_http_info(product)
 
 ```ruby
 begin
@@ -174,7 +174,7 @@ begin
   data, status_code, headers = api_instance.get_api_product_json_with_http_info(product)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <Array<Cycle>>
 rescue EndOfLifeDateApiClient::ApiError => e
   puts "Error when calling DefaultApi->get_api_product_json_with_http_info: #{e}"
 end
@@ -184,11 +184,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **product** | [**Object**](.md) | Product URL as per the canonical URL on the endofife.date website |  |
+| **product** | **String** | Product URL as per the canonical URL on the endofife.date website |  |
 
 ### Return type
 
-**Object**
+[**Array&lt;Cycle&gt;**](Cycle.md)
 
 ### Authorization
 

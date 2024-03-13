@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## getApiAllJson
 
-> Object getApiAllJson()
+> [String] getApiAllJson()
 
 All Products
 
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Object**
+**[String]**
 
 ### Authorization
 
@@ -65,8 +65,8 @@ Gets details of a single cycle
 import EndoflifeDate from 'endoflife-date';
 
 let apiInstance = new EndoflifeDate.DefaultApi();
-let product = null; // Object | Product URL as per the canonical URL on the endofife.date website
-let cycle = null; // Object | Release Cycle for which the details must be fetched
+let product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website
+let cycle = "cycle_example"; // String | Release Cycle for which the details must be fetched
 apiInstance.getApiProductCycleJson(product, cycle, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -81,8 +81,8 @@ apiInstance.getApiProductCycleJson(product, cycle, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**Object**](.md)| Product URL as per the canonical URL on the endofife.date website | 
- **cycle** | [**Object**](.md)| Release Cycle for which the details must be fetched | 
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
+ **cycle** | **String**| Release Cycle for which the details must be fetched | 
 
 ### Return type
 
@@ -100,7 +100,7 @@ No authorization required
 
 ## getApiProductJson
 
-> Object getApiProductJson(product)
+> [Cycle] getApiProductJson(product)
 
 Get All Details
 
@@ -112,7 +112,7 @@ Get EoL dates of all cycles of a given product.
 import EndoflifeDate from 'endoflife-date';
 
 let apiInstance = new EndoflifeDate.DefaultApi();
-let product = null; // Object | Product URL as per the canonical URL on the endofife.date website
+let product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website
 apiInstance.getApiProductJson(product, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -127,11 +127,11 @@ apiInstance.getApiProductJson(product, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**Object**](.md)| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
 
 ### Return type
 
-**Object**
+[**[Cycle]**](Cycle.md)
 
 ### Authorization
 

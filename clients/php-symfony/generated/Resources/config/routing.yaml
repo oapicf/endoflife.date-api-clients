@@ -15,6 +15,8 @@ open_api_server_default_getapiproductcyclejson:
     defaults:
         _controller: open_api_server.controller.default::getApiProductCycleJsonAction
     requirements:
+        product: '[a-z0-9]+'
+        cycle: '[a-z0-9]+'
 
 open_api_server_default_getapiproductjson:
     path:     /api/{product}.json
@@ -22,4 +24,5 @@ open_api_server_default_getapiproductjson:
     defaults:
         _controller: open_api_server.controller.default::getApiProductJsonAction
     requirements:
+        product: '[a-z0-9]+'
 

@@ -33,7 +33,7 @@ namespace OpenAPI {
 class OAIApiRequestHandler : public  QHttpEngine::QObjectHandler
 {
     Q_OBJECT
-signals:
+Q_SIGNALS:
     void requestReceived(QHttpEngine::Socket *socket);
 
 protected:
@@ -43,10 +43,10 @@ protected:
         // If the slot requires all data to be received, check to see if this is
         // already the case, otherwise, wait until the rest of it arrives
         if (socket->bytesAvailable() >= socket->contentLength()) {
-            emit requestReceived(socket);
+            Q_EMIT requestReceived(socket);
         } else {
             connect(socket, &QHttpEngine::Socket::readChannelFinished, [this, socket]() {
-                emit requestReceived(socket);
+                Q_EMIT requestReceived(socket);
             });
         }
     }
@@ -61,7 +61,7 @@ public:
 
     void setUpRoutes();
     void processRequest(QHttpEngine::Socket *socket);
-
+    
     void setOAIDefaultApiHandler(QSharedPointer<OAIDefaultApiHandler> handler);
 private:
     QMap<QString, std::function<void(QHttpEngine::Socket *)>> Routes;
@@ -70,7 +70,7 @@ private:
     bool handleRequest(QHttpEngine::Socket *socket);
     bool handleRequestAndExtractPathParam(QHttpEngine::Socket *socket);
 
-
+    
     QSharedPointer<OAIDefaultApiHandler> mOAIDefaultApiHandler;
 protected:
     // override this method to provide custom class derived from ApiHandler classes

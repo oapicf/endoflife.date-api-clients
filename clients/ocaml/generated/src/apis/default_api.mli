@@ -5,6 +5,6 @@
  *
  *)
 
-val get_api_all_json : unit -> Any_type.t Lwt.t
-val get_api_product_cycle_json : product:Any_type.t -> cycle:Any_type.t -> Cycle.t Lwt.t
-val get_api_product_json : product:Any_type.t -> Any_type.t Lwt.t
+val get_api_all_json : unit -> string list Lwt.t
+val get_api_product_cycle_json : product:string -> cycle:string -> Cycle.t Lwt.t
+val get_api_product_json : product:string -> Cycle.t list Lwt.t

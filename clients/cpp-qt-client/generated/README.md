@@ -1,10 +1,11 @@
 # C++ Qt API client
 
-#
+# 
 
 endoflife.date
 
 - API version: 0.0.1
+- Generator version: 7.4.0
 
 Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 
@@ -33,7 +34,7 @@ using namespace test_namespace;
 
 class Example : public QObject {
     Q_OBJECT
-public slots:
+public Q_SLOTS:
    void exampleFunction1();
 };
 

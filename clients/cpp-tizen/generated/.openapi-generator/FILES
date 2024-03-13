@@ -4,6 +4,16 @@ doc/README.md
 doc/generateDocumentation.sh
 src/Cycle.cpp
 src/Cycle.h
+src/CycleCycle.cpp
+src/CycleCycle.h
+src/CycleDiscontinued.cpp
+src/CycleDiscontinued.h
+src/CycleEol.cpp
+src/CycleEol.h
+src/CycleLts.cpp
+src/CycleLts.h
+src/CycleSupport.cpp
+src/CycleSupport.h
 src/DefaultManager.cpp
 src/DefaultManager.h
 src/Error.cpp

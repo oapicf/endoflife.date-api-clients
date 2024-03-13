@@ -5,6 +5,11 @@ app/api/DefaultApi.scala
 app/api/DefaultApiController.scala
 app/api/DefaultApiImpl.scala
 app/model/Cycle.scala
+app/model/CycleCycle.scala
+app/model/CycleDiscontinued.scala
+app/model/CycleEol.scala
+app/model/CycleLts.scala
+app/model/CycleSupport.scala
 app/org/openapitools/ErrorHandler.scala
 app/org/openapitools/Module.scala
 app/org/openapitools/OpenApiExceptions.scala

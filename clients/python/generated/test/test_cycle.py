@@ -14,11 +14,8 @@
 
 
 import unittest
-import datetime
 
-import endoflifedate
-from endoflifedate.models.cycle import Cycle  # noqa: E501
-from endoflifedate.rest import ApiException
+from endoflifedate.models.cycle import Cycle
 
 class TestCycle(unittest.TestCase):
     """Cycle unit test stubs"""
@@ -29,26 +26,26 @@ class TestCycle(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional):
+    def make_instance(self, include_optional) -> Cycle:
         """Test Cycle
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Cycle`
         """
-        model = endoflifedate.models.cycle.Cycle()  # noqa: E501
-        if include_optional :
+        model = Cycle()
+        if include_optional:
             return Cycle(
                 cycle = None,
-                release_date = None,
+                release_date = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(),
                 eol = None,
-                latest = None,
-                link = None,
+                latest = '0',
+                link = '0',
                 lts = None,
                 support = None,
                 discontinued = None
             )
-        else :
+        else:
             return Cycle(
         )
         """

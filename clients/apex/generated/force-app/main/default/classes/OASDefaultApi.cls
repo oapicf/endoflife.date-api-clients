@@ -28,14 +28,14 @@ public class OASDefaultApi {
     /**
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
-     * @return oas_any_type_not_mapped
+     * @return List<String>
      * @throws OAS.ApiException if fails to make API call
      */
-    public oas_any_type_not_mapped getApiAllJson() {
+    public List<String> getApiAllJson() {
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (oas_any_type_not_mapped) client.invoke(
+        return (List<String>) client.invoke(
             'GET', '/api/all.json', '',
             query, form,
             new Map<String, Object>(),
@@ -43,7 +43,7 @@ public class OASDefaultApi {
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            oas_any_type_not_mapped.class
+            List<String>.class
         );
     }
     /**
@@ -64,8 +64,8 @@ public class OASDefaultApi {
             'GET', '/api/{product}/{cycle}.json', '',
             query, form,
             new Map<String, Object>{
-                'product' => (oas_any_type_not_mapped) params.get('product'),
-                'cycle' => (oas_any_type_not_mapped) params.get('cycle')
+                'product' => (String) params.get('product'),
+                'cycle' => (String) params.get('cycle')
             },
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
@@ -78,25 +78,25 @@ public class OASDefaultApi {
      * Get All Details
      * Get EoL dates of all cycles of a given product.
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @return oas_any_type_not_mapped
+     * @return List<OASCycle>
      * @throws OAS.ApiException if fails to make API call
      */
-    public oas_any_type_not_mapped getApiProductJson(Map<String, Object> params) {
+    public List<OASCycle> getApiProductJson(Map<String, Object> params) {
         client.assertNotNull(params.get('product'), 'product');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (oas_any_type_not_mapped) client.invoke(
+        return (List<OASCycle>) client.invoke(
             'GET', '/api/{product}.json', '',
             query, form,
             new Map<String, Object>{
-                'product' => (oas_any_type_not_mapped) params.get('product')
+                'product' => (String) params.get('product')
             },
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            oas_any_type_not_mapped.class
+            List<OASCycle>.class
         );
     }
 }

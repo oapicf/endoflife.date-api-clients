@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## get_api_all_period_json
 
-> serde_json::Value get_api_all_period_json()
+> Vec<String> get_api_all_period_json()
 All Products
 
 Return a list of all products. Each of these can be used for the other API endpoints.
@@ -23,7 +23,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+**Vec<String>**
 
 ### Authorization
 
@@ -39,7 +39,7 @@ No authorization required
 
 ## get_api_product_cycle_period_json
 
-> crate::models::Cycle get_api_product_cycle_period_json(product, cycle)
+> models::Cycle get_api_product_cycle_period_json(product, cycle)
 Single cycle details
 
 Gets details of a single cycle
@@ -49,12 +49,12 @@ Gets details of a single cycle
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**product** | [**serde_json::Value**](.md) | Product URL as per the canonical URL on the endofife.date website | [required] |
-**cycle** | [**serde_json::Value**](.md) | Release Cycle for which the details must be fetched | [required] |
+**product** | **String** | Product URL as per the canonical URL on the endofife.date website | [required] |
+**cycle** | **String** | Release Cycle for which the details must be fetched | [required] |
 
 ### Return type
 
-[**crate::models::Cycle**](cycle.md)
+[**models::Cycle**](cycle.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ No authorization required
 
 ## get_api_product_period_json
 
-> serde_json::Value get_api_product_period_json(product)
+> Vec<models::Cycle> get_api_product_period_json(product)
 Get All Details
 
 Get EoL dates of all cycles of a given product.
@@ -80,11 +80,11 @@ Get EoL dates of all cycles of a given product.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**product** | [**serde_json::Value**](.md) | Product URL as per the canonical URL on the endofife.date website | [required] |
+**product** | **String** | Product URL as per the canonical URL on the endofife.date website | [required] |
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**Vec<models::Cycle>**](cycle.md)
 
 ### Authorization
 

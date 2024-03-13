@@ -8,11 +8,11 @@
 
 %% @doc All Products
 %% Return a list of all products. Each of these can be used for the other API endpoints.
--spec get_api_all_json(ctx:ctx()) -> {ok, openapi_any_type:openapi_any_type(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec get_api_all_json(ctx:ctx()) -> {ok, [binary()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 get_api_all_json(Ctx) ->
     get_api_all_json(Ctx, #{}).
 
--spec get_api_all_json(ctx:ctx(), maps:map()) -> {ok, openapi_any_type:openapi_any_type(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec get_api_all_json(ctx:ctx(), maps:map()) -> {ok, [binary()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 get_api_all_json(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
@@ -29,11 +29,11 @@ get_api_all_json(Ctx, Optional) ->
 
 %% @doc Single cycle details
 %% Gets details of a single cycle
--spec get_api_product_cycle_json(ctx:ctx(), openapi_any_type:openapi_any_type(), openapi_any_type:openapi_any_type()) -> {ok, openapi_cycle:openapi_cycle(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec get_api_product_cycle_json(ctx:ctx(), binary(), binary()) -> {ok, openapi_cycle:openapi_cycle(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 get_api_product_cycle_json(Ctx, Product, Cycle) ->
     get_api_product_cycle_json(Ctx, Product, Cycle, #{}).
 
--spec get_api_product_cycle_json(ctx:ctx(), openapi_any_type:openapi_any_type(), openapi_any_type:openapi_any_type(), maps:map()) -> {ok, openapi_cycle:openapi_cycle(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec get_api_product_cycle_json(ctx:ctx(), binary(), binary(), maps:map()) -> {ok, openapi_cycle:openapi_cycle(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 get_api_product_cycle_json(Ctx, Product, Cycle, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),
@@ -50,11 +50,11 @@ get_api_product_cycle_json(Ctx, Product, Cycle, Optional) ->
 
 %% @doc Get All Details
 %% Get EoL dates of all cycles of a given product.
--spec get_api_product_json(ctx:ctx(), openapi_any_type:openapi_any_type()) -> {ok, openapi_any_type:openapi_any_type(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec get_api_product_json(ctx:ctx(), binary()) -> {ok, [openapi_cycle:openapi_cycle()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 get_api_product_json(Ctx, Product) ->
     get_api_product_json(Ctx, Product, #{}).
 
--spec get_api_product_json(ctx:ctx(), openapi_any_type:openapi_any_type(), maps:map()) -> {ok, openapi_any_type:openapi_any_type(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec get_api_product_json(ctx:ctx(), binary(), maps:map()) -> {ok, [openapi_cycle:openapi_cycle()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 get_api_product_json(Ctx, Product, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(openapi_api, config, #{})),

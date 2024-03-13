@@ -5,6 +5,11 @@
 
 module EndoflifeDate.Types (
   Cycle (..),
+  CycleCycle (..),
+  CycleDiscontinued (..),
+  CycleEol (..),
+  CycleLts (..),
+  CycleSupport (..),
   ) where
 
 import ClassyPrelude.Yesod
@@ -21,14 +26,14 @@ import GHC.Generics (Generic)
 
 -- | Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 data Cycle = Cycle
-  { cycleCycle :: Maybe Value -- ^ Release Cycle
-  , cycleReleaseDate :: Maybe Value -- ^ Release Date for the first release in this cycle
-  , cycleEol :: Maybe Value -- ^ End of Life Date for this release cycle
-  , cycleLatest :: Maybe Value -- ^ Latest release in this cycle
-  , cycleLink :: Maybe Value -- ^ Link to changelog for the latest release, if available
-  , cycleLts :: Maybe Value -- ^ Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
-  , cycleSupport :: Maybe Value -- ^ Whether this release cycle has active support
-  , cycleDiscontinued :: Maybe Value -- ^ Whether this cycle is now discontinued.
+  { cycleCycle :: Maybe CycleCycle -- ^ 
+  , cycleReleaseDate :: Maybe Day -- ^ Release Date for the first release in this cycle
+  , cycleEol :: Maybe CycleEol -- ^ 
+  , cycleLatest :: Maybe Text -- ^ Latest release in this cycle
+  , cycleLink :: Maybe Text -- ^ Link to changelog for the latest release, if available
+  , cycleLts :: Maybe CycleLts -- ^ 
+  , cycleSupport :: Maybe CycleSupport -- ^ 
+  , cycleDiscontinued :: Maybe CycleDiscontinued -- ^ 
   } deriving (Show, Eq, Generic)
 
 instance FromJSON Cycle where
@@ -52,5 +57,115 @@ optionsCycle =
       , ("cycleLts", "lts")
       , ("cycleSupport", "support")
       , ("cycleDiscontinued", "discontinued")
+      ]
+
+
+-- | Release Cycle
+data CycleCycle = CycleCycle
+  { 
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON CycleCycle where
+  parseJSON = genericParseJSON optionsCycleCycle
+instance ToJSON CycleCycle where
+  toJSON = genericToJSON optionsCycleCycle
+
+optionsCycleCycle :: Options
+optionsCycleCycle =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ 
+      ]
+
+
+-- | Whether this cycle is now discontinued.
+data CycleDiscontinued = CycleDiscontinued
+  { 
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON CycleDiscontinued where
+  parseJSON = genericParseJSON optionsCycleDiscontinued
+instance ToJSON CycleDiscontinued where
+  toJSON = genericToJSON optionsCycleDiscontinued
+
+optionsCycleDiscontinued :: Options
+optionsCycleDiscontinued =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ 
+      ]
+
+
+-- | End of Life Date for this release cycle
+data CycleEol = CycleEol
+  { 
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON CycleEol where
+  parseJSON = genericParseJSON optionsCycleEol
+instance ToJSON CycleEol where
+  toJSON = genericToJSON optionsCycleEol
+
+optionsCycleEol :: Options
+optionsCycleEol =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ 
+      ]
+
+
+-- | Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+data CycleLts = CycleLts
+  { 
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON CycleLts where
+  parseJSON = genericParseJSON optionsCycleLts
+instance ToJSON CycleLts where
+  toJSON = genericToJSON optionsCycleLts
+
+optionsCycleLts :: Options
+optionsCycleLts =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ 
+      ]
+
+
+-- | Whether this release cycle has active support
+data CycleSupport = CycleSupport
+  { 
+  } deriving (Show, Eq, Generic)
+
+instance FromJSON CycleSupport where
+  parseJSON = genericParseJSON optionsCycleSupport
+instance ToJSON CycleSupport where
+  toJSON = genericToJSON optionsCycleSupport
+
+optionsCycleSupport :: Options
+optionsCycleSupport =
+  defaultOptions
+    { omitNothingFields  = True
+    , fieldLabelModifier = \s -> fromMaybe ("did not find JSON field name for " ++ show s) $ List.lookup s table
+    }
+  where
+    table =
+      [ 
       ]
 

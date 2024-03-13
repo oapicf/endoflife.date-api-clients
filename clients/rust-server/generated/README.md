@@ -14,7 +14,8 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 0.0.1
-- Build date: 2023-09-16T14:48:20.537439Z[Etc/UTC]
+- Build date: 2024-03-13T10:51:44.492408868Z[Etc/UTC]
+- Generator version: 7.4.0
 
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 
@@ -62,6 +63,8 @@ To run a client, follow one of the following simple steps:
 
 ```
 cargo run --example client GetApiAllPeriodJson
+cargo run --example client GetApiProductCyclePeriodJson
+cargo run --example client GetApiProductPeriodJson
 ```
 
 ### HTTPS
@@ -103,6 +106,11 @@ Method | HTTP request | Description
 ## Documentation For Models
 
  - [Cycle](docs/Cycle.md)
+ - [CycleCycle](docs/CycleCycle.md)
+ - [CycleDiscontinued](docs/CycleDiscontinued.md)
+ - [CycleEol](docs/CycleEol.md)
+ - [CycleLts](docs/CycleLts.md)
+ - [CycleSupport](docs/CycleSupport.md)
 
 
 ## Documentation For Authorization

@@ -19,7 +19,6 @@
 #include "OAIOauth.h"
 
 #include "OAICycle.h"
-#include <QJsonValue>
 #include <QString>
 
 #include <QObject>
@@ -62,15 +61,15 @@ public:
     void getApiAll_json();
 
     /**
-    * @param[in]  product QJsonValue [required]
-    * @param[in]  cycle QJsonValue [required]
+    * @param[in]  product QString [required]
+    * @param[in]  cycle QString [required]
     */
-    void getApiProductCycle_json(const QJsonValue &product, const QJsonValue &cycle);
+    void getApiProductCycle_json(const QString &product, const QString &cycle);
 
     /**
-    * @param[in]  product QJsonValue [required]
+    * @param[in]  product QString [required]
     */
-    void getApiProduct_json(const QJsonValue &product);
+    void getApiProduct_json(const QString &product);
 
 
 private:
@@ -99,30 +98,41 @@ private:
     void getApiProductCycle_jsonCallback(OAIHttpRequestWorker *worker);
     void getApiProduct_jsonCallback(OAIHttpRequestWorker *worker);
 
-signals:
+Q_SIGNALS:
 
-    void getApiAll_jsonSignal(QJsonValue summary);
+    void getApiAll_jsonSignal(QList<QString> summary);
     void getApiProductCycle_jsonSignal(OAICycle summary);
-    void getApiProduct_jsonSignal(QJsonValue summary);
+    void getApiProduct_jsonSignal(QList<OAICycle> summary);
 
-    void getApiAll_jsonSignalFull(OAIHttpRequestWorker *worker, QJsonValue summary);
+    void getApiAll_jsonSignalFull(OAIHttpRequestWorker *worker, QList<QString> summary);
     void getApiProductCycle_jsonSignalFull(OAIHttpRequestWorker *worker, OAICycle summary);
-    void getApiProduct_jsonSignalFull(OAIHttpRequestWorker *worker, QJsonValue summary);
+    void getApiProduct_jsonSignalFull(OAIHttpRequestWorker *worker, QList<OAICycle> summary);
 
-    void getApiAll_jsonSignalE(QJsonValue summary, QNetworkReply::NetworkError error_type, QString error_str);
+    Q_DECL_DEPRECATED_X("Use getApiAll_jsonSignalError() instead")
+    void getApiAll_jsonSignalE(QList<QString> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getApiAll_jsonSignalError(QList<QString> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use getApiProductCycle_jsonSignalError() instead")
     void getApiProductCycle_jsonSignalE(OAICycle summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getApiProduct_jsonSignalE(QJsonValue summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getApiProductCycle_jsonSignalError(OAICycle summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use getApiProduct_jsonSignalError() instead")
+    void getApiProduct_jsonSignalE(QList<OAICycle> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getApiProduct_jsonSignalError(QList<OAICycle> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
+    Q_DECL_DEPRECATED_X("Use getApiAll_jsonSignalErrorFull() instead")
     void getApiAll_jsonSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void getApiAll_jsonSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use getApiProductCycle_jsonSignalErrorFull() instead")
     void getApiProductCycle_jsonSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void getApiProductCycle_jsonSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
+    Q_DECL_DEPRECATED_X("Use getApiProduct_jsonSignalErrorFull() instead")
     void getApiProduct_jsonSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void getApiProduct_jsonSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
 
-public slots:
+public Q_SLOTS:
     void tokenAvailable();
-
 };
 
 } // namespace OpenAPI

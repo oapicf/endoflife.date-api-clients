@@ -2,6 +2,11 @@
 README.md
 build.gradle
 docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
 docs/DefaultApi.md
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -27,3 +32,15 @@ src/main/kotlin/org/openapitools/client/infrastructure/Serializer.kt
 src/main/kotlin/org/openapitools/client/infrastructure/URIAdapter.kt
 src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/Cycle.kt
+src/main/kotlin/org/openapitools/client/models/CycleCycle.kt
+src/main/kotlin/org/openapitools/client/models/CycleDiscontinued.kt
+src/main/kotlin/org/openapitools/client/models/CycleEol.kt
+src/main/kotlin/org/openapitools/client/models/CycleLts.kt
+src/main/kotlin/org/openapitools/client/models/CycleSupport.kt
+src/test/kotlin/org/openapitools/client/apis/DefaultApiTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleCycleTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleDiscontinuedTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleEolTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleLtsTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleSupportTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleTest.kt

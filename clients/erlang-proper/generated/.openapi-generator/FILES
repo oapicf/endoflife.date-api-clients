@@ -2,6 +2,11 @@
 README.md
 rebar.config
 src/model/openapi_cycle.erl
+src/model/openapi_cycle_cycle.erl
+src/model/openapi_cycle_discontinued.erl
+src/model/openapi_cycle_eol.erl
+src/model/openapi_cycle_lts.erl
+src/model/openapi_cycle_support.erl
 src/openapi.app.src
 src/openapi.hrl
 src/openapi_api.erl

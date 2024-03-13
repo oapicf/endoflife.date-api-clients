@@ -13,7 +13,7 @@
 /*
 * DefaultApiImpl.h
 *
-*
+* 
 */
 
 #ifndef DEFAULT_API_IMPL_H_
@@ -30,7 +30,8 @@
 
 
 #include "Cycle.h"
-#include <nlohmann/json.hpp>
+#include <string>
+#include <vector>
 
 namespace org::openapitools::server::api
 {
@@ -43,8 +44,8 @@ public:
     ~DefaultApiImpl() override = default;
 
     void get_api_all_json(Pistache::Http::ResponseWriter &response);
-    void get_api_product_cycle_json(const org::openapitools::server::model::nlohmann::json &product, const org::openapitools::server::model::nlohmann::json &cycle, Pistache::Http::ResponseWriter &response);
-    void get_api_product_json(const org::openapitools::server::model::nlohmann::json &product, Pistache::Http::ResponseWriter &response);
+    void get_api_product_cycle_json(const std::string &product, const std::string &cycle, Pistache::Http::ResponseWriter &response);
+    void get_api_product_json(const std::string &product, Pistache::Http::ResponseWriter &response);
 
 };
 

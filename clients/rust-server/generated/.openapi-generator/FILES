@@ -5,6 +5,11 @@ Cargo.toml
 README.md
 api/openapi.yaml
 docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
 docs/default_api.md
 examples/ca.pem
 examples/client/main.rs

@@ -3,7 +3,12 @@ namespace OpenAPI.Model
 open System
 open System.Collections.Generic
 open Newtonsoft.Json
-open OpenAPI.Model.AnyType
+open OpenAPI.Model.CycleCycle
+open OpenAPI.Model.CycleDiscontinued
+open OpenAPI.Model.CycleEol
+open OpenAPI.Model.CycleLts
+open OpenAPI.Model.CycleSupport
+open OpenAPI.Model.string option
 
 module Cycle =
 
@@ -12,21 +17,21 @@ module Cycle =
   [<CLIMutable>]
   type Cycle = {
     [<JsonProperty(PropertyName = "cycle")>]
-    _Cycle : AnyType;
+    _Cycle : CycleCycle;
     [<JsonProperty(PropertyName = "releaseDate")>]
-    ReleaseDate : AnyType;
+    ReleaseDate : DateTime;
     [<JsonProperty(PropertyName = "eol")>]
-    Eol : AnyType;
+    Eol : CycleEol;
     [<JsonProperty(PropertyName = "latest")>]
-    Latest : AnyType;
+    Latest : string;
     [<JsonProperty(PropertyName = "link")>]
-    Link : AnyType;
+    Link : string option;
     [<JsonProperty(PropertyName = "lts")>]
-    Lts : AnyType;
+    Lts : CycleLts;
     [<JsonProperty(PropertyName = "support")>]
-    Support : AnyType;
+    Support : CycleSupport;
     [<JsonProperty(PropertyName = "discontinued")>]
-    Discontinued : AnyType;
+    Discontinued : CycleDiscontinued;
   }
 
   //#endregion

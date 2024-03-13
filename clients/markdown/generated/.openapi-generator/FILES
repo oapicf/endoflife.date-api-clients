@@ -1,4 +1,9 @@
 .openapi-generator-ignore
 Apis/DefaultApi.md
 Models/cycle.md
+Models/cycle_cycle.md
+Models/cycle_discontinued.md
+Models/cycle_eol.md
+Models/cycle_lts.md
+Models/cycle_support.md
 README.md

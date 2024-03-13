@@ -5,8 +5,15 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.time.LocalDate;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.model.CycleCycle;
+import org.openapitools.model.CycleDiscontinued;
+import org.openapitools.model.CycleEol;
+import org.openapitools.model.CycleLts;
+import org.openapitools.model.CycleSupport;
+import org.springframework.format.annotation.DateTimeFormat;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -24,47 +31,48 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle", description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-09-16T14:49:22.867918Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-03-13T10:53:08.381750598Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class Cycle {
 
-  private JsonNullable<Object> cycle = JsonNullable.undefined();
+  private CycleCycle cycle;
 
-  private JsonNullable<Object> releaseDate = JsonNullable.undefined();
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  private LocalDate releaseDate;
 
-  private JsonNullable<Object> eol = JsonNullable.undefined();
+  private CycleEol eol;
 
-  private JsonNullable<Object> latest = JsonNullable.undefined();
+  private String latest;
 
-  private JsonNullable<Object> link = JsonNullable.undefined();
+  private JsonNullable<@Size(min = 1) String> link = JsonNullable.<String>undefined();
 
-  private JsonNullable<Object> lts = JsonNullable.undefined();
+  private CycleLts lts;
 
-  private JsonNullable<Object> support = JsonNullable.undefined();
+  private CycleSupport support;
 
-  private JsonNullable<Object> discontinued = JsonNullable.undefined();
+  private CycleDiscontinued discontinued;
 
-  public Cycle cycle(Object cycle) {
-    this.cycle = JsonNullable.of(cycle);
+  public Cycle cycle(CycleCycle cycle) {
+    this.cycle = cycle;
     return this;
   }
 
   /**
-   * Release Cycle
+   * Get cycle
    * @return cycle
   */
-  
-  @Schema(name = "cycle", description = "Release Cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Valid 
+  @Schema(name = "cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("cycle")
-  public JsonNullable<Object> getCycle() {
+  public CycleCycle getCycle() {
     return cycle;
   }
 
-  public void setCycle(JsonNullable<Object> cycle) {
+  public void setCycle(CycleCycle cycle) {
     this.cycle = cycle;
   }
 
-  public Cycle releaseDate(Object releaseDate) {
-    this.releaseDate = JsonNullable.of(releaseDate);
+  public Cycle releaseDate(LocalDate releaseDate) {
+    this.releaseDate = releaseDate;
     return this;
   }
 
@@ -72,39 +80,39 @@ public class Cycle {
    * Release Date for the first release in this cycle
    * @return releaseDate
   */
-  @Size(min = 10, max = 10) 
+  @Valid @Size(min = 10, max = 10) 
   @Schema(name = "releaseDate", description = "Release Date for the first release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseDate")
-  public JsonNullable<Object> getReleaseDate() {
+  public LocalDate getReleaseDate() {
     return releaseDate;
   }
 
-  public void setReleaseDate(JsonNullable<Object> releaseDate) {
+  public void setReleaseDate(LocalDate releaseDate) {
     this.releaseDate = releaseDate;
   }
 
-  public Cycle eol(Object eol) {
-    this.eol = JsonNullable.of(eol);
+  public Cycle eol(CycleEol eol) {
+    this.eol = eol;
     return this;
   }
 
   /**
-   * End of Life Date for this release cycle
+   * Get eol
    * @return eol
   */
-  @Size(min = 1) 
-  @Schema(name = "eol", description = "End of Life Date for this release cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Valid 
+  @Schema(name = "eol", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("eol")
-  public JsonNullable<Object> getEol() {
+  public CycleEol getEol() {
     return eol;
   }
 
-  public void setEol(JsonNullable<Object> eol) {
+  public void setEol(CycleEol eol) {
     this.eol = eol;
   }
 
-  public Cycle latest(Object latest) {
-    this.latest = JsonNullable.of(latest);
+  public Cycle latest(String latest) {
+    this.latest = latest;
     return this;
   }
 
@@ -115,15 +123,15 @@ public class Cycle {
   @Size(min = 1) 
   @Schema(name = "latest", description = "Latest release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("latest")
-  public JsonNullable<Object> getLatest() {
+  public String getLatest() {
     return latest;
   }
 
-  public void setLatest(JsonNullable<Object> latest) {
+  public void setLatest(String latest) {
     this.latest = latest;
   }
 
-  public Cycle link(Object link) {
+  public Cycle link(String link) {
     this.link = JsonNullable.of(link);
     return this;
   }
@@ -135,71 +143,71 @@ public class Cycle {
   @Size(min = 1) 
   @Schema(name = "link", description = "Link to changelog for the latest release, if available", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("link")
-  public JsonNullable<Object> getLink() {
+  public JsonNullable<@Size(min = 1) String> getLink() {
     return link;
   }
 
-  public void setLink(JsonNullable<Object> link) {
+  public void setLink(JsonNullable<String> link) {
     this.link = link;
   }
 
-  public Cycle lts(Object lts) {
-    this.lts = JsonNullable.of(lts);
+  public Cycle lts(CycleLts lts) {
+    this.lts = lts;
     return this;
   }
 
   /**
-   * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+   * Get lts
    * @return lts
   */
-  
-  @Schema(name = "lts", description = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Valid 
+  @Schema(name = "lts", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("lts")
-  public JsonNullable<Object> getLts() {
+  public CycleLts getLts() {
     return lts;
   }
 
-  public void setLts(JsonNullable<Object> lts) {
+  public void setLts(CycleLts lts) {
     this.lts = lts;
   }
 
-  public Cycle support(Object support) {
-    this.support = JsonNullable.of(support);
+  public Cycle support(CycleSupport support) {
+    this.support = support;
     return this;
   }
 
   /**
-   * Whether this release cycle has active support
+   * Get support
    * @return support
   */
-  @Size(min = 10, max = 10) 
-  @Schema(name = "support", description = "Whether this release cycle has active support", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Valid 
+  @Schema(name = "support", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("support")
-  public JsonNullable<Object> getSupport() {
+  public CycleSupport getSupport() {
     return support;
   }
 
-  public void setSupport(JsonNullable<Object> support) {
+  public void setSupport(CycleSupport support) {
     this.support = support;
   }
 
-  public Cycle discontinued(Object discontinued) {
-    this.discontinued = JsonNullable.of(discontinued);
+  public Cycle discontinued(CycleDiscontinued discontinued) {
+    this.discontinued = discontinued;
     return this;
   }
 
   /**
-   * Whether this cycle is now discontinued.
+   * Get discontinued
    * @return discontinued
   */
-  @Size(min = 10, max = 10) 
-  @Schema(name = "discontinued", description = "Whether this cycle is now discontinued.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Valid 
+  @Schema(name = "discontinued", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("discontinued")
-  public JsonNullable<Object> getDiscontinued() {
+  public CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
 
-  public void setDiscontinued(JsonNullable<Object> discontinued) {
+  public void setDiscontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 
@@ -212,14 +220,14 @@ public class Cycle {
       return false;
     }
     Cycle cycle = (Cycle) o;
-    return equalsNullable(this.cycle, cycle.cycle) &&
-        equalsNullable(this.releaseDate, cycle.releaseDate) &&
-        equalsNullable(this.eol, cycle.eol) &&
-        equalsNullable(this.latest, cycle.latest) &&
+    return Objects.equals(this.cycle, cycle.cycle) &&
+        Objects.equals(this.releaseDate, cycle.releaseDate) &&
+        Objects.equals(this.eol, cycle.eol) &&
+        Objects.equals(this.latest, cycle.latest) &&
         equalsNullable(this.link, cycle.link) &&
-        equalsNullable(this.lts, cycle.lts) &&
-        equalsNullable(this.support, cycle.support) &&
-        equalsNullable(this.discontinued, cycle.discontinued);
+        Objects.equals(this.lts, cycle.lts) &&
+        Objects.equals(this.support, cycle.support) &&
+        Objects.equals(this.discontinued, cycle.discontinued);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -228,7 +236,7 @@ public class Cycle {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(cycle), hashCodeNullable(releaseDate), hashCodeNullable(eol), hashCodeNullable(latest), hashCodeNullable(link), hashCodeNullable(lts), hashCodeNullable(support), hashCodeNullable(discontinued));
+    return Objects.hash(cycle, releaseDate, eol, latest, hashCodeNullable(link), lts, support, discontinued);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

@@ -33,7 +33,7 @@ class TestDefaultController(BaseTestCase):
             'Accept': 'application/json',
         }
         response = self.client.open(
-            '/api/{product}/{cycle_jso}'.format(product=None, cycle=None),
+            '/api/{product}/{cycle_jso}'.format(product='product_example', cycle='cycle_example'),
             method='GET',
             headers=headers)
         self.assert200(response,
@@ -48,7 +48,7 @@ class TestDefaultController(BaseTestCase):
             'Accept': 'application/json',
         }
         response = self.client.open(
-            '/api/{product_jso}'.format(product=None),
+            '/api/{product_jso}'.format(product='product_example'),
             method='GET',
             headers=headers)
         self.assert200(response,

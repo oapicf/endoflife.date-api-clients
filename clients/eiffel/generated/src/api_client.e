@@ -29,7 +29,7 @@ feature {NONE} -- Initialization
 				--set default user_agent
 			set_user_agent("OpenAPI-Generator//Eiffel");
 
-			create authentications.make (3)
+			create authentications.make (3) 
 		end
 
 feature -- Access

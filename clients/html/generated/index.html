@@ -217,12 +217,15 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-
-      oas_any_type_not_mapped
+      
+      array[String]
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -234,7 +237,7 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+        
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="getApiProduct.json"/>
@@ -258,12 +261,33 @@ font-style: italic;
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-
-      oas_any_type_not_mapped
+      array[<a href="#cycle">cycle</a>]
+      
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
 
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "eol" : "cycle_eol",
+  "releaseDate" : "2000-01-23",
+  "link" : "link",
+  "lts" : true,
+  "discontinued" : "cycle_discontinued",
+  "cycle" : 0.8008281904610115,
+  "support" : "cycle_support",
+  "latest" : "latest"
+}, {
+  "eol" : "cycle_eol",
+  "releaseDate" : "2000-01-23",
+  "link" : "link",
+  "lts" : true,
+  "discontinued" : "cycle_discontinued",
+  "cycle" : 0.8008281904610115,
+  "support" : "cycle_support",
+  "latest" : "latest"
+} ]</code></pre>
 
     <h3 class="field-label">Produces</h3>
     This API call produces the following media types according to the <span class="header">Accept</span> request header;
@@ -275,7 +299,7 @@ font-style: italic;
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#oas_any_type_not_mapped">oas_any_type_not_mapped</a>
+        
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="getApiProductCycle.json"/>
@@ -302,7 +326,7 @@ font-style: italic;
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
       <a href="#cycle">cycle</a>
-
+      
     </div>
 
     <!--Todo: process Response Object and its headers, schema, examples -->
@@ -310,14 +334,14 @@ font-style: italic;
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "eol" : "",
-  "releaseDate" : "",
-  "link" : "",
-  "lts" : "",
-  "discontinued" : "",
-  "cycle" : "",
-  "support" : "",
-  "latest" : ""
+  "eol" : "cycle_eol",
+  "releaseDate" : "2000-01-23",
+  "link" : "link",
+  "lts" : true,
+  "discontinued" : "cycle_discontinued",
+  "cycle" : 0.8008281904610115,
+  "support" : "cycle_support",
+  "latest" : "latest"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -340,21 +364,56 @@ font-style: italic;
   <h3>Table of Contents</h3>
   <ol>
     <li><a href="#cycle"><code>cycle</code> - Cycle</a></li>
+    <li><a href="#cycle_cycle"><code>cycle_cycle</code> - </a></li>
+    <li><a href="#cycle_discontinued"><code>cycle_discontinued</code> - </a></li>
+    <li><a href="#cycle_eol"><code>cycle_eol</code> - </a></li>
+    <li><a href="#cycle_lts"><code>cycle_lts</code> - </a></li>
+    <li><a href="#cycle_support"><code>cycle_support</code> - </a></li>
   </ol>
 
   <div class="model">
     <h3><a name="cycle"><code>cycle</code> - Cycle</a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'>Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.</div>
     <div class="field-items">
-      <div class="param">cycle (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> Release Cycle </div>
-<div class="param">releaseDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> Release Date for the first release in this cycle format: date</div>
-<div class="param">eol (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> End of Life Date for this release cycle </div>
-<div class="param">latest (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> Latest release in this cycle </div>
-<div class="param">link (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> Link to changelog for the latest release, if available </div>
-<div class="param">lts (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. </div>
-<div class="param">support (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> Whether this release cycle has active support format: date</div>
-<div class="param">discontinued (optional)</div><div class="param-desc"><span class="param-type"><a href="#">oas_any_type_not_mapped</a></span> Whether this cycle is now discontinued. format: date</div>
+      <div class="param">cycle (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_cycle">cycle_cycle</a></span>  </div>
+<div class="param">releaseDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Release Date for the first release in this cycle format: date</div>
+<div class="param">eol (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_eol">cycle_eol</a></span>  </div>
+<div class="param">latest (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Latest release in this cycle </div>
+<div class="param">link (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to changelog for the latest release, if available </div>
+<div class="param">lts (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_lts">cycle_lts</a></span>  </div>
+<div class="param">support (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_support">cycle_support</a></span>  </div>
+<div class="param">discontinued (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_discontinued">cycle_discontinued</a></span>  </div>
     </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="cycle_cycle"><code>cycle_cycle</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Release Cycle</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="cycle_discontinued"><code>cycle_discontinued</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Whether this cycle is now discontinued.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="cycle_eol"><code>cycle_eol</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>End of Life Date for this release cycle</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="cycle_lts"><code>cycle_lts</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="cycle_support"><code>cycle_support</code> - </a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>Whether this release cycle has active support</div>
+    <div class="field-items">
+          </div>  <!-- field-items -->
   </div>
   </body>
 </html>

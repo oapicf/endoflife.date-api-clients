@@ -7,3 +7,8 @@ src/main/scala/org/openapitools/server/MultipartDirectives.scala
 src/main/scala/org/openapitools/server/StringDirectives.scala
 src/main/scala/org/openapitools/server/api/DefaultApi.scala
 src/main/scala/org/openapitools/server/model/Cycle.scala
+src/main/scala/org/openapitools/server/model/CycleCycle.scala
+src/main/scala/org/openapitools/server/model/CycleDiscontinued.scala
+src/main/scala/org/openapitools/server/model/CycleEol.scala
+src/main/scala/org/openapitools/server/model/CycleLts.scala
+src/main/scala/org/openapitools/server/model/CycleSupport.scala

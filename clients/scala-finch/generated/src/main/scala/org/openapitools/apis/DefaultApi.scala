@@ -3,8 +3,8 @@ package org.openapitools.apis
 import java.io._
 import org.openapitools._
 import org.openapitools.models._
-import org.openapitools.models.AnyType
 import org.openapitools.models.Cycle
+import scala.collection.immutable.Seq
 import io.finch.circe._
 import io.circe.generic.semiauto._
 import com.twitter.concurrent.AsyncStream
@@ -52,9 +52,9 @@ object DefaultApi {
 
         /**
         * 
-        * @return An endpoint representing a AnyType
+        * @return An endpoint representing a Seq[String]
         */
-        private def getApiAll.json(da: DataAccessor): Endpoint[AnyType] =
+        private def getApiAll.json(da: DataAccessor): Endpoint[Seq[String]] =
         get("api" :: "all.json") { () =>
           da.Default_getApiAll.json() match {
             case Left(error) => checkError(error)
@@ -66,10 +66,10 @@ object DefaultApi {
 
         /**
         * 
-        * @return An endpoint representing a AnyType
+        * @return An endpoint representing a Seq[Cycle]
         */
-        private def getApiProduct.json(da: DataAccessor): Endpoint[AnyType] =
-        get("api" :: "{product}.json") { (product: AnyType) =>
+        private def getApiProduct.json(da: DataAccessor): Endpoint[Seq[Cycle]] =
+        get("api" :: "{product}.json") { (product: String) =>
           da.Default_getApiProduct.json(product) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
@@ -83,7 +83,7 @@ object DefaultApi {
         * @return An endpoint representing a Cycle
         */
         private def getApiProductCycle.json(da: DataAccessor): Endpoint[Cycle] =
-        get("api" :: anytype :: "{cycle}.json") { (product: AnyType, cycle: AnyType) =>
+        get("api" :: string :: "{cycle}.json") { (product: String, cycle: String) =>
           da.Default_getApiProductCycle.json(product, cycle) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)

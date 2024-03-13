@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface DefaultApi  {
-    Future<ApiResponse<Object>> getApiAllJson();
-    Future<ApiResponse<Cycle>> getApiProductCycleJson(Object product, Object cycle);
-    Future<ApiResponse<Object>> getApiProductJson(Object product);
+    Future<ApiResponse<List<String>>> getApiAllJson();
+    Future<ApiResponse<Cycle>> getApiProductCycleJson(String product, String cycle);
+    Future<ApiResponse<List<Cycle>>> getApiProductJson(String product);
 }

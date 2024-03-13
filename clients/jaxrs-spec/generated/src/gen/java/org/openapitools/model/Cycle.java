@@ -3,7 +3,13 @@ package org.openapitools.model;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.joda.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.model.CycleCycle;
+import org.openapitools.model.CycleDiscontinued;
+import org.openapitools.model.CycleEol;
+import org.openapitools.model.CycleLts;
+import org.openapitools.model.CycleSupport;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
@@ -19,41 +25,40 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
  **/
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2023-09-16T14:44:10.332276Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-03-13T10:46:08.093775940Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class Cycle   {
-  private @Valid Object cycle = null;
-  private @Valid Object releaseDate = null;
-  private @Valid Object eol = null;
-  private @Valid Object latest = null;
-  private @Valid Object link = null;
-  private @Valid Object lts = null;
-  private @Valid Object support = null;
-  private @Valid Object discontinued = null;
+  private @Valid CycleCycle cycle;
+  private @Valid LocalDate releaseDate;
+  private @Valid CycleEol eol;
+  private @Valid String latest;
+  private @Valid String link;
+  private @Valid CycleLts lts;
+  private @Valid CycleSupport support;
+  private @Valid CycleDiscontinued discontinued;
 
   /**
-   * Release Cycle
    **/
-  public Cycle cycle(Object cycle) {
+  public Cycle cycle(CycleCycle cycle) {
     this.cycle = cycle;
     return this;
   }
 
   
-  @ApiModelProperty(value = "Release Cycle")
+  @ApiModelProperty(value = "")
   @JsonProperty("cycle")
-  public Object getCycle() {
+  public CycleCycle getCycle() {
     return cycle;
   }
 
   @JsonProperty("cycle")
-  public void setCycle(Object cycle) {
+  public void setCycle(CycleCycle cycle) {
     this.cycle = cycle;
   }
 
   /**
    * Release Date for the first release in this cycle
    **/
-  public Cycle releaseDate(Object releaseDate) {
+  public Cycle releaseDate(LocalDate releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
@@ -61,39 +66,38 @@ public class Cycle   {
   
   @ApiModelProperty(value = "Release Date for the first release in this cycle")
   @JsonProperty("releaseDate")
- @Size(min=10,max=10)  public Object getReleaseDate() {
+ @Size(min=10,max=10)  public LocalDate getReleaseDate() {
     return releaseDate;
   }
 
   @JsonProperty("releaseDate")
-  public void setReleaseDate(Object releaseDate) {
+  public void setReleaseDate(LocalDate releaseDate) {
     this.releaseDate = releaseDate;
   }
 
   /**
-   * End of Life Date for this release cycle
    **/
-  public Cycle eol(Object eol) {
+  public Cycle eol(CycleEol eol) {
     this.eol = eol;
     return this;
   }
 
   
-  @ApiModelProperty(value = "End of Life Date for this release cycle")
+  @ApiModelProperty(value = "")
   @JsonProperty("eol")
- @Size(min=1)  public Object getEol() {
+  public CycleEol getEol() {
     return eol;
   }
 
   @JsonProperty("eol")
-  public void setEol(Object eol) {
+  public void setEol(CycleEol eol) {
     this.eol = eol;
   }
 
   /**
    * Latest release in this cycle
    **/
-  public Cycle latest(Object latest) {
+  public Cycle latest(String latest) {
     this.latest = latest;
     return this;
   }
@@ -101,19 +105,19 @@ public class Cycle   {
   
   @ApiModelProperty(value = "Latest release in this cycle")
   @JsonProperty("latest")
- @Size(min=1)  public Object getLatest() {
+ @Size(min=1)  public String getLatest() {
     return latest;
   }
 
   @JsonProperty("latest")
-  public void setLatest(Object latest) {
+  public void setLatest(String latest) {
     this.latest = latest;
   }
 
   /**
    * Link to changelog for the latest release, if available
    **/
-  public Cycle link(Object link) {
+  public Cycle link(String link) {
     this.link = link;
     return this;
   }
@@ -121,72 +125,69 @@ public class Cycle   {
   
   @ApiModelProperty(value = "Link to changelog for the latest release, if available")
   @JsonProperty("link")
- @Size(min=1)  public Object getLink() {
+ @Size(min=1)  public String getLink() {
     return link;
   }
 
   @JsonProperty("link")
-  public void setLink(Object link) {
+  public void setLink(String link) {
     this.link = link;
   }
 
   /**
-   * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
    **/
-  public Cycle lts(Object lts) {
+  public Cycle lts(CycleLts lts) {
     this.lts = lts;
     return this;
   }
 
   
-  @ApiModelProperty(value = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
+  @ApiModelProperty(value = "")
   @JsonProperty("lts")
-  public Object getLts() {
+  public CycleLts getLts() {
     return lts;
   }
 
   @JsonProperty("lts")
-  public void setLts(Object lts) {
+  public void setLts(CycleLts lts) {
     this.lts = lts;
   }
 
   /**
-   * Whether this release cycle has active support
    **/
-  public Cycle support(Object support) {
+  public Cycle support(CycleSupport support) {
     this.support = support;
     return this;
   }
 
   
-  @ApiModelProperty(value = "Whether this release cycle has active support")
+  @ApiModelProperty(value = "")
   @JsonProperty("support")
- @Size(min=10,max=10)  public Object getSupport() {
+  public CycleSupport getSupport() {
     return support;
   }
 
   @JsonProperty("support")
-  public void setSupport(Object support) {
+  public void setSupport(CycleSupport support) {
     this.support = support;
   }
 
   /**
-   * Whether this cycle is now discontinued.
    **/
-  public Cycle discontinued(Object discontinued) {
+  public Cycle discontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
     return this;
   }
 
   
-  @ApiModelProperty(value = "Whether this cycle is now discontinued.")
+  @ApiModelProperty(value = "")
   @JsonProperty("discontinued")
- @Size(min=10,max=10)  public Object getDiscontinued() {
+  public CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
 
   @JsonProperty("discontinued")
-  public void setDiscontinued(Object discontinued) {
+  public void setDiscontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 

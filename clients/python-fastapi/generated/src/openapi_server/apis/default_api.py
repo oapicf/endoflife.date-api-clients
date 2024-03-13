@@ -35,14 +35,14 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
 @router.get(
     "/api/all.json",
     responses={
-        200: {"model": object, "description": "OK"},
+        200: {"model": List[str], "description": "OK"},
     },
     tags=["default"],
     summary="All Products",
     response_model_by_alias=True,
 )
 async def get_api_all_json(
-) -> object:
+) -> List[str]:
     """Return a list of all products. Each of these can be used for the other API endpoints."""
     return BaseDefaultApi.subclasses[0]().get_api_all_json()
 
@@ -57,8 +57,8 @@ async def get_api_all_json(
     response_model_by_alias=True,
 )
 async def get_api_product_cycle_json(
-    product:  = Path(None, description="Product URL as per the canonical URL on the endofife.date website"),
-    cycle:  = Path(None, description="Release Cycle for which the details must be fetched"),
+    product: str = Path(..., description="Product URL as per the canonical URL on the endofife.date website"),
+    cycle: str = Path(..., description="Release Cycle for which the details must be fetched"),
 ) -> Cycle:
     """Gets details of a single cycle"""
     return BaseDefaultApi.subclasses[0]().get_api_product_cycle_json(product, cycle)
@@ -67,14 +67,14 @@ async def get_api_product_cycle_json(
 @router.get(
     "/api/{product}.json",
     responses={
-        200: {"model": object, "description": "OK"},
+        200: {"model": List[Cycle], "description": "OK"},
     },
     tags=["default"],
     summary="Get All Details",
     response_model_by_alias=True,
 )
 async def get_api_product_json(
-    product:  = Path(None, description="Product URL as per the canonical URL on the endofife.date website"),
-) -> object:
+    product: str = Path(..., description="Product URL as per the canonical URL on the endofife.date website"),
+) -> List[Cycle]:
     """Get EoL dates of all cycles of a given product."""
     return BaseDefaultApi.subclasses[0]().get_api_product_json(product)

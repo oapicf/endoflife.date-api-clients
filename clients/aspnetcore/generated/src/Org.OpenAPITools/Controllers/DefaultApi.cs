@@ -21,13 +21,13 @@ using Org.OpenAPITools.Attributes;
 using Org.OpenAPITools.Models;
 
 namespace Org.OpenAPITools.Controllers
-{
+{ 
     /// <summary>
-    ///
+    /// 
     /// </summary>
     [ApiController]
     public class DefaultApiController : ControllerBase
-    {
+    { 
         /// <summary>
         /// All Products
         /// </summary>
@@ -37,17 +37,18 @@ namespace Org.OpenAPITools.Controllers
         [Route("/api/all.json")]
         [ValidateModelState]
         [SwaggerOperation("GetApiAllJson")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Object), description: "OK")]
+        [SwaggerResponse(statusCode: 200, type: typeof(List<string>), description: "OK")]
         public virtual IActionResult GetApiAllJson()
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(Object));
+            // return StatusCode(200, default(List<string>));
             string exampleJson = null;
-
+            exampleJson = "[ \"\", \"\" ]";
+            
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<Object>(exampleJson)
-            : default(Object);
+            ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
+            : default(List<string>);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }
@@ -64,14 +65,14 @@ namespace Org.OpenAPITools.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetApiProductCycleJson")]
         [SwaggerResponse(statusCode: 200, type: typeof(Cycle), description: "OK")]
-        public virtual IActionResult GetApiProductCycleJson([FromRoute (Name = "product")][Required]Object product, [FromRoute (Name = "cycle")][Required]Object cycle)
+        public virtual IActionResult GetApiProductCycleJson([FromRoute (Name = "product")][Required]string product, [FromRoute (Name = "cycle")][Required]string cycle)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Cycle));
             string exampleJson = null;
-            exampleJson = "{\n  \"eol\" : \"\",\n  \"releaseDate\" : \"\",\n  \"link\" : \"\",\n  \"lts\" : \"\",\n  \"discontinued\" : \"\",\n  \"cycle\" : \"\",\n  \"support\" : \"\",\n  \"latest\" : \"\"\n}";
-
+            exampleJson = "{\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : true,\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}";
+            
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<Cycle>(exampleJson)
             : default(Cycle);
@@ -89,17 +90,18 @@ namespace Org.OpenAPITools.Controllers
         [Route("/api/{product}.json")]
         [ValidateModelState]
         [SwaggerOperation("GetApiProductJson")]
-        [SwaggerResponse(statusCode: 200, type: typeof(Object), description: "OK")]
-        public virtual IActionResult GetApiProductJson([FromRoute (Name = "product")][Required]Object product)
+        [SwaggerResponse(statusCode: 200, type: typeof(List<Cycle>), description: "OK")]
+        public virtual IActionResult GetApiProductJson([FromRoute (Name = "product")][Required]string product)
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(Object));
+            // return StatusCode(200, default(List<Cycle>));
             string exampleJson = null;
-
+            exampleJson = "[ {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : true,\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}, {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : true,\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n} ]";
+            
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<Object>(exampleJson)
-            : default(Object);
+            ? JsonConvert.DeserializeObject<List<Cycle>>(exampleJson)
+            : default(List<Cycle>);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

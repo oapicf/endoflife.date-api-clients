@@ -10,5 +10,25 @@
     <enableAsyncMapping>false</enableAsyncMapping>
 
 
+    <jaxws:bindings node="xsd:simpleType[@name='cycle_cycle']">
+    	<jaxb:typesafeEnumClass>
+	    </jaxb:typesafeEnumClass>
+    </jaxws:bindings>
+    <jaxws:bindings node="xsd:simpleType[@name='cycle_discontinued']">
+    	<jaxb:typesafeEnumClass>
+	    </jaxb:typesafeEnumClass>
+    </jaxws:bindings>
+    <jaxws:bindings node="xsd:simpleType[@name='cycle_eol']">
+    	<jaxb:typesafeEnumClass>
+	    </jaxb:typesafeEnumClass>
+    </jaxws:bindings>
+    <jaxws:bindings node="xsd:simpleType[@name='cycle_lts']">
+    	<jaxb:typesafeEnumClass>
+	    </jaxb:typesafeEnumClass>
+    </jaxws:bindings>
+    <jaxws:bindings node="xsd:simpleType[@name='cycle_support']">
+    	<jaxb:typesafeEnumClass>
+	    </jaxb:typesafeEnumClass>
+    </jaxws:bindings>
 
 </jaxws:bindings>

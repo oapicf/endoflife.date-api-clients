@@ -14,32 +14,31 @@ syntax = "proto3";
 
 package openapitools;
 
-import public "models/any_type.proto";
+import public "models/cycle_cycle.proto";
+import public "models/cycle_discontinued.proto";
+import public "models/cycle_eol.proto";
+import public "models/cycle_lts.proto";
+import public "models/cycle_support.proto";
 
 message Cycle {
 
-  // Release Cycle
-  AnyType cycle = 95131878;
+  CycleCycle cycle = 95131878;
 
   // Release Date for the first release in this cycle
-  AnyType releaseDate = 212873301;
+  string releaseDate = 212873301;
 
-  // End of Life Date for this release cycle
-  AnyType eol = 100610;
+  CycleEol eol = 100610;
 
   // Latest release in this cycle
-  AnyType latest = 36139131;
+  string latest = 36139131;
 
   // Link to changelog for the latest release, if available
-  AnyType link = 3321850;
+  optional string link = 3321850;
 
-  // Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-  AnyType lts = 107499;
+  CycleLts lts = 107499;
 
-  // Whether this release cycle has active support
-  AnyType support = 244154420;
+  CycleSupport support = 244154420;
 
-  // Whether this cycle is now discontinued.
-  AnyType discontinued = 131849267;
+  CycleDiscontinued discontinued = 131849267;
 
 }

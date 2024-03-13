@@ -6,6 +6,11 @@ api/DefaultAPI.c
 api/DefaultAPI.h
 docs/DefaultAPI.md
 docs/cycle.md
+docs/cycle_cycle.md
+docs/cycle_discontinued.md
+docs/cycle_eol.md
+docs/cycle_lts.md
+docs/cycle_support.md
 external/cJSON.c
 external/cJSON.h
 external/cJSON.licence
@@ -16,6 +21,16 @@ include/list.h
 libcurl.licence
 model/cycle.c
 model/cycle.h
+model/cycle_cycle.c
+model/cycle_cycle.h
+model/cycle_discontinued.c
+model/cycle_discontinued.h
+model/cycle_eol.c
+model/cycle_eol.h
+model/cycle_lts.c
+model/cycle_lts.h
+model/cycle_support.c
+model/cycle_support.h
 model/object.c
 model/object.h
 src/apiClient.c
@@ -24,3 +39,8 @@ src/binary.c
 src/list.c
 uncrustify-rules.cfg
 unit-test/test_cycle.c
+unit-test/test_cycle_cycle.c
+unit-test/test_cycle_discontinued.c
+unit-test/test_cycle_eol.c
+unit-test/test_cycle_lts.c
+unit-test/test_cycle_support.c

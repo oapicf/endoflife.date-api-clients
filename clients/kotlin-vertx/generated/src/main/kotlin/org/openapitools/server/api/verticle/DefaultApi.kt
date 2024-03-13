@@ -19,13 +19,13 @@ interface DefaultApi  {
     fun init(vertx:Vertx,config:JsonObject)
     /* getApiAllJson
      * All Products */
-    suspend fun getApiAllJson(context:OperationRequest):Response<kotlin.Any>
+    suspend fun getApiAllJson(context:OperationRequest):Response<kotlin.Array<kotlin.String>>
     /* getApiProductCycleJson
      * Single cycle details */
-    suspend fun getApiProductCycleJson(product:kotlin.Any?,cycle:kotlin.Any?,context:OperationRequest):Response<Cycle>
+    suspend fun getApiProductCycleJson(product:kotlin.String?,cycle:kotlin.String?,context:OperationRequest):Response<Cycle>
     /* getApiProductJson
      * Get All Details */
-    suspend fun getApiProductJson(product:kotlin.Any?,context:OperationRequest):Response<kotlin.Any>
+    suspend fun getApiProductJson(product:kotlin.String?,context:OperationRequest):Response<kotlin.Array<Cycle>>
     companion object {
         const val address = "DefaultApi-service"
         suspend fun createRouterFactory(vertx: Vertx,path:String): io.vertx.ext.web.api.contract.openapi3.OpenAPI3RouterFactory {

@@ -3,7 +3,13 @@ package org.openapitools.vertxweb.server.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.vertxweb.server.model.CycleCycle;
+import org.openapitools.vertxweb.server.model.CycleDiscontinued;
+import org.openapitools.vertxweb.server.model.CycleEol;
+import org.openapitools.vertxweb.server.model.CycleLts;
+import org.openapitools.vertxweb.server.model.CycleSupport;
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
@@ -11,20 +17,20 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Cycle   {
   
-  private Object cycle = null;
-  private Object releaseDate = null;
-  private Object eol = null;
-  private Object latest = null;
-  private Object link = null;
-  private Object lts = null;
-  private Object support = null;
-  private Object discontinued = null;
+  private CycleCycle cycle;
+  private LocalDate releaseDate;
+  private CycleEol eol;
+  private String latest;
+  private String link;
+  private CycleLts lts;
+  private CycleSupport support;
+  private CycleDiscontinued discontinued;
 
   public Cycle () {
 
   }
 
-  public Cycle (Object cycle, Object releaseDate, Object eol, Object latest, Object link, Object lts, Object support, Object discontinued) {
+  public Cycle (CycleCycle cycle, LocalDate releaseDate, CycleEol eol, String latest, String link, CycleLts lts, CycleSupport support, CycleDiscontinued discontinued) {
     this.cycle = cycle;
     this.releaseDate = releaseDate;
     this.eol = eol;
@@ -37,73 +43,73 @@ public class Cycle   {
 
     
   @JsonProperty("cycle")
-  public Object getCycle() {
+  public CycleCycle getCycle() {
     return cycle;
   }
-  public void setCycle(Object cycle) {
+  public void setCycle(CycleCycle cycle) {
     this.cycle = cycle;
   }
 
     
   @JsonProperty("releaseDate")
-  public Object getReleaseDate() {
+  public LocalDate getReleaseDate() {
     return releaseDate;
   }
-  public void setReleaseDate(Object releaseDate) {
+  public void setReleaseDate(LocalDate releaseDate) {
     this.releaseDate = releaseDate;
   }
 
     
   @JsonProperty("eol")
-  public Object getEol() {
+  public CycleEol getEol() {
     return eol;
   }
-  public void setEol(Object eol) {
+  public void setEol(CycleEol eol) {
     this.eol = eol;
   }
 
     
   @JsonProperty("latest")
-  public Object getLatest() {
+  public String getLatest() {
     return latest;
   }
-  public void setLatest(Object latest) {
+  public void setLatest(String latest) {
     this.latest = latest;
   }
 
     
   @JsonProperty("link")
-  public Object getLink() {
+  public String getLink() {
     return link;
   }
-  public void setLink(Object link) {
+  public void setLink(String link) {
     this.link = link;
   }
 
     
   @JsonProperty("lts")
-  public Object getLts() {
+  public CycleLts getLts() {
     return lts;
   }
-  public void setLts(Object lts) {
+  public void setLts(CycleLts lts) {
     this.lts = lts;
   }
 
     
   @JsonProperty("support")
-  public Object getSupport() {
+  public CycleSupport getSupport() {
     return support;
   }
-  public void setSupport(Object support) {
+  public void setSupport(CycleSupport support) {
     this.support = support;
   }
 
     
   @JsonProperty("discontinued")
-  public Object getDiscontinued() {
+  public CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
-  public void setDiscontinued(Object discontinued) {
+  public void setDiscontinued(CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 

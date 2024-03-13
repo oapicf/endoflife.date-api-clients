@@ -90,7 +90,7 @@ export class DefaultApi {
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * @summary All Products
      */
-    public async getApiAllJson (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: any;  }> {
+    public async getApiAllJson (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<string>;  }> {
         const localVarPath = this.basePath + '/api/all.json';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -132,13 +132,13 @@ export class DefaultApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: any;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: Array<string>;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "any");
+                            body = ObjectSerializer.deserialize(body, "Array<string>");
                             resolve({ response: response, body: body });
                         } else {
                             reject(new HttpError(response, body, response.statusCode));
@@ -154,7 +154,7 @@ export class DefaultApi {
      * @param product Product URL as per the canonical URL on the endofife.date website
      * @param cycle Release Cycle for which the details must be fetched
      */
-    public async getApiProductCycleJson (product: any, cycle: any, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Cycle;  }> {
+    public async getApiProductCycleJson (product: string, cycle: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Cycle;  }> {
         const localVarPath = this.basePath + '/api/{product}/{cycle}.json'
             .replace('{' + 'product' + '}', encodeURIComponent(String(product)))
             .replace('{' + 'cycle' + '}', encodeURIComponent(String(cycle)));
@@ -229,7 +229,7 @@ export class DefaultApi {
      * @summary Get All Details
      * @param product Product URL as per the canonical URL on the endofife.date website
      */
-    public async getApiProductJson (product: any, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: any;  }> {
+    public async getApiProductJson (product: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<Cycle>;  }> {
         const localVarPath = this.basePath + '/api/{product}.json'
             .replace('{' + 'product' + '}', encodeURIComponent(String(product)));
         let localVarQueryParameters: any = {};
@@ -277,13 +277,13 @@ export class DefaultApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.IncomingMessage; body: any;  }>((resolve, reject) => {
+            return new Promise<{ response: http.IncomingMessage; body: Array<Cycle>;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "any");
+                            body = ObjectSerializer.deserialize(body, "Array<Cycle>");
                             resolve({ response: response, body: body });
                         } else {
                             reject(new HttpError(response, body, response.statusCode));

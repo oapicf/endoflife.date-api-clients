@@ -16,7 +16,6 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local openapiclient_any_type = require "openapiclient.model.any_type"
 local openapiclient_cycle = require "openapiclient.model.cycle"
 
 local default_api = {}
@@ -79,7 +78,7 @@ function default_api:get_api_all_json()
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_any_type.cast(result), headers
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -171,7 +170,10 @@ function default_api:get_api_product_json(product)
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_any_type.cast(result), headers
+		for _, ob in ipairs(result) do
+			openapiclient_cycle.cast(ob)
+		end
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

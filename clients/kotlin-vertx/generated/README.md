@@ -35,6 +35,11 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [org.openapitools.server.api.model.Cycle](docs/Cycle.md)
+ - [org.openapitools.server.api.model.CycleCycle](docs/CycleCycle.md)
+ - [org.openapitools.server.api.model.CycleDiscontinued](docs/CycleDiscontinued.md)
+ - [org.openapitools.server.api.model.CycleEol](docs/CycleEol.md)
+ - [org.openapitools.server.api.model.CycleLts](docs/CycleLts.md)
+ - [org.openapitools.server.api.model.CycleSupport](docs/CycleSupport.md)
 
 
 <a id="documentation-for-authorization"></a>

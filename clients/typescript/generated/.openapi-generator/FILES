@@ -13,6 +13,11 @@ http/isomorphic-fetch.ts
 index.ts
 middleware.ts
 models/Cycle.ts
+models/CycleCycle.ts
+models/CycleDiscontinued.ts
+models/CycleEol.ts
+models/CycleLts.ts
+models/CycleSupport.ts
 models/ObjectSerializer.ts
 models/all.ts
 package.json

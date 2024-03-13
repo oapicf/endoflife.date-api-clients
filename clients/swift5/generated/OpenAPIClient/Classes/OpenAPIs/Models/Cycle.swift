@@ -13,24 +13,21 @@ import AnyCodable
 /** Details of a single release cycle of a given product. There might be some slight variations to this depending on the product. */
 public struct Cycle: Codable, JSONEncodable, Hashable {
 
-    /** Release Cycle */
-    public var cycle: AnyCodable?
+    static let latestRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    static let linkRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public var cycle: CycleCycle?
     /** Release Date for the first release in this cycle */
-    public var releaseDate: AnyCodable?
-    /** End of Life Date for this release cycle */
-    public var eol: AnyCodable?
+    public var releaseDate: Date?
+    public var eol: CycleEol?
     /** Latest release in this cycle */
-    public var latest: AnyCodable?
+    public var latest: String?
     /** Link to changelog for the latest release, if available */
-    public var link: AnyCodable?
-    /** Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.  */
-    public var lts: AnyCodable?
-    /** Whether this release cycle has active support */
-    public var support: AnyCodable?
-    /** Whether this cycle is now discontinued. */
-    public var discontinued: AnyCodable?
+    public var link: String?
+    public var lts: CycleLts?
+    public var support: CycleSupport?
+    public var discontinued: CycleDiscontinued?
 
-    public init(cycle: AnyCodable? = nil, releaseDate: AnyCodable? = nil, eol: AnyCodable? = nil, latest: AnyCodable? = nil, link: AnyCodable? = nil, lts: AnyCodable? = nil, support: AnyCodable? = nil, discontinued: AnyCodable? = nil) {
+    public init(cycle: CycleCycle? = nil, releaseDate: Date? = nil, eol: CycleEol? = nil, latest: String? = nil, link: String? = nil, lts: CycleLts? = nil, support: CycleSupport? = nil, discontinued: CycleDiscontinued? = nil) {
         self.cycle = cycle
         self.releaseDate = releaseDate
         self.eol = eol

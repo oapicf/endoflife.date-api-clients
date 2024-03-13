@@ -16,3 +16,8 @@
 
 # import models into model package
 from endoflifedate.models.cycle import Cycle
+from endoflifedate.models.cycle_cycle import CycleCycle
+from endoflifedate.models.cycle_discontinued import CycleDiscontinued
+from endoflifedate.models.cycle_eol import CycleEol
+from endoflifedate.models.cycle_lts import CycleLts
+from endoflifedate.models.cycle_support import CycleSupport

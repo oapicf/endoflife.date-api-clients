@@ -12,6 +12,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    CycleCycle,
+    CycleCycleFromJSON,
+    CycleCycleToJSON,
+    CycleDiscontinued,
+    CycleDiscontinuedFromJSON,
+    CycleDiscontinuedToJSON,
+    CycleEol,
+    CycleEolFromJSON,
+    CycleEolToJSON,
+    CycleLts,
+    CycleLtsFromJSON,
+    CycleLtsToJSON,
+    CycleSupport,
+    CycleSupportFromJSON,
+    CycleSupportToJSON,
+} from './';
+
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  * @export
@@ -19,65 +37,65 @@ import { exists, mapValues } from '../runtime';
  */
 export interface Cycle  {
     /**
-     * Release Cycle
-     * @type {any}
+     * 
+     * @type {CycleCycle}
      * @memberof Cycle
      */
-    cycle?: any;
+    cycle?: CycleCycle;
     /**
      * Release Date for the first release in this cycle
-     * @type {any}
+     * @type {Date}
      * @memberof Cycle
      */
-    releaseDate?: any;
+    releaseDate?: Date;
     /**
-     * End of Life Date for this release cycle
-     * @type {any}
+     * 
+     * @type {CycleEol}
      * @memberof Cycle
      */
-    eol?: any;
+    eol?: CycleEol;
     /**
      * Latest release in this cycle
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    latest?: any;
+    latest?: string;
     /**
      * Link to changelog for the latest release, if available
-     * @type {any}
+     * @type {string}
      * @memberof Cycle
      */
-    link?: any;
+    link?: string;
     /**
-     * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
-     * @type {any}
+     * 
+     * @type {CycleLts}
      * @memberof Cycle
      */
-    lts?: any;
+    lts?: CycleLts;
     /**
-     * Whether this release cycle has active support
-     * @type {any}
+     * 
+     * @type {CycleSupport}
      * @memberof Cycle
      */
-    support?: any;
+    support?: CycleSupport;
     /**
-     * Whether this cycle is now discontinued.
-     * @type {any}
+     * 
+     * @type {CycleDiscontinued}
      * @memberof Cycle
      */
-    discontinued?: any;
+    discontinued?: CycleDiscontinued;
 }
 
 export function CycleFromJSON(json: any): Cycle {
     return {
-        'cycle': !exists(json, 'cycle') ? undefined : json['cycle'],
-        'releaseDate': !exists(json, 'releaseDate') ? undefined : json['releaseDate'],
-        'eol': !exists(json, 'eol') ? undefined : json['eol'],
+        'cycle': !exists(json, 'cycle') ? undefined : CycleCycleFromJSON(json['cycle']),
+        'releaseDate': !exists(json, 'releaseDate') ? undefined : new Date(json['releaseDate']),
+        'eol': !exists(json, 'eol') ? undefined : CycleEolFromJSON(json['eol']),
         'latest': !exists(json, 'latest') ? undefined : json['latest'],
         'link': !exists(json, 'link') ? undefined : json['link'],
-        'lts': !exists(json, 'lts') ? undefined : json['lts'],
-        'support': !exists(json, 'support') ? undefined : json['support'],
-        'discontinued': !exists(json, 'discontinued') ? undefined : json['discontinued'],
+        'lts': !exists(json, 'lts') ? undefined : CycleLtsFromJSON(json['lts']),
+        'support': !exists(json, 'support') ? undefined : CycleSupportFromJSON(json['support']),
+        'discontinued': !exists(json, 'discontinued') ? undefined : CycleDiscontinuedFromJSON(json['discontinued']),
     };
 }
 
@@ -86,14 +104,14 @@ export function CycleToJSON(value?: Cycle): any {
         return undefined;
     }
     return {
-        'cycle': value.cycle,
-        'releaseDate': value.releaseDate,
-        'eol': value.eol,
+        'cycle': CycleCycleToJSON(value.cycle),
+        'releaseDate': value.releaseDate === undefined ? undefined : value.releaseDate.toISOString().substring(0,10),
+        'eol': CycleEolToJSON(value.eol),
         'latest': value.latest,
         'link': value.link,
-        'lts': value.lts,
-        'support': value.support,
-        'discontinued': value.discontinued,
+        'lts': CycleLtsToJSON(value.lts),
+        'support': CycleSupportToJSON(value.support),
+        'discontinued': CycleDiscontinuedToJSON(value.discontinued),
     };
 }
 

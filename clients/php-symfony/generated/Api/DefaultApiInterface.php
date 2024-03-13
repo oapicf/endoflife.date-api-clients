@@ -30,7 +30,6 @@
 namespace OpenAPI\Server\Api;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use OpenAPI\Server\Model\AnyType;
 use OpenAPI\Server\Model\Cycle;
 
 /**
@@ -54,35 +53,44 @@ interface DefaultApiInterface
      *
      * @return array|object|null
      */
-    public function getApiAllJson(int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function getApiAllJson(
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation getApiProductCycleJson
      *
      * Single cycle details
      *
-     * @param   $product  Product URL as per the canonical URL on the endofife.date website (required)
-     * @param   $cycle  Release Cycle for which the details must be fetched (required)
+     * @param  string $product  Product URL as per the canonical URL on the endofife.date website (required)
+     * @param  string $cycle  Release Cycle for which the details must be fetched (required)
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
      * @return array|object|null
      */
-    public function getApiProductCycleJson($product, $cycle, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function getApiProductCycleJson(
+        string $product,
+        string $cycle,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 
     /**
      * Operation getApiProductJson
      *
      * Get All Details
      *
-     * @param   $product  Product URL as per the canonical URL on the endofife.date website (required)
+     * @param  string $product  Product URL as per the canonical URL on the endofife.date website (required)
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
      * @return array|object|null
      */
-    public function getApiProductJson($product, int &$responseCode, array &$responseHeaders): array|object|null;
-
+    public function getApiProductJson(
+        string $product,
+        int &$responseCode,
+        array &$responseHeaders
+    ): array|object|null;
 }

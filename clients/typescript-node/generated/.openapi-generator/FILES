@@ -5,4 +5,9 @@ api/apis.ts
 api/defaultApi.ts
 git_push.sh
 model/cycle.ts
+model/cycleCycle.ts
+model/cycleDiscontinued.ts
+model/cycleEol.ts
+model/cycleLts.ts
+model/cycleSupport.ts
 model/models.ts
