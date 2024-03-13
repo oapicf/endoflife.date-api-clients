@@ -24,6 +24,7 @@ Version matrix
 
 | endoflife.date API Clients Version | endoflife.date OpenAPI Spec Version | OpenAPI Version | OpenAPI Generator Version |
 |------------------------------------|-------------------------------------|-----------------|---------------------------|
+| 1.0.0 | 0.0.1 | 3.1.0 | 7.4.0 |
 | 0.10.0 | 0.0.1 | 3.1.0 | 7.0.0 |
 
 Installation
