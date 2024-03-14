@@ -1,0 +1,15 @@
+.openapi-generator-ignore
+README.md
+apis/DefaultApi.js
+authentication.js
+index.js
+models/cycle.js
+models/cycle_cycle.js
+models/cycle_discontinued.js
+models/cycle_eol.js
+models/cycle_lts.js
+models/cycle_support.js
+operations/actions.js
+package.json
+samples/DefaultApi.js
+utils/utils.js

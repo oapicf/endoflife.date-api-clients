@@ -1,0 +1,9 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "End of Life Date for this release cycle",
+  "name": "CycleEol",
+  "fields": [
+  ]
+
+}

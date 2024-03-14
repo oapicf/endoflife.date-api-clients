@@ -1,0 +1,9 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "Whether this release cycle has active support",
+  "name": "CycleSupport",
+  "fields": [
+  ]
+
+}

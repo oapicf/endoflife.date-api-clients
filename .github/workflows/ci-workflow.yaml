@@ -7,10 +7,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+<<<<<<< Updated upstream
           token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
+=======
+          token: ${{ secrets.OAPICF_GITHUB_TOKEN }}
+      - uses: actions/setup-node@v1
+>>>>>>> Stashed changes
         with:
           node-version: '20'
       - uses: ./.github/actions/ci-action
       - run: npm install -g gh-pages
-      - run: CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot <blah+pakkun@cliffano.com>" --repo "https://cliffano:${{ secrets.STUDIO_GITHUB_TOKEN }}@github.com/oapicf/endoflife.date-api-clients.git"
+      - run: CACHE_DIR=/tmp gh-pages --dist doc/ --user "pakkunbot <blah+pakkun@cliffano.com>" --repo "https://cliffano:${{ secrets.OAPICF_GITHUB_TOKEN }}@github.com/oapicf/endoflife.date-api-clients.git"

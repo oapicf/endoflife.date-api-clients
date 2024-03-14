@@ -1,0 +1,30 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server CycleEol"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a CycleEol"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  CycleEol {
+    title = CycleEol
+    description = CycleEol
+    derivedFrom = Root
+    properties {
+    }
+  }
+}
+
+serviceTemplates {
+
+  CycleEol {
+    title = CycleEol
+    description = CycleEol
+    implements = openapi_server.resourceTypes.CycleEol
+
+  }
+}

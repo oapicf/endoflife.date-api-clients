@@ -1,0 +1,16 @@
+.gitignore
+.openapi-generator-ignore
+README.md
+composer.json
+src/App/ApiClient.php
+src/App/ApiClientFactory.php
+src/App/DTO/Collection.php
+src/App/DTO/Collection1.php
+src/App/DTO/Cycle.php
+src/App/DTO/CycleCycle.php
+src/App/DTO/CycleDiscontinued.php
+src/App/DTO/CycleEol.php
+src/App/DTO/CycleLts.php
+src/App/DTO/CycleSupport.php
+src/App/DTO/GetApiProductCycleJsonParameterData.php
+src/App/DTO/GetApiProductJsonParameterData.php
