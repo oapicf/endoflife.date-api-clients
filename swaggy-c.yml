@@ -1,6 +1,6 @@
 spec_uri: >-
   https://raw.githubusercontent.com/endoflife-date/endoflife.date/master/assets/openapi.yml
-version: 1.0.0
+version: 1.0.1-pre.0
 contact:
   name: OpenAPI Clients Factory
   url: https://github.com/oapicf/endoflife.date-api-clients
