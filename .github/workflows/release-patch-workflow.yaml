@@ -7,13 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-<<<<<<< Updated upstream
-          token: ${{ secrets.STUDIO_GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
-=======
           token: ${{ secrets.OAPICF_GITHUB_TOKEN }}
-      - uses: actions/setup-node@v1
->>>>>>> Stashed changes
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - run: git config --global user.email "blah+pakkun@cliffano.com"
