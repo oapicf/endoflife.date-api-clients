@@ -12,7 +12,7 @@
   "developerName": "OpenAPI Clients Factory",
   "developerEmail": "blah+oapicf@cliffano.com",
   "developerOrganization": "OpenAPI Clients Factory",
-  "developerOrganizationUrl": "http://cliffano.com",
+  "developerOrganizationUrl": "http://github.com/oapicf",
   "scmConnection": "scm:git:git@github.com:oapicf/endoflife.date-api-clients.git",
   "scmDeveloperConnection": "scm:git:git@github.com:oapicf/endoflife.date-api-clients.git",
   "scmUrl": "https://github.com/oapicf/endoflife.date-api-clients",
