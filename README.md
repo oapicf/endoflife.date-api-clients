@@ -13,11 +13,11 @@ The client libraries are generated using [OpenAPI Generator](https://openapi-gen
 Published packages
 ------------------
 
-| Language | Package | Status |
-|----------|---------|--------|
-| JavaScript | [endoflife-date]((http://www.npmjs.com/package/endoflife-date)) | [![Published Version](https://img.shields.io/npm/v/endoflife-date.svg)](http://www.npmjs.com/package/endoflife-date) |
-| Python | [endoflifedate]((https://pypi.python.org/pypi/endoflifedate)) | [![Published Version](https://img.shields.io/pypi/v/endoflifedate.svg)](https://pypi.python.org/pypi/endoflifedate) |
-| Ruby | [endoflife_date]((https://rubygems.org/gems/endoflife_date)) | [![Published Version](https://img.shields.io/gem/v/endoflife_date.svg)](https://rubygems.org/gems/endoflife_date) |
+| Language | Package | Status | Documentation |
+|----------|---------|--------|---------------|
+| JavaScript | [endoflife-date]((http://www.npmjs.com/package/endoflife-date)) | [![Published Version](https://img.shields.io/npm/v/endoflife-date.svg)](http://www.npmjs.com/package/endoflife-date) | [README](https://github.com/oapicf/endoflife-date/blob/main/clients/javascript/generated/README.md) |
+| Python | [endoflifedate]((https://pypi.python.org/pypi/endoflifedate)) | [![Published Version](https://img.shields.io/pypi/v/endoflifedate.svg)](https://pypi.python.org/pypi/endoflifedate) | [README](https://github.com/oapicf/endoflife-date/blob/main/clients/python/generated/README.md) |
+| Ruby | [endoflife_date]((https://rubygems.org/gems/endoflife_date)) | [![Published Version](https://img.shields.io/gem/v/endoflife_date.svg)](https://rubygems.org/gems/endoflife_date) | [README](https://github.com/oapicf/endoflife-date/blob/main/clients/ruby/generated/README.md) |
 
 Version matrix
 --------------
