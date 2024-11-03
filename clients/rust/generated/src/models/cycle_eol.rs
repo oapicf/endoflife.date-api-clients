@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// CycleEol : End of Life Date for this release cycle
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

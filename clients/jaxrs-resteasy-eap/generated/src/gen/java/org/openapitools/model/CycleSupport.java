@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Whether this release cycle has active support")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-03-13T10:46:02.810514135Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@ApiModel(description="Whether this release cycle has active support")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-07-10T09:08:20.025444920Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class CycleSupport   {
   
 

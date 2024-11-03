@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// CycleSupport : Whether this release cycle has active support
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

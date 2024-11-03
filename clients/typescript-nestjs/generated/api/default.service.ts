@@ -14,9 +14,10 @@
 import { Inject, Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
-import { Observable } from 'rxjs';
+import { Observable, from, of, switchMap } from 'rxjs';
 import { Cycle } from '../model/cycle';
 import { Configuration } from '../configuration';
+import { COLLECTION_FORMATS } from '../variables';
 
 
 @Injectable()
@@ -51,6 +52,8 @@ export class DefaultService {
 
         let headers = {...this.defaultHeaders};
 
+        let accessTokenObservable: Observable<any> = of(null);
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'application/json'
@@ -63,11 +66,19 @@ export class DefaultService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        return this.httpClient.get<Array<string>>(`${this.basePath}/api/all.json`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers
-            }
+        return accessTokenObservable.pipe(
+            switchMap((accessToken) => {
+                if (accessToken) {
+                    headers['Authorization'] = `Bearer ${accessToken}`;
+                }
+
+                return this.httpClient.get<Array<string>>(`${this.basePath}/api/all.json`,
+                    {
+                        withCredentials: this.configuration.withCredentials,
+                        headers: headers
+                    }
+                );
+            })
         );
     }
     /**
@@ -91,6 +102,8 @@ export class DefaultService {
 
         let headers = {...this.defaultHeaders};
 
+        let accessTokenObservable: Observable<any> = of(null);
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'application/json'
@@ -103,11 +116,19 @@ export class DefaultService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        return this.httpClient.get<Cycle>(`${this.basePath}/api/${encodeURIComponent(String(product))}/${encodeURIComponent(String(cycle))}.json`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers
-            }
+        return accessTokenObservable.pipe(
+            switchMap((accessToken) => {
+                if (accessToken) {
+                    headers['Authorization'] = `Bearer ${accessToken}`;
+                }
+
+                return this.httpClient.get<Cycle>(`${this.basePath}/api/${encodeURIComponent(String(product))}/${encodeURIComponent(String(cycle))}.json`,
+                    {
+                        withCredentials: this.configuration.withCredentials,
+                        headers: headers
+                    }
+                );
+            })
         );
     }
     /**
@@ -126,6 +147,8 @@ export class DefaultService {
 
         let headers = {...this.defaultHeaders};
 
+        let accessTokenObservable: Observable<any> = of(null);
+
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
             'application/json'
@@ -138,11 +161,19 @@ export class DefaultService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        return this.httpClient.get<Array<Cycle>>(`${this.basePath}/api/${encodeURIComponent(String(product))}.json`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers
-            }
+        return accessTokenObservable.pipe(
+            switchMap((accessToken) => {
+                if (accessToken) {
+                    headers['Authorization'] = `Bearer ${accessToken}`;
+                }
+
+                return this.httpClient.get<Array<Cycle>>(`${this.basePath}/api/${encodeURIComponent(String(product))}.json`,
+                    {
+                        withCredentials: this.configuration.withCredentials,
+                        headers: headers
+                    }
+                );
+            })
         );
     }
 }

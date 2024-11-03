@@ -43,7 +43,7 @@ import javax.validation.Valid;
   Cycle.JSON_PROPERTY_SUPPORT,
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-03-13T10:45:52.103127445Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-10T09:08:13.442358644Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class Cycle   {
   public static final String JSON_PROPERTY_CYCLE = "cycle";
   @JsonProperty(JSON_PROPERTY_CYCLE)

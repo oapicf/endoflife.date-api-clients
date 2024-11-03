@@ -24,7 +24,7 @@ export interface CycleEol {
 /**
  * Check if a given object implements the CycleEol interface.
  */
-export function instanceOfCycleEol(value: object): boolean {
+export function instanceOfCycleEol(value: object): value is CycleEol {
     return true;
 }
 

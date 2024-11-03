@@ -17,7 +17,7 @@ import org.wso2.msf4j.formparam.FileInfo;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-03-13T10:44:58.234230102Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-07-10T09:07:32.471414464Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response getApiAllJson() throws NotFoundException {

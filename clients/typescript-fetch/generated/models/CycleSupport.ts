@@ -24,7 +24,7 @@ export interface CycleSupport {
 /**
  * Check if a given object implements the CycleSupport interface.
  */
-export function instanceOfCycleSupport(value: object): boolean {
+export function instanceOfCycleSupport(value: object): value is CycleSupport {
     return true;
 }
 

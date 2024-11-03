@@ -87,7 +87,7 @@
         },
         "summary" : "Get All Details",
         "tags" : [ ],
-        "x-accepts" : "application/json",
+        "x-accepts" : [ "application/json" ],
         "x-serviceid" : "get-api-:product.json",
         "x-serviceid-varname" : "GET-API-:PRODUCT.JSON_SERVICE_ID"
       }
@@ -151,7 +151,7 @@
         },
         "summary" : "Single cycle details",
         "tags" : [ ],
-        "x-accepts" : "application/json",
+        "x-accepts" : [ "application/json" ],
         "x-serviceid" : "get-api-:product-:cycle.json",
         "x-serviceid-varname" : "GET-API-:PRODUCT-:CYCLE.JSON_SERVICE_ID"
       }
@@ -183,7 +183,7 @@
         },
         "summary" : "All Products",
         "tags" : [ ],
-        "x-accepts" : "application/json",
+        "x-accepts" : [ "application/json" ],
         "x-serviceid" : "get-api-all.json",
         "x-serviceid-varname" : "GET-API-ALL.JSON_SERVICE_ID"
       }

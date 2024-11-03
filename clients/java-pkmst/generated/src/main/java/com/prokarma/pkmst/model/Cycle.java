@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-03-13T10:45:02.504380716Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-10T09:07:36.842108603Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class Cycle   {
   @JsonProperty("cycle")
   private CycleCycle cycle;

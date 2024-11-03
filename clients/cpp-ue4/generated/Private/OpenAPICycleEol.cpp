@@ -22,20 +22,12 @@ namespace OpenAPI
 
 void OpenAPICycleEol::WriteJson(JsonWriter& Writer) const
 {
-	Writer->WriteObjectStart();
-	Writer->WriteObjectEnd();
+	WriteJsonValue(Writer, Value);
 }
 
 bool OpenAPICycleEol::FromJson(const TSharedPtr<FJsonValue>& JsonValue)
 {
-	const TSharedPtr<FJsonObject>* Object;
-	if (!JsonValue->TryGetObject(Object))
-		return false;
-
-	bool ParseSuccess = true;
-
-
-	return ParseSuccess;
+	return TryGetJsonValue(JsonValue, Value);
 }
 
 }

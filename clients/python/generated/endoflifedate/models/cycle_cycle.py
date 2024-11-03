@@ -20,7 +20,7 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, ValidationError, field_validator
 from typing import Optional, Union
-from typing import Union, Any, List, TYPE_CHECKING, Optional, Dict
+from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
@@ -39,7 +39,7 @@ class CycleCycle(BaseModel):
         actual_instance: Optional[Union[float, str]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: List[str] = Field(default=Literal["float", "str"])
+    any_of_schemas: Set[str] = { "float", "str" }
 
     model_config = {
         "validate_assignment": True,

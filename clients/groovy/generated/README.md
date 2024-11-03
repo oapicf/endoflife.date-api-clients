@@ -6,8 +6,8 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 0.0.1
 - Package version: 0.0.1
-- Build date: 2024-03-13T10:43:56.775107223Z[Etc/UTC]
-- Generator version: 7.4.0
+- Build date: 2024-07-10T09:06:38.804154250Z[Etc/UTC]
+- Generator version: 7.6.0
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 

@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
  **/
 @ApiModel(description = "Release Cycle")
 @JsonTypeName("cycle_cycle")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-03-13T10:46:08.093775940Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-10T09:08:22.950601110Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class CycleCycle   {
 
 

@@ -87,7 +87,7 @@
         },
         "summary" : "Get All Details",
         "tags" : [ ],
-        "x-accepts" : "application/json"
+        "x-accepts" : [ "application/json" ]
       }
     },
     "/api/{product}/{cycle}.json" : {
@@ -149,7 +149,7 @@
         },
         "summary" : "Single cycle details",
         "tags" : [ ],
-        "x-accepts" : "application/json"
+        "x-accepts" : [ "application/json" ]
       }
     },
     "/api/all.json" : {
@@ -179,7 +179,7 @@
         },
         "summary" : "All Products",
         "tags" : [ ],
-        "x-accepts" : "application/json"
+        "x-accepts" : [ "application/json" ]
       }
     }
   },

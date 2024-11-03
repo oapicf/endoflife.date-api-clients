@@ -22,7 +22,7 @@ print(CycleLts.to_json())
 # convert the object into a dict
 cycle_lts_dict = cycle_lts_instance.to_dict()
 # create an instance of CycleLts from a dict
-cycle_lts_form_dict = cycle_lts.from_dict(cycle_lts_dict)
+cycle_lts_from_dict = CycleLts.from_dict(cycle_lts_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

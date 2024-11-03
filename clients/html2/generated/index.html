@@ -1033,6 +1033,7 @@ ul.nav-tabs {
   } ]
 };
 
+
     var errs = {};
   </script>
 
@@ -1358,41 +1359,64 @@ pub fn main() {
 
 
                             <div class="tab-content" id="responses-Default-getApiAll.json-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-Default-getApiAll.json-200-schema">
-                                  <div id="responses-Default-getApiAll.json-schema-200" class="exampleStyle">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = ;
-                                        var schema = findNode('schema',schemaWrapper).schema;
-                                        if (!schema) {
-                                          schema = schemaWrapper.schema;
-                                        }
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
+                              <div class="tab-pane active" id="responses-Default-getApiAll.json-200-schema">
+                                <div id="responses-Default-getApiAll.json-schema-200" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "description" : "List of all products.",
+        "items" : {
+          "type" : "string"
+        }
+      },
+      "examples" : {
+        "all-products" : {
+          "value" : [ "alpine", "amazon-linux", "android", "bootstrap", "centos", "debian", "django", "dotnet", "dotnetcore", "dotnetfx", "drupal", "elasticsearch", "elixir", "fedora", "filemaker", "freebsd", "go", "godot", "iphone", "java", "kindle", "kubernetes", "laravel", "macos", "magento", "mariadb", "mongodb", "mssqlserver", "mysql", "nodejs", "office", "opensuse", "perl", "php", "pixel", "postgresql", "powershell", "python", "qt", "rabbitmq", "rails", "redis", "rhel", "ros", "ruby", "sles", "spring-framework", "surface", "symfony", "ubuntu", "vue", "wagtail", "windows", "windowsembedded", "windowsserver" ]
+        }
+      }
+    }
+  }
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
                                           Object.keys(schema.properties).forEach( (item) => {
                                             if (schema.properties[item].$ref != null) {
                                               schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
                                             }
                                           });
-                                        } else if (schema.items != null && schema.items.$ref != null) {
-                                            schema.items = defsParser.$refs.get(schema.items.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
                                         }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
 
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-Default-getApiAll.json-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-Default-getApiAll.json-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-Default-getApiAll.json-200-schema-data' type='hidden' value=''></input>
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Default-getApiAll.json-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getApiAll.json-schema-200');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
                                 </div>
+                                <input id='responses-Default-getApiAll.json-200-schema-data' type='hidden' value=''></input>
+                              </div>
                             </div>
                         </article>
                       </div>
@@ -1713,41 +1737,94 @@ Product URL as per the canonical URL on the endofife.date website
 
 
                             <div class="tab-content" id="responses-Default-getApiProduct.json-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-Default-getApiProduct.json-200-schema">
-                                  <div id="responses-Default-getApiProduct.json-schema-200" class="exampleStyle">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = ;
-                                        var schema = findNode('schema',schemaWrapper).schema;
-                                        if (!schema) {
-                                          schema = schemaWrapper.schema;
-                                        }
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
+                              <div class="tab-pane active" id="responses-Default-getApiProduct.json-200-schema">
+                                <div id="responses-Default-getApiProduct.json-schema-200" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/cycle"
+        }
+      },
+      "examples" : {
+        "/api/ubuntu.json" : {
+          "value" : [ {
+            "cycle" : "21.04",
+            "lts" : false,
+            "releaseDate" : "2021-04-22",
+            "support" : "2022-01-01",
+            "eol" : "2022-01-01",
+            "latest" : "21.04",
+            "link" : "https://wiki.ubuntu.com/HirsuteHippo/ReleaseNotes/"
+          }, {
+            "cycle" : "20.10",
+            "lts" : false,
+            "releaseDate" : "2020-10-22",
+            "support" : "2021-07-07",
+            "eol" : "2021-07-07",
+            "latest" : "20.10",
+            "link" : "https://wiki.ubuntu.com/GroovyGorilla/ReleaseNotes/"
+          } ]
+        },
+        "/api/python.json" : {
+          "value" : [ {
+            "cycle" : 3.9,
+            "releaseDate" : "2020-10-05",
+            "eol" : "2025-10-05",
+            "latest" : "3.9.5",
+            "link" : "https://www.python.org/downloads/release/python-395/"
+          }, {
+            "cycle" : 3.8,
+            "releaseDate" : "2019-10-14",
+            "eol" : "2024-10-14",
+            "latest" : "3.8.10",
+            "link" : "https://www.python.org/downloads/release/python-3810/"
+          } ]
+        }
+      }
+    }
+  }
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
                                           Object.keys(schema.properties).forEach( (item) => {
                                             if (schema.properties[item].$ref != null) {
                                               schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
                                             }
                                           });
-                                        } else if (schema.items != null && schema.items.$ref != null) {
-                                            schema.items = defsParser.$refs.get(schema.items.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
                                         }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
 
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-Default-getApiProduct.json-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-Default-getApiProduct.json-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-Default-getApiProduct.json-200-schema-data' type='hidden' value=''></input>
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Default-getApiProduct.json-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getApiProduct.json-schema-200');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
                                 </div>
+                                <input id='responses-Default-getApiProduct.json-200-schema-data' type='hidden' value=''></input>
+                              </div>
                             </div>
                         </article>
                       </div>
@@ -2102,41 +2179,75 @@ Release Cycle for which the details must be fetched
 
 
                             <div class="tab-content" id="responses-Default-getApiProductCycle.json-200-wrapper" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-Default-getApiProductCycle.json-200-schema">
-                                  <div id="responses-Default-getApiProductCycle.json-schema-200" class="exampleStyle">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = ;
-                                        var schema = findNode('schema',schemaWrapper).schema;
-                                        if (!schema) {
-                                          schema = schemaWrapper.schema;
-                                        }
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
+                              <div class="tab-pane active" id="responses-Default-getApiProductCycle.json-200-schema">
+                                <div id="responses-Default-getApiProductCycle.json-schema-200" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/cycle"
+      },
+      "examples" : {
+        "/api/python/3.9.json" : {
+          "value" : {
+            "releaseDate" : "2020-10-05",
+            "eol" : "2025-10-05",
+            "latest" : "3.9.5",
+            "link" : "https://www.python.org/downloads/release/python-395/"
+          }
+        },
+        "/api/ubuntu/21.04.json" : {
+          "value" : {
+            "lts" : false,
+            "releaseDate" : "2021-04-22",
+            "support" : "2022-01-01",
+            "eol" : "2022-01-01",
+            "latest" : "21.04",
+            "link" : "https://wiki.ubuntu.com/HirsuteHippo/ReleaseNotes/"
+          }
+        }
+      }
+    }
+  }
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
                                           Object.keys(schema.properties).forEach( (item) => {
                                             if (schema.properties[item].$ref != null) {
                                               schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
                                             }
                                           });
-                                        } else if (schema.items != null && schema.items.$ref != null) {
-                                            schema.items = defsParser.$refs.get(schema.items.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
                                         }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
 
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-Default-getApiProductCycle.json-200-schema-data').val(JSON.stringify(schema));
-                                        var result = $('#responses-Default-getApiProductCycle.json-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-Default-getApiProductCycle.json-200-schema-data' type='hidden' value=''></input>
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Default-getApiProductCycle.json-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getApiProductCycle.json-schema-200');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
                                 </div>
+                                <input id='responses-Default-getApiProductCycle.json-200-schema-data' type='hidden' value=''></input>
+                              </div>
                             </div>
                         </article>
                       </div>
@@ -3255,7 +3366,7 @@ var JSONSchemaView = (function () {
     // Determine if a schema is an array
     this.isArray = !this.isAny && this.schema && this.schema.type === 'array';
 
-    this.isObject = this.schema && (this.schema.type === 'object' || this.schema.properties || this.schema.anyOf || this.schema.oneof || this.schema.allOf);
+    this.isObject = this.schema && (this.schema.type === 'object' || this.schema.properties || this.schema.anyOf || this.schema.oneOf || this.schema.allOf);
 
     // Determine if a schema is a primitive
     this.isPrimitive = !this.isAny && !this.isArray && !this.isObject;

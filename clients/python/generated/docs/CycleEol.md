@@ -22,7 +22,7 @@ print(CycleEol.to_json())
 # convert the object into a dict
 cycle_eol_dict = cycle_eol_instance.to_dict()
 # create an instance of CycleEol from a dict
-cycle_eol_form_dict = cycle_eol.from_dict(cycle_eol_dict)
+cycle_eol_from_dict = CycleEol.from_dict(cycle_eol_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

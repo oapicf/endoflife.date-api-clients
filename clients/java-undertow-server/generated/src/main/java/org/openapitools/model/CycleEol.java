@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiModel;
  */
 
 @ApiModel(description = "End of Life Date for this release cycle")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-03-13T10:45:13.603378508Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-10T09:07:44.671462021Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class CycleEol   {
   
 

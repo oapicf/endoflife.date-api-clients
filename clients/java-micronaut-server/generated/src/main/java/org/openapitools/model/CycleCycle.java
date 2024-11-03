@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @JsonPropertyOrder({
 })
 @JsonTypeName("cycle_cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-03-13T10:44:53.444691347Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-10T09:07:28.285773255Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 @Introspected
 public class CycleCycle {
     public CycleCycle() {

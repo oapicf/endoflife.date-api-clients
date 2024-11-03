@@ -10,19 +10,14 @@ use validator::{Validate, ValidationErrors};
 use crate::{header, types::*};
 
 #[allow(unused_imports)]
-use crate::models;
+use crate::{apis, models};
 
-use crate::{Api,
-     GetApiAllPeriodJsonResponse,
-     GetApiProductCyclePeriodJsonResponse,
-     GetApiProductPeriodJsonResponse
-};
 
 /// Setup API Server.
 pub fn new<I, A>(api_impl: I) -> Router
 where
     I: AsRef<A> + Clone + Send + Sync + 'static,
-    A: Api + 'static,
+    A: apis::default::Default + 'static,
 {
     // build our application with a route
     Router::new()
@@ -48,7 +43,6 @@ fn get_api_all_period_json_validation(
 Ok((
 ))
 }
-
 /// GetApiAllPeriodJson - GET /api/all.json
 #[tracing::instrument(skip_all)]
 async fn get_api_all_period_json<I, A>(
@@ -59,7 +53,7 @@ async fn get_api_all_period_json<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::default::Default,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -86,7 +80,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GetApiAllPeriodJsonResponse::Status200_OK
+                                                apis::default::GetApiAllPeriodJsonResponse::Status200_OK
                                                     (body)
                                                 => {
 
@@ -130,7 +124,6 @@ Ok((
   path_params,
 ))
 }
-
 /// GetApiProductCyclePeriodJson - GET /api/{product}/{cycle}.json
 #[tracing::instrument(skip_all)]
 async fn get_api_product_cycle_period_json<I, A>(
@@ -142,7 +135,7 @@ async fn get_api_product_cycle_period_json<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::default::Default,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -172,7 +165,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GetApiProductCyclePeriodJsonResponse::Status200_OK
+                                                apis::default::GetApiProductCyclePeriodJsonResponse::Status200_OK
                                                     (body)
                                                 => {
 
@@ -216,7 +209,6 @@ Ok((
   path_params,
 ))
 }
-
 /// GetApiProductPeriodJson - GET /api/{product}.json
 #[tracing::instrument(skip_all)]
 async fn get_api_product_period_json<I, A>(
@@ -228,7 +220,7 @@ async fn get_api_product_period_json<I, A>(
 ) -> Result<Response, StatusCode>
 where 
     I: AsRef<A> + Send + Sync,
-    A: Api,
+    A: apis::default::Default,
 {
 
       #[allow(clippy::redundant_closure)]
@@ -258,7 +250,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                GetApiProductPeriodJsonResponse::Status200_OK
+                                                apis::default::GetApiProductPeriodJsonResponse::Status200_OK
                                                     (body)
                                                 => {
 

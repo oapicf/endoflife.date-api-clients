@@ -31,7 +31,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle", description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-03-13T10:45:28.578833557Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-10T09:07:58.044541065Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class Cycle {
 
   private CycleCycle cycle;

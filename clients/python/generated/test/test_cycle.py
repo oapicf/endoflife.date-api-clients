@@ -36,14 +36,14 @@ class TestCycle(unittest.TestCase):
         model = Cycle()
         if include_optional:
             return Cycle(
-                cycle = None,
+                cycle = 1.337,
                 release_date = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(),
-                eol = None,
+                eol = '0',
                 latest = '0',
                 link = '0',
-                lts = None,
-                support = None,
-                discontinued = None
+                lts = True,
+                support = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date(),
+                discontinued = datetime.datetime.strptime('1975-12-30', '%Y-%m-%d').date()
             )
         else:
             return Cycle(

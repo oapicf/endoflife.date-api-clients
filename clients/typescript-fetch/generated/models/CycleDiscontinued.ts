@@ -24,7 +24,7 @@ export interface CycleDiscontinued {
 /**
  * Check if a given object implements the CycleDiscontinued interface.
  */
-export function instanceOfCycleDiscontinued(value: object): boolean {
+export function instanceOfCycleDiscontinued(value: object): value is CycleDiscontinued {
     return true;
 }
 

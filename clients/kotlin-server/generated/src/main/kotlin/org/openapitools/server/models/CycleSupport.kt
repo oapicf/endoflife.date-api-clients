@@ -15,7 +15,7 @@ package org.openapitools.server.models
 /**
  * Whether this release cycle has active support
  */
-data class CycleSupport(
+class CycleSupport(
 
 ) 
 

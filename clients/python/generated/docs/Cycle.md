@@ -30,7 +30,7 @@ print(Cycle.to_json())
 # convert the object into a dict
 cycle_dict = cycle_instance.to_dict()
 # create an instance of Cycle from a dict
-cycle_form_dict = cycle.from_dict(cycle_dict)
+cycle_from_dict = Cycle.from_dict(cycle_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-03-13T10:46:02.810514135Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-07-10T09:08:20.025444920Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class ApiApiServiceImpl implements ApiApi {
       public Response getApiAllJson(SecurityContext securityContext) {
       // do some magic!

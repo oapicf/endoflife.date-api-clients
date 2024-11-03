@@ -15,7 +15,7 @@ package org.openapitools.server.models
 /**
  * Whether this cycle is now discontinued.
  */
-data class CycleDiscontinued(
+class CycleDiscontinued(
 
 ) 
 

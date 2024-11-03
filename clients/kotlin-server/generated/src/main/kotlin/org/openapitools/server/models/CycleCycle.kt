@@ -15,7 +15,7 @@ package org.openapitools.server.models
 /**
  * Release Cycle
  */
-data class CycleCycle(
+class CycleCycle(
 
 ) 
 

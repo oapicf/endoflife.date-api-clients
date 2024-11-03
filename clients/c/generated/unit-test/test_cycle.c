@@ -27,25 +27,25 @@ cycle_t* instantiate_cycle(int include_optional) {
   cycle_t* cycle = NULL;
   if (include_optional) {
     cycle = cycle_create(
-      null,
+      1.337,
       "2013-10-20",
-      null,
       "0",
       "0",
-      null,
-      null,
-      null
+      "0",
+      1,
+      "2013-10-20",
+      "2013-10-20"
     );
   } else {
     cycle = cycle_create(
-      null,
+      1.337,
       "2013-10-20",
-      null,
       "0",
       "0",
-      null,
-      null,
-      null
+      "0",
+      1,
+      "2013-10-20",
+      "2013-10-20"
     );
   }
 

@@ -25,7 +25,7 @@ export interface CycleLts {
 /**
  * Check if a given object implements the CycleLts interface.
  */
-export function instanceOfCycleLts(value: object): boolean {
+export function instanceOfCycleLts(value: object): value is CycleLts {
     return true;
 }
 

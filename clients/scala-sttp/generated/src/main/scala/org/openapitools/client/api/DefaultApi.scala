@@ -17,8 +17,7 @@ import sttp.client3._
 import sttp.model.Method
 
 object DefaultApi {
-
-def apply(baseUrl: String = "https://endoflife.date") = new DefaultApi(baseUrl)
+  def apply(baseUrl: String = "https://endoflife.date") = new DefaultApi(baseUrl)
 }
 
 class DefaultApi(baseUrl: String) {

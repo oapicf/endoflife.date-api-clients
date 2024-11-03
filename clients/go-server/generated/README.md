@@ -13,8 +13,8 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 0.0.1
-- Build date: 2024-03-13T10:43:44.627272963Z[Etc/UTC]
-- Generator version: 7.4.0
+- Build date: 2024-07-10T09:06:25.682360668Z[Etc/UTC]
+- Generator version: 7.6.0
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 
 

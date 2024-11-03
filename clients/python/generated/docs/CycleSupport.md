@@ -22,7 +22,7 @@ print(CycleSupport.to_json())
 # convert the object into a dict
 cycle_support_dict = cycle_support_instance.to_dict()
 # create an instance of CycleSupport from a dict
-cycle_support_form_dict = cycle_support.from_dict(cycle_support_dict)
+cycle_support_from_dict = CycleSupport.from_dict(cycle_support_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,8 +2,8 @@
 
 endoflife.date
 - API version: 0.0.1
-  - Build date: 2024-03-13T10:44:29.461124575Z[Etc/UTC]
-  - Generator version: 7.4.0
+  - Build date: 2024-07-10T09:07:06.482896812Z[Etc/UTC]
+  - Generator version: 7.6.0
 
 Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 

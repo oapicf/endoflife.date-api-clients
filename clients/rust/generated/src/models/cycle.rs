@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// Cycle : Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

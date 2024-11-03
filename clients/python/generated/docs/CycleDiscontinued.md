@@ -22,7 +22,7 @@ print(CycleDiscontinued.to_json())
 # convert the object into a dict
 cycle_discontinued_dict = cycle_discontinued_instance.to_dict()
 # create an instance of CycleDiscontinued from a dict
-cycle_discontinued_form_dict = cycle_discontinued.from_dict(cycle_discontinued_dict)
+cycle_discontinued_from_dict = CycleDiscontinued.from_dict(cycle_discontinued_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -87,15 +87,10 @@ class DefaultController extends Controller
 
             $result = $handler->getApiAllJson($responseCode, $responseHeaders);
 
-            // Find default response message
-            $message = '';
-
-            // Find a more specific message, if available
-            switch ($responseCode) {
-                case 200:
-                    $message = 'OK';
-                    break;
-            }
+            $message = match($responseCode) {
+                200 => 'OK',
+                default => '',
+            };
 
             return new Response(
                 $result !== null ?$this->serialize($result, $responseFormat):'',
@@ -173,15 +168,10 @@ class DefaultController extends Controller
 
             $result = $handler->getApiProductCycleJson($product, $cycle, $responseCode, $responseHeaders);
 
-            // Find default response message
-            $message = '';
-
-            // Find a more specific message, if available
-            switch ($responseCode) {
-                case 200:
-                    $message = 'OK';
-                    break;
-            }
+            $message = match($responseCode) {
+                200 => 'OK',
+                default => '',
+            };
 
             return new Response(
                 $result !== null ?$this->serialize($result, $responseFormat):'',
@@ -251,15 +241,10 @@ class DefaultController extends Controller
 
             $result = $handler->getApiProductJson($product, $responseCode, $responseHeaders);
 
-            // Find default response message
-            $message = '';
-
-            // Find a more specific message, if available
-            switch ($responseCode) {
-                case 200:
-                    $message = 'OK';
-                    break;
-            }
+            $message = match($responseCode) {
+                200 => 'OK',
+                default => '',
+            };
 
             return new Response(
                 $result !== null ?$this->serialize($result, $responseFormat):'',

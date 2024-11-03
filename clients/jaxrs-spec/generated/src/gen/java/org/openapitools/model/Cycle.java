@@ -25,16 +25,16 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
  **/
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-03-13T10:46:08.093775940Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-10T09:08:22.950601110Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class Cycle   {
-  private @Valid CycleCycle cycle;
-  private @Valid LocalDate releaseDate;
-  private @Valid CycleEol eol;
-  private @Valid String latest;
-  private @Valid String link;
-  private @Valid CycleLts lts;
-  private @Valid CycleSupport support;
-  private @Valid CycleDiscontinued discontinued;
+  private CycleCycle cycle;
+  private LocalDate releaseDate;
+  private CycleEol eol;
+  private String latest;
+  private String link;
+  private CycleLts lts;
+  private CycleSupport support;
+  private CycleDiscontinued discontinued;
 
   /**
    **/
@@ -46,7 +46,7 @@ public class Cycle   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("cycle")
-  public CycleCycle getCycle() {
+  @Valid public CycleCycle getCycle() {
     return cycle;
   }
 
@@ -66,7 +66,7 @@ public class Cycle   {
   
   @ApiModelProperty(value = "Release Date for the first release in this cycle")
   @JsonProperty("releaseDate")
- @Size(min=10,max=10)  public LocalDate getReleaseDate() {
+   @Size(min=10,max=10)public LocalDate getReleaseDate() {
     return releaseDate;
   }
 
@@ -85,7 +85,7 @@ public class Cycle   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("eol")
-  public CycleEol getEol() {
+  @Valid public CycleEol getEol() {
     return eol;
   }
 
@@ -105,7 +105,7 @@ public class Cycle   {
   
   @ApiModelProperty(value = "Latest release in this cycle")
   @JsonProperty("latest")
- @Size(min=1)  public String getLatest() {
+   @Size(min=1)public String getLatest() {
     return latest;
   }
 
@@ -125,7 +125,7 @@ public class Cycle   {
   
   @ApiModelProperty(value = "Link to changelog for the latest release, if available")
   @JsonProperty("link")
- @Size(min=1)  public String getLink() {
+   @Size(min=1)public String getLink() {
     return link;
   }
 
@@ -144,7 +144,7 @@ public class Cycle   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("lts")
-  public CycleLts getLts() {
+  @Valid public CycleLts getLts() {
     return lts;
   }
 
@@ -163,7 +163,7 @@ public class Cycle   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("support")
-  public CycleSupport getSupport() {
+  @Valid public CycleSupport getSupport() {
     return support;
   }
 
@@ -182,7 +182,7 @@ public class Cycle   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("discontinued")
-  public CycleDiscontinued getDiscontinued() {
+  @Valid public CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
 

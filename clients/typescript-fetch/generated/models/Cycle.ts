@@ -13,36 +13,36 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CycleCycle } from './CycleCycle';
-import {
-    CycleCycleFromJSON,
-    CycleCycleFromJSONTyped,
-    CycleCycleToJSON,
-} from './CycleCycle';
-import type { CycleDiscontinued } from './CycleDiscontinued';
-import {
-    CycleDiscontinuedFromJSON,
-    CycleDiscontinuedFromJSONTyped,
-    CycleDiscontinuedToJSON,
-} from './CycleDiscontinued';
-import type { CycleEol } from './CycleEol';
-import {
-    CycleEolFromJSON,
-    CycleEolFromJSONTyped,
-    CycleEolToJSON,
-} from './CycleEol';
 import type { CycleLts } from './CycleLts';
 import {
     CycleLtsFromJSON,
     CycleLtsFromJSONTyped,
     CycleLtsToJSON,
 } from './CycleLts';
+import type { CycleDiscontinued } from './CycleDiscontinued';
+import {
+    CycleDiscontinuedFromJSON,
+    CycleDiscontinuedFromJSONTyped,
+    CycleDiscontinuedToJSON,
+} from './CycleDiscontinued';
 import type { CycleSupport } from './CycleSupport';
 import {
     CycleSupportFromJSON,
     CycleSupportFromJSONTyped,
     CycleSupportToJSON,
 } from './CycleSupport';
+import type { CycleCycle } from './CycleCycle';
+import {
+    CycleCycleFromJSON,
+    CycleCycleFromJSONTyped,
+    CycleCycleToJSON,
+} from './CycleCycle';
+import type { CycleEol } from './CycleEol';
+import {
+    CycleEolFromJSON,
+    CycleEolFromJSONTyped,
+    CycleEolToJSON,
+} from './CycleEol';
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
@@ -103,7 +103,7 @@ export interface Cycle {
 /**
  * Check if a given object implements the Cycle interface.
  */
-export function instanceOfCycle(value: object): boolean {
+export function instanceOfCycle(value: object): value is Cycle {
     return true;
 }
 

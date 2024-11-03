@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build endoflife_date.gemspec
-  - gem install ./endoflife_date-0.10.1-pre.0.gem
+  - gem install ./endoflife_date-1.0.1-pre.0.gem

@@ -15,7 +15,7 @@ package org.openapitools.server.models
 /**
  * End of Life Date for this release cycle
  */
-data class CycleEol(
+class CycleEol(
 
 ) 
 

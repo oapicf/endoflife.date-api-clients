@@ -69,7 +69,8 @@ paths:
           description: OK
       summary: Get All Details
       tags: []
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /api/{product}/{cycle}.json:
     get:
       description: Gets details of a single cycle
@@ -115,7 +116,8 @@ paths:
           description: OK
       summary: Single cycle details
       tags: []
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /api/all.json:
     get:
       description: Return a list of all products. Each of these can be used for the
@@ -191,7 +193,8 @@ paths:
           description: OK
       summary: All Products
       tags: []
-      x-accepts: application/json
+      x-accepts:
+      - application/json
 components:
   schemas:
     cycle:

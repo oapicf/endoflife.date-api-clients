@@ -50,7 +50,7 @@ import com.google.gson.JsonParseException;
 
 import com.github.oapicf.endoflifedate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-13T10:44:29.461124575Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-10T09:07:06.482896812Z[Etc/UTC]", comments = "Generator version: 7.6.0")
 public class CycleLts extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CycleLts.class.getName());
 
@@ -75,17 +75,17 @@ public class CycleLts extends AbstractOpenApiSchema {
 
                     // check if the actual instance is of the type `Boolean`
                     if (value.getActualInstance() instanceof Boolean) {
-                      JsonPrimitive primitive = adapterBoolean.toJsonTree((Boolean)value.getActualInstance()).getAsJsonPrimitive();
-                      elementAdapter.write(out, primitive);
-                      return;
+                        JsonPrimitive primitive = adapterBoolean.toJsonTree((Boolean)value.getActualInstance()).getAsJsonPrimitive();
+                        elementAdapter.write(out, primitive);
+                        return;
                     }
                     // check if the actual instance is of the type `String`
                     if (value.getActualInstance() instanceof String) {
-                      JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
-                      elementAdapter.write(out, primitive);
-                      return;
+                        JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
+                        elementAdapter.write(out, primitive);
+                        return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemae: Boolean, String");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: Boolean, String");
                 }
 
                 @Override
@@ -98,33 +98,33 @@ public class CycleLts extends AbstractOpenApiSchema {
 
                     // deserialize Boolean
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      if(!jsonElement.getAsJsonPrimitive().isBoolean()) {
-                        throw new IllegalArgumentException(String.format("Expected json element to be of type Boolean in the JSON string but got `%s`", jsonElement.toString()));
-                      }
-                      actualAdapter = adapterBoolean;
-                      CycleLts ret = new CycleLts();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        if (!jsonElement.getAsJsonPrimitive().isBoolean()) {
+                            throw new IllegalArgumentException(String.format("Expected json element to be of type Boolean in the JSON string but got `%s`", jsonElement.toString()));
+                        }
+                        actualAdapter = adapterBoolean;
+                        CycleLts ret = new CycleLts();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for Boolean failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'Boolean'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Boolean failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Boolean'", e);
                     }
                     // deserialize String
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      if(!jsonElement.getAsJsonPrimitive().isString()) {
-                        throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-                      }
-                      actualAdapter = adapterString;
-                      CycleLts ret = new CycleLts();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        if (!jsonElement.getAsJsonPrimitive().isString()) {
+                            throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
+                        }
+                        actualAdapter = adapterString;
+                        CycleLts ret = new CycleLts();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'String'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'String'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for CycleLts: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -140,12 +140,7 @@ public class CycleLts extends AbstractOpenApiSchema {
         super("anyOf", Boolean.FALSE);
     }
 
-    public CycleLts(Boolean o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public CycleLts(String o) {
+    public CycleLts(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -188,6 +183,7 @@ public class CycleLts extends AbstractOpenApiSchema {
      *
      * @return The actual instance (Boolean, String)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
@@ -214,57 +210,56 @@ public class CycleLts extends AbstractOpenApiSchema {
         return (String)super.getActualInstance();
     }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CycleLts
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate anyOf schemas one by one
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with Boolean
-    try {
-      if(!jsonElement.getAsJsonPrimitive().isBoolean()) {
-        throw new IllegalArgumentException(String.format("Expected json element to be of type Boolean in the JSON string but got `%s`", jsonElement.toString()));
-      }
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for Boolean failed with `%s`.", e.getMessage()));
-      // continue to the next one
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to CycleLts
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate anyOf schemas one by one
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with Boolean
+        try {
+            if (!jsonElement.getAsJsonPrimitive().isBoolean()) {
+                throw new IllegalArgumentException(String.format("Expected json element to be of type Boolean in the JSON string but got `%s`", jsonElement.toString()));
+            }
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Boolean failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with String
+        try {
+            if (!jsonElement.getAsJsonPrimitive().isString()) {
+                throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
+            }
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(String.format("The JSON string is invalid for CycleLts with anyOf schemas: Boolean, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
-    // validate the json string with String
-    try {
-      if(!jsonElement.getAsJsonPrimitive().isString()) {
-        throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-      }
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-      // continue to the next one
+
+    /**
+     * Create an instance of CycleLts given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of CycleLts
+     * @throws IOException if the JSON string is invalid with respect to CycleLts
+     */
+    public static CycleLts fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CycleLts.class);
     }
-    throw new IOException(String.format("The JSON string is invalid for CycleLts with anyOf schemas: Boolean, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-    
-  }
 
- /**
-  * Create an instance of CycleLts given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CycleLts
-  * @throws IOException if the JSON string is invalid with respect to CycleLts
-  */
-  public static CycleLts fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CycleLts.class);
-  }
-
- /**
-  * Convert an instance of CycleLts to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Convert an instance of CycleLts to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 

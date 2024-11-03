@@ -9,6 +9,7 @@
  */
 
 use crate::models;
+use serde::{Deserialize, Serialize};
 
 /// CycleDiscontinued : Whether this cycle is now discontinued.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]

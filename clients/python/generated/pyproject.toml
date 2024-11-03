@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "endoflifedate"
-version = "0.10.1-pre.0"
+version = "1.0.1-pre.0"
 description = "endoflife.date"
 authors = ["OpenAPI Clients Factory <blah+oapicf@cliffano.com>"]
 license = "MIT"
