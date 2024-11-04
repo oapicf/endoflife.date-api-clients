@@ -86,7 +86,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $product = 'product_example'; // string | Product URL as per the canonical URL on the endofife.date website
-$cycle = 'cycle_example'; // string | Release Cycle for which the details must be fetched
+$cycle = 'cycle_example'; // string | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 try {
     $result = $apiInstance->getApiProductCycleJson($product, $cycle);
@@ -101,7 +101,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **product** | **string**| Product URL as per the canonical URL on the endofife.date website | |
-| **cycle** | **string**| Release Cycle for which the details must be fetched | |
+| **cycle** | **string**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | |
 
 ### Return type
 

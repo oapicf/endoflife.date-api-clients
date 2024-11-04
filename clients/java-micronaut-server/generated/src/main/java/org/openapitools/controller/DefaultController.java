@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-10T09:07:28.285773255Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-11-03T10:22:17.604596938Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Controller
 @Tag(name = "Default", description = "The Default API")
 public class DefaultController {
@@ -70,7 +70,7 @@ public class DefaultController {
      * Gets details of a single cycle
      *
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @param cycle Release Cycle for which the details must be fetched (required)
+     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @return Cycle
      */
     @Operation(
@@ -83,7 +83,7 @@ public class DefaultController {
         },
         parameters = {
             @Parameter(name = "product", description = "Product URL as per the canonical URL on the endofife.date website", required = true),
-            @Parameter(name = "cycle", description = "Release Cycle for which the details must be fetched", required = true)
+            @Parameter(name = "cycle", description = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.", required = true)
         }
     )
     @Get(uri="/api/{product}/{cycle}.json")

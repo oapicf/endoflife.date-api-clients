@@ -60,7 +60,7 @@ Gets details of a single cycle
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product** | **string** | Product URL as per the canonical URL on the endofife.date website | [default to null]
- **cycle** | **string** | Release Cycle for which the details must be fetched | [default to null]
+ **cycle** | **string** | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. | [default to null]
 
 ### Return type
 

@@ -106,7 +106,7 @@ export class DefaultApi {
      * Gets details of a single cycle
      * @summary Single cycle details
      * @param product Product URL as per the canonical URL on the endofife.date website
-     * @param cycle Release Cycle for which the details must be fetched
+     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      */
     public getApiProductCycleJson(product: string, cycle: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.Cycle;  },

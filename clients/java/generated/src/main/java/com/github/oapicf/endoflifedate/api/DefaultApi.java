@@ -188,7 +188,7 @@ public class DefaultApi {
     /**
      * Build call for getApiProductCycleJson
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @param cycle Release Cycle for which the details must be fetched (required)
+     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -264,7 +264,7 @@ public class DefaultApi {
      * Single cycle details
      * Gets details of a single cycle
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @param cycle Release Cycle for which the details must be fetched (required)
+     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @return Cycle
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -282,7 +282,7 @@ public class DefaultApi {
      * Single cycle details
      * Gets details of a single cycle
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @param cycle Release Cycle for which the details must be fetched (required)
+     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @return ApiResponse&lt;Cycle&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -301,7 +301,7 @@ public class DefaultApi {
      * Single cycle details (asynchronously)
      * Gets details of a single cycle
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @param cycle Release Cycle for which the details must be fetched (required)
+     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

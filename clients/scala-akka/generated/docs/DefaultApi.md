@@ -117,7 +117,7 @@ object Example extends App {
     val apiInstance = DefaultApi("https://endoflife.date")
     val product: String = product_example // String | Product URL as per the canonical URL on the endofife.date website
 
-    val cycle: String = cycle_example // String | Release Cycle for which the details must be fetched
+    val cycle: String = cycle_example // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
     
     val request = apiInstance.getApiProductCycleJson(product, cycle)
     val response = apiInvoker.execute(request)
@@ -148,7 +148,7 @@ object Example extends App {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product** | **String**| Product URL as per the canonical URL on the endofife.date website |
- **cycle** | **String**| Release Cycle for which the details must be fetched |
+ **cycle** | **String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. |
 
 ### Return type
 

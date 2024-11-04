@@ -66,7 +66,7 @@ library(openapi)
 #
 # prepare function argument(s)
 var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website
-var_cycle <- "cycle_example" # character | Release Cycle for which the details must be fetched
+var_cycle <- "cycle_example" # character | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 api_instance <- DefaultApi$new()
 # to save the result into a file, simply add the optional `data_file` parameter, e.g.
@@ -80,7 +80,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product** | **character**| Product URL as per the canonical URL on the endofife.date website | 
- **cycle** | **character**| Release Cycle for which the details must be fetched | 
+ **cycle** | **character**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
 

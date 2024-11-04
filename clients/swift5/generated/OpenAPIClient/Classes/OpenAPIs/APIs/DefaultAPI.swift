@@ -58,7 +58,7 @@ open class DefaultAPI {
      Single cycle details
      
      - parameter product: (path) Product URL as per the canonical URL on the endofife.date website 
-     - parameter cycle: (path) Release Cycle for which the details must be fetched 
+     - parameter cycle: (path) Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -79,7 +79,7 @@ open class DefaultAPI {
      - GET /api/{product}/{cycle}.json
      - Gets details of a single cycle
      - parameter product: (path) Product URL as per the canonical URL on the endofife.date website 
-     - parameter cycle: (path) Release Cycle for which the details must be fetched 
+     - parameter cycle: (path) Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. 
      - returns: RequestBuilder<Cycle> 
      */
     open class func getApiProductCycleJsonWithRequestBuilder(product: String, cycle: String) -> RequestBuilder<Cycle> {

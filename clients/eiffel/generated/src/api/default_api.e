@@ -63,7 +63,7 @@ feature -- API Access
 			-- 
 			-- argument: product Product URL as per the canonical URL on the endofife.date website (required)
 			-- 
-			-- argument: cycle Release Cycle for which the details must be fetched (required)
+			-- argument: cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
 			-- 
 			-- 
 			-- Result CYCLE

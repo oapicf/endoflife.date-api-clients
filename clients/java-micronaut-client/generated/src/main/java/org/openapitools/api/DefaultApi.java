@@ -26,7 +26,7 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-10T09:07:23.610199357Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-03T10:22:12.938888384Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Client("${openapi-micronaut-client-base-path}")
 public interface DefaultApi {
     /**
@@ -44,7 +44,7 @@ public interface DefaultApi {
      * Gets details of a single cycle
      *
      * @param product Product URL as per the canonical URL on the endofife.date website (required)
-     * @param cycle Release Cycle for which the details must be fetched (required)
+     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @return Cycle
      */
     @Get(uri="/api/{product}/{cycle}.json")

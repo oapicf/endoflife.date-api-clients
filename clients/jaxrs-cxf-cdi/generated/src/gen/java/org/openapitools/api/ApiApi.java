@@ -27,7 +27,7 @@ import javax.validation.Valid;
 @Api(description = "the api API")
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-07-10T09:08:10.374797964Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-11-03T10:23:00.577481880Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 
 public class ApiApi  {
 
@@ -54,7 +54,7 @@ public class ApiApi  {
     @ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle", response = Cycle.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class) })
-    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") String product, @ApiParam(value = "Release Cycle for which the details must be fetched",required=true) @PathParam("cycle") String cycle) {
+    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") String product, @ApiParam(value = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.",required=true) @PathParam("cycle") String cycle) {
         return delegate.getApiProductCycleJson(product, cycle, securityContext);
     }
 

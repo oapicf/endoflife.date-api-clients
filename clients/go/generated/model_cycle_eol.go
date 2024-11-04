@@ -16,39 +16,40 @@ import (
 	"fmt"
 )
 
+
 // CycleEol End of Life Date for this release cycle
 type CycleEol struct {
-	bool *bool
-	string *string
+	Bool *bool
+	String *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *CycleEol) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into bool
-	err = json.Unmarshal(data, &dst.bool);
+	// try to unmarshal JSON data into Bool
+	err = json.Unmarshal(data, &dst.Bool);
 	if err == nil {
-		jsonbool, _ := json.Marshal(dst.bool)
-		if string(jsonbool) == "{}" { // empty struct
-			dst.bool = nil
+		jsonBool, _ := json.Marshal(dst.Bool)
+		if string(jsonBool) == "{}" { // empty struct
+			dst.Bool = nil
 		} else {
-			return nil // data stored in dst.bool, return on the first match
+			return nil // data stored in dst.Bool, return on the first match
 		}
 	} else {
-		dst.bool = nil
+		dst.Bool = nil
 	}
 
-	// try to unmarshal JSON data into string
-	err = json.Unmarshal(data, &dst.string);
+	// try to unmarshal JSON data into String
+	err = json.Unmarshal(data, &dst.String);
 	if err == nil {
-		jsonstring, _ := json.Marshal(dst.string)
-		if string(jsonstring) == "{}" { // empty struct
-			dst.string = nil
+		jsonString, _ := json.Marshal(dst.String)
+		if string(jsonString) == "{}" { // empty struct
+			dst.String = nil
 		} else {
-			return nil // data stored in dst.string, return on the first match
+			return nil // data stored in dst.String, return on the first match
 		}
 	} else {
-		dst.string = nil
+		dst.String = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(CycleEol)")
@@ -56,16 +57,17 @@ func (dst *CycleEol) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src *CycleEol) MarshalJSON() ([]byte, error) {
-	if src.bool != nil {
-		return json.Marshal(&src.bool)
+	if src.Bool != nil {
+		return json.Marshal(&src.Bool)
 	}
 
-	if src.string != nil {
-		return json.Marshal(&src.string)
+	if src.String != nil {
+		return json.Marshal(&src.String)
 	}
 
 	return nil, nil // no data in anyOf schemas
 }
+
 
 type NullableCycleEol struct {
 	value *CycleEol

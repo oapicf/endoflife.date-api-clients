@@ -24,7 +24,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-10T09:07:36.842108603Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T10:22:27.837551129Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Controller
 public class DefaultApiController implements DefaultApi {
     private final ObjectMapper objectMapper;
@@ -44,7 +44,7 @@ public class DefaultApiController implements DefaultApi {
     }
 
     public ResponseEntity<Cycle> getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true ) @PathVariable("product") String product,
-        @ApiParam(value = "Release Cycle for which the details must be fetched",required=true ) @PathVariable("cycle") String cycle,
+        @ApiParam(value = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.",required=true ) @PathVariable("cycle") String cycle,
         @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
 

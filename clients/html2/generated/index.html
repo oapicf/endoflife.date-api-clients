@@ -1883,7 +1883,7 @@ public class DefaultApiExample {
         // Create an instance of the API class
         DefaultApi apiInstance = new DefaultApi();
         String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
-        String cycle = cycle_example; // String | Release Cycle for which the details must be fetched
+        String cycle = cycle_example; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
         try {
             cycle result = apiInstance.getApiProductCycle.json(product, cycle);
@@ -1903,7 +1903,7 @@ public class DefaultApiExample {
 final api_instance = DefaultApi();
 
 final String product = new String(); // String | Product URL as per the canonical URL on the endofife.date website
-final String cycle = new String(); // String | Release Cycle for which the details must be fetched
+final String cycle = new String(); // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 try {
     final result = await api_instance.getApiProductCycle.json(product, cycle);
@@ -1922,7 +1922,7 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
         String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
-        String cycle = cycle_example; // String | Release Cycle for which the details must be fetched
+        String cycle = cycle_example; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
         try {
             cycle result = apiInstance.getApiProductCycle.json(product, cycle);
@@ -1944,7 +1944,7 @@ public class DefaultApiExample {
 // Create an instance of the API class
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 String *product = product_example; // Product URL as per the canonical URL on the endofife.date website (default to null)
-String *cycle = cycle_example; // Release Cycle for which the details must be fetched (default to null)
+String *cycle = cycle_example; // Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (default to null)
 
 // Single cycle details
 [apiInstance getApiProductCycle.jsonWith:product
@@ -1966,7 +1966,7 @@ String *cycle = cycle_example; // Release Cycle for which the details must be fe
 // Create an instance of the API class
 var api = new EndoflifeDate.DefaultApi()
 var product = product_example; // {String} Product URL as per the canonical URL on the endofife.date website
-var cycle = cycle_example; // {String} Release Cycle for which the details must be fetched
+var cycle = cycle_example; // {String} Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1999,7 +1999,7 @@ namespace Example
             // Create an instance of the API class
             var apiInstance = new DefaultApi();
             var product = product_example;  // String | Product URL as per the canonical URL on the endofife.date website (default to null)
-            var cycle = cycle_example;  // String | Release Cycle for which the details must be fetched (default to null)
+            var cycle = cycle_example;  // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (default to null)
 
             try {
                 // Single cycle details
@@ -2021,7 +2021,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
-$cycle = cycle_example; // String | Release Cycle for which the details must be fetched
+$cycle = cycle_example; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 try {
     $result = $api_instance->getApiProductCycle.json($product, $cycle);
@@ -2040,7 +2040,7 @@ use WWW::OPenAPIClient::DefaultApi;
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $product = product_example; # String | Product URL as per the canonical URL on the endofife.date website
-my $cycle = cycle_example; # String | Release Cycle for which the details must be fetched
+my $cycle = cycle_example; # String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 eval {
     my $result = $api_instance->getApiProductCycle.json(product => $product, cycle => $cycle);
@@ -2061,7 +2061,7 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = openapi_client.DefaultApi()
 product = product_example # String | Product URL as per the canonical URL on the endofife.date website (default to null)
-cycle = cycle_example # String | Release Cycle for which the details must be fetched (default to null)
+cycle = cycle_example # String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (default to null)
 
 try:
     # Single cycle details
@@ -2135,7 +2135,7 @@ Product URL as per the canonical URL on the endofife.date website
                 </span>
 
                     <div class="inner description marked">
-Release Cycle for which the details must be fetched
+Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
                     </div>
             </div>
                 <div class="inner required">

@@ -11,14 +11,14 @@ class BaseDefaultApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseDefaultApi.subclasses = BaseDefaultApi.subclasses + (cls,)
-    def get_api_all_json(
+    async def get_api_all_json(
         self,
     ) -> List[str]:
         """Return a list of all products. Each of these can be used for the other API endpoints."""
         ...
 
 
-    def get_api_product_cycle_json(
+    async def get_api_product_cycle_json(
         self,
         product: str,
         cycle: str,
@@ -27,7 +27,7 @@ class BaseDefaultApi:
         ...
 
 
-    def get_api_product_json(
+    async def get_api_product_json(
         self,
         product: str,
     ) -> List[Cycle]:

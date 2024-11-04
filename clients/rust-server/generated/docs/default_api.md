@@ -5,8 +5,8 @@ All URIs are relative to *https://endoflife.date*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 **get-api-all.json**](default_api.md#get-api-all.json) | **GET** /api/all.json | All Products
-**get-api-:product-:cycle.json**](default_api.md#get-api-:product-:cycle.json) | **GET** /api/{product}/{cycle}.json | Single cycle details
 **get-api-:product.json**](default_api.md#get-api-:product.json) | **GET** /api/{product}.json | Get All Details
+**get-api-:product-:cycle.json**](default_api.md#get-api-:product-:cycle.json) | **GET** /api/{product}/{cycle}.json | Single cycle details
 
 
 # **get-api-all.json**
@@ -21,34 +21,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Vec<String>**](string.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get-api-:product-:cycle.json**
-> models::Cycle get-api-:product-:cycle.json(product, cycle)
-Single cycle details
-
-Gets details of a single cycle
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-  **product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
-  **cycle** | **String**| Release Cycle for which the details must be fetched | 
-
-### Return type
-
-[**models::Cycle**](cycle.md)
 
 ### Authorization
 
@@ -76,6 +48,34 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Vec<models::Cycle>**](cycle.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get-api-:product-:cycle.json**
+> models::Cycle get-api-:product-:cycle.json(product, cycle)
+Single cycle details
+
+Gets details of a single cycle
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
+  **cycle** | **String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. | 
+
+### Return type
+
+[**models::Cycle**](cycle.md)
 
 ### Authorization
 

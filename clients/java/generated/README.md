@@ -2,8 +2,8 @@
 
 endoflife.date
 - API version: 0.0.1
-  - Build date: 2024-07-10T09:07:06.482896812Z[Etc/UTC]
-  - Generator version: 7.6.0
+  - Build date: 2024-11-03T10:21:55.523664977Z[Etc/UTC]
+  - Generator version: 7.9.0
 
 Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
 
@@ -85,7 +85,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.github.oapicf.endoflifedate.ApiClient;
 import com.github.oapicf.endoflifedate.ApiException;
 import com.github.oapicf.endoflifedate.Configuration;
-import com.github.oapicf.endoflifedate.models.*;
+import com.github.oapicf.endoflifedate.model.*;
 import com.github.oapicf.endoflifedate.api.DefaultApi;
 
 public class Example {

@@ -23,7 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-10T09:07:36.842108603Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T10:22:27.837551129Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Cycle   {
   @JsonProperty("cycle")
   private CycleCycle cycle;
@@ -54,10 +54,10 @@ public class Cycle   {
     return this;
   }
 
-   /**
+  /**
    * Get cycle
    * @return cycle
-  **/
+   */
   @ApiModelProperty(value = "")
   public CycleCycle getCycle() {
     return cycle;
@@ -72,10 +72,10 @@ public class Cycle   {
     return this;
   }
 
-   /**
+  /**
    * Release Date for the first release in this cycle
    * @return releaseDate
-  **/
+   */
   @ApiModelProperty(value = "Release Date for the first release in this cycle")
   public LocalDate getReleaseDate() {
     return releaseDate;
@@ -90,10 +90,10 @@ public class Cycle   {
     return this;
   }
 
-   /**
+  /**
    * Get eol
    * @return eol
-  **/
+   */
   @ApiModelProperty(value = "")
   public CycleEol getEol() {
     return eol;
@@ -108,10 +108,10 @@ public class Cycle   {
     return this;
   }
 
-   /**
+  /**
    * Latest release in this cycle
    * @return latest
-  **/
+   */
   @ApiModelProperty(value = "Latest release in this cycle")
   public String getLatest() {
     return latest;
@@ -126,10 +126,10 @@ public class Cycle   {
     return this;
   }
 
-   /**
+  /**
    * Link to changelog for the latest release, if available
    * @return link
-  **/
+   */
   @ApiModelProperty(value = "Link to changelog for the latest release, if available")
   public String getLink() {
     return link;
@@ -144,10 +144,10 @@ public class Cycle   {
     return this;
   }
 
-   /**
+  /**
    * Get lts
    * @return lts
-  **/
+   */
   @ApiModelProperty(value = "")
   public CycleLts getLts() {
     return lts;
@@ -162,10 +162,10 @@ public class Cycle   {
     return this;
   }
 
-   /**
+  /**
    * Get support
    * @return support
-  **/
+   */
   @ApiModelProperty(value = "")
   public CycleSupport getSupport() {
     return support;
@@ -180,10 +180,10 @@ public class Cycle   {
     return this;
   }
 
-   /**
+  /**
    * Get discontinued
    * @return discontinued
-  **/
+   */
   @ApiModelProperty(value = "")
   public CycleDiscontinued getDiscontinued() {
     return discontinued;

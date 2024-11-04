@@ -51,13 +51,13 @@ async fn get_api_all_period_json<I, A>(
   cookies: CookieJar,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::default::Default,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     get_api_all_period_json_validation(
     )
   ).await.unwrap();
@@ -67,7 +67,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().get_api_all_period_json(
@@ -83,7 +83,6 @@ where
                                                 apis::default::GetApiAllPeriodJsonResponse::Status200_OK
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -133,13 +132,13 @@ async fn get_api_product_cycle_period_json<I, A>(
   Path(path_params): Path<models::GetApiProductCyclePeriodJsonPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::default::Default,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     get_api_product_cycle_period_json_validation(
         path_params,
     )
@@ -151,7 +150,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().get_api_product_cycle_period_json(
@@ -168,7 +167,6 @@ where
                                                 apis::default::GetApiProductCyclePeriodJsonResponse::Status200_OK
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();
@@ -218,13 +216,13 @@ async fn get_api_product_period_json<I, A>(
   Path(path_params): Path<models::GetApiProductPeriodJsonPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
-where 
+where
     I: AsRef<A> + Send + Sync,
     A: apis::default::Default,
 {
 
       #[allow(clippy::redundant_closure)]
-      let validation = tokio::task::spawn_blocking(move || 
+      let validation = tokio::task::spawn_blocking(move ||
     get_api_product_period_json_validation(
         path_params,
     )
@@ -236,7 +234,7 @@ where
     return Response::builder()
             .status(StatusCode::BAD_REQUEST)
             .body(Body::from(validation.unwrap_err().to_string()))
-            .map_err(|_| StatusCode::BAD_REQUEST); 
+            .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
   let result = api_impl.as_ref().get_api_product_period_json(
@@ -253,7 +251,6 @@ where
                                                 apis::default::GetApiProductPeriodJsonResponse::Status200_OK
                                                     (body)
                                                 => {
-
                                                   let mut response = response.status(200);
                                                   {
                                                     let mut response_headers = response.headers_mut().unwrap();

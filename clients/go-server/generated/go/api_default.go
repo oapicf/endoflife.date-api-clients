@@ -51,27 +51,33 @@ func NewDefaultAPIController(s DefaultAPIServicer, opts ...DefaultAPIOption) *De
 // Routes returns all the api routes for the DefaultAPIController
 func (c *DefaultAPIController) Routes() Routes {
 	return Routes{
-		"GetApiAllJson": Route{
+		"GetApiProductJson": Route{
 			strings.ToUpper("Get"),
-			"/api/all.json",
-			c.GetApiAllJson,
+			"/api/{product}.json",
+			c.GetApiProductJson,
 		},
 		"GetApiProductCycleJson": Route{
 			strings.ToUpper("Get"),
 			"/api/{product}/{cycle}.json",
 			c.GetApiProductCycleJson,
 		},
-		"GetApiProductJson": Route{
+		"GetApiAllJson": Route{
 			strings.ToUpper("Get"),
-			"/api/{product}.json",
-			c.GetApiProductJson,
+			"/api/all.json",
+			c.GetApiAllJson,
 		},
 	}
 }
 
-// GetApiAllJson - All Products
-func (c *DefaultAPIController) GetApiAllJson(w http.ResponseWriter, r *http.Request) {
-	result, err := c.service.GetApiAllJson(r.Context())
+// GetApiProductJson - Get All Details
+func (c *DefaultAPIController) GetApiProductJson(w http.ResponseWriter, r *http.Request) {
+	params := mux.Vars(r)
+	productParam := params["product"]
+	if productParam == "" {
+		c.errorHandler(w, r, &RequiredError{"product"}, nil)
+		return
+	}
+	result, err := c.service.GetApiProductJson(r.Context(), productParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)
@@ -104,15 +110,9 @@ func (c *DefaultAPIController) GetApiProductCycleJson(w http.ResponseWriter, r *
 	_ = EncodeJSONResponse(result.Body, &result.Code, w)
 }
 
-// GetApiProductJson - Get All Details
-func (c *DefaultAPIController) GetApiProductJson(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	productParam := params["product"]
-	if productParam == "" {
-		c.errorHandler(w, r, &RequiredError{"product"}, nil)
-		return
-	}
-	result, err := c.service.GetApiProductJson(r.Context(), productParam)
+// GetApiAllJson - All Products
+func (c *DefaultAPIController) GetApiAllJson(w http.ResponseWriter, r *http.Request) {
+	result, err := c.service.GetApiAllJson(r.Context())
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)

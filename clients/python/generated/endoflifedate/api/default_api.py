@@ -242,7 +242,9 @@ class DefaultApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -253,11 +255,12 @@ class DefaultApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -286,7 +289,7 @@ class DefaultApi:
     def get_api_product_cycle_json(
         self,
         product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
-        cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched")],
+        cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -306,7 +309,7 @@ class DefaultApi:
 
         :param product: Product URL as per the canonical URL on the endofife.date website (required)
         :type product: str
-        :param cycle: Release Cycle for which the details must be fetched (required)
+        :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (required)
         :type cycle: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -357,7 +360,7 @@ class DefaultApi:
     def get_api_product_cycle_json_with_http_info(
         self,
         product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
-        cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched")],
+        cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -377,7 +380,7 @@ class DefaultApi:
 
         :param product: Product URL as per the canonical URL on the endofife.date website (required)
         :type product: str
-        :param cycle: Release Cycle for which the details must be fetched (required)
+        :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (required)
         :type cycle: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -428,7 +431,7 @@ class DefaultApi:
     def get_api_product_cycle_json_without_preload_content(
         self,
         product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
-        cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched")],
+        cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -448,7 +451,7 @@ class DefaultApi:
 
         :param product: Product URL as per the canonical URL on the endofife.date website (required)
         :type product: str
-        :param cycle: Release Cycle for which the details must be fetched (required)
+        :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (required)
         :type cycle: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -510,7 +513,9 @@ class DefaultApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -525,11 +530,12 @@ class DefaultApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -769,7 +775,9 @@ class DefaultApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -782,11 +790,12 @@ class DefaultApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting

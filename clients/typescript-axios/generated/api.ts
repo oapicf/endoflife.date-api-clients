@@ -154,7 +154,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * Gets details of a single cycle
          * @summary Single cycle details
          * @param {string} product Product URL as per the canonical URL on the endofife.date website
-         * @param {string} cycle Release Cycle for which the details must be fetched
+         * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -248,7 +248,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * Gets details of a single cycle
          * @summary Single cycle details
          * @param {string} product Product URL as per the canonical URL on the endofife.date website
-         * @param {string} cycle Release Cycle for which the details must be fetched
+         * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -287,18 +287,18 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiAllJson(options?: any): AxiosPromise<Array<string>> {
+        getApiAllJson(options?: RawAxiosRequestConfig): AxiosPromise<Array<string>> {
             return localVarFp.getApiAllJson(options).then((request) => request(axios, basePath));
         },
         /**
          * Gets details of a single cycle
          * @summary Single cycle details
          * @param {string} product Product URL as per the canonical URL on the endofife.date website
-         * @param {string} cycle Release Cycle for which the details must be fetched
+         * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiProductCycleJson(product: string, cycle: string, options?: any): AxiosPromise<Cycle> {
+        getApiProductCycleJson(product: string, cycle: string, options?: RawAxiosRequestConfig): AxiosPromise<Cycle> {
             return localVarFp.getApiProductCycleJson(product, cycle, options).then((request) => request(axios, basePath));
         },
         /**
@@ -308,7 +308,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getApiProductJson(product: string, options?: any): AxiosPromise<Array<Cycle>> {
+        getApiProductJson(product: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Cycle>> {
             return localVarFp.getApiProductJson(product, options).then((request) => request(axios, basePath));
         },
     };
@@ -336,7 +336,7 @@ export class DefaultApi extends BaseAPI {
      * Gets details of a single cycle
      * @summary Single cycle details
      * @param {string} product Product URL as per the canonical URL on the endofife.date website
-     * @param {string} cycle Release Cycle for which the details must be fetched
+     * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi

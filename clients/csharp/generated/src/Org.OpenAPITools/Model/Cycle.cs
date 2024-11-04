@@ -66,7 +66,6 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>Release Date for the first release in this cycle</value>
         [DataMember(Name = "releaseDate", EmitDefaultValue = false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateOnly ReleaseDate { get; set; }
 
         /// <summary>
@@ -141,30 +140,30 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // ReleaseDate (DateOnly) maxLength
             if (this.ReleaseDate != null && this.ReleaseDate.Length > 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseDate, length must be less than 10.", new [] { "ReleaseDate" });
+                yield return new ValidationResult("Invalid value for ReleaseDate, length must be less than 10.", new [] { "ReleaseDate" });
             }
 
             // ReleaseDate (DateOnly) minLength
             if (this.ReleaseDate != null && this.ReleaseDate.Length < 10)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReleaseDate, length must be greater than 10.", new [] { "ReleaseDate" });
+                yield return new ValidationResult("Invalid value for ReleaseDate, length must be greater than 10.", new [] { "ReleaseDate" });
             }
 
             // Latest (string) minLength
             if (this.Latest != null && this.Latest.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Latest, length must be greater than 1.", new [] { "Latest" });
+                yield return new ValidationResult("Invalid value for Latest, length must be greater than 1.", new [] { "Latest" });
             }
 
             // Link (string) minLength
             if (this.Link != null && this.Link.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Link, length must be greater than 1.", new [] { "Link" });
+                yield return new ValidationResult("Invalid value for Link, length must be greater than 1.", new [] { "Link" });
             }
 
             yield break;

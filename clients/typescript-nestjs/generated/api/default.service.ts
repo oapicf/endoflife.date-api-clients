@@ -11,7 +11,7 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Inject, Injectable, Optional } from '@nestjs/common';
+import { Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
 import { Observable, from, of, switchMap } from 'rxjs';
@@ -49,7 +49,6 @@ export class DefaultService {
      */
     public getApiAllJson(): Observable<AxiosResponse<Array<string>>>;
     public getApiAllJson(): Observable<any> {
-
         let headers = {...this.defaultHeaders};
 
         let accessTokenObservable: Observable<any> = of(null);
@@ -85,13 +84,12 @@ export class DefaultService {
      * Single cycle details
      * Gets details of a single cycle
      * @param product Product URL as per the canonical URL on the endofife.date website
-     * @param cycle Release Cycle for which the details must be fetched
+     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
     public getApiProductCycleJson(product: string, cycle: string, ): Observable<AxiosResponse<Cycle>>;
     public getApiProductCycleJson(product: string, cycle: string, ): Observable<any> {
-
         if (product === null || product === undefined) {
             throw new Error('Required parameter product was null or undefined when calling getApiProductCycleJson.');
         }
@@ -140,7 +138,6 @@ export class DefaultService {
      */
     public getApiProductJson(product: string, ): Observable<AxiosResponse<Array<Cycle>>>;
     public getApiProductJson(product: string, ): Observable<any> {
-
         if (product === null || product === undefined) {
             throw new Error('Required parameter product was null or undefined when calling getApiProductJson.');
         }

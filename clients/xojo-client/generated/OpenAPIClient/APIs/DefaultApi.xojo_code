@@ -128,7 +128,7 @@ Protected Class DefaultApi
 		  // Single cycle details
 		  // - 
 		  // - parameter product: (path) Product URL as per the canonical URL on the endofife.date website 
-		  // - parameter cycle: (path) Release Cycle for which the details must be fetched 
+		  // - parameter cycle: (path) Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. 
 		  //
 		  // Invokes DefaultApiCallbackHandler.GetApiProductCycleJsonCallback(Cycle) on completion. 
 		  //

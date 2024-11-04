@@ -158,7 +158,7 @@
           </xs:element>
           <xs:element minOccurs="1" name="cycle" type="xs:string">
             <xs:annotation>
-              <xs:documentation>Release Cycle for which the details must be fetched</xs:documentation>
+              <xs:documentation>Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>

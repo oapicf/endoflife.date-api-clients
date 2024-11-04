@@ -106,7 +106,7 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// Gets details of a single cycle
 ///  @param product Product URL as per the canonical URL on the endofife.date website 
 ///
-///  @param cycle Release Cycle for which the details must be fetched 
+///  @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. 
 ///
 ///  @returns OAICycle*
 ///

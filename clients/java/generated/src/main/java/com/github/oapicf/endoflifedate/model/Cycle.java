@@ -44,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,7 +55,7 @@ import com.github.oapicf.endoflifedate.JSON;
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-10T09:07:06.482896812Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-03T10:21:55.523664977Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Cycle {
   public static final String SERIALIZED_NAME_CYCLE = "cycle";
   @SerializedName(SERIALIZED_NAME_CYCLE)
@@ -98,10 +97,10 @@ public class Cycle {
     return this;
   }
 
-   /**
+  /**
    * Get cycle
    * @return cycle
-  **/
+   */
   @javax.annotation.Nullable
   public CycleCycle getCycle() {
     return cycle;
@@ -117,10 +116,10 @@ public class Cycle {
     return this;
   }
 
-   /**
+  /**
    * Release Date for the first release in this cycle
    * @return releaseDate
-  **/
+   */
   @javax.annotation.Nullable
   public LocalDate getReleaseDate() {
     return releaseDate;
@@ -136,10 +135,10 @@ public class Cycle {
     return this;
   }
 
-   /**
+  /**
    * Get eol
    * @return eol
-  **/
+   */
   @javax.annotation.Nullable
   public CycleEol getEol() {
     return eol;
@@ -155,10 +154,10 @@ public class Cycle {
     return this;
   }
 
-   /**
+  /**
    * Latest release in this cycle
    * @return latest
-  **/
+   */
   @javax.annotation.Nullable
   public String getLatest() {
     return latest;
@@ -174,10 +173,10 @@ public class Cycle {
     return this;
   }
 
-   /**
+  /**
    * Link to changelog for the latest release, if available
    * @return link
-  **/
+   */
   @javax.annotation.Nullable
   public String getLink() {
     return link;
@@ -193,10 +192,10 @@ public class Cycle {
     return this;
   }
 
-   /**
+  /**
    * Get lts
    * @return lts
-  **/
+   */
   @javax.annotation.Nullable
   public CycleLts getLts() {
     return lts;
@@ -212,10 +211,10 @@ public class Cycle {
     return this;
   }
 
-   /**
+  /**
    * Get support
    * @return support
-  **/
+   */
   @javax.annotation.Nullable
   public CycleSupport getSupport() {
     return support;
@@ -231,10 +230,10 @@ public class Cycle {
     return this;
   }
 
-   /**
+  /**
    * Get discontinued
    * @return discontinued
-  **/
+   */
   @javax.annotation.Nullable
   public CycleDiscontinued getDiscontinued() {
     return discontinued;
@@ -328,12 +327,12 @@ public class Cycle {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to Cycle
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Cycle
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Cycle.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -406,22 +405,22 @@ public class Cycle {
     }
   }
 
- /**
-  * Create an instance of Cycle given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Cycle
-  * @throws IOException if the JSON string is invalid with respect to Cycle
-  */
+  /**
+   * Create an instance of Cycle given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Cycle
+   * @throws IOException if the JSON string is invalid with respect to Cycle
+   */
   public static Cycle fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Cycle.class);
   }
 
- /**
-  * Convert an instance of Cycle to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Cycle to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

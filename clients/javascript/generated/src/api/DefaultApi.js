@@ -83,7 +83,7 @@ export default class DefaultApi {
      * Single cycle details
      * Gets details of a single cycle
      * @param {String} product Product URL as per the canonical URL on the endofife.date website
-     * @param {String} cycle Release Cycle for which the details must be fetched
+     * @param {String} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
      * @param {module:api/DefaultApi~getApiProductCycleJsonCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Cycle}
      */

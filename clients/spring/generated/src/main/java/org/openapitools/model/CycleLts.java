@@ -19,7 +19,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle_lts", description = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
 @JsonTypeName("cycle_lts")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-10T09:11:47.023291794Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-03T10:26:16.790507711Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class CycleLts {
 
   @Override

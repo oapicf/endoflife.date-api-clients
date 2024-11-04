@@ -41,9 +41,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="actualInstance">An instance of decimal.</param>
         public CycleCycle(decimal actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance;
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -53,9 +53,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="actualInstance">An instance of string.</param>
         public CycleCycle(string actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType= "anyOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
 
@@ -74,11 +74,11 @@ namespace Org.OpenAPITools.Model
             {
                 if (value.GetType() == typeof(decimal))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
                 else if (value.GetType() == typeof(string))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
                 else
                 {
@@ -94,7 +94,7 @@ namespace Org.OpenAPITools.Model
         /// <returns>An instance of decimal</returns>
         public decimal GetDecimal()
         {
-            return (decimal)this.ActualInstance;
+            return (decimal)ActualInstance;
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Org.OpenAPITools.Model
         /// <returns>An instance of string</returns>
         public string GetString()
         {
-            return (string)this.ActualInstance;
+            return (string)ActualInstance;
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Org.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CycleCycle {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  ActualInstance: ").Append(ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,7 +126,7 @@ namespace Org.OpenAPITools.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, CycleCycle.SerializerSettings);
+            return JsonConvert.SerializeObject(ActualInstance, CycleCycle.SerializerSettings);
         }
 
         /// <summary>

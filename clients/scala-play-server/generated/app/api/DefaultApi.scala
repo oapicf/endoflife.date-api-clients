@@ -3,7 +3,7 @@ package api
 import play.api.libs.json._
 import model.Cycle
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-07-10T09:11:31.374855606Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-11-03T10:26:06.423739496Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 trait DefaultApi {
   /**
     * All Products
@@ -15,7 +15,7 @@ trait DefaultApi {
     * Single cycle details
     * Gets details of a single cycle
     * @param product Product URL as per the canonical URL on the endofife.date website
-    * @param cycle Release Cycle for which the details must be fetched
+    * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
     */
   def getApiProductCycleJson(product: String, cycle: String): Cycle
 

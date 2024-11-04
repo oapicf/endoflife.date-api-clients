@@ -56,7 +56,21 @@ private:
     /// May be overridden to return custom error formats. This is called inside a catch block.
     /// Important: When overriding, do not call `throw ex;`, but instead use `throw;`.
     /// </summary>
+    virtual void handleParsingException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept;
+
+    /// <summary>
+    /// Helper function to handle unexpected Exceptions during Parameter parsing and validation.
+    /// May be overridden to return custom error formats. This is called inside a catch block.
+    /// Important: When overriding, do not call `throw ex;`, but instead use `throw;`.
+    /// </summary>
     virtual std::pair<Pistache::Http::Code, std::string> handleParsingException(const std::exception& ex) const noexcept;
+
+    /// <summary>
+    /// Helper function to handle unexpected Exceptions during processing of the request in handler functions.
+    /// May be overridden to return custom error formats. This is called inside a catch block.
+    /// Important: When overriding, do not call `throw ex;`, but instead use `throw;`.
+    /// </summary>
+    virtual void handleOperationException(const std::exception& ex, Pistache::Http::ResponseWriter &response) const noexcept;
 
     /// <summary>
     /// Helper function to handle unexpected Exceptions during processing of the request in handler functions.
@@ -79,7 +93,7 @@ private:
     /// Gets details of a single cycle
     /// </remarks>
     /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-    /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+    /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
     virtual void get_api_product_cycle_json(const std::string &product, const std::string &cycle, Pistache::Http::ResponseWriter &response) = 0;
     /// <summary>
     /// Get All Details

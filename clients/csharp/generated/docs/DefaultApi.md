@@ -120,7 +120,7 @@ namespace Example
             config.BasePath = "https://endoflife.date";
             var apiInstance = new DefaultApi(config);
             var product = "product_example";  // string | Product URL as per the canonical URL on the endofife.date website
-            var cycle = "cycle_example";  // string | Release Cycle for which the details must be fetched
+            var cycle = "cycle_example";  // string | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
             try
             {
@@ -164,7 +164,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **product** | **string** | Product URL as per the canonical URL on the endofife.date website |  |
-| **cycle** | **string** | Release Cycle for which the details must be fetched |  |
+| **cycle** | **string** | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. |  |
 
 ### Return type
 

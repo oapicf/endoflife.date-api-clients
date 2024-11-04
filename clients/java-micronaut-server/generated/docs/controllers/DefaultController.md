@@ -43,7 +43,7 @@ Gets details of a single cycle
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **product** | `String` | Product URL as per the canonical URL on the endofife.date website |
-**cycle** | `String` | Release Cycle for which the details must be fetched |
+**cycle** | `String` | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. |
 
 ### Return type
 [**Cycle**](../../docs/models/Cycle.md)

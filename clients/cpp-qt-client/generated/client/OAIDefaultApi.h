@@ -58,18 +58,18 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
 
-    void getApiAll_json();
+    virtual void getApiAll_json();
 
     /**
     * @param[in]  product QString [required]
     * @param[in]  cycle QString [required]
     */
-    void getApiProductCycle_json(const QString &product, const QString &cycle);
+    virtual void getApiProductCycle_json(const QString &product, const QString &cycle);
 
     /**
     * @param[in]  product QString [required]
     */
-    void getApiProduct_json(const QString &product);
+    virtual void getApiProduct_json(const QString &product);
 
 
 private:
@@ -103,6 +103,7 @@ Q_SIGNALS:
     void getApiAll_jsonSignal(QList<QString> summary);
     void getApiProductCycle_jsonSignal(OAICycle summary);
     void getApiProduct_jsonSignal(QList<OAICycle> summary);
+
 
     void getApiAll_jsonSignalFull(OAIHttpRequestWorker *worker, QList<QString> summary);
     void getApiProductCycle_jsonSignalFull(OAIHttpRequestWorker *worker, OAICycle summary);

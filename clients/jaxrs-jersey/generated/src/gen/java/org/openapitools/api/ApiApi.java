@@ -29,7 +29,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-07-10T09:08:13.442358644Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2024-11-03T10:23:04.199052282Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class ApiApi  {
    private final ApiApiService delegate;
 
@@ -40,7 +40,7 @@ public class ApiApi  {
          String implClass = servletContext.getInitParameter("ApiApi.implementation");
          if (implClass != null && !"".equals(implClass.trim())) {
             try {
-               delegate = (ApiApiService) Class.forName(implClass).newInstance();
+               delegate = (ApiApiService) Class.forName(implClass).getDeclaredConstructor().newInstance();
             } catch (Exception e) {
                throw new RuntimeException(e);
             }
@@ -74,7 +74,7 @@ public class ApiApi  {
     @io.swagger.annotations.ApiResponses(value = {
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Cycle.class)
     })
-    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathParam("product") @NotNull  String product,@ApiParam(value = "Release Cycle for which the details must be fetched", required = true) @PathParam("cycle") @NotNull  String cycle,@Context SecurityContext securityContext)
+    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathParam("product") @NotNull  String product,@ApiParam(value = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.", required = true) @PathParam("cycle") @NotNull  String cycle,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getApiProductCycleJson(product, cycle, securityContext);
     }

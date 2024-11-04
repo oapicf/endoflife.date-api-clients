@@ -18,17 +18,15 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, DefaultApi } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .DefaultApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
 
-let body:any = {};
+const request = {};
 
-apiInstance.getApiAllJson(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.getApiAllJson(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -66,22 +64,21 @@ Gets details of a single cycle
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetApiProductCycleJsonRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .DefaultApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
 
-let body:.DefaultApiGetApiProductCycleJsonRequest = {
-  // string | Product URL as per the canonical URL on the endofife.date website
+const request: DefaultApiGetApiProductCycleJsonRequest = {
+    // Product URL as per the canonical URL on the endofife.date website
   product: "product_example",
-  // string | Release Cycle for which the details must be fetched
+    // Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\'s releng/14.0 becomes releng-14.0.
   cycle: "cycle_example",
 };
 
-apiInstance.getApiProductCycleJson(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.getApiProductCycleJson(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -90,7 +87,7 @@ apiInstance.getApiProductCycleJson(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **product** | [**string**] | Product URL as per the canonical URL on the endofife.date website | defaults to undefined
- **cycle** | [**string**] | Release Cycle for which the details must be fetched | defaults to undefined
+ **cycle** | [**string**] | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0. | defaults to undefined
 
 
 ### Return type
@@ -123,20 +120,19 @@ Get EoL dates of all cycles of a given product.
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, DefaultApi } from '';
+import type { DefaultApiGetApiProductJsonRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .DefaultApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new DefaultApi(configuration);
 
-let body:.DefaultApiGetApiProductJsonRequest = {
-  // string | Product URL as per the canonical URL on the endofife.date website
+const request: DefaultApiGetApiProductJsonRequest = {
+    // Product URL as per the canonical URL on the endofife.date website
   product: "product_example",
 };
 
-apiInstance.getApiProductJson(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.getApiProductJson(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

@@ -46,7 +46,7 @@ const getApiProduct.json = ({ product }) => new Promise(
 * Gets details of a single cycle
 *
 * product String Product URL as per the canonical URL on the endofife.date website
-* cycle String Release Cycle for which the details must be fetched
+* cycle String Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 * returns cycle
 * */
 const getApiProductCycle.json = ({ product, cycle }) => new Promise(

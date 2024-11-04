@@ -22,7 +22,7 @@ async def get_api_product_cycle_json(request: web.Request, product, cycle) -> we
 
     :param product: Product URL as per the canonical URL on the endofife.date website
     :type product: str
-    :param cycle: Release Cycle for which the details must be fetched
+    :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
     :type cycle: str
 
     """

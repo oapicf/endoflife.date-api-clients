@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
 **product** | **char \*** | Product URL as per the canonical URL on the endofife.date website | 
-**cycle** | **char \*** | Release Cycle for which the details must be fetched | 
+**cycle** | **char \*** | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
 

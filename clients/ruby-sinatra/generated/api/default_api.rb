@@ -55,7 +55,7 @@ MyApp.add_route('GET', '/api/{product}/{cycle}.json', {
     },
     {
       "name" => "cycle",
-      "description" => "Release Cycle for which the details must be fetched",
+      "description" => "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.",
       "dataType" => "String",
       "paramType" => "path",
     },

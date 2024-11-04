@@ -43,7 +43,7 @@ import javax.annotation.Generated;
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
 @JsonTypeName("cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-07-10T09:07:23.610199357Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-03T10:22:12.938888384Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Introspected
 public class Cycle {
     public static final String JSON_PROPERTY_CYCLE = "cycle";
@@ -81,7 +81,7 @@ public class Cycle {
     /**
      * Get cycle
      * @return cycle
-     **/
+     */
     @Valid
     @Nullable
     @JsonProperty(JSON_PROPERTY_CYCLE)
@@ -104,7 +104,7 @@ public class Cycle {
     /**
      * Release Date for the first release in this cycle
      * @return releaseDate
-     **/
+     */
     @Nullable
     @Size(min=10, max=10)
     @JsonProperty(JSON_PROPERTY_RELEASE_DATE)
@@ -129,7 +129,7 @@ public class Cycle {
     /**
      * Get eol
      * @return eol
-     **/
+     */
     @Valid
     @Nullable
     @JsonProperty(JSON_PROPERTY_EOL)
@@ -152,7 +152,7 @@ public class Cycle {
     /**
      * Latest release in this cycle
      * @return latest
-     **/
+     */
     @Nullable
     @Size(min=1)
     @JsonProperty(JSON_PROPERTY_LATEST)
@@ -175,7 +175,7 @@ public class Cycle {
     /**
      * Link to changelog for the latest release, if available
      * @return link
-     **/
+     */
     @Nullable
     @Size(min=1)
     @JsonProperty(JSON_PROPERTY_LINK)
@@ -198,7 +198,7 @@ public class Cycle {
     /**
      * Get lts
      * @return lts
-     **/
+     */
     @Valid
     @Nullable
     @JsonProperty(JSON_PROPERTY_LTS)
@@ -221,7 +221,7 @@ public class Cycle {
     /**
      * Get support
      * @return support
-     **/
+     */
     @Valid
     @Nullable
     @JsonProperty(JSON_PROPERTY_SUPPORT)
@@ -244,7 +244,7 @@ public class Cycle {
     /**
      * Get discontinued
      * @return discontinued
-     **/
+     */
     @Valid
     @Nullable
     @JsonProperty(JSON_PROPERTY_DISCONTINUED)

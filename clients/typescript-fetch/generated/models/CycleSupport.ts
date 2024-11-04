@@ -36,7 +36,11 @@ export function CycleSupportFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return json;
 }
 
-export function CycleSupportToJSON(value?: CycleSupport | null): any {
+  export function CycleSupportToJSON(json: any): CycleSupport {
+      return CycleSupportToJSONTyped(json, false);
+  }
+
+  export function CycleSupportToJSONTyped(value?: CycleSupport | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

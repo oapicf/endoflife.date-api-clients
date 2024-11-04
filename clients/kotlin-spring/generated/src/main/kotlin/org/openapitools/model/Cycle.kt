@@ -63,7 +63,7 @@ data class Cycle(
     @field:Valid
     @Schema(example = "null", description = "")
     @get:JsonProperty("discontinued") val discontinued: CycleDiscontinued? = null
-) {
+    ) {
 
 }
 

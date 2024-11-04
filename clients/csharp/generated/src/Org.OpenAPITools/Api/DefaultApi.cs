@@ -56,7 +56,7 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-        /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+        /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Cycle</returns>
         Cycle GetApiProductCycleJson(string product, string cycle, int operationIndex = 0);
@@ -69,7 +69,7 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-        /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+        /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Cycle</returns>
         ApiResponse<Cycle> GetApiProductCycleJsonWithHttpInfo(string product, string cycle, int operationIndex = 0);
@@ -115,7 +115,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        System.Threading.Tasks.Task<List<string>> GetApiAllJsonAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<string>> GetApiAllJsonAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// All Products
@@ -127,7 +127,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<string>>> GetApiAllJsonWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<string>>> GetApiAllJsonWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Single cycle details
         /// </summary>
@@ -136,11 +136,11 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-        /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+        /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Cycle</returns>
-        System.Threading.Tasks.Task<Cycle> GetApiProductCycleJsonAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Cycle> GetApiProductCycleJsonAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Single cycle details
@@ -150,11 +150,11 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-        /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+        /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Cycle)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Cycle>> GetApiProductCycleJsonWithHttpInfoAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Cycle>> GetApiProductCycleJsonWithHttpInfoAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get All Details
         /// </summary>
@@ -166,7 +166,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Cycle&gt;</returns>
-        System.Threading.Tasks.Task<List<Cycle>> GetApiProductJsonAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Cycle>> GetApiProductJsonAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get All Details
@@ -179,7 +179,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Cycle&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Cycle>>> GetApiProductJsonWithHttpInfoAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Cycle>>> GetApiProductJsonWithHttpInfoAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -368,7 +368,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        public async System.Threading.Tasks.Task<List<string>> GetApiAllJsonAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<string>> GetApiAllJsonAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Org.OpenAPITools.Client.ApiResponse<List<string>> localVarResponse = await GetApiAllJsonWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -381,7 +381,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<List<string>>> GetApiAllJsonWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<List<string>>> GetApiAllJsonWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -431,7 +431,7 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-        /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+        /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Cycle</returns>
         public Cycle GetApiProductCycleJson(string product, string cycle, int operationIndex = 0)
@@ -445,7 +445,7 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-        /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+        /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Cycle</returns>
         public Org.OpenAPITools.Client.ApiResponse<Cycle> GetApiProductCycleJsonWithHttpInfo(string product, string cycle, int operationIndex = 0)
@@ -510,11 +510,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-        /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+        /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Cycle</returns>
-        public async System.Threading.Tasks.Task<Cycle> GetApiProductCycleJsonAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Cycle> GetApiProductCycleJsonAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Org.OpenAPITools.Client.ApiResponse<Cycle> localVarResponse = await GetApiProductCycleJsonWithHttpInfoAsync(product, cycle, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -525,11 +525,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
-        /// <param name="cycle">Release Cycle for which the details must be fetched</param>
+        /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Cycle)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<Cycle>> GetApiProductCycleJsonWithHttpInfoAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<Cycle>> GetApiProductCycleJsonWithHttpInfoAsync(string product, string cycle, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'product' is set
             if (product == null)
@@ -666,7 +666,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Cycle&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Cycle>> GetApiProductJsonAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Cycle>> GetApiProductJsonAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Org.OpenAPITools.Client.ApiResponse<List<Cycle>> localVarResponse = await GetApiProductJsonWithHttpInfoAsync(product, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -680,7 +680,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Cycle&gt;)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<List<Cycle>>> GetApiProductJsonWithHttpInfoAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<List<Cycle>>> GetApiProductJsonWithHttpInfoAsync(string product, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'product' is set
             if (product == null)

@@ -36,7 +36,11 @@ export function CycleEolFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return json;
 }
 
-export function CycleEolToJSON(value?: CycleEol | null): any {
+  export function CycleEolToJSON(json: any): CycleEol {
+      return CycleEolToJSONTyped(json, false);
+  }
+
+  export function CycleEolToJSONTyped(value?: CycleEol | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

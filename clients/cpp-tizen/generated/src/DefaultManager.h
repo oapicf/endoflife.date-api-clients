@@ -54,7 +54,7 @@ bool getApiAllJsonAsync(char * accessToken,
  *
  * Gets details of a single cycle
  * \param product Product URL as per the canonical URL on the endofife.date website *Required*
- * \param cycle Release Cycle for which the details must be fetched *Required*
+ * \param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
@@ -68,7 +68,7 @@ bool getApiProductCycleJsonSync(char * accessToken,
  *
  * Gets details of a single cycle
  * \param product Product URL as per the canonical URL on the endofife.date website *Required*
- * \param cycle Release Cycle for which the details must be fetched *Required*
+ * \param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.

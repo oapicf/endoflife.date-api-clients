@@ -31,7 +31,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle", description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-07-10T09:07:58.044541065Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-11-03T10:22:48.933929989Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Cycle {
 
   private CycleCycle cycle;
@@ -59,7 +59,7 @@ public class Cycle {
   /**
    * Get cycle
    * @return cycle
-  */
+   */
   @Valid 
   @Schema(name = "cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("cycle")
@@ -79,7 +79,7 @@ public class Cycle {
   /**
    * Release Date for the first release in this cycle
    * @return releaseDate
-  */
+   */
   @Valid @Size(min = 10, max = 10) 
   @Schema(name = "releaseDate", description = "Release Date for the first release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseDate")
@@ -99,7 +99,7 @@ public class Cycle {
   /**
    * Get eol
    * @return eol
-  */
+   */
   @Valid 
   @Schema(name = "eol", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("eol")
@@ -119,7 +119,7 @@ public class Cycle {
   /**
    * Latest release in this cycle
    * @return latest
-  */
+   */
   @Size(min = 1) 
   @Schema(name = "latest", description = "Latest release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("latest")
@@ -139,7 +139,7 @@ public class Cycle {
   /**
    * Link to changelog for the latest release, if available
    * @return link
-  */
+   */
   @Size(min = 1) 
   @Schema(name = "link", description = "Link to changelog for the latest release, if available", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("link")
@@ -159,7 +159,7 @@ public class Cycle {
   /**
    * Get lts
    * @return lts
-  */
+   */
   @Valid 
   @Schema(name = "lts", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("lts")
@@ -179,7 +179,7 @@ public class Cycle {
   /**
    * Get support
    * @return support
-  */
+   */
   @Valid 
   @Schema(name = "support", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("support")
@@ -199,7 +199,7 @@ public class Cycle {
   /**
    * Get discontinued
    * @return discontinued
-  */
+   */
   @Valid 
   @Schema(name = "discontinued", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("discontinued")

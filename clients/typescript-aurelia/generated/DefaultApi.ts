@@ -84,7 +84,7 @@ export class DefaultApi extends Api {
    * Single cycle details
    * Gets details of a single cycle
    * @param params.product Product URL as per the canonical URL on the endofife.date website
-   * @param params.cycle Release Cycle for which the details must be fetched
+   * @param params.cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
    */
   async getApiProductCycleJson(params: IGetApiProductCycleJsonParams): Promise<Cycle> {
     // Verify required parameters are set

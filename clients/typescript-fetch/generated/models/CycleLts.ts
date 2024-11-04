@@ -37,7 +37,11 @@ export function CycleLtsFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return json;
 }
 
-export function CycleLtsToJSON(value?: CycleLts | null): any {
+  export function CycleLtsToJSON(json: any): CycleLts {
+      return CycleLtsToJSONTyped(json, false);
+  }
+
+  export function CycleLtsToJSONTyped(value?: CycleLts | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

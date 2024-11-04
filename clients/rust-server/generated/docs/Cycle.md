@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **release_date** | [***chrono::naive::NaiveDate**](date.md) | Release Date for the first release in this cycle | [optional] [default to None]
 **eol** | [***models::CycleEol**](cycle_eol.md) |  | [optional] [default to None]
 **latest** | **String** | Latest release in this cycle | [optional] [default to None]
-**link** | **String** | Link to changelog for the latest release, if available | [optional] [default to None]
+**link** | **swagger::Nullable<String>** | Link to changelog for the latest release, if available | [optional] [default to None]
 **lts** | [***models::CycleLts**](cycle_lts.md) |  | [optional] [default to None]
 **support** | [***models::CycleSupport**](cycle_support.md) |  | [optional] [default to None]
 **discontinued** | [***models::CycleDiscontinued**](cycle_discontinued.md) |  | [optional] [default to None]

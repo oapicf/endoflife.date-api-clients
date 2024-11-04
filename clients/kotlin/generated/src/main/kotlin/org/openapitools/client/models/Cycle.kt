@@ -67,5 +67,8 @@ data class Cycle (
     @Json(name = "discontinued")
     val discontinued: CycleDiscontinued? = null
 
-)
+) {
+
+
+}
 

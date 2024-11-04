@@ -22,9 +22,9 @@ import (
 // The DefaultAPIRouter implementation should parse necessary information from the http request,
 // pass the data to a DefaultAPIServicer to perform the required actions, then write the service results to the http response.
 type DefaultAPIRouter interface { 
-	GetApiAllJson(http.ResponseWriter, *http.Request)
-	GetApiProductCycleJson(http.ResponseWriter, *http.Request)
 	GetApiProductJson(http.ResponseWriter, *http.Request)
+	GetApiProductCycleJson(http.ResponseWriter, *http.Request)
+	GetApiAllJson(http.ResponseWriter, *http.Request)
 }
 
 
@@ -33,7 +33,7 @@ type DefaultAPIRouter interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type DefaultAPIServicer interface { 
-	GetApiAllJson(context.Context) (ImplResponse, error)
-	GetApiProductCycleJson(context.Context, string, string) (ImplResponse, error)
 	GetApiProductJson(context.Context, string) (ImplResponse, error)
+	GetApiProductCycleJson(context.Context, string, string) (ImplResponse, error)
+	GetApiAllJson(context.Context) (ImplResponse, error)
 }

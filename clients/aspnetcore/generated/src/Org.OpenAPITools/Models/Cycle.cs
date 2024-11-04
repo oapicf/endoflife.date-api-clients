@@ -37,8 +37,8 @@ namespace Org.OpenAPITools.Models
         /// </summary>
         /// <value>Release Date for the first release in this cycle</value>
         [StringLength(10, MinimumLength=10)]
-        [DataMember(Name="releaseDate", EmitDefaultValue=false)]
-        public DateTime ReleaseDate { get; set; }
+        [DataMember(Name="releaseDate", EmitDefaultValue=true)]
+        public DateOnly ReleaseDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Eol
@@ -139,7 +139,7 @@ namespace Org.OpenAPITools.Models
                 ) && 
                 (
                     ReleaseDate == other.ReleaseDate ||
-                    ReleaseDate != null &&
+                    
                     ReleaseDate.Equals(other.ReleaseDate)
                 ) && 
                 (
@@ -186,7 +186,7 @@ namespace Org.OpenAPITools.Models
                 // Suitable nullity checks etc, of course :)
                     if (VarCycle != null)
                     hashCode = hashCode * 59 + VarCycle.GetHashCode();
-                    if (ReleaseDate != null)
+                    
                     hashCode = hashCode * 59 + ReleaseDate.GetHashCode();
                     if (Eol != null)
                     hashCode = hashCode * 59 + Eol.GetHashCode();

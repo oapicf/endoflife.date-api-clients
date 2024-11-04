@@ -61,7 +61,7 @@ class ApiApiController() {
         value = ["/api/{product}/{cycle}.json"],
         produces = ["application/json"]
     )
-    fun getApiProductCycleJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathVariable("product") product: kotlin.String,@Parameter(description = "Release Cycle for which the details must be fetched", required = true) @PathVariable("cycle") cycle: kotlin.String): ResponseEntity<Cycle> {
+    fun getApiProductCycleJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathVariable("product") product: kotlin.String,@Parameter(description = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.", required = true) @PathVariable("cycle") cycle: kotlin.String): ResponseEntity<Cycle> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 

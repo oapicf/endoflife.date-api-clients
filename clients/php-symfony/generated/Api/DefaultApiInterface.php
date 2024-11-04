@@ -64,7 +64,7 @@ interface DefaultApiInterface
      * Single cycle details
      *
      * @param  string $product  Product URL as per the canonical URL on the endofife.date website (required)
-     * @param  string $cycle  Release Cycle for which the details must be fetched (required)
+     * @param  string $cycle  Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *

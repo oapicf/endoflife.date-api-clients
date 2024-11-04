@@ -10,7 +10,7 @@
 # !
 # ! Based on: https://github.com/Valodim/zsh-curl-completion/blob/master/_curl
 # !
-# ! Generator version: 7.6.0
+# ! Generator version: 7.9.0
 # !
 # !
 # ! Installation:
@@ -317,7 +317,7 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
           "product=:[PATH] Product URL as per the canonical URL on the endofife.date website"
-"cycle=:[PATH] Release Cycle for which the details must be fetched"
+"cycle=:[PATH] Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

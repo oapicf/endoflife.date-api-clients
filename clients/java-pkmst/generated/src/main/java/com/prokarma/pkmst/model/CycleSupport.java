@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModel;
  */
 @ApiModel(description = "Whether this release cycle has active support")
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-07-10T09:07:36.842108603Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-03T10:22:27.837551129Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class CycleSupport   {
 
   @Override

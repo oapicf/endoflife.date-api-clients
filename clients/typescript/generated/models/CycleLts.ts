@@ -19,6 +19,8 @@ export class CycleLts {
 
     static readonly discriminator: string | undefined = undefined;
 
+    static readonly mapping: {[index: string]: string} | undefined = undefined;
+
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
     ];
 
@@ -29,4 +31,3 @@ export class CycleLts {
     public constructor() {
     }
 }
-

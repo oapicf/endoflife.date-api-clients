@@ -45,7 +45,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
 @JsonTypeName("cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-07-10T09:07:28.285773255Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-11-03T10:22:17.604596938Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Introspected
 public class Cycle {
     public static final String JSON_PROPERTY_CYCLE = "cycle";
@@ -83,7 +83,7 @@ public class Cycle {
     /**
      * Get cycle
      * @return cycle
-     **/
+     */
     @Valid
     @Nullable
     @Schema(name = "cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -107,7 +107,7 @@ public class Cycle {
     /**
      * Release Date for the first release in this cycle
      * @return releaseDate
-     **/
+     */
     @Nullable
     @Size(min=10, max=10)
     @Schema(name = "releaseDate", description = "Release Date for the first release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -133,7 +133,7 @@ public class Cycle {
     /**
      * Get eol
      * @return eol
-     **/
+     */
     @Valid
     @Nullable
     @Schema(name = "eol", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -157,7 +157,7 @@ public class Cycle {
     /**
      * Latest release in this cycle
      * @return latest
-     **/
+     */
     @Nullable
     @Size(min=1)
     @Schema(name = "latest", description = "Latest release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -181,7 +181,7 @@ public class Cycle {
     /**
      * Link to changelog for the latest release, if available
      * @return link
-     **/
+     */
     @Nullable
     @Size(min=1)
     @Schema(name = "link", description = "Link to changelog for the latest release, if available", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -205,7 +205,7 @@ public class Cycle {
     /**
      * Get lts
      * @return lts
-     **/
+     */
     @Valid
     @Nullable
     @Schema(name = "lts", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -229,7 +229,7 @@ public class Cycle {
     /**
      * Get support
      * @return support
-     **/
+     */
     @Valid
     @Nullable
     @Schema(name = "support", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -253,7 +253,7 @@ public class Cycle {
     /**
      * Get discontinued
      * @return discontinued
-     **/
+     */
     @Valid
     @Nullable
     @Schema(name = "discontinued", requiredMode = Schema.RequiredMode.NOT_REQUIRED)

@@ -21,7 +21,7 @@ import java.math.BigDecimal;
  */
 
 @ApiModel(description = "Release Cycle")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-07-10T09:07:44.671462021Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-11-03T10:22:36.488899404Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class CycleCycle   {
   
 

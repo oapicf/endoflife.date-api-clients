@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Parameters for get-api-:product.json
+ * Parameters for getApiProductJson
  */
 class GetApiProductJsonParameterData
 {

@@ -18,7 +18,7 @@ your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:endoflife_date, "~> 0.0.1"}]
+  [{:endoflife_date, "~> 1.0.0"}]
 end
 ```
 

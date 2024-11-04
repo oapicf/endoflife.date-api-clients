@@ -91,7 +91,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website
-    String cycle = "cycle_example"; // String | Release Cycle for which the details must be fetched
+    String cycle = "cycle_example"; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
     try {
       Cycle result = apiInstance.getApiProductCycleJson(product, cycle);
       System.out.println(result);
@@ -111,7 +111,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **product** | **String**| Product URL as per the canonical URL on the endofife.date website | |
-| **cycle** | **String**| Release Cycle for which the details must be fetched | |
+| **cycle** | **String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | |
 
 ### Return type
 

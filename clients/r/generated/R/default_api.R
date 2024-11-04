@@ -12,61 +12,6 @@
 #' @format An \code{R6Class} generator object
 #' @field api_client Handles the client-server communication.
 #'
-#' @section Methods:
-#' \describe{
-#' \strong{ GetApiAllJson } \emph{ All Products }
-#' Return a list of all products. Each of these can be used for the other API endpoints.
-#'
-#' \itemize{
-#'
-#'
-#' \item status code : 200 | OK
-#'
-#' \item return type : array[character]
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ GetApiProductCycleJson } \emph{ Single cycle details }
-#' Gets details of a single cycle
-#'
-#' \itemize{
-#' \item \emph{ @param } product character
-#' \item \emph{ @param } cycle character
-#' \item \emph{ @returnType } \link{Cycle} \cr
-#'
-#'
-#' \item status code : 200 | OK
-#'
-#' \item return type : Cycle
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ GetApiProductJson } \emph{ Get All Details }
-#' Get EoL dates of all cycles of a given product.
-#'
-#' \itemize{
-#' \item \emph{ @param } product character
-#' \item \emph{ @returnType } list( \link{cycle} ) \cr
-#'
-#'
-#' \item status code : 200 | OK
-#'
-#' \item return type : array[Cycle]
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' }
-#'
-#'
 #' @examples
 #' \dontrun{
 #' ####################  GetApiAllJson  ####################
@@ -86,7 +31,7 @@
 #'
 #' library(openapi)
 #' var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website
-#' var_cycle <- "cycle_example" # character | Release Cycle for which the details must be fetched
+#' var_cycle <- "cycle_example" # character | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 #'
 #' #Single cycle details
 #' api_instance <- DefaultApi$new()
@@ -119,13 +64,11 @@ DefaultApi <- R6::R6Class(
   "DefaultApi",
   public = list(
     api_client = NULL,
-    #' Initialize a new DefaultApi.
-    #'
+
     #' @description
     #' Initialize a new DefaultApi.
     #'
     #' @param api_client An instance of API client.
-    #' @export
     initialize = function(api_client) {
       if (!missing(api_client)) {
         self$api_client <- api_client
@@ -133,15 +76,14 @@ DefaultApi <- R6::R6Class(
         self$api_client <- ApiClient$new()
       }
     },
-    #' All Products
-    #'
+
     #' @description
     #' All Products
     #'
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return array[character]
-    #' @export
     GetApiAllJson = function(data_file = NULL, ...) {
       local_var_response <- self$GetApiAllJsonWithHttpInfo(data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
@@ -154,15 +96,14 @@ DefaultApi <- R6::R6Class(
         local_var_response
       }
     },
-    #' All Products
-    #'
+
     #' @description
     #' All Products
     #'
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return API response (array[character]) with additional information such as HTTP status code, headers
-    #' @export
     GetApiAllJsonWithHttpInfo = function(data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()
@@ -219,17 +160,16 @@ DefaultApi <- R6::R6Class(
         local_var_resp
       }
     },
-    #' Single cycle details
-    #'
+
     #' @description
     #' Single cycle details
     #'
     #' @param product Product URL as per the canonical URL on the endofife.date website
-    #' @param cycle Release Cycle for which the details must be fetched
+    #' @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return Cycle
-    #' @export
     GetApiProductCycleJson = function(product, cycle, data_file = NULL, ...) {
       local_var_response <- self$GetApiProductCycleJsonWithHttpInfo(product, cycle, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
@@ -242,17 +182,16 @@ DefaultApi <- R6::R6Class(
         local_var_response
       }
     },
-    #' Single cycle details
-    #'
+
     #' @description
     #' Single cycle details
     #'
     #' @param product Product URL as per the canonical URL on the endofife.date website
-    #' @param cycle Release Cycle for which the details must be fetched
+    #' @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return API response (Cycle) with additional information such as HTTP status code, headers
-    #' @export
     GetApiProductCycleJsonWithHttpInfo = function(product, cycle, data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()
@@ -327,16 +266,15 @@ DefaultApi <- R6::R6Class(
         local_var_resp
       }
     },
-    #' Get All Details
-    #'
+
     #' @description
     #' Get All Details
     #'
     #' @param product Product URL as per the canonical URL on the endofife.date website
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return array[Cycle]
-    #' @export
     GetApiProductJson = function(product, data_file = NULL, ...) {
       local_var_response <- self$GetApiProductJsonWithHttpInfo(product, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
@@ -349,16 +287,15 @@ DefaultApi <- R6::R6Class(
         local_var_response
       }
     },
-    #' Get All Details
-    #'
+
     #' @description
     #' Get All Details
     #'
     #' @param product Product URL as per the canonical URL on the endofife.date website
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
+    #'
     #' @return API response (array[Cycle]) with additional information such as HTTP status code, headers
-    #' @export
     GetApiProductJsonWithHttpInfo = function(product, data_file = NULL, ...) {
       args <- list(...)
       query_params <- list()

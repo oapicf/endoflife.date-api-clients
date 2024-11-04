@@ -56,7 +56,7 @@ public:
 
 	/* Product URL as per the canonical URL on the endofife.date website */
 	FString Product;
-	/* Release Cycle for which the details must be fetched */
+	/* Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. */
 	FString Cycle;
 };
 

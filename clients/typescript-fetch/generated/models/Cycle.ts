@@ -18,30 +18,35 @@ import {
     CycleLtsFromJSON,
     CycleLtsFromJSONTyped,
     CycleLtsToJSON,
+    CycleLtsToJSONTyped,
 } from './CycleLts';
 import type { CycleDiscontinued } from './CycleDiscontinued';
 import {
     CycleDiscontinuedFromJSON,
     CycleDiscontinuedFromJSONTyped,
     CycleDiscontinuedToJSON,
+    CycleDiscontinuedToJSONTyped,
 } from './CycleDiscontinued';
 import type { CycleSupport } from './CycleSupport';
 import {
     CycleSupportFromJSON,
     CycleSupportFromJSONTyped,
     CycleSupportToJSON,
+    CycleSupportToJSONTyped,
 } from './CycleSupport';
 import type { CycleCycle } from './CycleCycle';
 import {
     CycleCycleFromJSON,
     CycleCycleFromJSONTyped,
     CycleCycleToJSON,
+    CycleCycleToJSONTyped,
 } from './CycleCycle';
 import type { CycleEol } from './CycleEol';
 import {
     CycleEolFromJSON,
     CycleEolFromJSONTyped,
     CycleEolToJSON,
+    CycleEolToJSONTyped,
 } from './CycleEol';
 
 /**
@@ -79,7 +84,7 @@ export interface Cycle {
      * @type {string}
      * @memberof Cycle
      */
-    link?: string;
+    link?: string | null;
     /**
      * 
      * @type {CycleLts}
@@ -128,10 +133,15 @@ export function CycleFromJSONTyped(json: any, ignoreDiscriminator: boolean): Cyc
     };
 }
 
-export function CycleToJSON(value?: Cycle | null): any {
+  export function CycleToJSON(json: any): Cycle {
+      return CycleToJSONTyped(json, false);
+  }
+
+  export function CycleToJSONTyped(value?: Cycle | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'cycle': CycleCycleToJSON(value['cycle']),

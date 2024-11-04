@@ -18,7 +18,7 @@ import javax.validation.Valid;
 */
 @Path("/api")
 @Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-07-10T09:08:22.950601110Z[Etc/UTC]", comments = "Generator version: 7.6.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-11-03T10:23:15.821967102Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class ApiApi {
 
     @GET
@@ -39,7 +39,7 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class)
     })
-    public Response getApiProductCycleJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website") String product,@PathParam("cycle") @ApiParam("Release Cycle for which the details must be fetched") String cycle) {
+    public Response getApiProductCycleJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website") String product,@PathParam("cycle") @ApiParam("Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.") String cycle) {
         return Response.ok().entity("magic!").build();
     }
 
