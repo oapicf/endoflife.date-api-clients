@@ -18,7 +18,7 @@ import org.openapitools.model.CycleSupport;
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-11-03T10:22:22.594639078Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-11-04T23:47:53.594677761Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Cycle   {
   @JsonProperty("cycle")
   private CycleCycle cycle;

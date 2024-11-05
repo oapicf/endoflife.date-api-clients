@@ -55,7 +55,7 @@ import com.github.oapicf.endoflifedate.JSON;
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-03T10:21:55.523664977Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-04T23:46:50.090152017Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Cycle {
   public static final String SERIALIZED_NAME_CYCLE = "cycle";
   @SerializedName(SERIALIZED_NAME_CYCLE)

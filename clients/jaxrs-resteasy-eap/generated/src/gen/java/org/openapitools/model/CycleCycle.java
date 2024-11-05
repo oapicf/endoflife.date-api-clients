@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Release Cycle")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-11-03T10:23:11.840499732Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@ApiModel(description="Release Cycle")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2024-11-04T23:49:52.047092857Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class CycleCycle   {
   
 

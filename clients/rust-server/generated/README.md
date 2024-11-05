@@ -14,7 +14,7 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 0.0.1
-- Build date: 2024-11-03T10:25:40.400499380Z[Etc/UTC]
+- Build date: 2024-11-04T23:59:52.176655420Z[Etc/UTC]
 - Generator version: 7.9.0
 
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)

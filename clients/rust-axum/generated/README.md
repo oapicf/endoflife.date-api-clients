@@ -12,7 +12,7 @@ server, you can easily generate a server stub.
 To see how to make this your own, look here: [README]((https://openapi-generator.tech))
 
 - API version: 0.0.1
-- Build date: 2024-11-03T10:27:16.613730823Z[Etc/UTC]
+- Build date: 2024-11-05T00:07:11.527936078Z[Etc/UTC]
 - Generator version: 7.9.0
 
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)

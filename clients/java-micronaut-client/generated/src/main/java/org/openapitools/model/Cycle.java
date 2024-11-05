@@ -43,7 +43,7 @@ import javax.annotation.Generated;
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
 @JsonTypeName("cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-03T10:22:12.938888384Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-04T23:47:32.920889301Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Introspected
 public class Cycle {
     public static final String JSON_PROPERTY_CYCLE = "cycle";

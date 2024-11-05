@@ -29,7 +29,7 @@ import javax.annotation.Generated;
 @JsonPropertyOrder({
 })
 @JsonTypeName("cycle_cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-03T10:22:12.938888384Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-04T23:47:32.920889301Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 @Introspected
 public class CycleCycle {
     public CycleCycle() {

@@ -30,7 +30,7 @@ import org.openapitools.model.CycleSupport;
  */
 
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-11-03T10:22:36.488899404Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-11-04T23:48:24.206518548Z[Etc/UTC]", comments = "Generator version: 7.9.0")
 public class Cycle   {
   
   private CycleCycle cycle;
