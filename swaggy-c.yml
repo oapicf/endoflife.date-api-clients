@@ -11,3 +11,5 @@ scm:
 base_dir:
   github_actions: /home/runner/work/endoflife.date-api-clients/endoflife.date-api-clients
   local: /Users/cliffano/dev/workspace-studio/endoflife.date-api-clients
+  custom: >-
+    /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/endoflife.date-api-clients/
