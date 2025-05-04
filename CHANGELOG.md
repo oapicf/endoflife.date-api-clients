@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add new clients ,cpp-restbed-server-deprecated, csharp-functions, java-helidon-client, java-helidon-server, java-wiremock, javascript-apollo-deprecated, jetbrains-http-client, julia-client, julia-server, n4js, php-nextgen, postman-collection, python-pydantic-v1, scala-http4s-server, scala-pekko, scala-sttp4, swift-combine
+
 ### Changed
 - Upgrade Swaggy C to 4.10.0
 - Upgrade OpenAPI Generator to 7.12.0
