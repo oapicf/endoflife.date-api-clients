@@ -10,7 +10,7 @@ jobs:
           token: ${{ secrets.OAPICF_GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - uses: cliffano/command-docker-action@v1.3.0
         with:
           command: 'make ci'
