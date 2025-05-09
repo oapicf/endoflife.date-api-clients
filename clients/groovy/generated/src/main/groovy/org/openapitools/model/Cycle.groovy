@@ -14,13 +14,13 @@ import org.openapitools.model.CycleSupport;
 class Cycle {
     
     CycleCycle cycle
-    /* Release Date for the first release in this cycle */
+    /* Release date for the first release in this cycle. */
     Date releaseDate
     
     CycleEol eol
-    /* Latest release in this cycle */
+    /* Latest release in this cycle. */
     String latest
-    /* Link to changelog for the latest release, if available */
+    /* Link to changelog for the latest release in this cycle, or null if unavailable. */
     String link
     
     CycleLts lts

@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -16,15 +16,15 @@ use serde::{Deserialize, Serialize};
 pub struct Cycle {
     #[serde(rename = "cycle", skip_serializing_if = "Option::is_none")]
     pub cycle: Option<Box<models::CycleCycle>>,
-    /// Release Date for the first release in this cycle
+    /// Release date for the first release in this cycle.
     #[serde(rename = "releaseDate", skip_serializing_if = "Option::is_none")]
     pub release_date: Option<String>,
     #[serde(rename = "eol", skip_serializing_if = "Option::is_none")]
     pub eol: Option<Box<models::CycleEol>>,
-    /// Latest release in this cycle
+    /// Latest release in this cycle.
     #[serde(rename = "latest", skip_serializing_if = "Option::is_none")]
     pub latest: Option<String>,
-    /// Link to changelog for the latest release, if available
+    /// Link to changelog for the latest release in this cycle, or null if unavailable.
     #[serde(rename = "link", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub link: Option<Option<String>>,
     #[serde(rename = "lts", skip_serializing_if = "Option::is_none")]

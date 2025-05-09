@@ -3,7 +3,7 @@
 
 /**
 * endoflife.date
-* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 *
 * The version of the OpenAPI document: 0.0.1
 * Contact: blah+oapicf@cliffano.com
@@ -39,15 +39,15 @@
 
 
 @property(nonatomic) OAICycleCycle* cycle;
-/* Release Date for the first release in this cycle [optional]
+/* Release date for the first release in this cycle. [optional]
  */
 @property(nonatomic) NSDate* releaseDate;
 
 @property(nonatomic) OAICycleEol* eol;
-/* Latest release in this cycle [optional]
+/* Latest release in this cycle. [optional]
  */
 @property(nonatomic) NSString* latest;
-/* Link to changelog for the latest release, if available [optional]
+/* Link to changelog for the latest release in this cycle, or null if unavailable. [optional]
  */
 @property(nonatomic) NSString* link;
 

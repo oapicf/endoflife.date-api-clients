@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -70,7 +70,7 @@ export class Api {
    */
   protected ensureParamIsSet<T>(context: string, params: T, paramName: keyof T): void {
     if (null === params[paramName]) {
-      throw new Error(`Missing required parameter ${paramName} when calling ${context}`);
+      throw new Error(`Missing required parameter ${String(paramName)} when calling ${context}`);
     }
   }
 }

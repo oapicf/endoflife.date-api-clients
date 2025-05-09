@@ -31,7 +31,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle", description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-11-04T23:48:52.384543455Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2025-05-09T11:49:23.015947755Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class Cycle {
 
   private CycleCycle cycle;
@@ -77,11 +77,11 @@ public class Cycle {
   }
 
   /**
-   * Release Date for the first release in this cycle
+   * Release date for the first release in this cycle.
    * @return releaseDate
    */
   @Valid @Size(min = 10, max = 10) 
-  @Schema(name = "releaseDate", description = "Release Date for the first release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "releaseDate", description = "Release date for the first release in this cycle.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseDate")
   public Date getReleaseDate() {
     return releaseDate;
@@ -117,11 +117,11 @@ public class Cycle {
   }
 
   /**
-   * Latest release in this cycle
+   * Latest release in this cycle.
    * @return latest
    */
   @Size(min = 1) 
-  @Schema(name = "latest", description = "Latest release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "latest", description = "Latest release in this cycle.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("latest")
   public String getLatest() {
     return latest;
@@ -137,11 +137,11 @@ public class Cycle {
   }
 
   /**
-   * Link to changelog for the latest release, if available
+   * Link to changelog for the latest release in this cycle, or null if unavailable.
    * @return link
    */
   @Size(min = 1) 
-  @Schema(name = "link", description = "Link to changelog for the latest release, if available", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "link", description = "Link to changelog for the latest release in this cycle, or null if unavailable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("link")
   public JsonNullable<@Size(min = 1) String> getLink() {
     return link;

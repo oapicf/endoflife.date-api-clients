@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -82,8 +82,8 @@ export class DefaultApi extends Api {
 
   /**
    * Single cycle details
-   * Gets details of a single cycle
-   * @param params.product Product URL as per the canonical URL on the endofife.date website
+   * Gets details of a single cycle.
+   * @param params.product Product URL as per the canonical URL on the endofife.date website.
    * @param params.cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
    */
   async getApiProductCycleJson(params: IGetApiProductCycleJsonParams): Promise<Cycle> {
@@ -114,7 +114,7 @@ export class DefaultApi extends Api {
   /**
    * Get All Details
    * Get EoL dates of all cycles of a given product.
-   * @param params.product Product URL as per the canonical URL on the endofife.date website
+   * @param params.product Product URL as per the canonical URL on the endofife.date website.
    */
   async getApiProductJson(params: IGetApiProductJsonParams): Promise<Array<Cycle>> {
     // Verify required parameters are set

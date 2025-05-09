@@ -1,7 +1,7 @@
 /*
 endoflife.date
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
 API version: 0.0.1
 Contact: blah+oapicf@cliffano.com
@@ -17,7 +17,7 @@ import (
 )
 
 
-// CycleLts Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+// CycleLts Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
 type CycleLts struct {
 	Bool *bool
 	String *string
@@ -56,7 +56,7 @@ func (dst *CycleLts) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *CycleLts) MarshalJSON() ([]byte, error) {
+func (src CycleLts) MarshalJSON() ([]byte, error) {
 	if src.Bool != nil {
 		return json.Marshal(&src.Bool)
 	}

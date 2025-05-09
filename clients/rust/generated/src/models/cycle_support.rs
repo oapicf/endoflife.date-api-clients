@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -11,13 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// CycleSupport : Whether this release cycle has active support
+/// CycleSupport : Whether this release cycle has active support.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CycleSupport {
 }
 
 impl CycleSupport {
-    /// Whether this release cycle has active support
+    /// Whether this release cycle has active support.
     pub fn new() -> CycleSupport {
         CycleSupport {
         }

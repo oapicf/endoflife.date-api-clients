@@ -18,7 +18,7 @@ import org.openapitools.model.CycleSupport;
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-11-04T23:47:53.594677761Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2025-05-09T11:49:14.867992856Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class Cycle   {
   @JsonProperty("cycle")
   private CycleCycle cycle;
@@ -68,10 +68,10 @@ public class Cycle   {
   }
 
    /**
-   * Release Date for the first release in this cycle
+   * Release date for the first release in this cycle.
    * @return releaseDate
   **/
-  @ApiModelProperty(value = "Release Date for the first release in this cycle")
+  @ApiModelProperty(value = "Release date for the first release in this cycle.")
   public Date getReleaseDate() {
     return releaseDate;
   }
@@ -104,10 +104,10 @@ public class Cycle   {
   }
 
    /**
-   * Latest release in this cycle
+   * Latest release in this cycle.
    * @return latest
   **/
-  @ApiModelProperty(value = "Latest release in this cycle")
+  @ApiModelProperty(value = "Latest release in this cycle.")
   public String getLatest() {
     return latest;
   }
@@ -122,10 +122,10 @@ public class Cycle   {
   }
 
    /**
-   * Link to changelog for the latest release, if available
+   * Link to changelog for the latest release in this cycle, or null if unavailable.
    * @return link
   **/
-  @ApiModelProperty(value = "Link to changelog for the latest release, if available")
+  @ApiModelProperty(value = "Link to changelog for the latest release in this cycle, or null if unavailable.")
   public String getLink() {
     return link;
   }

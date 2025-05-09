@@ -18,9 +18,9 @@ def get_api_all_json():  # noqa: E501
 def get_api_product_cycle_json(product, cycle):  # noqa: E501
     """Single cycle details
 
-    Gets details of a single cycle # noqa: E501
+    Gets details of a single cycle. # noqa: E501
 
-    :param product: Product URL as per the canonical URL on the endofife.date website
+    :param product: Product URL as per the canonical URL on the endofife.date website.
     :type product: str
     :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
     :type cycle: str
@@ -35,7 +35,7 @@ def get_api_product_json(product):  # noqa: E501
 
     Get EoL dates of all cycles of a given product. # noqa: E501
 
-    :param product: Product URL as per the canonical URL on the endofife.date website
+    :param product: Product URL as per the canonical URL on the endofife.date website.
     :type product: str
 
     :rtype: List[Cycle]

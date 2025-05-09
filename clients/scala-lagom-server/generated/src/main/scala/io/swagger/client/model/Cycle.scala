@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -16,12 +16,12 @@ import java.time.LocalDate
 
 case class Cycle (
                   cycle: Option[CycleCycle],
-            /* Release Date for the first release in this cycle */
+            /* Release date for the first release in this cycle. */
                   releaseDate: Option[LocalDate],
                   eol: Option[CycleEol],
-            /* Latest release in this cycle */
+            /* Latest release in this cycle. */
                   latest: Option[String],
-            /* Link to changelog for the latest release, if available */
+            /* Link to changelog for the latest release in this cycle, or null if unavailable. */
                   link: Option[String],
                   lts: Option[CycleLts],
                   support: Option[CycleSupport],

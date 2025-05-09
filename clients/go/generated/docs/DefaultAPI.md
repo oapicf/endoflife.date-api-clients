@@ -92,7 +92,7 @@ import (
 )
 
 func main() {
-	product := "product_example" // string | Product URL as per the canonical URL on the endofife.date website
+	product := "product_example" // string | Product URL as per the canonical URL on the endofife.date website.
 	cycle := "cycle_example" // string | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 	configuration := openapiclient.NewConfiguration()
@@ -113,7 +113,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**product** | **string** | Product URL as per the canonical URL on the endofife.date website | 
+**product** | **string** | Product URL as per the canonical URL on the endofife.date website. | 
 **cycle** | **string** | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Other Parameters
@@ -165,7 +165,7 @@ import (
 )
 
 func main() {
-	product := "product_example" // string | Product URL as per the canonical URL on the endofife.date website
+	product := "product_example" // string | Product URL as per the canonical URL on the endofife.date website.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -185,7 +185,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**product** | **string** | Product URL as per the canonical URL on the endofife.date website | 
+**product** | **string** | Product URL as per the canonical URL on the endofife.date website. | 
 
 ### Other Parameters
 

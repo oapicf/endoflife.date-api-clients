@@ -1,6 +1,6 @@
 /**
 * endoflife.date
-* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 *
 * The version of the OpenAPI document: 0.0.1
 * Contact: blah+oapicf@cliffano.com
@@ -71,7 +71,7 @@ public:
     bool cycleIsSet() const;
     void unsetCycle();
     /// <summary>
-    /// Release Date for the first release in this cycle
+    /// Release date for the first release in this cycle.
     /// </summary>
     std::string getReleaseDate() const;
     void setReleaseDate(std::string const& value);
@@ -85,14 +85,14 @@ public:
     bool eolIsSet() const;
     void unsetEol();
     /// <summary>
-    /// Latest release in this cycle
+    /// Latest release in this cycle.
     /// </summary>
     std::string getLatest() const;
     void setLatest(std::string const& value);
     bool latestIsSet() const;
     void unsetLatest();
     /// <summary>
-    /// Link to changelog for the latest release, if available
+    /// Link to changelog for the latest release in this cycle, or null if unavailable.
     /// </summary>
     std::string getLink() const;
     void setLink(std::string const& value);

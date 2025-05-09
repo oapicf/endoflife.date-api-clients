@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -50,7 +50,7 @@ import com.google.gson.JsonParseException;
 
 import com.github.oapicf.endoflifedate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-04T23:46:50.090152017Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-09T11:49:02.743168284Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleLts extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CycleLts.class.getName());
 
@@ -62,8 +62,8 @@ public class CycleLts extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'CycleLts' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Boolean> adapterBoolean = gson.getDelegateAdapter(this, TypeToken.get(Boolean.class));
             final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
+            final TypeAdapter<Boolean> adapterBoolean = gson.getDelegateAdapter(this, TypeToken.get(Boolean.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CycleLts>() {
                 @Override
@@ -73,15 +73,15 @@ public class CycleLts extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `Boolean`
-                    if (value.getActualInstance() instanceof Boolean) {
-                        JsonPrimitive primitive = adapterBoolean.toJsonTree((Boolean)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
-                        return;
-                    }
                     // check if the actual instance is of the type `String`
                     if (value.getActualInstance() instanceof String) {
                         JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
+                        elementAdapter.write(out, primitive);
+                        return;
+                    }
+                    // check if the actual instance is of the type `Boolean`
+                    if (value.getActualInstance() instanceof Boolean) {
+                        JsonPrimitive primitive = adapterBoolean.toJsonTree((Boolean)value.getActualInstance()).getAsJsonPrimitive();
                         elementAdapter.write(out, primitive);
                         return;
                     }
@@ -96,21 +96,6 @@ public class CycleLts extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize Boolean
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isBoolean()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type Boolean in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterBoolean;
-                        CycleLts ret = new CycleLts();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Boolean failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Boolean'", e);
-                    }
                     // deserialize String
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -125,6 +110,21 @@ public class CycleLts extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'String'", e);
+                    }
+                    // deserialize Boolean
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        if (!jsonElement.getAsJsonPrimitive().isBoolean()) {
+                            throw new IllegalArgumentException(String.format("Expected json element to be of type Boolean in the JSON string but got `%s`", jsonElement.toString()));
+                        }
+                        actualAdapter = adapterBoolean;
+                        CycleLts ret = new CycleLts();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Boolean failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Boolean'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for CycleLts: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -146,8 +146,8 @@ public class CycleLts extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("Boolean", Boolean.class);
         schemas.put("String", String.class);
+        schemas.put("Boolean", Boolean.class);
     }
 
     @Override
@@ -164,12 +164,12 @@ public class CycleLts extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof Boolean) {
+        if (instance instanceof String) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof String) {
+        if (instance instanceof Boolean) {
             super.setActualInstance(instance);
             return;
         }
@@ -190,16 +190,6 @@ public class CycleLts extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `Boolean`. If the actual instance is not `Boolean`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `Boolean`
-     * @throws ClassCastException if the instance is not `Boolean`
-     */
-    public Boolean getBoolean() throws ClassCastException {
-        return (Boolean)super.getActualInstance();
-    }
-    /**
      * Get the actual instance of `String`. If the actual instance is not `String`,
      * the ClassCastException will be thrown.
      *
@@ -211,6 +201,17 @@ public class CycleLts extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `Boolean`. If the actual instance is not `Boolean`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `Boolean`
+     * @throws ClassCastException if the instance is not `Boolean`
+     */
+    public Boolean getBoolean() throws ClassCastException {
+        return (Boolean)super.getActualInstance();
+    }
+
+    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -219,16 +220,6 @@ public class CycleLts extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with Boolean
-        try {
-            if (!jsonElement.getAsJsonPrimitive().isBoolean()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type Boolean in the JSON string but got `%s`", jsonElement.toString()));
-            }
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Boolean failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with String
         try {
             if (!jsonElement.getAsJsonPrimitive().isString()) {
@@ -237,6 +228,16 @@ public class CycleLts extends AbstractOpenApiSchema {
             return;
         } catch (Exception e) {
             errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with Boolean
+        try {
+            if (!jsonElement.getAsJsonPrimitive().isBoolean()) {
+                throw new IllegalArgumentException(String.format("Expected json element to be of type Boolean in the JSON string but got `%s`", jsonElement.toString()));
+            }
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Boolean failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         throw new IOException(String.format("The JSON string is invalid for CycleLts with anyOf schemas: Boolean, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));

@@ -8,7 +8,7 @@ Protected Class Cycle
 
 	#tag Property, Flags = &h0
 		#tag Note
-			Release Date for the first release in this cycle
+			Release date for the first release in this cycle.
 		#tag EndNote
 		releaseDate As Date
 	#tag EndProperty
@@ -21,7 +21,7 @@ Protected Class Cycle
 
 	#tag Property, Flags = &h0
 		#tag Note
-			Latest release in this cycle
+			Latest release in this cycle.
 		#tag EndNote
 		latest As Xoson.O.OptionalString
 	#tag EndProperty
@@ -29,7 +29,7 @@ Protected Class Cycle
 
 	#tag Property, Flags = &h0
 		#tag Note
-			Link to changelog for the latest release, if available
+			Link to changelog for the latest release in this cycle, or null if unavailable.
 		#tag EndNote
 		link As Xoson.O.OptionalString
 	#tag EndProperty

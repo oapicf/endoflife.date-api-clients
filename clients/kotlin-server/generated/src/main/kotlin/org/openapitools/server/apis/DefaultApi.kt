@@ -1,6 +1,6 @@
 /**
 * endoflife.date
-* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 *
 * The version of the OpenAPI document: 0.0.1
 * Contact: blah+oapicf@cliffano.com
@@ -11,7 +11,6 @@
 */
 package org.openapitools.server.apis
 
-import com.google.gson.Gson
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -29,7 +28,6 @@ import org.openapitools.server.infrastructure.ApiPrincipal
 import org.openapitools.server.models.Cycle
 
 fun Route.DefaultApi() {
-    val gson = Gson()
     val empty = mutableMapOf<String, Any?>()
 
     get<Paths.getApiAllJson> {
@@ -37,7 +35,7 @@ fun Route.DefaultApi() {
         val exampleContentString = """[ "", "" ]"""
         
         when (exampleContentType) {
-            "application/json" -> call.respond(gson.fromJson(exampleContentString, empty::class.java))
+            "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
             "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
             else -> call.respondText(exampleContentString)
         }
@@ -50,7 +48,7 @@ fun Route.DefaultApi() {
           "eol" : "cycle_eol",
           "releaseDate" : "2000-01-23",
           "link" : "link",
-          "lts" : true,
+          "lts" : "cycle_lts",
           "discontinued" : "cycle_discontinued",
           "cycle" : 0.8008281904610115,
           "support" : "cycle_support",
@@ -58,7 +56,7 @@ fun Route.DefaultApi() {
         }"""
         
         when (exampleContentType) {
-            "application/json" -> call.respond(gson.fromJson(exampleContentString, empty::class.java))
+            "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
             "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
             else -> call.respondText(exampleContentString)
         }
@@ -71,7 +69,7 @@ fun Route.DefaultApi() {
           "eol" : "cycle_eol",
           "releaseDate" : "2000-01-23",
           "link" : "link",
-          "lts" : true,
+          "lts" : "cycle_lts",
           "discontinued" : "cycle_discontinued",
           "cycle" : 0.8008281904610115,
           "support" : "cycle_support",
@@ -80,7 +78,7 @@ fun Route.DefaultApi() {
           "eol" : "cycle_eol",
           "releaseDate" : "2000-01-23",
           "link" : "link",
-          "lts" : true,
+          "lts" : "cycle_lts",
           "discontinued" : "cycle_discontinued",
           "cycle" : 0.8008281904610115,
           "support" : "cycle_support",
@@ -88,7 +86,7 @@ fun Route.DefaultApi() {
         } ]"""
         
         when (exampleContentType) {
-            "application/json" -> call.respond(gson.fromJson(exampleContentString, empty::class.java))
+            "application/json" -> call.respondText(exampleContentType, ContentType.Application.Json)
             "application/xml" -> call.respondText(exampleContentString, ContentType.Text.Xml)
             else -> call.respondText(exampleContentString)
         }

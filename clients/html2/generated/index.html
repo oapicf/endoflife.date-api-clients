@@ -163,10 +163,10 @@ h={};g()}};typeof define==="function"&&define.amd&&define("google-code-prettify"
         } else {
             // Use a for loop instead of forEach to avoid nested functions
             // Otherwise "return" will not work properly
-            for(var propt in currentNode){
-                if (currentNode.hasOwnProperty(propt)) {
-                    currentChild = currentNode[propt]
-                    if (id == propt) {
+            for(var property in currentNode){
+                if (currentNode.hasOwnProperty(property)) {
+                    currentChild = currentNode[property]
+                    if (id == property) {
                         return currentChild;
                     } else {
                         // Search in the current child
@@ -854,7 +854,7 @@ ul.nav-tabs {
       "maxLength" : 10,
       "minLength" : 10,
       "type" : "string",
-      "description" : "Release Date for the first release in this cycle",
+      "description" : "Release date for the first release in this cycle.",
       "format" : "date"
     },
     "eol" : {
@@ -863,12 +863,12 @@ ul.nav-tabs {
     "latest" : {
       "minLength" : 1,
       "type" : "string",
-      "description" : "Latest release in this cycle"
+      "description" : "Latest release in this cycle."
     },
     "link" : {
       "minLength" : 1,
       "type" : "string",
-      "description" : "Link to changelog for the latest release, if available",
+      "description" : "Link to changelog for the latest release in this cycle, or null if unavailable.",
       "nullable" : true
     },
     "lts" : {
@@ -986,7 +986,7 @@ ul.nav-tabs {
   }
 };
     defs["cycle_cycle"] = {
-  "description" : "Release Cycle",
+  "description" : "The release cycle which this release is part of.",
   "anyOf" : [ {
     "type" : "number"
   }, {
@@ -996,7 +996,7 @@ ul.nav-tabs {
     defs["cycle_discontinued"] = {
   "maxLength" : 10,
   "minLength" : 10,
-  "description" : "Whether this cycle is now discontinued.",
+  "description" : "Whether this device version is no longer in production.",
   "format" : "date",
   "anyOf" : [ {
     "type" : "string"
@@ -1006,7 +1006,7 @@ ul.nav-tabs {
 };
     defs["cycle_eol"] = {
   "minLength" : 1,
-  "description" : "End of Life Date for this release cycle",
+  "description" : "End-of-Life date for this release cycle.",
   "anyOf" : [ {
     "type" : "string"
   }, {
@@ -1014,17 +1014,17 @@ ul.nav-tabs {
   } ]
 };
     defs["cycle_lts"] = {
-  "description" : "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.\n",
+  "description" : "Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.",
   "anyOf" : [ {
-    "type" : "boolean"
-  }, {
     "type" : "string"
+  }, {
+    "type" : "boolean"
   } ]
 };
     defs["cycle_support"] = {
   "maxLength" : 10,
   "minLength" : 10,
-  "description" : "Whether this release cycle has active support",
+  "description" : "Whether this release cycle has active support.",
   "format" : "date",
   "anyOf" : [ {
     "type" : "string"
@@ -1077,7 +1077,7 @@ ul.nav-tabs {
               <div class="app-desc">Version: 0.0.1</div>
             <hr>
             <div id="app-description" class="app-desc">
-                Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the <a href="https://github.com/endoflife-date/endoflife.date/wiki">endoflife.date wiki</a>
+                Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the <a href="https://github.com/endoflife-date/endoflife.date/wiki">endoflife.date wiki</a>.
             </div>
           </div>
         </div>
@@ -1474,7 +1474,7 @@ public class DefaultApiExample {
 
         // Create an instance of the API class
         DefaultApi apiInstance = new DefaultApi();
-        String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
+        String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website.
 
         try {
             array[cycle] result = apiInstance.getApiProduct.json(product);
@@ -1493,7 +1493,7 @@ public class DefaultApiExample {
 
 final api_instance = DefaultApi();
 
-final String product = new String(); // String | Product URL as per the canonical URL on the endofife.date website
+final String product = new String(); // String | Product URL as per the canonical URL on the endofife.date website.
 
 try {
     final result = await api_instance.getApiProduct.json(product);
@@ -1511,7 +1511,7 @@ try {
 public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
+        String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website.
 
         try {
             array[cycle] result = apiInstance.getApiProduct.json(product);
@@ -1532,7 +1532,7 @@ public class DefaultApiExample {
 
 // Create an instance of the API class
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
-String *product = product_example; // Product URL as per the canonical URL on the endofife.date website (default to null)
+String *product = product_example; // Product URL as per the canonical URL on the endofife.date website. (default to null)
 
 // Get All Details
 [apiInstance getApiProduct.jsonWith:product
@@ -1552,7 +1552,7 @@ String *product = product_example; // Product URL as per the canonical URL on th
 
 // Create an instance of the API class
 var api = new EndoflifeDate.DefaultApi()
-var product = product_example; // {String} Product URL as per the canonical URL on the endofife.date website
+var product = product_example; // {String} Product URL as per the canonical URL on the endofife.date website.
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1584,7 +1584,7 @@ namespace Example
 
             // Create an instance of the API class
             var apiInstance = new DefaultApi();
-            var product = product_example;  // String | Product URL as per the canonical URL on the endofife.date website (default to null)
+            var product = product_example;  // String | Product URL as per the canonical URL on the endofife.date website. (default to null)
 
             try {
                 // Get All Details
@@ -1605,7 +1605,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
-$product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
+$product = product_example; // String | Product URL as per the canonical URL on the endofife.date website.
 
 try {
     $result = $api_instance->getApiProduct.json($product);
@@ -1623,7 +1623,7 @@ use WWW::OPenAPIClient::DefaultApi;
 
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
-my $product = product_example; # String | Product URL as per the canonical URL on the endofife.date website
+my $product = product_example; # String | Product URL as per the canonical URL on the endofife.date website.
 
 eval {
     my $result = $api_instance->getApiProduct.json(product => $product);
@@ -1643,7 +1643,7 @@ from pprint import pprint
 
 # Create an instance of the API class
 api_instance = openapi_client.DefaultApi()
-product = product_example # String | Product URL as per the canonical URL on the endofife.date website (default to null)
+product = product_example # String | Product URL as per the canonical URL on the endofife.date website. (default to null)
 
 try:
     # Get All Details
@@ -1693,7 +1693,7 @@ pub fn main() {
                 </span>
 
                     <div class="inner description marked">
-Product URL as per the canonical URL on the endofife.date website
+Product URL as per the canonical URL on the endofife.date website.
                     </div>
             </div>
                 <div class="inner required">
@@ -1838,7 +1838,7 @@ Product URL as per the canonical URL on the endofife.date website
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Gets details of a single cycle</p>
+                        <p class="marked">Gets details of a single cycle.</p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/{product}/{cycle}.json</span></code></pre>
@@ -1882,7 +1882,7 @@ public class DefaultApiExample {
 
         // Create an instance of the API class
         DefaultApi apiInstance = new DefaultApi();
-        String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
+        String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website.
         String cycle = cycle_example; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
         try {
@@ -1902,7 +1902,7 @@ public class DefaultApiExample {
 
 final api_instance = DefaultApi();
 
-final String product = new String(); // String | Product URL as per the canonical URL on the endofife.date website
+final String product = new String(); // String | Product URL as per the canonical URL on the endofife.date website.
 final String cycle = new String(); // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 try {
@@ -1921,7 +1921,7 @@ try {
 public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
+        String product = product_example; // String | Product URL as per the canonical URL on the endofife.date website.
         String cycle = cycle_example; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
         try {
@@ -1943,7 +1943,7 @@ public class DefaultApiExample {
 
 // Create an instance of the API class
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
-String *product = product_example; // Product URL as per the canonical URL on the endofife.date website (default to null)
+String *product = product_example; // Product URL as per the canonical URL on the endofife.date website. (default to null)
 String *cycle = cycle_example; // Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (default to null)
 
 // Single cycle details
@@ -1965,7 +1965,7 @@ String *cycle = cycle_example; // Release Cycle for which the details must be fe
 
 // Create an instance of the API class
 var api = new EndoflifeDate.DefaultApi()
-var product = product_example; // {String} Product URL as per the canonical URL on the endofife.date website
+var product = product_example; // {String} Product URL as per the canonical URL on the endofife.date website.
 var cycle = cycle_example; // {String} Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 var callback = function(error, data, response) {
@@ -1998,7 +1998,7 @@ namespace Example
 
             // Create an instance of the API class
             var apiInstance = new DefaultApi();
-            var product = product_example;  // String | Product URL as per the canonical URL on the endofife.date website (default to null)
+            var product = product_example;  // String | Product URL as per the canonical URL on the endofife.date website. (default to null)
             var cycle = cycle_example;  // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (default to null)
 
             try {
@@ -2020,7 +2020,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
-$product = product_example; // String | Product URL as per the canonical URL on the endofife.date website
+$product = product_example; // String | Product URL as per the canonical URL on the endofife.date website.
 $cycle = cycle_example; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 try {
@@ -2039,7 +2039,7 @@ use WWW::OPenAPIClient::DefaultApi;
 
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
-my $product = product_example; # String | Product URL as per the canonical URL on the endofife.date website
+my $product = product_example; # String | Product URL as per the canonical URL on the endofife.date website.
 my $cycle = cycle_example; # String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 eval {
@@ -2060,7 +2060,7 @@ from pprint import pprint
 
 # Create an instance of the API class
 api_instance = openapi_client.DefaultApi()
-product = product_example # String | Product URL as per the canonical URL on the endofife.date website (default to null)
+product = product_example # String | Product URL as per the canonical URL on the endofife.date website. (default to null)
 cycle = cycle_example # String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (default to null)
 
 try:
@@ -2112,7 +2112,7 @@ pub fn main() {
                 </span>
 
                     <div class="inner description marked">
-Product URL as per the canonical URL on the endofife.date website
+Product URL as per the canonical URL on the endofife.date website.
                     </div>
             </div>
                 <div class="inner required">

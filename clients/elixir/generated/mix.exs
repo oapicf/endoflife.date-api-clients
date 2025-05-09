@@ -10,7 +10,7 @@ defmodule EndoflifeDate.Mixfile do
       start_permanent: Mix.env() == :prod,
       package: package(),
       description: """
-      Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+      Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
       """,
       deps: deps()
     ]

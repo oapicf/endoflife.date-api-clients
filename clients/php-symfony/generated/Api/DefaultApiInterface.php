@@ -13,7 +13,7 @@
 /**
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -63,7 +63,7 @@ interface DefaultApiInterface
      *
      * Single cycle details
      *
-     * @param  string $product  Product URL as per the canonical URL on the endofife.date website (required)
+     * @param  string $product  Product URL as per the canonical URL on the endofife.date website. (required)
      * @param  string $cycle  Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
@@ -82,7 +82,7 @@ interface DefaultApiInterface
      *
      * Get All Details
      *
-     * @param  string $product  Product URL as per the canonical URL on the endofife.date website (required)
+     * @param  string $product  Product URL as per the canonical URL on the endofife.date website. (required)
      * @param  int     &$responseCode    The HTTP Response Code
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *

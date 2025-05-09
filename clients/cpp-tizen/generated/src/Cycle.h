@@ -58,11 +58,11 @@ public:
 	/*! \brief Set 
 	 */
 	void setCycle(Cycle_cycle  cycle);
-	/*! \brief Get Release Date for the first release in this cycle
+	/*! \brief Get Release date for the first release in this cycle.
 	 */
 	Date getReleaseDate();
 
-	/*! \brief Set Release Date for the first release in this cycle
+	/*! \brief Set Release date for the first release in this cycle.
 	 */
 	void setReleaseDate(Date  releaseDate);
 	/*! \brief Get 
@@ -72,18 +72,18 @@ public:
 	/*! \brief Set 
 	 */
 	void setEol(Cycle_eol  eol);
-	/*! \brief Get Latest release in this cycle
+	/*! \brief Get Latest release in this cycle.
 	 */
 	std::string getLatest();
 
-	/*! \brief Set Latest release in this cycle
+	/*! \brief Set Latest release in this cycle.
 	 */
 	void setLatest(std::string  latest);
-	/*! \brief Get Link to changelog for the latest release, if available
+	/*! \brief Get Link to changelog for the latest release in this cycle, or null if unavailable.
 	 */
 	std::string getLink();
 
-	/*! \brief Set Link to changelog for the latest release, if available
+	/*! \brief Set Link to changelog for the latest release in this cycle, or null if unavailable.
 	 */
 	void setLink(std::string  link);
 	/*! \brief Get 

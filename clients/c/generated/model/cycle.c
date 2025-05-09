@@ -5,7 +5,7 @@
 
 
 
-cycle_t *cycle_create(
+static cycle_t *cycle_create_internal(
     cycle_cycle_t *cycle,
     char *release_date,
     cycle_eol_t *eol,
@@ -28,12 +28,38 @@ cycle_t *cycle_create(
     cycle_local_var->support = support;
     cycle_local_var->discontinued = discontinued;
 
+    cycle_local_var->_library_owned = 1;
     return cycle_local_var;
 }
 
+__attribute__((deprecated)) cycle_t *cycle_create(
+    cycle_cycle_t *cycle,
+    char *release_date,
+    cycle_eol_t *eol,
+    char *latest,
+    char *link,
+    cycle_lts_t *lts,
+    cycle_support_t *support,
+    cycle_discontinued_t *discontinued
+    ) {
+    return cycle_create_internal (
+        cycle,
+        release_date,
+        eol,
+        latest,
+        link,
+        lts,
+        support,
+        discontinued
+        );
+}
 
 void cycle_free(cycle_t *cycle) {
     if(NULL == cycle){
+        return ;
+    }
+    if(cycle->_library_owned != 1){
+        fprintf(stderr, "WARNING: %s() does NOT free objects allocated by the user\n", "cycle_free");
         return ;
     }
     listEntry_t *listEntry;
@@ -192,12 +218,18 @@ cycle_t *cycle_parseFromJSON(cJSON *cycleJSON){
 
     // cycle->cycle
     cJSON *cycle = cJSON_GetObjectItemCaseSensitive(cycleJSON, "cycle");
+    if (cJSON_IsNull(cycle)) {
+        cycle = NULL;
+    }
     if (cycle) { 
     cycle_local_nonprim = cycle_cycle_parseFromJSON(cycle); //nonprimitive
     }
 
     // cycle->release_date
     cJSON *release_date = cJSON_GetObjectItemCaseSensitive(cycleJSON, "releaseDate");
+    if (cJSON_IsNull(release_date)) {
+        release_date = NULL;
+    }
     if (release_date) { 
     if(!cJSON_IsString(release_date))
     {
@@ -207,12 +239,18 @@ cycle_t *cycle_parseFromJSON(cJSON *cycleJSON){
 
     // cycle->eol
     cJSON *eol = cJSON_GetObjectItemCaseSensitive(cycleJSON, "eol");
+    if (cJSON_IsNull(eol)) {
+        eol = NULL;
+    }
     if (eol) { 
     eol_local_nonprim = cycle_eol_parseFromJSON(eol); //nonprimitive
     }
 
     // cycle->latest
     cJSON *latest = cJSON_GetObjectItemCaseSensitive(cycleJSON, "latest");
+    if (cJSON_IsNull(latest)) {
+        latest = NULL;
+    }
     if (latest) { 
     if(!cJSON_IsString(latest) && !cJSON_IsNull(latest))
     {
@@ -222,6 +260,9 @@ cycle_t *cycle_parseFromJSON(cJSON *cycleJSON){
 
     // cycle->link
     cJSON *link = cJSON_GetObjectItemCaseSensitive(cycleJSON, "link");
+    if (cJSON_IsNull(link)) {
+        link = NULL;
+    }
     if (link) { 
     if(!cJSON_IsString(link) && !cJSON_IsNull(link))
     {
@@ -231,24 +272,33 @@ cycle_t *cycle_parseFromJSON(cJSON *cycleJSON){
 
     // cycle->lts
     cJSON *lts = cJSON_GetObjectItemCaseSensitive(cycleJSON, "lts");
+    if (cJSON_IsNull(lts)) {
+        lts = NULL;
+    }
     if (lts) { 
     lts_local_nonprim = cycle_lts_parseFromJSON(lts); //nonprimitive
     }
 
     // cycle->support
     cJSON *support = cJSON_GetObjectItemCaseSensitive(cycleJSON, "support");
+    if (cJSON_IsNull(support)) {
+        support = NULL;
+    }
     if (support) { 
     support_local_nonprim = cycle_support_parseFromJSON(support); //nonprimitive
     }
 
     // cycle->discontinued
     cJSON *discontinued = cJSON_GetObjectItemCaseSensitive(cycleJSON, "discontinued");
+    if (cJSON_IsNull(discontinued)) {
+        discontinued = NULL;
+    }
     if (discontinued) { 
     discontinued_local_nonprim = cycle_discontinued_parseFromJSON(discontinued); //nonprimitive
     }
 
 
-    cycle_local_var = cycle_create (
+    cycle_local_var = cycle_create_internal (
         cycle ? cycle_local_nonprim : NULL,
         release_date ? strdup(release_date->valuestring) : NULL,
         eol ? eol_local_nonprim : NULL,

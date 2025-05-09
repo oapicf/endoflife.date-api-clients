@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -21,7 +21,7 @@ public class OASCycle {
     public OASCycleCycle cycle { get; set; }
 
     /**
-     * Release Date for the first release in this cycle
+     * Release date for the first release in this cycle.
      * @return releaseDate
      */
     public Date releaseDate { get; set; }
@@ -33,13 +33,13 @@ public class OASCycle {
     public OASCycleEol eol { get; set; }
 
     /**
-     * Latest release in this cycle
+     * Latest release in this cycle.
      * @return latest
      */
     public String latest { get; set; }
 
     /**
-     * Link to changelog for the latest release, if available
+     * Link to changelog for the latest release in this cycle, or null if unavailable.
      * @return link
      */
     public String link { get; set; }

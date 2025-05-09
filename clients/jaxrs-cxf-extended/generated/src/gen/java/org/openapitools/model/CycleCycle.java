@@ -12,9 +12,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  */
-@ApiModel(description="Release Cycle")
+@ApiModel(description="The release cycle which this release is part of.")
 
 public class CycleCycle  {
   

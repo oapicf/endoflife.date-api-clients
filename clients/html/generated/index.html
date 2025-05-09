@@ -180,7 +180,7 @@ font-style: italic;
   </head>
   <body>
   <h1>endoflife.date</h1>
-    <div class="app-desc">Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the <a href="https://github.com/endoflife-date/endoflife.date/wiki">endoflife.date wiki</a></div>
+    <div class="app-desc">Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the <a href="https://github.com/endoflife-date/endoflife.date/wiki">endoflife.date wiki</a>.</div>
     <div class="app-desc">More information: <a href="https://github.com/oapicf/endoflife.date-api-clients">https://github.com/oapicf/endoflife.date-api-clients</a></div>
     <div class="app-desc">Contact Info: <a href="blah+oapicf@cliffano.com">blah+oapicf@cliffano.com</a></div>
     <div class="app-desc">Version: 0.0.1</div>
@@ -251,7 +251,7 @@ font-style: italic;
     <div class="field-items">
       <div class="param">product (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Product URL as per the canonical URL on the endofife.date website default: null </div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Product URL as per the canonical URL on the endofife.date website. default: null </div>
     </div>  <!-- field-items -->
 
 
@@ -273,7 +273,7 @@ font-style: italic;
   "eol" : "cycle_eol",
   "releaseDate" : "2000-01-23",
   "link" : "link",
-  "lts" : true,
+  "lts" : "cycle_lts",
   "discontinued" : "cycle_discontinued",
   "cycle" : 0.8008281904610115,
   "support" : "cycle_support",
@@ -282,7 +282,7 @@ font-style: italic;
   "eol" : "cycle_eol",
   "releaseDate" : "2000-01-23",
   "link" : "link",
-  "lts" : true,
+  "lts" : "cycle_lts",
   "discontinued" : "cycle_discontinued",
   "cycle" : 0.8008281904610115,
   "support" : "cycle_support",
@@ -307,13 +307,13 @@ font-style: italic;
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /api/{product}/{cycle}.json</code></pre></div>
     <div class="method-summary">Single cycle details (<span class="nickname">getApiProductCycle.json</span>)</div>
-    <div class="method-notes">Gets details of a single cycle</div>
+    <div class="method-notes">Gets details of a single cycle.</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
       <div class="param">product (required)</div>
 
-      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Product URL as per the canonical URL on the endofife.date website default: null </div><div class="param">cycle (required)</div>
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Product URL as per the canonical URL on the endofife.date website. default: null </div><div class="param">cycle (required)</div>
 
       <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. default: null </div>
     </div>  <!-- field-items -->
@@ -337,7 +337,7 @@ font-style: italic;
   "eol" : "cycle_eol",
   "releaseDate" : "2000-01-23",
   "link" : "link",
-  "lts" : true,
+  "lts" : "cycle_lts",
   "discontinued" : "cycle_discontinued",
   "cycle" : 0.8008281904610115,
   "support" : "cycle_support",
@@ -376,10 +376,10 @@ font-style: italic;
     <div class='model-description'>Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.</div>
     <div class="field-items">
       <div class="param">cycle (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_cycle">cycle_cycle</a></span>  </div>
-<div class="param">releaseDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Release Date for the first release in this cycle format: date</div>
+<div class="param">releaseDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#date">date</a></span> Release date for the first release in this cycle. format: date</div>
 <div class="param">eol (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_eol">cycle_eol</a></span>  </div>
-<div class="param">latest (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Latest release in this cycle </div>
-<div class="param">link (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to changelog for the latest release, if available </div>
+<div class="param">latest (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Latest release in this cycle. </div>
+<div class="param">link (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Link to changelog for the latest release in this cycle, or null if unavailable. </div>
 <div class="param">lts (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_lts">cycle_lts</a></span>  </div>
 <div class="param">support (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_support">cycle_support</a></span>  </div>
 <div class="param">discontinued (optional)</div><div class="param-desc"><span class="param-type"><a href="#cycle_discontinued">cycle_discontinued</a></span>  </div>
@@ -387,31 +387,31 @@ font-style: italic;
   </div>
   <div class="model">
     <h3><a name="cycle_cycle"><code>cycle_cycle</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Release Cycle</div>
+    <div class='model-description'>The release cycle which this release is part of.</div>
     <div class="field-items">
           </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="cycle_discontinued"><code>cycle_discontinued</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Whether this cycle is now discontinued.</div>
+    <div class='model-description'>Whether this device version is no longer in production.</div>
     <div class="field-items">
           </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="cycle_eol"><code>cycle_eol</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>End of Life Date for this release cycle</div>
+    <div class='model-description'>End-of-Life date for this release cycle.</div>
     <div class="field-items">
           </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="cycle_lts"><code>cycle_lts</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.</div>
+    <div class='model-description'>Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.</div>
     <div class="field-items">
           </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="cycle_support"><code>cycle_support</code> - </a> <a class="up" href="#__Models">Up</a></h3>
-    <div class='model-description'>Whether this release cycle has active support</div>
+    <div class='model-description'>Whether this release cycle has active support.</div>
     <div class="field-items">
           </div>  <!-- field-items -->
   </div>

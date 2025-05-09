@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -103,9 +103,9 @@ export class DefaultApi {
     }
 
     /**
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      * @summary Single cycle details
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      */
     public getApiProductCycleJson(product: string, cycle: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
@@ -173,7 +173,7 @@ export class DefaultApi {
     /**
      * Get EoL dates of all cycles of a given product.
      * @summary Get All Details
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      */
     public getApiProductJson(product: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: Array<models.Cycle>;  },

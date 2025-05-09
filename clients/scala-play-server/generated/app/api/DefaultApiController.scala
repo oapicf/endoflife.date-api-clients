@@ -6,7 +6,7 @@ import play.api.libs.json._
 import play.api.mvc._
 import model.Cycle
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-11-05T00:01:35.815098251Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2025-05-09T11:50:38.515443487Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Singleton
 class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) extends AbstractController(cc) {
   /**
@@ -24,7 +24,7 @@ class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) 
 
   /**
     * GET /api/:product/:cycle.json
-    * @param product Product URL as per the canonical URL on the endofife.date website
+    * @param product Product URL as per the canonical URL on the endofife.date website.
     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
     */
   def getApiProductCycleJson(product: String, cycle: String): Action[AnyContent] = Action { request =>
@@ -39,7 +39,7 @@ class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) 
 
   /**
     * GET /api/:product.json
-    * @param product Product URL as per the canonical URL on the endofife.date website
+    * @param product Product URL as per the canonical URL on the endofife.date website.
     */
   def getApiProductJson(product: String): Action[AnyContent] = Action { request =>
     def executeApi(): List[Cycle] = {

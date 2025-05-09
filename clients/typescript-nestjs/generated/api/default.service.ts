@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -13,7 +13,7 @@
 
 import { Injectable, Optional } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { AxiosResponse } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Observable, from, of, switchMap } from 'rxjs';
 import { Cycle } from '../model/cycle';
 import { Configuration } from '../configuration';
@@ -26,10 +26,12 @@ export class DefaultService {
     protected basePath = 'https://endoflife.date';
     public defaultHeaders: Record<string,string> = {};
     public configuration = new Configuration();
+    protected httpClient: HttpService;
 
-    constructor(protected httpClient: HttpService, @Optional() configuration: Configuration) {
+    constructor(httpClient: HttpService, @Optional() configuration: Configuration) {
         this.configuration = configuration || this.configuration;
         this.basePath = configuration?.basePath || this.basePath;
+        this.httpClient = configuration?.httpClient || httpClient;
     }
 
     /**
@@ -46,9 +48,10 @@ export class DefaultService {
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [getApiAllJsonOpts.config] Override http request option.
      */
-    public getApiAllJson(): Observable<AxiosResponse<Array<string>>>;
-    public getApiAllJson(): Observable<any> {
+    public getApiAllJson(getApiAllJsonOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<Array<string>>>;
+    public getApiAllJson(getApiAllJsonOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         let headers = {...this.defaultHeaders};
 
         let accessTokenObservable: Observable<any> = of(null);
@@ -74,7 +77,8 @@ export class DefaultService {
                 return this.httpClient.get<Array<string>>(`${this.basePath}/api/all.json`,
                     {
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...getApiAllJsonOpts?.config,
+                        headers: {...headers, ...getApiAllJsonOpts?.config?.headers},
                     }
                 );
             })
@@ -82,14 +86,15 @@ export class DefaultService {
     }
     /**
      * Single cycle details
-     * Gets details of a single cycle
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * Gets details of a single cycle.
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [getApiProductCycleJsonOpts.config] Override http request option.
      */
-    public getApiProductCycleJson(product: string, cycle: string, ): Observable<AxiosResponse<Cycle>>;
-    public getApiProductCycleJson(product: string, cycle: string, ): Observable<any> {
+    public getApiProductCycleJson(product: string, cycle: string, getApiProductCycleJsonOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<Cycle>>;
+    public getApiProductCycleJson(product: string, cycle: string, getApiProductCycleJsonOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         if (product === null || product === undefined) {
             throw new Error('Required parameter product was null or undefined when calling getApiProductCycleJson.');
         }
@@ -123,7 +128,8 @@ export class DefaultService {
                 return this.httpClient.get<Cycle>(`${this.basePath}/api/${encodeURIComponent(String(product))}/${encodeURIComponent(String(cycle))}.json`,
                     {
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...getApiProductCycleJsonOpts?.config,
+                        headers: {...headers, ...getApiProductCycleJsonOpts?.config?.headers},
                     }
                 );
             })
@@ -132,12 +138,13 @@ export class DefaultService {
     /**
      * Get All Details
      * Get EoL dates of all cycles of a given product.
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
+     * @param {*} [getApiProductJsonOpts.config] Override http request option.
      */
-    public getApiProductJson(product: string, ): Observable<AxiosResponse<Array<Cycle>>>;
-    public getApiProductJson(product: string, ): Observable<any> {
+    public getApiProductJson(product: string, getApiProductJsonOpts?: { config?: AxiosRequestConfig }): Observable<AxiosResponse<Array<Cycle>>>;
+    public getApiProductJson(product: string, getApiProductJsonOpts?: { config?: AxiosRequestConfig }): Observable<any> {
         if (product === null || product === undefined) {
             throw new Error('Required parameter product was null or undefined when calling getApiProductJson.');
         }
@@ -167,7 +174,8 @@ export class DefaultService {
                 return this.httpClient.get<Array<Cycle>>(`${this.basePath}/api/${encodeURIComponent(String(product))}.json`,
                     {
                         withCredentials: this.configuration.withCredentials,
-                        headers: headers
+                        ...getApiProductJsonOpts?.config,
+                        headers: {...headers, ...getApiProductJsonOpts?.config?.headers},
                     }
                 );
             })

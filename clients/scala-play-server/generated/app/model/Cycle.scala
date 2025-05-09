@@ -5,11 +5,11 @@ import java.time.LocalDate
 
 /**
   * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
-  * @param releaseDate Release Date for the first release in this cycle
-  * @param latest Latest release in this cycle
-  * @param link Link to changelog for the latest release, if available
+  * @param releaseDate Release date for the first release in this cycle.
+  * @param latest Latest release in this cycle.
+  * @param link Link to changelog for the latest release in this cycle, or null if unavailable.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2024-11-05T00:01:35.815098251Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2025-05-09T11:50:38.515443487Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 case class Cycle(
   cycle: Option[CycleCycle],
   releaseDate: Option[LocalDate],

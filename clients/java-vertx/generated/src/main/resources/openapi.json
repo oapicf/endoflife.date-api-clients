@@ -6,7 +6,7 @@
       "name" : "OpenAPI Clients Factory",
       "url" : "https://github.com/oapicf/endoflife.date-api-clients"
     },
-    "description" : "Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)",
+    "description" : "Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).",
     "license" : {
       "name" : "MIT",
       "url" : "https://github.com/endoflife-date/endoflife.date/blob/master/LICENSE"
@@ -24,7 +24,7 @@
         "description" : "Get EoL dates of all cycles of a given product.",
         "operationId" : "get-api-:product.json",
         "parameters" : [ {
-          "description" : "Product URL as per the canonical URL on the endofife.date website",
+          "description" : "Product URL as per the canonical URL on the endofife.date website.",
           "explode" : false,
           "in" : "path",
           "name" : "product",
@@ -94,10 +94,10 @@
     },
     "/api/{product}/{cycle}.json" : {
       "get" : {
-        "description" : "Gets details of a single cycle",
+        "description" : "Gets details of a single cycle.",
         "operationId" : "get-api-:product-:cycle.json",
         "parameters" : [ {
-          "description" : "Product URL as per the canonical URL on the endofife.date website",
+          "description" : "Product URL as per the canonical URL on the endofife.date website.",
           "explode" : false,
           "in" : "path",
           "name" : "product",
@@ -197,7 +197,7 @@
           "eol" : "cycle_eol",
           "releaseDate" : "2000-01-23",
           "link" : "link",
-          "lts" : true,
+          "lts" : "cycle_lts",
           "discontinued" : "cycle_discontinued",
           "cycle" : 0.8008281904610115,
           "support" : "cycle_support",
@@ -208,7 +208,7 @@
             "$ref" : "#/components/schemas/cycle_cycle"
           },
           "releaseDate" : {
-            "description" : "Release Date for the first release in this cycle",
+            "description" : "Release date for the first release in this cycle.",
             "format" : "date",
             "maxLength" : 10,
             "minLength" : 10,
@@ -218,12 +218,12 @@
             "$ref" : "#/components/schemas/cycle_eol"
           },
           "latest" : {
-            "description" : "Latest release in this cycle",
+            "description" : "Latest release in this cycle.",
             "minLength" : 1,
             "type" : "string"
           },
           "link" : {
-            "description" : "Link to changelog for the latest release, if available",
+            "description" : "Link to changelog for the latest release in this cycle, or null if unavailable.",
             "minLength" : 1,
             "nullable" : true,
             "type" : "string"
@@ -348,7 +348,7 @@
         }, {
           "type" : "string"
         } ],
-        "description" : "Release Cycle"
+        "description" : "The release cycle which this release is part of."
       },
       "cycle_eol" : {
         "anyOf" : [ {
@@ -356,16 +356,16 @@
         }, {
           "type" : "boolean"
         } ],
-        "description" : "End of Life Date for this release cycle",
+        "description" : "End-of-Life date for this release cycle.",
         "minLength" : 1
       },
       "cycle_lts" : {
         "anyOf" : [ {
-          "type" : "boolean"
-        }, {
           "type" : "string"
+        }, {
+          "type" : "boolean"
         } ],
-        "description" : "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.\n"
+        "description" : "Whether this release cycle has long-term-support (LTS), or the date it entered LTS status."
       },
       "cycle_support" : {
         "anyOf" : [ {
@@ -373,7 +373,7 @@
         }, {
           "type" : "boolean"
         } ],
-        "description" : "Whether this release cycle has active support",
+        "description" : "Whether this release cycle has active support.",
         "format" : "date",
         "maxLength" : 10,
         "minLength" : 10
@@ -384,7 +384,7 @@
         }, {
           "type" : "boolean"
         } ],
-        "description" : "Whether this cycle is now discontinued.",
+        "description" : "Whether this device version is no longer in production.",
         "format" : "date",
         "maxLength" : 10,
         "minLength" : 10

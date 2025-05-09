@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -733,7 +733,7 @@ public class ApiClient {
         return params;
     }
 
-    /**
+   /**
     * Formats the specified free-form query parameters to a list of {@code Pair} objects.
     *
     * @param value The free-form query parameters.
@@ -747,6 +747,7 @@ public class ApiClient {
             return params;
         }
 
+        @SuppressWarnings("unchecked")
         final Map<String, Object> valuesMap = (Map<String, Object>) value;
 
         for (Map.Entry<String, Object> entry : valuesMap.entrySet()) {

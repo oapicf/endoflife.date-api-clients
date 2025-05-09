@@ -33,9 +33,10 @@ typedef struct cycle_t {
     struct cycle_support_t *support; //model
     struct cycle_discontinued_t *discontinued; //model
 
+    int _library_owned; // Is the library responsible for freeing this object?
 } cycle_t;
 
-cycle_t *cycle_create(
+__attribute__((deprecated)) cycle_t *cycle_create(
     cycle_cycle_t *cycle,
     char *release_date,
     cycle_eol_t *eol,

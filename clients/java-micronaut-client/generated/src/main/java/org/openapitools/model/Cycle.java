@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -43,7 +43,7 @@ import javax.annotation.Generated;
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
 @JsonTypeName("cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-04T23:47:32.920889301Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2025-05-09T11:49:12.358623106Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Introspected
 public class Cycle {
     public static final String JSON_PROPERTY_CYCLE = "cycle";
@@ -102,7 +102,7 @@ public class Cycle {
     }
 
     /**
-     * Release Date for the first release in this cycle
+     * Release date for the first release in this cycle.
      * @return releaseDate
      */
     @Nullable
@@ -150,7 +150,7 @@ public class Cycle {
     }
 
     /**
-     * Latest release in this cycle
+     * Latest release in this cycle.
      * @return latest
      */
     @Nullable
@@ -173,7 +173,7 @@ public class Cycle {
     }
 
     /**
-     * Link to changelog for the latest release, if available
+     * Link to changelog for the latest release in this cycle, or null if unavailable.
      * @return link
      */
     @Nullable

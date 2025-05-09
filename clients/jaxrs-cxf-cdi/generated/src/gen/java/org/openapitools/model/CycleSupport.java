@@ -6,14 +6,14 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  **/
 
 import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-@ApiModel(description = "Whether this release cycle has active support")
+@ApiModel(description = "Whether this release cycle has active support.")
 public class CycleSupport   {
   
 

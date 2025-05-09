@@ -1,7 +1,7 @@
 note
  description:"[
 		endoflife.date
- 		Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ 		Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
   		The version of the OpenAPI document: 0.0.1
  	    Contact: blah+oapicf@cliffano.com
 
@@ -22,13 +22,13 @@ feature --Access
     cycle: detachable CYCLE_CYCLE
       
     release_date: detachable DATE
-      -- Release Date for the first release in this cycle
+      -- Release date for the first release in this cycle.
     eol: detachable CYCLE_EOL
       
     latest: detachable STRING_32
-      -- Latest release in this cycle
+      -- Latest release in this cycle.
     link: detachable STRING_32
-      -- Link to changelog for the latest release, if available
+      -- Link to changelog for the latest release in this cycle, or null if unavailable.
     lts: detachable CYCLE_LTS
       
     support: detachable CYCLE_SUPPORT

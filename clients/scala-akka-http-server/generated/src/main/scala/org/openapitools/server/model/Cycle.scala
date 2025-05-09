@@ -8,10 +8,10 @@ import java.time.LocalDate
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  *
  * @param cycle  for example: ''null''
- * @param releaseDate Release Date for the first release in this cycle for example: ''null''
+ * @param releaseDate Release date for the first release in this cycle. for example: ''null''
  * @param eol  for example: ''null''
- * @param latest Latest release in this cycle for example: ''null''
- * @param link Link to changelog for the latest release, if available for example: ''null''
+ * @param latest Latest release in this cycle. for example: ''null''
+ * @param link Link to changelog for the latest release in this cycle, or null if unavailable. for example: ''null''
  * @param lts  for example: ''null''
  * @param support  for example: ''null''
  * @param discontinued  for example: ''null''

@@ -13,7 +13,7 @@
 /**
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -54,7 +54,7 @@ class Cycle
     protected ?CycleCycle $cycle = null;
 
     /**
-     * Release Date for the first release in this cycle
+     * Release date for the first release in this cycle.
      *
      * @var \DateTime|null
      * @SerializedName("releaseDate")
@@ -74,7 +74,7 @@ class Cycle
     protected ?CycleEol $eol = null;
 
     /**
-     * Latest release in this cycle
+     * Latest release in this cycle.
      *
      * @var string|null
      * @SerializedName("latest")
@@ -85,7 +85,7 @@ class Cycle
     protected ?string $latest = null;
 
     /**
-     * Link to changelog for the latest release, if available
+     * Link to changelog for the latest release in this cycle, or null if unavailable.
      *
      * @var string|null
      * @SerializedName("link")
@@ -123,7 +123,7 @@ class Cycle
      * Constructor
      * @param array|null $data Associated array of property values initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         if (is_array($data)) {
             $this->cycle = array_key_exists('cycle', $data) ? $data['cycle'] : $this->cycle;
@@ -177,7 +177,7 @@ class Cycle
     /**
     * Sets releaseDate.
     *
-    * @param \DateTime|null $releaseDate  Release Date for the first release in this cycle
+    * @param \DateTime|null $releaseDate  Release date for the first release in this cycle.
     *
     * @return $this
     */
@@ -231,7 +231,7 @@ class Cycle
     /**
     * Sets latest.
     *
-    * @param string|null $latest  Latest release in this cycle
+    * @param string|null $latest  Latest release in this cycle.
     *
     * @return $this
     */
@@ -258,7 +258,7 @@ class Cycle
     /**
     * Sets link.
     *
-    * @param string|null $link  Link to changelog for the latest release, if available
+    * @param string|null $link  Link to changelog for the latest release in this cycle, or null if unavailable.
     *
     * @return $this
     */

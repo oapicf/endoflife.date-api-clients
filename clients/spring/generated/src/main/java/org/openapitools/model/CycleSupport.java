@@ -14,12 +14,12 @@ import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  */
 
-@Schema(name = "cycle_support", description = "Whether this release cycle has active support")
+@Schema(name = "cycle_support", description = "Whether this release cycle has active support.")
 @JsonTypeName("cycle_support")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-05T00:02:26.954733642Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-09T11:50:43.381361653Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleSupport {
 
   @Override

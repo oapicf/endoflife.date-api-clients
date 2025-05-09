@@ -1,7 +1,7 @@
 /*
  * cycle_lts.h
  *
- * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+ * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
  */
 
 #ifndef _cycle_lts_H_
@@ -20,9 +20,10 @@ typedef struct cycle_lts_t cycle_lts_t;
 
 typedef struct cycle_lts_t {
 
+    int _library_owned; // Is the library responsible for freeing this object?
 } cycle_lts_t;
 
-cycle_lts_t *cycle_lts_create(
+__attribute__((deprecated)) cycle_lts_t *cycle_lts_create(
 );
 
 void cycle_lts_free(cycle_lts_t *cycle_lts);

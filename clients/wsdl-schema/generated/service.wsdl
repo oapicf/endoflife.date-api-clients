@@ -17,7 +17,7 @@
           <xs:element minOccurs="0" name="releaseDate">
             <xs:simpleType>
               <xs:annotation>
-                <xs:documentation>Release Date for the first release in this cycle</xs:documentation>
+                <xs:documentation>Release date for the first release in this cycle.</xs:documentation>
               </xs:annotation>
               <xs:restriction base="xs:long">
                 <xs:maxLength value="10" />
@@ -29,7 +29,7 @@
           <xs:element minOccurs="0" name="latest">
             <xs:simpleType>
               <xs:annotation>
-                <xs:documentation>Latest release in this cycle</xs:documentation>
+                <xs:documentation>Latest release in this cycle.</xs:documentation>
               </xs:annotation>
               <xs:restriction base="xs:string">
                 <xs:minLength value="1" />
@@ -39,7 +39,7 @@
           <xs:element minOccurs="0" name="link">
             <xs:simpleType>
               <xs:annotation>
-                <xs:documentation>Link to changelog for the latest release, if available</xs:documentation>
+                <xs:documentation>Link to changelog for the latest release in this cycle, or null if unavailable.</xs:documentation>
               </xs:annotation>
               <xs:restriction base="xs:string">
                 <xs:minLength value="1" />
@@ -53,70 +53,70 @@
       </xs:complexType>
       <xs:complexType name="CycleCycle">
         <xs:annotation>
-          <xs:documentation>Release Cycle</xs:documentation>
+          <xs:documentation>The release cycle which this release is part of.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="CycleDiscontinued">
         <xs:annotation>
-          <xs:documentation>Whether this cycle is now discontinued.</xs:documentation>
+          <xs:documentation>Whether this device version is no longer in production.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="CycleEol">
         <xs:annotation>
-          <xs:documentation>End of Life Date for this release cycle</xs:documentation>
+          <xs:documentation>End-of-Life date for this release cycle.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="CycleLts">
         <xs:annotation>
-          <xs:documentation>Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. </xs:documentation>
+          <xs:documentation>Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="CycleSupport">
         <xs:annotation>
-          <xs:documentation>Whether this release cycle has active support</xs:documentation>
+          <xs:documentation>Whether this release cycle has active support.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
         </xs:sequence>
       </xs:complexType>
       <xs:simpleType name="cycle_cycle">
         <xs:annotation>
-          <xs:documentation>Release Cycle</xs:documentation>
+          <xs:documentation>The release cycle which this release is part of.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:anyOf&lt;number,string&gt;">
         </xs:restriction>
       </xs:simpleType>
       <xs:simpleType name="cycle_discontinued">
         <xs:annotation>
-          <xs:documentation>Whether this cycle is now discontinued.</xs:documentation>
+          <xs:documentation>Whether this device version is no longer in production.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:anyOf&lt;string,boolean&gt;">
         </xs:restriction>
       </xs:simpleType>
       <xs:simpleType name="cycle_eol">
         <xs:annotation>
-          <xs:documentation>End of Life Date for this release cycle</xs:documentation>
+          <xs:documentation>End-of-Life date for this release cycle.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:anyOf&lt;string,boolean&gt;">
         </xs:restriction>
       </xs:simpleType>
       <xs:simpleType name="cycle_lts">
         <xs:annotation>
-          <xs:documentation>Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. </xs:documentation>
+          <xs:documentation>Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="xs:anyOf&lt;boolean,string&gt;">
+        <xs:restriction base="xs:anyOf&lt;string,boolean&gt;">
         </xs:restriction>
       </xs:simpleType>
       <xs:simpleType name="cycle_support">
         <xs:annotation>
-          <xs:documentation>Whether this release cycle has active support</xs:documentation>
+          <xs:documentation>Whether this release cycle has active support.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:anyOf&lt;string,boolean&gt;">
         </xs:restriction>
@@ -135,7 +135,7 @@
         <xs:sequence>
           <xs:element minOccurs="1" name="product" type="xs:string">
             <xs:annotation>
-              <xs:documentation>Product URL as per the canonical URL on the endofife.date website</xs:documentation>
+              <xs:documentation>Product URL as per the canonical URL on the endofife.date website.</xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -153,7 +153,7 @@
         <xs:sequence>
           <xs:element minOccurs="1" name="product" type="xs:string">
             <xs:annotation>
-              <xs:documentation>Product URL as per the canonical URL on the endofife.date website</xs:documentation>
+              <xs:documentation>Product URL as per the canonical URL on the endofife.date website.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element minOccurs="1" name="cycle" type="xs:string">
@@ -208,7 +208,7 @@
       </output>
     </operation>
     <operation name="GetApiByProductAndCycle}.jso">
-      <documentation>Gets details of a single cycle</documentation>
+      <documentation>Gets details of a single cycle.</documentation>
       <input message="wsdl:GetApiByProductAndCycle}.jso_RequestMessage" />
       <output message="wsdl:GetApiByProductAndCycle}.jso_ResponseMessage">
         <documentation>OK</documentation>
@@ -246,7 +246,7 @@
     </operation>
   </binding>
   <service name="ServiceV1">
-    <documentation>Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)</documentation>
+    <documentation>Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).</documentation>
     <port name="default_Port" binding="wsdl:ServiceV1_Binding">
       <soap:address location="http://localhost/soap/ServiceV1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>

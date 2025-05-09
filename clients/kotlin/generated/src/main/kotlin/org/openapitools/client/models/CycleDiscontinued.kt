@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  *
  */
 

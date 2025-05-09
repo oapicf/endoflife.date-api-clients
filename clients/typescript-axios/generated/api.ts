@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -36,7 +36,7 @@ export interface Cycle {
      */
     'cycle'?: CycleCycle;
     /**
-     * Release Date for the first release in this cycle
+     * Release date for the first release in this cycle.
      * @type {string}
      * @memberof Cycle
      */
@@ -48,13 +48,13 @@ export interface Cycle {
      */
     'eol'?: CycleEol;
     /**
-     * Latest release in this cycle
+     * Latest release in this cycle.
      * @type {string}
      * @memberof Cycle
      */
     'latest'?: string;
     /**
-     * Link to changelog for the latest release, if available
+     * Link to changelog for the latest release in this cycle, or null if unavailable.
      * @type {string}
      * @memberof Cycle
      */
@@ -79,35 +79,35 @@ export interface Cycle {
     'discontinued'?: CycleDiscontinued;
 }
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  * @export
  * @interface CycleCycle
  */
 export interface CycleCycle {
 }
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  * @export
  * @interface CycleDiscontinued
  */
 export interface CycleDiscontinued {
 }
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  * @export
  * @interface CycleEol
  */
 export interface CycleEol {
 }
 /**
- * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+ * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
  * @export
  * @interface CycleLts
  */
 export interface CycleLts {
 }
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  * @export
  * @interface CycleSupport
  */
@@ -151,9 +151,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Gets details of a single cycle
+         * Gets details of a single cycle.
          * @summary Single cycle details
-         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website.
          * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -191,7 +191,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * Get EoL dates of all cycles of a given product.
          * @summary Get All Details
-         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -245,9 +245,9 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Gets details of a single cycle
+         * Gets details of a single cycle.
          * @summary Single cycle details
-         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website.
          * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -261,7 +261,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * Get EoL dates of all cycles of a given product.
          * @summary Get All Details
-         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -291,9 +291,9 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getApiAllJson(options).then((request) => request(axios, basePath));
         },
         /**
-         * Gets details of a single cycle
+         * Gets details of a single cycle.
          * @summary Single cycle details
-         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website.
          * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -304,7 +304,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * Get EoL dates of all cycles of a given product.
          * @summary Get All Details
-         * @param {string} product Product URL as per the canonical URL on the endofife.date website
+         * @param {string} product Product URL as per the canonical URL on the endofife.date website.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -333,9 +333,9 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      * @summary Single cycle details
-     * @param {string} product Product URL as per the canonical URL on the endofife.date website
+     * @param {string} product Product URL as per the canonical URL on the endofife.date website.
      * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -348,7 +348,7 @@ export class DefaultApi extends BaseAPI {
     /**
      * Get EoL dates of all cycles of a given product.
      * @summary Get All Details
-     * @param {string} product Product URL as per the canonical URL on the endofife.date website
+     * @param {string} product Product URL as per the canonical URL on the endofife.date website.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi

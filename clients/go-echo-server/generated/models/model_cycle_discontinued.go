@@ -1,5 +1,5 @@
 package models
 
-// CycleDiscontinued - Whether this cycle is now discontinued.
+// CycleDiscontinued - Whether this device version is no longer in production.
 type CycleDiscontinued struct {
 }

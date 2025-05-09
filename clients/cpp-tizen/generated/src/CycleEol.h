@@ -1,7 +1,7 @@
 /*
  * Cycle_eol.h
  *
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
 
 #ifndef _Cycle_eol_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief End of Life Date for this release cycle
+/*! \brief End-of-Life date for this release cycle.
  *
  *  \ingroup Models
  *

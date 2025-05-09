@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.math.BigDecimal;
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  **/
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CycleCycle   {

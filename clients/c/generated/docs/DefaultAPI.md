@@ -46,7 +46,7 @@ No authorization required
 ```c
 // Single cycle details
 //
-// Gets details of a single cycle
+// Gets details of a single cycle.
 //
 cycle_t* DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *cycle);
 ```
@@ -55,7 +55,7 @@ cycle_t* DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**product** | **char \*** | Product URL as per the canonical URL on the endofife.date website | 
+**product** | **char \*** | Product URL as per the canonical URL on the endofife.date website. | 
 **cycle** | **char \*** | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
@@ -87,7 +87,7 @@ list_t* DefaultAPI_getApiProductJson(apiClient_t *apiClient, char *product);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **apiClient** | **apiClient_t \*** | context containing the client configuration |
-**product** | **char \*** | Product URL as per the canonical URL on the endofife.date website | 
+**product** | **char \*** | Product URL as per the canonical URL on the endofife.date website. | 
 
 ### Return type
 

@@ -8,12 +8,12 @@
 
 type t = {
     cycle: Cycle_cycle.t option [@default None];
-    (* Release Date for the first release in this cycle *)
+    (* Release date for the first release in this cycle. *)
     release_date: string option [@default None];
     eol: Cycle_eol.t option [@default None];
-    (* Latest release in this cycle *)
+    (* Latest release in this cycle. *)
     latest: string option [@default None];
-    (* Link to changelog for the latest release, if available *)
+    (* Link to changelog for the latest release in this cycle, or null if unavailable. *)
     link: string option [@default None];
     lts: Cycle_lts.t option [@default None];
     support: Cycle_support.t option [@default None];

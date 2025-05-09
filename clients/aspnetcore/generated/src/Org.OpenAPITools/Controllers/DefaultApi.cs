@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -56,8 +56,8 @@ namespace Org.OpenAPITools.Controllers
         /// <summary>
         /// Single cycle details
         /// </summary>
-        /// <remarks>Gets details of a single cycle</remarks>
-        /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
+        /// <remarks>Gets details of a single cycle.</remarks>
+        /// <param name="product">Product URL as per the canonical URL on the endofife.date website.</param>
         /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
         /// <response code="200">OK</response>
         [HttpGet]
@@ -71,7 +71,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Cycle));
             string exampleJson = null;
-            exampleJson = "{\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : true,\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}";
+            exampleJson = "{\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<Cycle>(exampleJson)
@@ -84,7 +84,7 @@ namespace Org.OpenAPITools.Controllers
         /// Get All Details
         /// </summary>
         /// <remarks>Get EoL dates of all cycles of a given product.</remarks>
-        /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
+        /// <param name="product">Product URL as per the canonical URL on the endofife.date website.</param>
         /// <response code="200">OK</response>
         [HttpGet]
         [Route("/api/{product}.json")]
@@ -97,7 +97,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(List<Cycle>));
             string exampleJson = null;
-            exampleJson = "[ {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : true,\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}, {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : true,\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n} ]";
+            exampleJson = "[ {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}, {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n} ]";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<Cycle>>(exampleJson)

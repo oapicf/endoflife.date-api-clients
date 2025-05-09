@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cycle** | Pointer to [**CycleCycle**](CycleCycle.md) |  | [optional] 
-**ReleaseDate** | Pointer to **string** | Release Date for the first release in this cycle | [optional] 
+**ReleaseDate** | Pointer to **string** | Release date for the first release in this cycle. | [optional] 
 **Eol** | Pointer to [**CycleEol**](CycleEol.md) |  | [optional] 
-**Latest** | Pointer to **string** | Latest release in this cycle | [optional] 
-**Link** | Pointer to **NullableString** | Link to changelog for the latest release, if available | [optional] 
+**Latest** | Pointer to **string** | Latest release in this cycle. | [optional] 
+**Link** | Pointer to **NullableString** | Link to changelog for the latest release in this cycle, or null if unavailable. | [optional] 
 **Lts** | Pointer to [**CycleLts**](CycleLts.md) |  | [optional] 
 **Support** | Pointer to [**CycleSupport**](CycleSupport.md) |  | [optional] 
 **Discontinued** | Pointer to [**CycleDiscontinued**](CycleDiscontinued.md) |  | [optional] 

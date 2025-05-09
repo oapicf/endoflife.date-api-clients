@@ -7,7 +7,7 @@ import io.circe.java8.time._
 import org.openapitools._
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  */
 case class CycleCycle()
 

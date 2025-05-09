@@ -46,6 +46,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /api/all.json
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * @return kotlin.collections.List<kotlin.String>
@@ -76,6 +77,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /api/all.json
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
@@ -114,9 +116,10 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /api/{product}/{cycle}.json
      * Single cycle details
-     * Gets details of a single cycle
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * Gets details of a single cycle.
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
      * @return Cycle
      * @throws IllegalStateException If the request is not correctly configured
@@ -146,9 +149,10 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /api/{product}/{cycle}.json
      * Single cycle details
-     * Gets details of a single cycle
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * Gets details of a single cycle.
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
      * @return ApiResponse<Cycle?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -167,7 +171,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     /**
      * To obtain the request config of the operation getApiProductCycleJson
      *
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
      * @return RequestConfig
      */
@@ -188,9 +192,10 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /api/{product}.json
      * Get All Details
      * Get EoL dates of all cycles of a given product.
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @return kotlin.collections.List<Cycle>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -219,9 +224,10 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     }
 
     /**
+     * GET /api/{product}.json
      * Get All Details
      * Get EoL dates of all cycles of a given product.
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @return ApiResponse<kotlin.collections.List<Cycle>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -239,7 +245,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory
     /**
      * To obtain the request config of the operation getApiProductJson
      *
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @return RequestConfig
      */
     fun getApiProductJsonRequestConfig(product: kotlin.String) : RequestConfig<Unit> {

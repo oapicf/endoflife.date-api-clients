@@ -14,12 +14,12 @@ import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
 
-@Schema(name = "cycle_discontinued", description = "Whether this cycle is now discontinued.")
+@Schema(name = "cycle_discontinued", description = "Whether this device version is no longer in production.")
 @JsonTypeName("cycle_discontinued")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2024-11-04T23:48:52.384543455Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2025-05-09T11:49:23.015947755Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleDiscontinued {
 
   @Override

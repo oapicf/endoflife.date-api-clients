@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -36,12 +36,12 @@ class DefaultApi(baseUrl: String) {
       .response(asJson[Seq[String]])
 
   /**
-   * Gets details of a single cycle
+   * Gets details of a single cycle.
    * 
    * Expected answers:
    *   code 200 : Cycle (OK)
    * 
-   * @param product Product URL as per the canonical URL on the endofife.date website
+   * @param product Product URL as per the canonical URL on the endofife.date website.
    * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
    */
   def getApiProductCycleJson(product: String, cycle: String
@@ -57,7 +57,7 @@ class DefaultApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Cycle] (OK)
    * 
-   * @param product Product URL as per the canonical URL on the endofife.date website
+   * @param product Product URL as per the canonical URL on the endofife.date website.
    */
   def getApiProductJson(product: String
 ): Request[Either[ResponseException[String, Exception], Seq[Cycle]], Any] =

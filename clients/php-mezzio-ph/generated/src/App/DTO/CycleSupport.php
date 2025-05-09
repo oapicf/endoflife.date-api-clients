@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  */
 class CycleSupport
 {

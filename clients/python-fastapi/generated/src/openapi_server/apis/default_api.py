@@ -23,6 +23,9 @@ from fastapi import (  # noqa: F401
 )
 
 from openapi_server.models.extra_models import TokenModel  # noqa: F401
+from pydantic import Field, StrictStr
+from typing import List
+from typing_extensions import Annotated
 from openapi_server.models.cycle import Cycle
 
 
@@ -60,10 +63,10 @@ async def get_api_all_json(
     response_model_by_alias=True,
 )
 async def get_api_product_cycle_json(
-    product: str = Path(..., description="Product URL as per the canonical URL on the endofife.date website"),
-    cycle: str = Path(..., description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0."),
+    product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")] = Path(..., description="Product URL as per the canonical URL on the endofife.date website."),
+    cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.")] = Path(..., description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0."),
 ) -> Cycle:
-    """Gets details of a single cycle"""
+    """Gets details of a single cycle."""
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
     return await BaseDefaultApi.subclasses[0]().get_api_product_cycle_json(product, cycle)
@@ -79,7 +82,7 @@ async def get_api_product_cycle_json(
     response_model_by_alias=True,
 )
 async def get_api_product_json(
-    product: str = Path(..., description="Product URL as per the canonical URL on the endofife.date website"),
+    product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")] = Path(..., description="Product URL as per the canonical URL on the endofife.date website."),
 ) -> List[Cycle]:
     """Get EoL dates of all cycles of a given product."""
     if not BaseDefaultApi.subclasses:

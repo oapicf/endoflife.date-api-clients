@@ -1,7 +1,7 @@
 /*
  * cycle_eol.h
  *
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
 
 #ifndef _cycle_eol_H_
@@ -20,9 +20,10 @@ typedef struct cycle_eol_t cycle_eol_t;
 
 typedef struct cycle_eol_t {
 
+    int _library_owned; // Is the library responsible for freeing this object?
 } cycle_eol_t;
 
-cycle_eol_t *cycle_eol_create(
+__attribute__((deprecated)) cycle_eol_t *cycle_eol_create(
 );
 
 void cycle_eol_free(cycle_eol_t *cycle_eol);

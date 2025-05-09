@@ -27,7 +27,7 @@ import javax.validation.Valid;
 @Api(description = "the api API")
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2024-11-04T23:49:21.328413798Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2025-05-09T11:49:26.502470538Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 
 public class ApiApi  {
 
@@ -51,10 +51,10 @@ public class ApiApi  {
     @Path("/{product}/{cycle}.json")
     
     @Produces({ "application/json" })
-    @ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle", response = Cycle.class, tags={  })
+    @ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle.", response = Cycle.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class) })
-    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") String product, @ApiParam(value = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.",required=true) @PathParam("cycle") String cycle) {
+    public Response getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website.",required=true) @PathParam("product") String product, @ApiParam(value = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.",required=true) @PathParam("cycle") String cycle) {
         return delegate.getApiProductCycleJson(product, cycle, securityContext);
     }
 
@@ -65,7 +65,7 @@ public class ApiApi  {
     @ApiOperation(value = "Get All Details", notes = "Get EoL dates of all cycles of a given product.", response = Cycle.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class, responseContainer = "List") })
-    public Response getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true) @PathParam("product") String product) {
+    public Response getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website.",required=true) @PathParam("product") String product) {
         return delegate.getApiProductJson(product, securityContext);
     }
 }

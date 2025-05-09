@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -24,13 +24,13 @@ import javax.annotation.Generated;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
-@Schema(name = "cycle_eol", description = "End of Life Date for this release cycle")
+@Schema(name = "cycle_eol", description = "End-of-Life date for this release cycle.")
 @JsonPropertyOrder({
 })
 @JsonTypeName("cycle_eol")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-11-04T23:47:43.661706761Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2025-05-09T11:49:13.510742569Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Introspected
 public class CycleEol {
     public CycleEol() {

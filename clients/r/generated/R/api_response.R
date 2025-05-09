@@ -1,6 +1,6 @@
 #' endoflife.date
 #'
-#' Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+#' Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 #'
 #' The version of the OpenAPI document: 0.0.1
 #' Contact: blah+oapicf@cliffano.com
@@ -57,9 +57,6 @@ ApiResponse <- R6::R6Class(
         self$response <- charToRaw(jsonlite::toJSON("NULL"))
       }
       text_response <- iconv(readBin(self$response, character()), from = from_encoding, to = to_encoding)
-      if (is.na(text_response)) {
-        warning("The response is binary and will not be converted to text.")
-      }
       return(text_response)
     }
   )

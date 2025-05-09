@@ -1,0 +1,11 @@
+src/main/java/org/openapitools/server/RFC3339DateFormat.java
+src/main/java/org/openapitools/server/api/DefaultService.java
+src/main/java/org/openapitools/server/api/JsonProvider.java
+src/main/java/org/openapitools/server/api/ValidatorUtils.java
+src/main/java/org/openapitools/server/model/Cycle.java
+src/main/java/org/openapitools/server/model/CycleCycle.java
+src/main/java/org/openapitools/server/model/CycleDiscontinued.java
+src/main/java/org/openapitools/server/model/CycleEol.java
+src/main/java/org/openapitools/server/model/CycleLts.java
+src/main/java/org/openapitools/server/model/CycleSupport.java
+src/main/resources/META-INF/openapi.yml

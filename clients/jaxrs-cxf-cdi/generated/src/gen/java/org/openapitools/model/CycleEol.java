@@ -6,14 +6,14 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  **/
 
 import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-@ApiModel(description = "End of Life Date for this release cycle")
+@ApiModel(description = "End-of-Life date for this release cycle.")
 public class CycleEol   {
   
 

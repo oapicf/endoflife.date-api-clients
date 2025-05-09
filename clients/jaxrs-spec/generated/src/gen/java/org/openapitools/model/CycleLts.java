@@ -13,12 +13,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+ * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
  **/
-@ApiModel(description = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
+@ApiModel(description = "Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.")
 @JsonTypeName("cycle_lts")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-11-04T23:50:06.741826962Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-05-09T11:49:31.811227707Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleLts   {
+
+  public CycleLts() {
+  }
 
 
   @Override

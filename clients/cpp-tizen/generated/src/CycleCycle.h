@@ -1,7 +1,7 @@
 /*
  * Cycle_cycle.h
  *
- * Release Cycle
+ * The release cycle which this release is part of.
  */
 
 #ifndef _Cycle_cycle_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief Release Cycle
+/*! \brief The release cycle which this release is part of.
  *
  *  \ingroup Models
  *

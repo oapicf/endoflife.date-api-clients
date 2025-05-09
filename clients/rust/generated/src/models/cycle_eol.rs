@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -11,13 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// CycleEol : End of Life Date for this release cycle
+/// CycleEol : End-of-Life date for this release cycle.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CycleEol {
 }
 
 impl CycleEol {
-    /// End of Life Date for this release cycle
+    /// End-of-Life date for this release cycle.
     pub fn new() -> CycleEol {
         CycleEol {
         }

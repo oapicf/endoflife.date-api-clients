@@ -14,12 +14,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  **/
-@ApiModel(description = "Release Cycle")
+@ApiModel(description = "The release cycle which this release is part of.")
 @JsonTypeName("cycle_cycle")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-11-04T23:50:06.741826962Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-05-09T11:49:31.811227707Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleCycle   {
+
+  public CycleCycle() {
+  }
 
 
   @Override

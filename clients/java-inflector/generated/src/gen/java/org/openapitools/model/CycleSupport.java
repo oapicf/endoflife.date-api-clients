@@ -7,11 +7,11 @@ import io.swagger.annotations.ApiModel;
 
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  **/
 
-@ApiModel(description = "Whether this release cycle has active support")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2024-11-04T23:47:22.795235461Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@ApiModel(description = "Whether this release cycle has active support.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2025-05-09T11:49:11.149893161Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleSupport   {
 
   @Override

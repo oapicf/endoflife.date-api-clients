@@ -18,7 +18,7 @@ class Cycle
     public ?\App\DTO\CycleCycle $cycle = null;
 
     /**
-     * Release Date for the first release in this cycle
+     * Release date for the first release in this cycle.
      * @DTA\Data(field="releaseDate", nullable=true)
      * @DTA\Strategy(name="Date")
      * @DTA\Validator(name="Date")
@@ -34,7 +34,7 @@ class Cycle
     public ?\App\DTO\CycleEol $eol = null;
 
     /**
-     * Latest release in this cycle
+     * Latest release in this cycle.
      * @DTA\Data(field="latest", nullable=true)
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="Length", options={"min":1})
@@ -42,7 +42,7 @@ class Cycle
     public ?string $latest = null;
 
     /**
-     * Link to changelog for the latest release, if available
+     * Link to changelog for the latest release in this cycle, or null if unavailable.
      * @DTA\Data(field="link", nullable=true)
      * @DTA\Validator(name="Scalar", options={"type":"string"})
      * @DTA\Validator(name="Length", options={"min":1})

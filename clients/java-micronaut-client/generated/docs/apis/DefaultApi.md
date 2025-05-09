@@ -66,12 +66,12 @@ Mono<Cycle> DefaultApi.getApiProductCycleJson(productcycle)
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Parameters
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **product** | `String`| Product URL as per the canonical URL on the endofife.date website | |
+| **product** | `String`| Product URL as per the canonical URL on the endofife.date website. | |
 | **cycle** | `String`| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | |
 
 
@@ -97,7 +97,7 @@ Get EoL dates of all cycles of a given product.
 ### Parameters
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **product** | `String`| Product URL as per the canonical URL on the endofife.date website | |
+| **product** | `String`| Product URL as per the canonical URL on the endofife.date website. | |
 
 
 ### Return type

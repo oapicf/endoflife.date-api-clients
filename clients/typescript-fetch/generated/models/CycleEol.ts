@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -14,7 +14,7 @@
 
 import { mapValues } from '../runtime';
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  * @export
  * @interface CycleEol
  */
@@ -36,11 +36,11 @@ export function CycleEolFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return json;
 }
 
-  export function CycleEolToJSON(json: any): CycleEol {
-      return CycleEolToJSONTyped(json, false);
-  }
+export function CycleEolToJSON(json: any): CycleEol {
+    return CycleEolToJSONTyped(json, false);
+}
 
-  export function CycleEolToJSONTyped(value?: CycleEol | null, ignoreDiscriminator: boolean = false): any {
+export function CycleEolToJSONTyped(value?: CycleEol | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

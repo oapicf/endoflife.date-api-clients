@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
-@ApiModel(description="End of Life Date for this release cycle")
+@ApiModel(description="End-of-Life date for this release cycle.")
 
 public class CycleEol  {
   

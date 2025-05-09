@@ -1,5 +1,5 @@
 --  endoflife.date
---  Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife_date/endoflife.date/wiki)
+--  Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife_date/endoflife.date/wiki).
 --  ------------ EDIT NOTE ------------
 --  This file was generated with openapi-generator.  You can modify it to implement
 --  the server.  After you modify this file, you should add the following line
@@ -29,7 +29,7 @@ package .Servers is
        Context : in out Swagger.Servers.Context_Type);
 
    --  Single cycle details
-   --  Gets details of a single cycle
+   --  Gets details of a single cycle.
    overriding
    procedure Get_Api_Product_Cycle_Json
       (Server : in out Server_Type;

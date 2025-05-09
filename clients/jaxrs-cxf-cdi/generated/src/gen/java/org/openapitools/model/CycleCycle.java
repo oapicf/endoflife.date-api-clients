@@ -7,14 +7,14 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  **/
 
 import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-@ApiModel(description = "Release Cycle")
+@ApiModel(description = "The release cycle which this release is part of.")
 public class CycleCycle   {
   
 

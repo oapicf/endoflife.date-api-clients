@@ -8,10 +8,10 @@
 #' @description Cycle Class
 #' @format An \code{R6Class} generator object
 #' @field cycle  \link{CycleCycle} [optional]
-#' @field releaseDate Release Date for the first release in this cycle character [optional]
+#' @field releaseDate Release date for the first release in this cycle. character [optional]
 #' @field eol  \link{CycleEol} [optional]
-#' @field latest Latest release in this cycle character [optional]
-#' @field link Link to changelog for the latest release, if available character [optional]
+#' @field latest Latest release in this cycle. character [optional]
+#' @field link Link to changelog for the latest release in this cycle, or null if unavailable. character [optional]
 #' @field lts  \link{CycleLts} [optional]
 #' @field support  \link{CycleSupport} [optional]
 #' @field discontinued  \link{CycleDiscontinued} [optional]
@@ -34,10 +34,10 @@ Cycle <- R6::R6Class(
     #' Initialize a new Cycle class.
     #'
     #' @param cycle cycle
-    #' @param releaseDate Release Date for the first release in this cycle
+    #' @param releaseDate Release date for the first release in this cycle.
     #' @param eol eol
-    #' @param latest Latest release in this cycle
-    #' @param link Link to changelog for the latest release, if available
+    #' @param latest Latest release in this cycle.
+    #' @param link Link to changelog for the latest release in this cycle, or null if unavailable.
     #' @param lts lts
     #' @param support support
     #' @param discontinued discontinued
@@ -84,14 +84,39 @@ Cycle <- R6::R6Class(
     },
 
     #' @description
-    #' To JSON String
-    #'
-    #' @return Cycle in JSON format
+    #' Convert to an R object. This method is deprecated. Use `toSimpleType()` instead.
     toJSON = function() {
+      .Deprecated(new = "toSimpleType", msg = "Use the '$toSimpleType()' method instead since that is more clearly named. Use '$toJSONString()' to get a JSON string")
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert to a List
+    #'
+    #' Convert the R6 object to a list to work more easily with other tooling.
+    #'
+    #' @return Cycle as a base R list.
+    #' @examples
+    #' # convert array of Cycle (x) to a data frame
+    #' \dontrun{
+    #' library(purrr)
+    #' library(tibble)
+    #' df <- x |> map(\(y)y$toList()) |> map(as_tibble) |> list_rbind()
+    #' df
+    #' }
+    toList = function() {
+      return(self$toSimpleType())
+    },
+
+    #' @description
+    #' Convert Cycle to a base R type
+    #'
+    #' @return A base R type, e.g. a list or numeric/character array.
+    toSimpleType = function() {
       CycleObject <- list()
       if (!is.null(self$`cycle`)) {
         CycleObject[["cycle"]] <-
-          self$`cycle`$toJSON()
+          self$`cycle`$toSimpleType()
       }
       if (!is.null(self$`releaseDate`)) {
         CycleObject[["releaseDate"]] <-
@@ -99,7 +124,7 @@ Cycle <- R6::R6Class(
       }
       if (!is.null(self$`eol`)) {
         CycleObject[["eol"]] <-
-          self$`eol`$toJSON()
+          self$`eol`$toSimpleType()
       }
       if (!is.null(self$`latest`)) {
         CycleObject[["latest"]] <-
@@ -111,17 +136,17 @@ Cycle <- R6::R6Class(
       }
       if (!is.null(self$`lts`)) {
         CycleObject[["lts"]] <-
-          self$`lts`$toJSON()
+          self$`lts`$toSimpleType()
       }
       if (!is.null(self$`support`)) {
         CycleObject[["support"]] <-
-          self$`support`$toJSON()
+          self$`support`$toSimpleType()
       }
       if (!is.null(self$`discontinued`)) {
         CycleObject[["discontinued"]] <-
-          self$`discontinued`$toJSON()
+          self$`discontinued`$toSimpleType()
       }
-      CycleObject
+      return(CycleObject)
     },
 
     #' @description
@@ -170,77 +195,13 @@ Cycle <- R6::R6Class(
 
     #' @description
     #' To JSON String
-    #'
+    #' 
+    #' @param ... Parameters passed to `jsonlite::toJSON`
     #' @return Cycle in JSON format
-    toJSONString = function() {
-      jsoncontent <- c(
-        if (!is.null(self$`cycle`)) {
-          sprintf(
-          '"cycle":
-          %s
-          ',
-          jsonlite::toJSON(self$`cycle`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`releaseDate`)) {
-          sprintf(
-          '"releaseDate":
-            "%s"
-                    ',
-          self$`releaseDate`
-          )
-        },
-        if (!is.null(self$`eol`)) {
-          sprintf(
-          '"eol":
-          %s
-          ',
-          jsonlite::toJSON(self$`eol`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`latest`)) {
-          sprintf(
-          '"latest":
-            "%s"
-                    ',
-          self$`latest`
-          )
-        },
-        if (!is.null(self$`link`)) {
-          sprintf(
-          '"link":
-            "%s"
-                    ',
-          self$`link`
-          )
-        },
-        if (!is.null(self$`lts`)) {
-          sprintf(
-          '"lts":
-          %s
-          ',
-          jsonlite::toJSON(self$`lts`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`support`)) {
-          sprintf(
-          '"support":
-          %s
-          ',
-          jsonlite::toJSON(self$`support`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        },
-        if (!is.null(self$`discontinued`)) {
-          sprintf(
-          '"discontinued":
-          %s
-          ',
-          jsonlite::toJSON(self$`discontinued`$toJSON(), auto_unbox = TRUE, digits = NA)
-          )
-        }
-      )
-      jsoncontent <- paste(jsoncontent, collapse = ",")
-      json_string <- as.character(jsonlite::minify(paste("{", jsoncontent, "}", sep = "")))
+    toJSONString = function(...) {
+      simple <- self$toSimpleType()
+      json <- jsonlite::toJSON(simple, auto_unbox = TRUE, digits = NA, ...)
+      return(as.character(jsonlite::minify(json)))
     },
 
     #' @description

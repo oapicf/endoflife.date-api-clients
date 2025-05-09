@@ -52,7 +52,7 @@ class ApiApiController() {
     @Operation(
         summary = "Single cycle details",
         operationId = "getApiProductCycleJson",
-        description = """Gets details of a single cycle""",
+        description = """Gets details of a single cycle.""",
         responses = [
             ApiResponse(responseCode = "200", description = "OK", content = [Content(schema = Schema(implementation = Cycle::class))]) ]
     )
@@ -61,7 +61,7 @@ class ApiApiController() {
         value = ["/api/{product}/{cycle}.json"],
         produces = ["application/json"]
     )
-    fun getApiProductCycleJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathVariable("product") product: kotlin.String,@Parameter(description = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.", required = true) @PathVariable("cycle") cycle: kotlin.String): ResponseEntity<Cycle> {
+    fun getApiProductCycleJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website.", required = true) @PathVariable("product") product: kotlin.String,@Parameter(description = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.", required = true) @PathVariable("cycle") cycle: kotlin.String): ResponseEntity<Cycle> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -77,7 +77,7 @@ class ApiApiController() {
         value = ["/api/{product}.json"],
         produces = ["application/json"]
     )
-    fun getApiProductJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website", required = true) @PathVariable("product") product: kotlin.String): ResponseEntity<List<Cycle>> {
+    fun getApiProductJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website.", required = true) @PathVariable("product") product: kotlin.String): ResponseEntity<List<Cycle>> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }

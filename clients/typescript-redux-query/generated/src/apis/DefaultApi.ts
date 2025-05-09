@@ -1,7 +1,7 @@
 // tslint:disable
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -74,7 +74,7 @@ export function getApiAllJson<T>( requestConfig?: runtime.TypedQueryConfig<T, Ar
 }
 
 /**
- * Gets details of a single cycle
+ * Gets details of a single cycle.
  * Single cycle details
  */
 function getApiProductCycleJsonRaw<T>(requestParameters: GetApiProductCycleJsonRequest, requestConfig: runtime.TypedQueryConfig<T, Cycle> = {}): QueryConfig<T> {
@@ -118,7 +118,7 @@ function getApiProductCycleJsonRaw<T>(requestParameters: GetApiProductCycleJsonR
 }
 
 /**
-* Gets details of a single cycle
+* Gets details of a single cycle.
 * Single cycle details
 */
 export function getApiProductCycleJson<T>(requestParameters: GetApiProductCycleJsonRequest, requestConfig?: runtime.TypedQueryConfig<T, Cycle>): QueryConfig<T> {

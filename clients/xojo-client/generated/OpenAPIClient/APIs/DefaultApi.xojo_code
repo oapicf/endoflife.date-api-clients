@@ -127,13 +127,13 @@ Protected Class DefaultApi
 		  // Operation get-api-:product-:cycle.json
 		  // Single cycle details
 		  // - 
-		  // - parameter product: (path) Product URL as per the canonical URL on the endofife.date website 
+		  // - parameter product: (path) Product URL as per the canonical URL on the endofife.date website. 
 		  // - parameter cycle: (path) Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. 
 		  //
 		  // Invokes DefaultApiCallbackHandler.GetApiProductCycleJsonCallback(Cycle) on completion. 
 		  //
 		  // - GET /api/{product}/{cycle}.json
-		  // - Gets details of a single cycle
+		  // - Gets details of a single cycle.
 		  // - defaultResponse: Nil
 		  //
 		  //
@@ -259,7 +259,7 @@ Protected Class DefaultApi
 		  // Operation get-api-:product.json
 		  // Get All Details
 		  // - 
-		  // - parameter product: (path) Product URL as per the canonical URL on the endofife.date website 
+		  // - parameter product: (path) Product URL as per the canonical URL on the endofife.date website. 
 		  //
 		  // Invokes DefaultApiCallbackHandler.GetApiProductJsonCallback(Cycle) on completion. 
 		  //

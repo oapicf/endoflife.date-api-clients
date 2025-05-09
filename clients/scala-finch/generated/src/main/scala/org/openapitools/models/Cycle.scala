@@ -15,10 +15,10 @@ import org.openapitools.models.CycleSupport
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  * @param cycle 
- * @param releaseDate Release Date for the first release in this cycle
+ * @param releaseDate Release date for the first release in this cycle.
  * @param eol 
- * @param latest Latest release in this cycle
- * @param link Link to changelog for the latest release, if available
+ * @param latest Latest release in this cycle.
+ * @param link Link to changelog for the latest release in this cycle, or null if unavailable.
  * @param lts 
  * @param support 
  * @param discontinued 

@@ -2,7 +2,7 @@
 /* eslint-disable no-use-before-define */
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -81,7 +81,7 @@ export type Cycle = {
      */
     cycle?: CycleCycle;
     /**
-     * Release Date for the first release in this cycle
+     * Release date for the first release in this cycle.
      * @type {Date}
      * @memberof Cycle
      */
@@ -93,13 +93,13 @@ export type Cycle = {
      */
     eol?: CycleEol;
     /**
-     * Latest release in this cycle
+     * Latest release in this cycle.
      * @type {string}
      * @memberof Cycle
      */
     latest?: string;
     /**
-     * Link to changelog for the latest release, if available
+     * Link to changelog for the latest release in this cycle, or null if unavailable.
      * @type {string}
      * @memberof Cycle
      */
@@ -125,35 +125,35 @@ export type Cycle = {
 }
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  * @export
  */
 export type CycleCycle = {
 }
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  * @export
  */
 export type CycleDiscontinued = {
 }
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  * @export
  */
 export type CycleEol = {
 }
 
 /**
- * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+ * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
  * @export
  */
 export type CycleLts = {
 }
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  * @export
  */
 export type CycleSupport = {
@@ -190,7 +190,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Gets details of a single cycle
+         * Gets details of a single cycle.
          * @summary Single cycle details
          * @throws {RequiredError}
          */
@@ -282,7 +282,7 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
             });
         },
         /**
-         * Gets details of a single cycle
+         * Gets details of a single cycle.
          * @summary Single cycle details
          * @throws {RequiredError}
          */

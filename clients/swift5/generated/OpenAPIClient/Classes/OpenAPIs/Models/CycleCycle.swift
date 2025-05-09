@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Release Cycle */
+/** The release cycle which this release is part of. */
 public struct CycleCycle: Codable, JSONEncodable, Hashable {
 
 

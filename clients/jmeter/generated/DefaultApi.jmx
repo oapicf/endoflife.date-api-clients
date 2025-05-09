@@ -262,7 +262,7 @@
           <stringProp name="HTTPSampler.implementation"></stringProp>
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="TestPlan.comments">Single cycle details Gets details of a single cycle</stringProp>
+          <stringProp name="TestPlan.comments">Single cycle details Gets details of a single cycle.</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Load CSV Test Data - getApiProductCycle.json" enabled="true">

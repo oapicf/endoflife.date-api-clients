@@ -1,6 +1,6 @@
 /**
 * endoflife.date
-* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 *
 * The version of the OpenAPI document: 0.0.1
 * Contact: blah+oapicf@cliffano.com
@@ -20,20 +20,20 @@ import .*
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  * @param cycle 
- * @param releaseDate Release Date for the first release in this cycle
+ * @param releaseDate Release date for the first release in this cycle.
  * @param eol 
- * @param latest Latest release in this cycle
- * @param link Link to changelog for the latest release, if available
+ * @param latest Latest release in this cycle.
+ * @param link Link to changelog for the latest release in this cycle, or null if unavailable.
  * @param lts 
  * @param support 
  * @param discontinued 
  */
 object Cycles : BaseTable<Cycle>("cycle") {
     val cycle = long("cycle") /* null */
-    val releaseDate = date("releaseDate") /* null */ /* Release Date for the first release in this cycle */
+    val releaseDate = date("releaseDate") /* null */ /* Release date for the first release in this cycle. */
     val eol = long("eol") /* null */
-    val latest = text("latest") /* null */ /* Latest release in this cycle */
-    val link = text("link") /* null */ /* Link to changelog for the latest release, if available */
+    val latest = text("latest") /* null */ /* Latest release in this cycle. */
+    val link = text("link") /* null */ /* Link to changelog for the latest release in this cycle, or null if unavailable. */
     val lts = long("lts") /* null */
     val support = long("support") /* null */
     val discontinued = long("discontinued") /* null */
@@ -43,10 +43,10 @@ object Cycles : BaseTable<Cycle>("cycle") {
      */
     override fun doCreateEntity(row: QueryRowSet, withReferences: Boolean) = Cycle(
         cycle = CycleCycles.createEntity(row, withReferences) /* CycleCycle? */,
-        releaseDate = row[releaseDate]  /* java.time.LocalDate? */ /* Release Date for the first release in this cycle */,
+        releaseDate = row[releaseDate]  /* java.time.LocalDate? */ /* Release date for the first release in this cycle. */,
         eol = CycleEols.createEntity(row, withReferences) /* CycleEol? */,
-        latest = row[latest]  /* kotlin.String? */ /* Latest release in this cycle */,
-        link = row[link]  /* kotlin.String? */ /* Link to changelog for the latest release, if available */,
+        latest = row[latest]  /* kotlin.String? */ /* Latest release in this cycle. */,
+        link = row[link]  /* kotlin.String? */ /* Link to changelog for the latest release in this cycle, or null if unavailable. */,
         lts = CycleLtss.createEntity(row, withReferences) /* CycleLts? */,
         support = CycleSupports.createEntity(row, withReferences) /* CycleSupport? */,
         discontinued = CycleDiscontinueds.createEntity(row, withReferences) /* CycleDiscontinued? */

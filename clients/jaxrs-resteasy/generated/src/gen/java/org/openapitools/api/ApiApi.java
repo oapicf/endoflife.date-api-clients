@@ -27,7 +27,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-11-04T23:49:41.956731512Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2025-05-09T11:49:28.972231658Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class ApiApi  {
 
     @Inject ApiApiService service;
@@ -47,7 +47,7 @@ public class ApiApi  {
     @Path("/{product}/{cycle}.json")
     
     @Produces({ "application/json" })
-    @io.swagger.annotations.ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle", response = Cycle.class, tags={  })
+    @io.swagger.annotations.ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle.", response = Cycle.class, tags={  })
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "OK", response = Cycle.class) })
     public Response getApiProductCycleJson( @PathParam("product") String product, @PathParam("cycle") String cycle,@Context SecurityContext securityContext)

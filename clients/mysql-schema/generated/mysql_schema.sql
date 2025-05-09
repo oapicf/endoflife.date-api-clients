@@ -12,10 +12,10 @@
 
 CREATE TABLE IF NOT EXISTS `cycle` (
   `cycle` TEXT DEFAULT NULL,
-  `releaseDate` DATE DEFAULT NULL COMMENT 'Release Date for the first release in this cycle',
+  `releaseDate` DATE DEFAULT NULL COMMENT 'Release date for the first release in this cycle.',
   `eol` TEXT DEFAULT NULL,
-  `latest` TEXT DEFAULT NULL COMMENT 'Latest release in this cycle',
-  `link` TEXT DEFAULT NULL COMMENT 'Link to changelog for the latest release, if available',
+  `latest` TEXT DEFAULT NULL COMMENT 'Latest release in this cycle.',
+  `link` TEXT DEFAULT NULL COMMENT 'Link to changelog for the latest release in this cycle, or null if unavailable.',
   `lts` TEXT DEFAULT NULL,
   `support` TEXT DEFAULT NULL,
   `discontinued` TEXT DEFAULT NULL

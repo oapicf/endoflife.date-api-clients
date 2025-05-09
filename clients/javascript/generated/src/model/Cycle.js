@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -130,7 +130,7 @@ class Cycle {
 Cycle.prototype['cycle'] = undefined;
 
 /**
- * Release Date for the first release in this cycle
+ * Release date for the first release in this cycle.
  * @member {Date} releaseDate
  */
 Cycle.prototype['releaseDate'] = undefined;
@@ -141,13 +141,13 @@ Cycle.prototype['releaseDate'] = undefined;
 Cycle.prototype['eol'] = undefined;
 
 /**
- * Latest release in this cycle
+ * Latest release in this cycle.
  * @member {String} latest
  */
 Cycle.prototype['latest'] = undefined;
 
 /**
- * Link to changelog for the latest release, if available
+ * Link to changelog for the latest release in this cycle, or null if unavailable.
  * @member {String} link
  */
 Cycle.prototype['link'] = undefined;

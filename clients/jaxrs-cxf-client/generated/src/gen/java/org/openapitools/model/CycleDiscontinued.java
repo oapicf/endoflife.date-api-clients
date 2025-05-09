@@ -7,9 +7,9 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
-  * Whether this cycle is now discontinued.
+  * Whether this device version is no longer in production.
  **/
-@ApiModel(description="Whether this cycle is now discontinued.")
+@ApiModel(description="Whether this device version is no longer in production.")
 
 public class CycleDiscontinued  {
     @Override

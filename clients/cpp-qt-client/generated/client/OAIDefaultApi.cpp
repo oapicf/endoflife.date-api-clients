@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -227,7 +227,7 @@ void OAIDefaultApi::getApiAll_json() {
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::getApiAll_jsonCallback);
     connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -334,7 +334,7 @@ void OAIDefaultApi::getApiProductCycle_json(const QString &product, const QStrin
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::getApiProductCycle_jsonCallback);
     connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }
@@ -418,7 +418,7 @@ void OAIDefaultApi::getApiProduct_json(const QString &product) {
 
     connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::getApiProduct_jsonCallback);
     connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater);
-    connect(worker, &QObject::destroyed, this, [this]() {
+    connect(worker, &QObject::destroyed, this, [this] {
         if (findChildren<OAIHttpRequestWorker*>().count() == 0) {
             Q_EMIT allPendingRequestsCompleted();
         }

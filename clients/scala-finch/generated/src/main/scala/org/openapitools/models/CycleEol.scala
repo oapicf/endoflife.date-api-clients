@@ -7,7 +7,7 @@ import io.circe.java8.time._
 import org.openapitools._
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
 case class CycleEol()
 

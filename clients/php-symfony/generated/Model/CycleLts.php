@@ -13,7 +13,7 @@
 /**
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -37,7 +37,7 @@ use JMS\Serializer\Annotation\SerializedName;
 /**
  * Class representing the CycleLts model.
  *
- * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date.
+ * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
  *
  * @package OpenAPI\Server\Model
  * @author  OpenAPI Generator team
@@ -49,7 +49,7 @@ class CycleLts
      * Constructor
      * @param array|null $data Associated array of property values initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         if (is_array($data)) {
         }

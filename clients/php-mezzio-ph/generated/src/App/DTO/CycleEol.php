@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
 class CycleEol
 {

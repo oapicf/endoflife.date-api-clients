@@ -13,15 +13,15 @@ import AnyCodable
 /** Details of a single release cycle of a given product. There might be some slight variations to this depending on the product. */
 public struct Cycle: Codable, JSONEncodable, Hashable {
 
-    static let latestRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
-    static let linkRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let latestRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
+    public static let linkRule = StringRule(minLength: 1, maxLength: nil, pattern: nil)
     public var cycle: CycleCycle?
-    /** Release Date for the first release in this cycle */
+    /** Release date for the first release in this cycle. */
     public var releaseDate: Date?
     public var eol: CycleEol?
-    /** Latest release in this cycle */
+    /** Latest release in this cycle. */
     public var latest: String?
-    /** Link to changelog for the latest release, if available */
+    /** Link to changelog for the latest release in this cycle, or null if unavailable. */
     public var link: String?
     public var lts: CycleLts?
     public var support: CycleSupport?

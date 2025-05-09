@@ -3,7 +3,7 @@
 """
     endoflife.date
 
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
     The version of the OpenAPI document: 0.0.1
     Contact: blah+oapicf@cliffano.com
@@ -45,7 +45,7 @@ setup(
     license="MIT",
     long_description_content_type='text/markdown',
     long_description="""\
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
     """,  # noqa: E501
     package_data={"endoflifedate": ["py.typed"]},
 )

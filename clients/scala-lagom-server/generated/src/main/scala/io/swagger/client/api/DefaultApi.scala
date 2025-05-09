@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -43,9 +43,9 @@ trait DefaultApi extends Service {
   
   /**
     * Single cycle details
-    * Gets details of a single cycle
+    * Gets details of a single cycle.
     *  
-    * @param product Product URL as per the canonical URL on the endofife.date website  
+    * @param product Product URL as per the canonical URL on the endofife.date website.  
     * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. 
     * @return Cycle
     */
@@ -55,7 +55,7 @@ trait DefaultApi extends Service {
     * Get All Details
     * Get EoL dates of all cycles of a given product.
     *  
-    * @param product Product URL as per the canonical URL on the endofife.date website 
+    * @param product Product URL as per the canonical URL on the endofife.date website. 
     * @return Seq[Cycle]
     */
   def getApiProductJson(product: String): ServiceCall[NotUsed ,Seq[Cycle]]

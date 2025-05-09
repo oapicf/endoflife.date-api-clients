@@ -18,7 +18,7 @@ import javax.validation.Valid;
 */
 @Path("/api")
 @Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-11-04T23:50:06.741826962Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-05-09T11:49:31.811227707Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class ApiApi {
 
     @GET
@@ -35,11 +35,11 @@ public class ApiApi {
     @GET
     @Path("/{product}/{cycle}.json")
     @Produces({ "application/json" })
-    @ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle", response = Cycle.class, tags={  })
+    @ApiOperation(value = "Single cycle details", notes = "Gets details of a single cycle.", response = Cycle.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class)
     })
-    public Response getApiProductCycleJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website") String product,@PathParam("cycle") @ApiParam("Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.") String cycle) {
+    public Response getApiProductCycleJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website.") String product,@PathParam("cycle") @ApiParam("Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.") String cycle) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -50,7 +50,7 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class, responseContainer = "List")
     })
-    public Response getApiProductJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website") String product) {
+    public Response getApiProductJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website.") String product) {
         return Response.ok().entity("magic!").build();
     }
 }

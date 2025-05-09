@@ -7,7 +7,7 @@ import io.circe.java8.time._
 import org.openapitools._
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  */
 case class CycleSupport()
 

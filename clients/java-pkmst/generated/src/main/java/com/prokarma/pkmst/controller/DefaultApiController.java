@@ -24,7 +24,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-04T23:48:03.300575970Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2025-05-09T11:49:16.888708462Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Controller
 public class DefaultApiController implements DefaultApi {
     private final ObjectMapper objectMapper;
@@ -43,7 +43,7 @@ public class DefaultApiController implements DefaultApi {
         return new ResponseEntity<List<String>>(HttpStatus.OK);
     }
 
-    public ResponseEntity<Cycle> getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true ) @PathVariable("product") String product,
+    public ResponseEntity<Cycle> getApiProductCycleJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website.",required=true ) @PathVariable("product") String product,
         @ApiParam(value = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.",required=true ) @PathVariable("cycle") String cycle,
         @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
@@ -55,7 +55,7 @@ public class DefaultApiController implements DefaultApi {
         return new ResponseEntity<Cycle>(HttpStatus.OK);
     }
 
-    public ResponseEntity<List<Cycle>> getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website",required=true ) @PathVariable("product") String product,
+    public ResponseEntity<List<Cycle>> getApiProductJson(@ApiParam(value = "Product URL as per the canonical URL on the endofife.date website.",required=true ) @PathVariable("product") String product,
         @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
 

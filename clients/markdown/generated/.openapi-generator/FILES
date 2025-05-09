@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 Apis/DefaultApi.md
 Models/cycle.md
 Models/cycle_cycle.md

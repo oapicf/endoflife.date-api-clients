@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -24,13 +24,13 @@ import javax.annotation.Generated;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  */
-@Schema(name = "cycle_support", description = "Whether this release cycle has active support")
+@Schema(name = "cycle_support", description = "Whether this release cycle has active support.")
 @JsonPropertyOrder({
 })
 @JsonTypeName("cycle_support")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-11-04T23:47:43.661706761Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2025-05-09T11:49:13.510742569Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Introspected
 public class CycleSupport {
     public CycleSupport() {

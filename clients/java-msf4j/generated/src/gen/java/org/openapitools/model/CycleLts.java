@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.annotations.ApiModel;
 
 /**
- * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+ * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
  */
-@ApiModel(description = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2024-11-04T23:47:53.594677761Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@ApiModel(description = "Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2025-05-09T11:49:14.867992856Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleLts   {
 
   @Override

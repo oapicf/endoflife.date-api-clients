@@ -58,7 +58,7 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 ```kotlin
@@ -67,7 +67,7 @@ Gets details of a single cycle
 //import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
-val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website
+val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website.
 val cycle : kotlin.String = cycle_example // kotlin.String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 try {
     val result : Cycle = apiInstance.getApiProductCycleJson(product, cycle)
@@ -82,7 +82,7 @@ try {
 ```
 
 ### Parameters
-| **product** | **kotlin.String**| Product URL as per the canonical URL on the endofife.date website | |
+| **product** | **kotlin.String**| Product URL as per the canonical URL on the endofife.date website. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **cycle** | **kotlin.String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | |
@@ -115,7 +115,7 @@ Get EoL dates of all cycles of a given product.
 //import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
-val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website
+val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website.
 try {
     val result : kotlin.collections.List<Cycle> = apiInstance.getApiProductJson(product)
     println(result)
@@ -131,7 +131,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **product** | **kotlin.String**| Product URL as per the canonical URL on the endofife.date website | |
+| **product** | **kotlin.String**| Product URL as per the canonical URL on the endofife.date website. | |
 
 ### Return type
 

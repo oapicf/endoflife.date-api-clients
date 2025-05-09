@@ -7,10 +7,10 @@
 
 CREATE TABLE IF NOT EXISTS `cycle` (
   `cycle` long,
-  `releaseDate` date /*Release Date for the first release in this cycle*/,
+  `releaseDate` date /*Release date for the first release in this cycle.*/,
   `eol` long,
-  `latest` text /*Latest release in this cycle*/,
-  `link` text /*Link to changelog for the latest release, if available*/,
+  `latest` text /*Latest release in this cycle.*/,
+  `link` text /*Link to changelog for the latest release in this cycle, or null if unavailable.*/,
   `lts` long,
   `support` long,
   `discontinued` long

@@ -17,7 +17,7 @@ import javax.validation.Valid;
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-11-04T23:48:13.967501037Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-09T11:49:18.178599199Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class Cycle   {
   @JsonProperty("cycle")
@@ -84,7 +84,7 @@ public class Cycle   {
   }
 
    /**
-   * Release Date for the first release in this cycle
+   * Release date for the first release in this cycle.
    * @return releaseDate
   **/
   public LocalDate getReleaseDate() {
@@ -118,7 +118,7 @@ public class Cycle   {
   }
 
    /**
-   * Latest release in this cycle
+   * Latest release in this cycle.
    * @return latest
   **/
   public String getLatest() {
@@ -135,7 +135,7 @@ public class Cycle   {
   }
 
    /**
-   * Link to changelog for the latest release, if available
+   * Link to changelog for the latest release in this cycle, or null if unavailable.
    * @return link
   **/
   public String getLink() {

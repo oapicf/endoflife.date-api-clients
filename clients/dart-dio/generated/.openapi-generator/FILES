@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 analysis_options.yaml
 doc/Cycle.md
@@ -28,10 +27,3 @@ lib/src/model/cycle_support.dart
 lib/src/model/date.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/cycle_cycle_test.dart
-test/cycle_discontinued_test.dart
-test/cycle_eol_test.dart
-test/cycle_lts_test.dart
-test/cycle_support_test.dart
-test/cycle_test.dart
-test/default_api_test.dart

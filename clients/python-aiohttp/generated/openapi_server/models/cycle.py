@@ -96,7 +96,7 @@ class Cycle(Model):
     def release_date(self):
         """Gets the release_date of this Cycle.
 
-        Release Date for the first release in this cycle
+        Release date for the first release in this cycle.
 
         :return: The release_date of this Cycle.
         :rtype: date
@@ -107,7 +107,7 @@ class Cycle(Model):
     def release_date(self, release_date):
         """Sets the release_date of this Cycle.
 
-        Release Date for the first release in this cycle
+        Release date for the first release in this cycle.
 
         :param release_date: The release_date of this Cycle.
         :type release_date: date
@@ -144,7 +144,7 @@ class Cycle(Model):
     def latest(self):
         """Gets the latest of this Cycle.
 
-        Latest release in this cycle
+        Latest release in this cycle.
 
         :return: The latest of this Cycle.
         :rtype: str
@@ -155,7 +155,7 @@ class Cycle(Model):
     def latest(self, latest):
         """Sets the latest of this Cycle.
 
-        Latest release in this cycle
+        Latest release in this cycle.
 
         :param latest: The latest of this Cycle.
         :type latest: str
@@ -169,7 +169,7 @@ class Cycle(Model):
     def link(self):
         """Gets the link of this Cycle.
 
-        Link to changelog for the latest release, if available
+        Link to changelog for the latest release in this cycle, or null if unavailable.
 
         :return: The link of this Cycle.
         :rtype: str
@@ -180,7 +180,7 @@ class Cycle(Model):
     def link(self, link):
         """Sets the link of this Cycle.
 
-        Link to changelog for the latest release, if available
+        Link to changelog for the latest release in this cycle, or null if unavailable.
 
         :param link: The link of this Cycle.
         :type link: str

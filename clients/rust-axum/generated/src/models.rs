@@ -12,7 +12,7 @@ use crate::{models, types::*};
     #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
     #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))] 
     pub struct GetApiProductCyclePeriodJsonPathParams {
-            /// Product URL as per the canonical URL on the endofife.date website
+            /// Product URL as per the canonical URL on the endofife.date website.
                 pub product: String,
             /// Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
                 pub cycle: String,
@@ -23,7 +23,7 @@ use crate::{models, types::*};
     #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
     #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))] 
     pub struct GetApiProductPeriodJsonPathParams {
-            /// Product URL as per the canonical URL on the endofife.date website
+            /// Product URL as per the canonical URL on the endofife.date website.
                 pub product: String,
     }
 
@@ -31,9 +31,6 @@ use crate::{models, types::*};
 
 
 /// Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
-
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Cycle {
@@ -41,7 +38,7 @@ pub struct Cycle {
     #[serde(skip_serializing_if="Option::is_none")]
     pub cycle: Option<models::CycleCycle>,
 
-/// Release Date for the first release in this cycle
+    /// Release date for the first release in this cycle.
     #[serde(rename = "releaseDate")]
     #[validate(
             length(min = 10, max = 10),
@@ -53,7 +50,7 @@ pub struct Cycle {
     #[serde(skip_serializing_if="Option::is_none")]
     pub eol: Option<models::CycleEol>,
 
-/// Latest release in this cycle
+    /// Latest release in this cycle.
     #[serde(rename = "latest")]
     #[validate(
             length(min = 1),
@@ -61,7 +58,7 @@ pub struct Cycle {
     #[serde(skip_serializing_if="Option::is_none")]
     pub latest: Option<String>,
 
-/// Link to changelog for the latest release, if available
+    /// Link to changelog for the latest release in this cycle, or null if unavailable.
     #[serde(rename = "link")]
     #[validate(
             length(min = 1),
@@ -84,6 +81,9 @@ pub struct Cycle {
     pub discontinued: Option<models::CycleDiscontinued>,
 
 }
+
+
+
 
 
 impl Cycle {
@@ -256,8 +256,7 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Cycle> {
 
 
 
-/// Release Cycle
-
+/// The release cycle which this release is part of.
 /// Any of:
 /// - String
 /// - f64
@@ -292,9 +291,7 @@ impl PartialEq for CycleCycle {
 
 
 
-
-/// Whether this cycle is now discontinued.
-
+/// Whether this device version is no longer in production.
 /// Any of:
 /// - String
 /// - bool
@@ -329,9 +326,7 @@ impl PartialEq for CycleDiscontinued {
 
 
 
-
-/// End of Life Date for this release cycle
-
+/// End-of-Life date for this release cycle.
 /// Any of:
 /// - String
 /// - bool
@@ -366,9 +361,7 @@ impl PartialEq for CycleEol {
 
 
 
-
-/// Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
-
+/// Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
 /// Any of:
 /// - String
 /// - bool
@@ -403,9 +396,7 @@ impl PartialEq for CycleLts {
 
 
 
-
-/// Whether this release cycle has active support
-
+/// Whether this release cycle has active support.
 /// Any of:
 /// - String
 /// - bool
@@ -435,7 +426,6 @@ impl PartialEq for CycleSupport {
         self.0.get() == other.0.get()
     }
 }
-
 
 
 

@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -81,8 +81,8 @@ export default class DefaultApi {
 
     /**
      * Single cycle details
-     * Gets details of a single cycle
-     * @param {String} product Product URL as per the canonical URL on the endofife.date website
+     * Gets details of a single cycle.
+     * @param {String} product Product URL as per the canonical URL on the endofife.date website.
      * @param {String} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
      * @param {module:api/DefaultApi~getApiProductCycleJsonCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Cycle}
@@ -131,7 +131,7 @@ export default class DefaultApi {
     /**
      * Get All Details
      * Get EoL dates of all cycles of a given product.
-     * @param {String} product Product URL as per the canonical URL on the endofife.date website
+     * @param {String} product Product URL as per the canonical URL on the endofife.date website.
      * @param {module:api/DefaultApi~getApiProductJsonCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Cycle>}
      */

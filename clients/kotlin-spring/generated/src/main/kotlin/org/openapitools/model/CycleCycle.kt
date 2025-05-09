@@ -13,7 +13,7 @@ import javax.validation.Valid
 import io.swagger.v3.oas.annotations.media.Schema
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  */
 class CycleCycle(
 

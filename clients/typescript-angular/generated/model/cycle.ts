@@ -20,16 +20,16 @@ import { CycleEol } from './cycleEol';
 export interface Cycle { 
     cycle?: CycleCycle;
     /**
-     * Release Date for the first release in this cycle
+     * Release date for the first release in this cycle.
      */
     releaseDate?: string;
     eol?: CycleEol;
     /**
-     * Latest release in this cycle
+     * Latest release in this cycle.
      */
     latest?: string;
     /**
-     * Link to changelog for the latest release, if available
+     * Link to changelog for the latest release in this cycle, or null if unavailable.
      */
     link?: string | null;
     lts?: CycleLts;

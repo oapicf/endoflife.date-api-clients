@@ -27,10 +27,10 @@ import GHC.Generics (Generic)
 -- | Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 data Cycle = Cycle
   { cycleCycle :: Maybe CycleCycle -- ^ 
-  , cycleReleaseDate :: Maybe Day -- ^ Release Date for the first release in this cycle
+  , cycleReleaseDate :: Maybe Day -- ^ Release date for the first release in this cycle.
   , cycleEol :: Maybe CycleEol -- ^ 
-  , cycleLatest :: Maybe Text -- ^ Latest release in this cycle
-  , cycleLink :: Maybe Text -- ^ Link to changelog for the latest release, if available
+  , cycleLatest :: Maybe Text -- ^ Latest release in this cycle.
+  , cycleLink :: Maybe Text -- ^ Link to changelog for the latest release in this cycle, or null if unavailable.
   , cycleLts :: Maybe CycleLts -- ^ 
   , cycleSupport :: Maybe CycleSupport -- ^ 
   , cycleDiscontinued :: Maybe CycleDiscontinued -- ^ 
@@ -60,7 +60,7 @@ optionsCycle =
       ]
 
 
--- | Release Cycle
+-- | The release cycle which this release is part of.
 data CycleCycle = CycleCycle
   { 
   } deriving (Show, Eq, Generic)
@@ -82,7 +82,7 @@ optionsCycleCycle =
       ]
 
 
--- | Whether this cycle is now discontinued.
+-- | Whether this device version is no longer in production.
 data CycleDiscontinued = CycleDiscontinued
   { 
   } deriving (Show, Eq, Generic)
@@ -104,7 +104,7 @@ optionsCycleDiscontinued =
       ]
 
 
--- | End of Life Date for this release cycle
+-- | End-of-Life date for this release cycle.
 data CycleEol = CycleEol
   { 
   } deriving (Show, Eq, Generic)
@@ -126,7 +126,7 @@ optionsCycleEol =
       ]
 
 
--- | Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+-- | Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
 data CycleLts = CycleLts
   { 
   } deriving (Show, Eq, Generic)
@@ -148,7 +148,7 @@ optionsCycleLts =
       ]
 
 
--- | Whether this release cycle has active support
+-- | Whether this release cycle has active support.
 data CycleSupport = CycleSupport
   { 
   } deriving (Show, Eq, Generic)

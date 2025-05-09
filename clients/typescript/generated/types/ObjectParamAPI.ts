@@ -1,5 +1,6 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
-import { Configuration} from '../configuration'
+import { Configuration, ConfigurationOptions } from '../configuration'
+import type { Middleware } from '../middleware';
 
 import { Cycle } from '../models/Cycle';
 import { CycleCycle } from '../models/CycleCycle';
@@ -16,7 +17,7 @@ export interface DefaultApiGetApiAllJsonRequest {
 
 export interface DefaultApiGetApiProductCycleJsonRequest {
     /**
-     * Product URL as per the canonical URL on the endofife.date website
+     * Product URL as per the canonical URL on the endofife.date website.
      * Defaults to: undefined
      * @type string
      * @memberof DefaultApigetApiProductCycleJson
@@ -33,7 +34,7 @@ export interface DefaultApiGetApiProductCycleJsonRequest {
 
 export interface DefaultApiGetApiProductJsonRequest {
     /**
-     * Product URL as per the canonical URL on the endofife.date website
+     * Product URL as per the canonical URL on the endofife.date website.
      * Defaults to: undefined
      * @type string
      * @memberof DefaultApigetApiProductJson
@@ -53,7 +54,7 @@ export class ObjectDefaultApi {
      * All Products
      * @param param the request object
      */
-    public getApiAllJsonWithHttpInfo(param: DefaultApiGetApiAllJsonRequest = {}, options?: Configuration): Promise<HttpInfo<Array<string>>> {
+    public getApiAllJsonWithHttpInfo(param: DefaultApiGetApiAllJsonRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<Array<string>>> {
         return this.api.getApiAllJsonWithHttpInfo( options).toPromise();
     }
 
@@ -62,25 +63,25 @@ export class ObjectDefaultApi {
      * All Products
      * @param param the request object
      */
-    public getApiAllJson(param: DefaultApiGetApiAllJsonRequest = {}, options?: Configuration): Promise<Array<string>> {
+    public getApiAllJson(param: DefaultApiGetApiAllJsonRequest = {}, options?: ConfigurationOptions): Promise<Array<string>> {
         return this.api.getApiAllJson( options).toPromise();
     }
 
     /**
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      * Single cycle details
      * @param param the request object
      */
-    public getApiProductCycleJsonWithHttpInfo(param: DefaultApiGetApiProductCycleJsonRequest, options?: Configuration): Promise<HttpInfo<Cycle>> {
+    public getApiProductCycleJsonWithHttpInfo(param: DefaultApiGetApiProductCycleJsonRequest, options?: ConfigurationOptions): Promise<HttpInfo<Cycle>> {
         return this.api.getApiProductCycleJsonWithHttpInfo(param.product, param.cycle,  options).toPromise();
     }
 
     /**
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      * Single cycle details
      * @param param the request object
      */
-    public getApiProductCycleJson(param: DefaultApiGetApiProductCycleJsonRequest, options?: Configuration): Promise<Cycle> {
+    public getApiProductCycleJson(param: DefaultApiGetApiProductCycleJsonRequest, options?: ConfigurationOptions): Promise<Cycle> {
         return this.api.getApiProductCycleJson(param.product, param.cycle,  options).toPromise();
     }
 
@@ -89,7 +90,7 @@ export class ObjectDefaultApi {
      * Get All Details
      * @param param the request object
      */
-    public getApiProductJsonWithHttpInfo(param: DefaultApiGetApiProductJsonRequest, options?: Configuration): Promise<HttpInfo<Array<Cycle>>> {
+    public getApiProductJsonWithHttpInfo(param: DefaultApiGetApiProductJsonRequest, options?: ConfigurationOptions): Promise<HttpInfo<Array<Cycle>>> {
         return this.api.getApiProductJsonWithHttpInfo(param.product,  options).toPromise();
     }
 
@@ -98,7 +99,7 @@ export class ObjectDefaultApi {
      * Get All Details
      * @param param the request object
      */
-    public getApiProductJson(param: DefaultApiGetApiProductJsonRequest, options?: Configuration): Promise<Array<Cycle>> {
+    public getApiProductJson(param: DefaultApiGetApiProductJsonRequest, options?: ConfigurationOptions): Promise<Array<Cycle>> {
         return this.api.getApiProductJson(param.product,  options).toPromise();
     }
 

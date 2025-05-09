@@ -3,7 +3,7 @@
 """
     endoflife.date
 
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
     The version of the OpenAPI document: 0.0.1
     Contact: blah+oapicf@cliffano.com
@@ -77,6 +77,7 @@ class RESTClientObject:
             "ca_certs": configuration.ssl_ca_cert,
             "cert_file": configuration.cert_file,
             "key_file": configuration.key_file,
+            "ca_cert_data": configuration.ca_cert_data,
         }
         if configuration.assert_hostname is not None:
             pool_args['assert_hostname'] = (

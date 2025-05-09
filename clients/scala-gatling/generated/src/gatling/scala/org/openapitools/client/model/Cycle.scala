@@ -5,12 +5,12 @@ import java.time.LocalDate
 
 case class Cycle (
     _cycle: Option[CycleCycle],
-    /* Release Date for the first release in this cycle */
+    /* Release date for the first release in this cycle. */
     _releaseDate: Option[LocalDate],
     _eol: Option[CycleEol],
-    /* Latest release in this cycle */
+    /* Latest release in this cycle. */
     _latest: Option[String],
-    /* Link to changelog for the latest release, if available */
+    /* Link to changelog for the latest release in this cycle, or null if unavailable. */
     _link: Option[String],
     _lts: Option[CycleLts],
     _support: Option[CycleSupport],

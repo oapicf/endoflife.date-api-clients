@@ -3,7 +3,7 @@
 """
     endoflife.date
 
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
     The version of the OpenAPI document: 0.0.1
     Contact: blah+oapicf@cliffano.com
@@ -35,10 +35,10 @@ class Cycle(BaseModel):
     Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
     """ # noqa: E501
     cycle: Optional[CycleCycle] = None
-    release_date: Optional[date] = Field(default=None, description="Release Date for the first release in this cycle", alias="releaseDate")
+    release_date: Optional[date] = Field(default=None, description="Release date for the first release in this cycle.", alias="releaseDate")
     eol: Optional[CycleEol] = None
-    latest: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Latest release in this cycle")
-    link: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Link to changelog for the latest release, if available")
+    latest: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Latest release in this cycle.")
+    link: Optional[Annotated[str, Field(min_length=1, strict=True)]] = Field(default=None, description="Link to changelog for the latest release in this cycle, or null if unavailable.")
     lts: Optional[CycleLts] = None
     support: Optional[CycleSupport] = None
     discontinued: Optional[CycleDiscontinued] = None

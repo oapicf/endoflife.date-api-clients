@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 lib/Models/Cycle.cpp
 lib/Models/Cycle.h
@@ -14,12 +13,6 @@ lib/Models/CycleSupport.cpp
 lib/Models/CycleSupport.h
 lib/Models/Helpers.cpp
 lib/Models/Helpers.h
-lib/TestFiles/CycleCycleTest.cpp
-lib/TestFiles/CycleDiscontinuedTest.cpp
-lib/TestFiles/CycleEolTest.cpp
-lib/TestFiles/CycleLtsTest.cpp
-lib/TestFiles/CycleSupportTest.cpp
-lib/TestFiles/CycleTest.cpp
 lib/service/DefaultApi.cpp
 lib/service/DefaultApi.h
 lib/service/Response.h

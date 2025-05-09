@@ -1,6 +1,6 @@
 # Rust API for openapi
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
 ## Overview
 
@@ -12,8 +12,8 @@ server, you can easily generate a server stub.
 To see how to make this your own, look here: [README]((https://openapi-generator.tech))
 
 - API version: 0.0.1
-- Build date: 2024-11-05T00:07:11.527936078Z[Etc/UTC]
-- Generator version: 7.9.0
+- Build date: 2025-05-09T11:51:07.144006277Z[Etc/UTC]
+- Generator version: 7.12.0
 
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 
@@ -44,9 +44,11 @@ struct ServerImpl {
 
 #[allow(unused_variables)]
 #[async_trait]
-impl openapi::Api for ServerImpl {
+impl openapi::apis::default::Api for ServerImpl {
   // API implementation goes here
 }
+
+impl openapi::apis::ErrorHandler for ServerImpl {}
 
 pub async fn start_server(addr: &str) {
     // initialize tracing

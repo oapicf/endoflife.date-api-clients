@@ -15,12 +15,12 @@ import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  */
 
-@Schema(name = "cycle_cycle", description = "Release Cycle")
+@Schema(name = "cycle_cycle", description = "The release cycle which this release is part of.")
 @JsonTypeName("cycle_cycle")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-05T00:02:26.954733642Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-09T11:50:43.381361653Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleCycle {
 
   @Override

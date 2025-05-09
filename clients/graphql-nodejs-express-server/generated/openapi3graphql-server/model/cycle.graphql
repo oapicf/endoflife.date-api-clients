@@ -2,7 +2,7 @@
 # endoflife.date
 # 
 # 
-# Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+# Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 # 
 # Version: 0.0.1
 # Contact: blah+oapicf@cliffano.com
@@ -11,12 +11,12 @@
 # Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 type Cycle {
   cycle: CycleCycle
-  # Release Date for the first release in this cycle
+  # Release date for the first release in this cycle.
   releaseDate: String!
   eol: CycleEol
-  # Latest release in this cycle
+  # Latest release in this cycle.
   latest: String!
-  # Link to changelog for the latest release, if available
+  # Link to changelog for the latest release in this cycle, or null if unavailable.
   link: String
   lts: CycleLts
   support: CycleSupport
@@ -25,12 +25,12 @@ type Cycle {
 
 input CycleInput {
     cycle: CycleCycleInput
-    # Release Date for the first release in this cycle
+    # Release date for the first release in this cycle.
     releaseDate: String!
     eol: CycleEolInput
-    # Latest release in this cycle
+    # Latest release in this cycle.
     latest: String!
-    # Link to changelog for the latest release, if available
+    # Link to changelog for the latest release in this cycle, or null if unavailable.
     link: String
     lts: CycleLtsInput
     support: CycleSupportInput

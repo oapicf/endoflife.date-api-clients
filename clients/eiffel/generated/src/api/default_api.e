@@ -1,7 +1,7 @@
 note
  description:"[
 		endoflife.date
- 		Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ 		Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
   		The version of the OpenAPI document: 0.0.1
  	    Contact: blah+oapicf@cliffano.com
 
@@ -59,9 +59,9 @@ feature -- API Access
 
 	api_product_cycle_json (product: STRING_32; cycle: STRING_32): detachable CYCLE
 			-- Single cycle details
-			-- Gets details of a single cycle
+			-- Gets details of a single cycle.
 			-- 
-			-- argument: product Product URL as per the canonical URL on the endofife.date website (required)
+			-- argument: product Product URL as per the canonical URL on the endofife.date website. (required)
 			-- 
 			-- argument: cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
 			-- 
@@ -100,7 +100,7 @@ feature -- API Access
 			-- Get All Details
 			-- Get EoL dates of all cycles of a given product.
 			-- 
-			-- argument: product Product URL as per the canonical URL on the endofife.date website (required)
+			-- argument: product Product URL as per the canonical URL on the endofife.date website. (required)
 			-- 
 			-- 
 			-- Result LIST [CYCLE]

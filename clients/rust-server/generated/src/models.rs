@@ -14,7 +14,7 @@ pub struct Cycle {
     #[serde(skip_serializing_if="Option::is_none")]
     pub cycle: Option<models::CycleCycle>,
 
-    /// Release Date for the first release in this cycle
+    /// Release date for the first release in this cycle.
     #[serde(rename = "releaseDate")]
     #[validate(
             length(min = 10, max = 10),
@@ -26,7 +26,7 @@ pub struct Cycle {
     #[serde(skip_serializing_if="Option::is_none")]
     pub eol: Option<models::CycleEol>,
 
-    /// Latest release in this cycle
+    /// Latest release in this cycle.
     #[serde(rename = "latest")]
     #[validate(
             length(min = 1),
@@ -34,7 +34,7 @@ pub struct Cycle {
     #[serde(skip_serializing_if="Option::is_none")]
     pub latest: Option<String>,
 
-    /// Link to changelog for the latest release, if available
+    /// Link to changelog for the latest release in this cycle, or null if unavailable.
     #[serde(rename = "link")]
     #[validate(
             length(min = 1),
@@ -262,7 +262,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-/// Release Cycle
+/// The release cycle which this release is part of.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct CycleCycle(swagger::AnyOf2<f64,String>);
@@ -397,7 +397,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-/// Whether this cycle is now discontinued.
+/// Whether this device version is no longer in production.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct CycleDiscontinued(swagger::AnyOf2<String,bool>);
@@ -532,7 +532,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-/// End of Life Date for this release cycle
+/// End-of-Life date for this release cycle.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct CycleEol(swagger::AnyOf2<String,bool>);
@@ -667,32 +667,32 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-/// Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+/// Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct CycleLts(swagger::AnyOf2<bool,String>);
+pub struct CycleLts(swagger::AnyOf2<String,bool>);
 
-impl std::convert::From<swagger::AnyOf2<bool,String>> for CycleLts {
-    fn from(x: swagger::AnyOf2<bool,String>) -> Self {
+impl std::convert::From<swagger::AnyOf2<String,bool>> for CycleLts {
+    fn from(x: swagger::AnyOf2<String,bool>) -> Self {
         CycleLts(x)
     }
 }
 
-impl std::convert::From<CycleLts> for swagger::AnyOf2<bool,String> {
+impl std::convert::From<CycleLts> for swagger::AnyOf2<String,bool> {
     fn from(x: CycleLts) -> Self {
         x.0
     }
 }
 
 impl std::ops::Deref for CycleLts {
-    type Target = swagger::AnyOf2<bool,String>;
-    fn deref(&self) -> &swagger::AnyOf2<bool,String> {
+    type Target = swagger::AnyOf2<String,bool>;
+    fn deref(&self) -> &swagger::AnyOf2<String,bool> {
         &self.0
     }
 }
 
 impl std::ops::DerefMut for CycleLts {
-    fn deref_mut(&mut self) -> &mut swagger::AnyOf2<bool,String> {
+    fn deref_mut(&mut self) -> &mut swagger::AnyOf2<String,bool> {
         &mut self.0
     }
 }
@@ -802,7 +802,7 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
     }
 }
 
-/// Whether this release cycle has active support
+/// Whether this release cycle has active support.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct CycleSupport(swagger::AnyOf2<String,bool>);

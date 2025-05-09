@@ -1,0 +1,17 @@
+README.md
+docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
+docs/DefaultApi.md
+src/APIClient.jl
+src/apis/api_DefaultApi.jl
+src/modelincludes.jl
+src/models/model_Cycle.jl
+src/models/model_CycleCycle.jl
+src/models/model_CycleDiscontinued.jl
+src/models/model_CycleEol.jl
+src/models/model_CycleLts.jl
+src/models/model_CycleSupport.jl

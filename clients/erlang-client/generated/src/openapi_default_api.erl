@@ -28,7 +28,7 @@ get_api_all_json(Ctx, Optional) ->
     openapi_utils:request(Ctx, Method, Path, QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Single cycle details
-%% Gets details of a single cycle
+%% Gets details of a single cycle.
 -spec get_api_product_cycle_json(ctx:ctx(), binary(), binary()) -> {ok, openapi_cycle:openapi_cycle(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 get_api_product_cycle_json(Ctx, Product, Cycle) ->
     get_api_product_cycle_json(Ctx, Product, Cycle, #{}).

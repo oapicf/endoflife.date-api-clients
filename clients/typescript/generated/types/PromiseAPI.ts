@@ -1,5 +1,6 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
-import { Configuration} from '../configuration'
+import { Configuration, ConfigurationOptions, PromiseConfigurationOptions } from '../configuration'
+import { PromiseMiddleware, Middleware, PromiseMiddlewareWrapper } from '../middleware';
 
 import { Cycle } from '../models/Cycle';
 import { CycleCycle } from '../models/CycleCycle';
@@ -25,8 +26,20 @@ export class PromiseDefaultApi {
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * All Products
      */
-    public getApiAllJsonWithHttpInfo(_options?: Configuration): Promise<HttpInfo<Array<string>>> {
-        const result = this.api.getApiAllJsonWithHttpInfo(_options);
+    public getApiAllJsonWithHttpInfo(_options?: PromiseConfigurationOptions): Promise<HttpInfo<Array<string>>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getApiAllJsonWithHttpInfo(observableOptions);
         return result.toPromise();
     }
 
@@ -34,50 +47,110 @@ export class PromiseDefaultApi {
      * Return a list of all products. Each of these can be used for the other API endpoints.
      * All Products
      */
-    public getApiAllJson(_options?: Configuration): Promise<Array<string>> {
-        const result = this.api.getApiAllJson(_options);
+    public getApiAllJson(_options?: PromiseConfigurationOptions): Promise<Array<string>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getApiAllJson(observableOptions);
         return result.toPromise();
     }
 
     /**
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      * Single cycle details
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      */
-    public getApiProductCycleJsonWithHttpInfo(product: string, cycle: string, _options?: Configuration): Promise<HttpInfo<Cycle>> {
-        const result = this.api.getApiProductCycleJsonWithHttpInfo(product, cycle, _options);
+    public getApiProductCycleJsonWithHttpInfo(product: string, cycle: string, _options?: PromiseConfigurationOptions): Promise<HttpInfo<Cycle>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getApiProductCycleJsonWithHttpInfo(product, cycle, observableOptions);
         return result.toPromise();
     }
 
     /**
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      * Single cycle details
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      */
-    public getApiProductCycleJson(product: string, cycle: string, _options?: Configuration): Promise<Cycle> {
-        const result = this.api.getApiProductCycleJson(product, cycle, _options);
+    public getApiProductCycleJson(product: string, cycle: string, _options?: PromiseConfigurationOptions): Promise<Cycle> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getApiProductCycleJson(product, cycle, observableOptions);
         return result.toPromise();
     }
 
     /**
      * Get EoL dates of all cycles of a given product.
      * Get All Details
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      */
-    public getApiProductJsonWithHttpInfo(product: string, _options?: Configuration): Promise<HttpInfo<Array<Cycle>>> {
-        const result = this.api.getApiProductJsonWithHttpInfo(product, _options);
+    public getApiProductJsonWithHttpInfo(product: string, _options?: PromiseConfigurationOptions): Promise<HttpInfo<Array<Cycle>>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getApiProductJsonWithHttpInfo(product, observableOptions);
         return result.toPromise();
     }
 
     /**
      * Get EoL dates of all cycles of a given product.
      * Get All Details
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      */
-    public getApiProductJson(product: string, _options?: Configuration): Promise<Array<Cycle>> {
-        const result = this.api.getApiProductJson(product, _options);
+    public getApiProductJson(product: string, _options?: PromiseConfigurationOptions): Promise<Array<Cycle>> {
+        let observableOptions: undefined | ConfigurationOptions
+        if (_options){
+	    observableOptions = {
+                baseServer: _options.baseServer,
+                httpApi: _options.httpApi,
+                middleware: _options.middleware?.map(
+                    m => new PromiseMiddlewareWrapper(m)
+		),
+		middlewareMergeStrategy: _options.middlewareMergeStrategy,
+                authMethods: _options.authMethods
+	    }
+	}
+        const result = this.api.getApiProductJson(product, observableOptions);
         return result.toPromise();
     }
 

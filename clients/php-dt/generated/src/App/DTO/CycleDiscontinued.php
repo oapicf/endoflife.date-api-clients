@@ -6,7 +6,7 @@ namespace App\DTO;
 use Articus\DataTransfer\Annotation as DTA;
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
 class CycleDiscontinued
 {

@@ -1,7 +1,7 @@
 /*
 endoflife.date
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
 API version: 0.0.1
 Contact: blah+oapicf@cliffano.com
@@ -17,7 +17,7 @@ import (
 )
 
 
-// CycleDiscontinued Whether this cycle is now discontinued.
+// CycleDiscontinued Whether this device version is no longer in production.
 type CycleDiscontinued struct {
 	Bool *bool
 	String *string
@@ -56,7 +56,7 @@ func (dst *CycleDiscontinued) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *CycleDiscontinued) MarshalJSON() ([]byte, error) {
+func (src CycleDiscontinued) MarshalJSON() ([]byte, error) {
 	if src.Bool != nil {
 		return json.Marshal(&src.Bool)
 	}

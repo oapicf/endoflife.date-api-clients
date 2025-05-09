@@ -55,11 +55,11 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 ```powershell
-$Product = "MyProduct" # String | Product URL as per the canonical URL on the endofife.date website
+$Product = "MyProduct" # String | Product URL as per the canonical URL on the endofife.date website.
 $Cycle = "MyCycle" # String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 # Single cycle details
@@ -75,7 +75,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
+ **Product** | **String**| Product URL as per the canonical URL on the endofife.date website. | 
  **Cycle** | **String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
@@ -104,7 +104,7 @@ Get EoL dates of all cycles of a given product.
 
 ### Example
 ```powershell
-$Product = "MyProduct" # String | Product URL as per the canonical URL on the endofife.date website
+$Product = "MyProduct" # String | Product URL as per the canonical URL on the endofife.date website.
 
 # Get All Details
 try {
@@ -119,7 +119,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
+ **Product** | **String**| Product URL as per the canonical URL on the endofife.date website. | 
 
 ### Return type
 

@@ -1,7 +1,7 @@
 /*
 endoflife.date
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
 API version: 0.0.1
 Contact: blah+oapicf@cliffano.com
@@ -17,7 +17,7 @@ import (
 )
 
 
-// CycleEol End of Life Date for this release cycle
+// CycleEol End-of-Life date for this release cycle.
 type CycleEol struct {
 	Bool *bool
 	String *string
@@ -56,7 +56,7 @@ func (dst *CycleEol) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *CycleEol) MarshalJSON() ([]byte, error) {
+func (src CycleEol) MarshalJSON() ([]byte, error) {
 	if src.Bool != nil {
 		return json.Marshal(&src.Bool)
 	}

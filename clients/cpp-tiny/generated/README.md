@@ -39,9 +39,9 @@ All URIs are relative to https://endoflife.datehttps://endoflife.date
 |Class | Description|
 |------------- | -------------|
 |*Cycle* | Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.|
-|*Cycle_cycle* | Release Cycle|
-|*Cycle_discontinued* | Whether this cycle is now discontinued.|
-|*Cycle_eol* | End of Life Date for this release cycle|
-|*Cycle_lts* | Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. |
-|*Cycle_support* | Whether this release cycle has active support|
+|*Cycle_cycle* | The release cycle which this release is part of.|
+|*Cycle_discontinued* | Whether this device version is no longer in production.|
+|*Cycle_eol* | End-of-Life date for this release cycle.|
+|*Cycle_lts* | Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.|
+|*Cycle_support* | Whether this release cycle has active support.|
 

@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -23,12 +23,12 @@ import io.micronaut.core.annotation.*;
 import javax.annotation.Generated;
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
 @JsonPropertyOrder({
 })
 @JsonTypeName("cycle_discontinued")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-04T23:47:32.920889301Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2025-05-09T11:49:12.358623106Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Introspected
 public class CycleDiscontinued {
     public CycleDiscontinued() {

@@ -14,6 +14,7 @@ import org.openapitools.model.CycleEol;
 import org.openapitools.model.CycleLts;
 import org.openapitools.model.CycleSupport;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
@@ -31,25 +32,25 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle", description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-05T00:02:26.954733642Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-09T11:50:43.381361653Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class Cycle {
 
-  private CycleCycle cycle;
+  private @Nullable CycleCycle cycle;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-  private LocalDate releaseDate;
+  private @Nullable LocalDate releaseDate;
 
-  private CycleEol eol;
+  private @Nullable CycleEol eol;
 
-  private String latest;
+  private @Nullable String latest;
 
   private JsonNullable<@Size(min = 1) String> link = JsonNullable.<String>undefined();
 
-  private CycleLts lts;
+  private @Nullable CycleLts lts;
 
-  private CycleSupport support;
+  private @Nullable CycleSupport support;
 
-  private CycleDiscontinued discontinued;
+  private @Nullable CycleDiscontinued discontinued;
 
   public Cycle cycle(CycleCycle cycle) {
     this.cycle = cycle;
@@ -77,11 +78,11 @@ public class Cycle {
   }
 
   /**
-   * Release Date for the first release in this cycle
+   * Release date for the first release in this cycle.
    * @return releaseDate
    */
   @Valid @Size(min = 10, max = 10) 
-  @Schema(name = "releaseDate", description = "Release Date for the first release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "releaseDate", description = "Release date for the first release in this cycle.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseDate")
   public LocalDate getReleaseDate() {
     return releaseDate;
@@ -117,11 +118,11 @@ public class Cycle {
   }
 
   /**
-   * Latest release in this cycle
+   * Latest release in this cycle.
    * @return latest
    */
   @Size(min = 1) 
-  @Schema(name = "latest", description = "Latest release in this cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "latest", description = "Latest release in this cycle.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("latest")
   public String getLatest() {
     return latest;
@@ -137,11 +138,11 @@ public class Cycle {
   }
 
   /**
-   * Link to changelog for the latest release, if available
+   * Link to changelog for the latest release in this cycle, or null if unavailable.
    * @return link
    */
   @Size(min = 1) 
-  @Schema(name = "link", description = "Link to changelog for the latest release, if available", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "link", description = "Link to changelog for the latest release in this cycle, or null if unavailable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("link")
   public JsonNullable<@Size(min = 1) String> getLink() {
     return link;

@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  *
  */
 

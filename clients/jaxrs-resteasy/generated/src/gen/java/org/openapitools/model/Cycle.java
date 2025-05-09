@@ -18,7 +18,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-11-04T23:49:41.956731512Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@ApiModel(description="Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2025-05-09T11:49:28.972231658Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class Cycle   {
   
   private CycleCycle cycle;
@@ -44,10 +44,10 @@ public class Cycle   {
   }
 
   /**
-   * Release Date for the first release in this cycle
+   * Release date for the first release in this cycle.
    **/
   
-  @ApiModelProperty(value = "Release Date for the first release in this cycle")
+  @ApiModelProperty(value = "Release date for the first release in this cycle.")
   @JsonProperty("releaseDate")
  @Size(min=10,max=10)  public Date getReleaseDate() {
     return releaseDate;
@@ -70,10 +70,10 @@ public class Cycle   {
   }
 
   /**
-   * Latest release in this cycle
+   * Latest release in this cycle.
    **/
   
-  @ApiModelProperty(value = "Latest release in this cycle")
+  @ApiModelProperty(value = "Latest release in this cycle.")
   @JsonProperty("latest")
  @Size(min=1)  public String getLatest() {
     return latest;
@@ -83,10 +83,10 @@ public class Cycle   {
   }
 
   /**
-   * Link to changelog for the latest release, if available
+   * Link to changelog for the latest release in this cycle, or null if unavailable.
    **/
   
-  @ApiModelProperty(value = "Link to changelog for the latest release, if available")
+  @ApiModelProperty(value = "Link to changelog for the latest release in this cycle, or null if unavailable.")
   @JsonProperty("link")
  @Size(min=1)  public String getLink() {
     return link;

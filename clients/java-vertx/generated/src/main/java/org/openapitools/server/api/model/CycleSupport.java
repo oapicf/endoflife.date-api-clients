@@ -3,7 +3,7 @@ package org.openapitools.server.api.model;
 import java.util.Objects;
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  **/
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CycleSupport   {

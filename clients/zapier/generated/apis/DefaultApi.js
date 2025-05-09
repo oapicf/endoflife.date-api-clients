@@ -51,7 +51,7 @@ module.exports = {
             inputFields: [
                 {
                     key: 'product',
-                    label: 'Product URL as per the canonical URL on the endofife.date website',
+                    label: 'Product URL as per the canonical URL on the endofife.date website.',
                     type: 'string',
                     required: true,
                 },
@@ -86,14 +86,14 @@ module.exports = {
         noun: 'default',
         display: {
             label: 'Single cycle details',
-            description: 'Gets details of a single cycle',
+            description: 'Gets details of a single cycle.',
             hidden: false,
         },
         operation: {
             inputFields: [
                 {
                     key: 'product',
-                    label: 'Product URL as per the canonical URL on the endofife.date website',
+                    label: 'Product URL as per the canonical URL on the endofife.date website.',
                     type: 'string',
                     required: true,
                 },

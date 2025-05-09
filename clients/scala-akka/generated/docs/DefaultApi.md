@@ -93,7 +93,7 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 
@@ -115,7 +115,7 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = DefaultApi("https://endoflife.date")
-    val product: String = product_example // String | Product URL as per the canonical URL on the endofife.date website
+    val product: String = product_example // String | Product URL as per the canonical URL on the endofife.date website.
 
     val cycle: String = cycle_example // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
     
@@ -147,7 +147,7 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **String**| Product URL as per the canonical URL on the endofife.date website |
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website. |
  **cycle** | **String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. |
 
 ### Return type
@@ -198,7 +198,7 @@ object Example extends App {
 
     val apiInvoker = ApiInvoker()
     val apiInstance = DefaultApi("https://endoflife.date")
-    val product: String = product_example // String | Product URL as per the canonical URL on the endofife.date website
+    val product: String = product_example // String | Product URL as per the canonical URL on the endofife.date website.
     
     val request = apiInstance.getApiProductJson(product)
     val response = apiInvoker.execute(request)
@@ -228,7 +228,7 @@ object Example extends App {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **String**| Product URL as per the canonical URL on the endofife.date website |
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website. |
 
 ### Return type
 

@@ -61,7 +61,7 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 ```perl
@@ -70,7 +70,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $product = "product_example"; # string | Product URL as per the canonical URL on the endofife.date website
+my $product = "product_example"; # string | Product URL as per the canonical URL on the endofife.date website.
 my $cycle = "cycle_example"; # string | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 eval {
@@ -86,7 +86,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **string**| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **string**| Product URL as per the canonical URL on the endofife.date website. | 
  **cycle** | **string**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
@@ -118,7 +118,7 @@ use WWW::OpenAPIClient::DefaultApi;
 my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
-my $product = "product_example"; # string | Product URL as per the canonical URL on the endofife.date website
+my $product = "product_example"; # string | Product URL as per the canonical URL on the endofife.date website.
 
 eval {
     my $result = $api_instance->get_api_product_json(product => $product);
@@ -133,7 +133,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **string**| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **string**| Product URL as per the canonical URL on the endofife.date website. | 
 
 ### Return type
 

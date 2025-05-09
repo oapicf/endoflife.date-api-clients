@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * OpenAPI document version: 0.0.1
  * Maintained by: blah+oapicf@cliffano.com
@@ -30,7 +30,7 @@ import org.openapitools.model.CycleSupport;
  */
 
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-11-04T23:48:24.206518548Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2025-05-09T11:49:19.392591350Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class Cycle   {
   
   private CycleCycle cycle;
@@ -60,7 +60,7 @@ public class Cycle   {
   }
 
   /**
-   * Release Date for the first release in this cycle
+   * Release date for the first release in this cycle.
    */
   public Cycle releaseDate(Date releaseDate) {
     this.releaseDate = releaseDate;
@@ -68,7 +68,7 @@ public class Cycle   {
   }
 
   
-  @ApiModelProperty(value = "Release Date for the first release in this cycle")
+  @ApiModelProperty(value = "Release date for the first release in this cycle.")
   @JsonProperty("releaseDate")
   public Date getReleaseDate() {
     return releaseDate;
@@ -95,7 +95,7 @@ public class Cycle   {
   }
 
   /**
-   * Latest release in this cycle
+   * Latest release in this cycle.
    */
   public Cycle latest(String latest) {
     this.latest = latest;
@@ -103,7 +103,7 @@ public class Cycle   {
   }
 
   
-  @ApiModelProperty(value = "Latest release in this cycle")
+  @ApiModelProperty(value = "Latest release in this cycle.")
   @JsonProperty("latest")
   public String getLatest() {
     return latest;
@@ -113,7 +113,7 @@ public class Cycle   {
   }
 
   /**
-   * Link to changelog for the latest release, if available
+   * Link to changelog for the latest release in this cycle, or null if unavailable.
    */
   public Cycle link(String link) {
     this.link = link;
@@ -121,7 +121,7 @@ public class Cycle   {
   }
 
   
-  @ApiModelProperty(value = "Link to changelog for the latest release, if available")
+  @ApiModelProperty(value = "Link to changelog for the latest release in this cycle, or null if unavailable.")
   @JsonProperty("link")
   public String getLink() {
     return link;

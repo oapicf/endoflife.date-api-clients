@@ -20,7 +20,7 @@ import io.swagger.jaxrs.PATCH;
 /**
  * endoflife.date
  *
- * <p>Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * <p>Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  */
 @Path("/api")
@@ -44,7 +44,7 @@ public interface DefaultApi  {
     /**
      * Single cycle details
      *
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      *
      */
     @GET

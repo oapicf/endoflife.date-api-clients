@@ -3,7 +3,7 @@
 """
     endoflife.date
 
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
     The version of the OpenAPI document: 0.0.1
     Contact: blah+oapicf@cliffano.com
@@ -288,7 +288,7 @@ class DefaultApi:
     @validate_call
     def get_api_product_cycle_json(
         self,
-        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
+        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")],
         cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.")],
         _request_timeout: Union[
             None,
@@ -305,9 +305,9 @@ class DefaultApi:
     ) -> Cycle:
         """Single cycle details
 
-        Gets details of a single cycle
+        Gets details of a single cycle.
 
-        :param product: Product URL as per the canonical URL on the endofife.date website (required)
+        :param product: Product URL as per the canonical URL on the endofife.date website. (required)
         :type product: str
         :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (required)
         :type cycle: str
@@ -359,7 +359,7 @@ class DefaultApi:
     @validate_call
     def get_api_product_cycle_json_with_http_info(
         self,
-        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
+        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")],
         cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.")],
         _request_timeout: Union[
             None,
@@ -376,9 +376,9 @@ class DefaultApi:
     ) -> ApiResponse[Cycle]:
         """Single cycle details
 
-        Gets details of a single cycle
+        Gets details of a single cycle.
 
-        :param product: Product URL as per the canonical URL on the endofife.date website (required)
+        :param product: Product URL as per the canonical URL on the endofife.date website. (required)
         :type product: str
         :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (required)
         :type cycle: str
@@ -430,7 +430,7 @@ class DefaultApi:
     @validate_call
     def get_api_product_cycle_json_without_preload_content(
         self,
-        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
+        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")],
         cycle: Annotated[StrictStr, Field(description="Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.")],
         _request_timeout: Union[
             None,
@@ -447,9 +447,9 @@ class DefaultApi:
     ) -> RESTResponseType:
         """Single cycle details
 
-        Gets details of a single cycle
+        Gets details of a single cycle.
 
-        :param product: Product URL as per the canonical URL on the endofife.date website (required)
+        :param product: Product URL as per the canonical URL on the endofife.date website. (required)
         :type product: str
         :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. (required)
         :type cycle: str
@@ -563,7 +563,7 @@ class DefaultApi:
     @validate_call
     def get_api_product_json(
         self,
-        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
+        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -581,7 +581,7 @@ class DefaultApi:
 
         Get EoL dates of all cycles of a given product.
 
-        :param product: Product URL as per the canonical URL on the endofife.date website (required)
+        :param product: Product URL as per the canonical URL on the endofife.date website. (required)
         :type product: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -630,7 +630,7 @@ class DefaultApi:
     @validate_call
     def get_api_product_json_with_http_info(
         self,
-        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
+        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -648,7 +648,7 @@ class DefaultApi:
 
         Get EoL dates of all cycles of a given product.
 
-        :param product: Product URL as per the canonical URL on the endofife.date website (required)
+        :param product: Product URL as per the canonical URL on the endofife.date website. (required)
         :type product: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -697,7 +697,7 @@ class DefaultApi:
     @validate_call
     def get_api_product_json_without_preload_content(
         self,
-        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website")],
+        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -715,7 +715,7 @@ class DefaultApi:
 
         Get EoL dates of all cycles of a given product.
 
-        :param product: Product URL as per the canonical URL on the endofife.date website (required)
+        :param product: Product URL as per the canonical URL on the endofife.date website. (required)
         :type product: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

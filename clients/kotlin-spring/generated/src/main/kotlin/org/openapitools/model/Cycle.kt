@@ -21,10 +21,10 @@ import io.swagger.v3.oas.annotations.media.Schema
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  * @param cycle 
- * @param releaseDate Release Date for the first release in this cycle
+ * @param releaseDate Release date for the first release in this cycle.
  * @param eol 
- * @param latest Latest release in this cycle
- * @param link Link to changelog for the latest release, if available
+ * @param latest Latest release in this cycle.
+ * @param link Link to changelog for the latest release in this cycle, or null if unavailable.
  * @param lts 
  * @param support 
  * @param discontinued 
@@ -37,7 +37,7 @@ data class Cycle(
 
     @field:Valid
     @get:Size(min=10,max=10)
-    @Schema(example = "null", description = "Release Date for the first release in this cycle")
+    @Schema(example = "null", description = "Release date for the first release in this cycle.")
     @get:JsonProperty("releaseDate") val releaseDate: java.time.LocalDate? = null,
 
     @field:Valid
@@ -45,11 +45,11 @@ data class Cycle(
     @get:JsonProperty("eol") val eol: CycleEol? = null,
 
     @get:Size(min=1)
-    @Schema(example = "null", description = "Latest release in this cycle")
+    @Schema(example = "null", description = "Latest release in this cycle.")
     @get:JsonProperty("latest") val latest: kotlin.String? = null,
 
     @get:Size(min=1)
-    @Schema(example = "null", description = "Link to changelog for the latest release, if available")
+    @Schema(example = "null", description = "Link to changelog for the latest release in this cycle, or null if unavailable.")
     @get:JsonProperty("link") val link: kotlin.String? = null,
 
     @field:Valid

@@ -13,7 +13,7 @@
     {
       "name": "releaseDate",
       "type": ["null", "string"],
-      "doc": "Release Date for the first release in this cycle",
+      "doc": "Release date for the first release in this cycle.",
       "default": null
     },
     {
@@ -25,13 +25,13 @@
     {
       "name": "latest",
       "type": ["null", "string"],
-      "doc": "Latest release in this cycle",
+      "doc": "Latest release in this cycle.",
       "default": null
     },
     {
       "name": "link",
       "type": ["null", "string"],
-      "doc": "Link to changelog for the latest release, if available",
+      "doc": "Link to changelog for the latest release in this cycle, or null if unavailable.",
       "default": null
     },
     {

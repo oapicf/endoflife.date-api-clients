@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cycle** | [**CycleCycle**](CycleCycle.md) |  | [optional] 
-**ReleaseDate** | **System.DateTime** | Release Date for the first release in this cycle | [optional] 
+**ReleaseDate** | **System.DateTime** | Release date for the first release in this cycle. | [optional] 
 **Eol** | [**CycleEol**](CycleEol.md) |  | [optional] 
-**Latest** | **String** | Latest release in this cycle | [optional] 
-**Link** | **String** | Link to changelog for the latest release, if available | [optional] 
+**Latest** | **String** | Latest release in this cycle. | [optional] 
+**Link** | **String** | Link to changelog for the latest release in this cycle, or null if unavailable. | [optional] 
 **Lts** | [**CycleLts**](CycleLts.md) |  | [optional] 
 **Support** | [**CycleSupport**](CycleSupport.md) |  | [optional] 
 **Discontinued** | [**CycleDiscontinued**](CycleDiscontinued.md) |  | [optional] 

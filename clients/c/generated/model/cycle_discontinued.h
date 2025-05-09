@@ -1,7 +1,7 @@
 /*
  * cycle_discontinued.h
  *
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
 
 #ifndef _cycle_discontinued_H_
@@ -20,9 +20,10 @@ typedef struct cycle_discontinued_t cycle_discontinued_t;
 
 typedef struct cycle_discontinued_t {
 
+    int _library_owned; // Is the library responsible for freeing this object?
 } cycle_discontinued_t;
 
-cycle_discontinued_t *cycle_discontinued_create(
+__attribute__((deprecated)) cycle_discontinued_t *cycle_discontinued_create(
 );
 
 void cycle_discontinued_free(cycle_discontinued_t *cycle_discontinued);

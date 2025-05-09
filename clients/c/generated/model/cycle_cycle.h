@@ -1,7 +1,7 @@
 /*
  * cycle_cycle.h
  *
- * Release Cycle
+ * The release cycle which this release is part of.
  */
 
 #ifndef _cycle_cycle_H_
@@ -20,9 +20,10 @@ typedef struct cycle_cycle_t cycle_cycle_t;
 
 typedef struct cycle_cycle_t {
 
+    int _library_owned; // Is the library responsible for freeing this object?
 } cycle_cycle_t;
 
-cycle_cycle_t *cycle_cycle_create(
+__attribute__((deprecated)) cycle_cycle_t *cycle_cycle_create(
 );
 
 void cycle_cycle_free(cycle_cycle_t *cycle_cycle);

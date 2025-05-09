@@ -10,9 +10,9 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
-  * Whether this release cycle has active support
+  * Whether this release cycle has active support.
  **/
-@ApiModel(description="Whether this release cycle has active support")
+@ApiModel(description="Whether this release cycle has active support.")
 
 public class CycleSupport  {
     @Override

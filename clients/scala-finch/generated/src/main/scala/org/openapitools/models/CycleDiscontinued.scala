@@ -7,7 +7,7 @@ import io.circe.java8.time._
 import org.openapitools._
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
 case class CycleDiscontinued()
 

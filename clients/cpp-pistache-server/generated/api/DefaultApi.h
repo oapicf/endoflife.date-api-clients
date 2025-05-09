@@ -1,6 +1,6 @@
 /**
 * endoflife.date
-* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 *
 * The version of the OpenAPI document: 0.0.1
 * Contact: blah+oapicf@cliffano.com
@@ -90,9 +90,9 @@ private:
     /// Single cycle details
     /// </summary>
     /// <remarks>
-    /// Gets details of a single cycle
+    /// Gets details of a single cycle.
     /// </remarks>
-    /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
+    /// <param name="product">Product URL as per the canonical URL on the endofife.date website.</param>
     /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
     virtual void get_api_product_cycle_json(const std::string &product, const std::string &cycle, Pistache::Http::ResponseWriter &response) = 0;
     /// <summary>
@@ -101,7 +101,7 @@ private:
     /// <remarks>
     /// Get EoL dates of all cycles of a given product.
     /// </remarks>
-    /// <param name="product">Product URL as per the canonical URL on the endofife.date website</param>
+    /// <param name="product">Product URL as per the canonical URL on the endofife.date website.</param>
     virtual void get_api_product_json(const std::string &product, Pistache::Http::ResponseWriter &response) = 0;
 
 };

@@ -1,7 +1,7 @@
 /*
 endoflife.date
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
 API version: 0.0.1
 Contact: blah+oapicf@cliffano.com
@@ -21,12 +21,12 @@ var _ MappedNullable = &Cycle{}
 // Cycle Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
 type Cycle struct {
 	Cycle *CycleCycle `json:"cycle,omitempty"`
-	// Release Date for the first release in this cycle
+	// Release date for the first release in this cycle.
 	ReleaseDate *string `json:"releaseDate,omitempty"`
 	Eol *CycleEol `json:"eol,omitempty"`
-	// Latest release in this cycle
+	// Latest release in this cycle.
 	Latest *string `json:"latest,omitempty"`
-	// Link to changelog for the latest release, if available
+	// Link to changelog for the latest release in this cycle, or null if unavailable.
 	Link NullableString `json:"link,omitempty"`
 	Lts *CycleLts `json:"lts,omitempty"`
 	Support *CycleSupport `json:"support,omitempty"`

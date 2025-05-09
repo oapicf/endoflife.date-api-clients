@@ -27,7 +27,7 @@ resourceTypes {
         }
         release_date {
           type =  string
-          description = "Release Date for the first release in this cycle"
+          description = "Release date for the first release in this cycle."
           optional = false
         }
         eol {
@@ -37,12 +37,12 @@ resourceTypes {
         }
         latest {
           type =  string
-          description = "Latest release in this cycle"
+          description = "Latest release in this cycle."
           optional = false
         }
         link {
           type =  string
-          description = "Link to changelog for the latest release, if available"
+          description = "Link to changelog for the latest release in this cycle, or null if unavailable."
           optional = false
         }
         lts {

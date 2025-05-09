@@ -6,14 +6,14 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  **/
 
 import io.swagger.annotations.*;
 import java.util.Objects;
 
 
-@ApiModel(description = "Whether this cycle is now discontinued.")
+@ApiModel(description = "Whether this device version is no longer in production.")
 public class CycleDiscontinued   {
   
 

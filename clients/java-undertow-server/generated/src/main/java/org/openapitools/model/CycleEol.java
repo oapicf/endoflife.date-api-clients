@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * OpenAPI document version: 0.0.1
  * Maintained by: blah+oapicf@cliffano.com
@@ -16,11 +16,11 @@ import io.swagger.annotations.ApiModel;
 
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
 
-@ApiModel(description = "End of Life Date for this release cycle")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2024-11-04T23:48:24.206518548Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@ApiModel(description = "End-of-Life date for this release cycle.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2025-05-09T11:49:19.392591350Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleEol   {
   
 

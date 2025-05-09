@@ -13,7 +13,7 @@ API.Client.Cycle = function() {}
 API.Client.Cycle.prototype.cycle;
 
 /**
- * Release Date for the first release in this cycle
+ * Release date for the first release in this cycle.
  * @type {!API.Client.date}
  * @export
  */
@@ -26,14 +26,14 @@ API.Client.Cycle.prototype.releaseDate;
 API.Client.Cycle.prototype.eol;
 
 /**
- * Latest release in this cycle
+ * Latest release in this cycle.
  * @type {!string}
  * @export
  */
 API.Client.Cycle.prototype.latest;
 
 /**
- * Link to changelog for the latest release, if available
+ * Link to changelog for the latest release in this cycle, or null if unavailable.
  * @type {!string}
  * @export
  */

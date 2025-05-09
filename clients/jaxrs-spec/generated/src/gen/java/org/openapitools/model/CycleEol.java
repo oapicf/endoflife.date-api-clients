@@ -13,12 +13,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  **/
-@ApiModel(description = "End of Life Date for this release cycle")
+@ApiModel(description = "End-of-Life date for this release cycle.")
 @JsonTypeName("cycle_eol")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2024-11-04T23:50:06.741826962Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-05-09T11:49:31.811227707Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleEol   {
+
+  public CycleEol() {
+  }
 
 
   @Override

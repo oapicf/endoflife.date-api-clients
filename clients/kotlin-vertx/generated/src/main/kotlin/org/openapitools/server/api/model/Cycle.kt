@@ -1,6 +1,6 @@
 /**
 * endoflife.date
-* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 *
 * The version of the OpenAPI document: 0.0.1
 * Contact: blah+oapicf@cliffano.com
@@ -24,10 +24,10 @@ import com.fasterxml.jackson.annotation.JsonInclude
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  * @param cycle 
- * @param releaseDate Release Date for the first release in this cycle
+ * @param releaseDate Release date for the first release in this cycle.
  * @param eol 
- * @param latest Latest release in this cycle
- * @param link Link to changelog for the latest release, if available
+ * @param latest Latest release in this cycle.
+ * @param link Link to changelog for the latest release in this cycle, or null if unavailable.
  * @param lts 
  * @param support 
  * @param discontinued 
@@ -36,12 +36,12 @@ import com.fasterxml.jackson.annotation.JsonInclude
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Cycle (
     val cycle: CycleCycle? = null,
-    /* Release Date for the first release in this cycle */
+    /* Release date for the first release in this cycle. */
     val releaseDate: java.time.LocalDate? = null,
     val eol: CycleEol? = null,
-    /* Latest release in this cycle */
+    /* Latest release in this cycle. */
     val latest: kotlin.String? = null,
-    /* Link to changelog for the latest release, if available */
+    /* Link to changelog for the latest release in this cycle, or null if unavailable. */
     val link: kotlin.String? = null,
     val lts: CycleLts? = null,
     val support: CycleSupport? = null,

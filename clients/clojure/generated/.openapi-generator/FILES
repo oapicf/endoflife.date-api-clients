@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 git_push.sh
 project.clj
 src/endoflife/date/api/default.clj

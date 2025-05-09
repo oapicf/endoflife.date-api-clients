@@ -8,9 +8,9 @@ import java.util.Objects;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2024-11-04T23:48:13.967501037Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-09T11:49:18.178599199Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class CycleEol   {
 

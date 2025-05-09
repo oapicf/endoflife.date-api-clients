@@ -42,14 +42,14 @@ No authorization required
 > models::Cycle get_api_product_cycle_period_json(product, cycle)
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**product** | **String** | Product URL as per the canonical URL on the endofife.date website | [required] |
+**product** | **String** | Product URL as per the canonical URL on the endofife.date website. | [required] |
 **cycle** | **String** | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. | [required] |
 
 ### Return type
@@ -80,7 +80,7 @@ Get EoL dates of all cycles of a given product.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**product** | **String** | Product URL as per the canonical URL on the endofife.date website | [required] |
+**product** | **String** | Product URL as per the canonical URL on the endofife.date website. | [required] |
 
 ### Return type
 

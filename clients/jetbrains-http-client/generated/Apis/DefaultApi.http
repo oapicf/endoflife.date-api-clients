@@ -1,0 +1,16 @@
+## DefaultApi
+
+### All Products
+## All Products
+GET https://endoflife.date/api/all.json
+Accept: application/json
+
+### Get All Details
+## Get All Details
+GET https://endoflife.date/api/{{product}}.json
+Accept: application/json
+
+### Single cycle details
+## Single cycle details
+GET https://endoflife.date/api/{{product}}/{{cycle}}.json
+Accept: application/json

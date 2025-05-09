@@ -1,7 +1,7 @@
 /*
  * Cycle_discontinued.h
  *
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
 
 #ifndef _Cycle_discontinued_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief Whether this cycle is now discontinued.
+/*! \brief Whether this device version is no longer in production.
  *
  *  \ingroup Models
  *

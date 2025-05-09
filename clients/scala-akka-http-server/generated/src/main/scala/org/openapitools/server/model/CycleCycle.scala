@@ -2,7 +2,7 @@ package org.openapitools.server.model
 
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  *
 */
 final case class CycleCycle (

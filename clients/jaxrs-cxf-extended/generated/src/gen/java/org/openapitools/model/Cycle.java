@@ -29,9 +29,9 @@ public class Cycle  {
   private CycleCycle cycle;
 
  /**
-  * Release Date for the first release in this cycle
+  * Release date for the first release in this cycle.
   */
-  @ApiModelProperty(value = "Release Date for the first release in this cycle")
+  @ApiModelProperty(value = "Release date for the first release in this cycle.")
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
   private LocalDate releaseDate;
 
@@ -40,15 +40,15 @@ public class Cycle  {
   private CycleEol eol;
 
  /**
-  * Latest release in this cycle
+  * Latest release in this cycle.
   */
-  @ApiModelProperty(value = "Latest release in this cycle")
+  @ApiModelProperty(value = "Latest release in this cycle.")
   private String latest;
 
  /**
-  * Link to changelog for the latest release, if available
+  * Link to changelog for the latest release in this cycle, or null if unavailable.
   */
-  @ApiModelProperty(value = "Link to changelog for the latest release, if available")
+  @ApiModelProperty(value = "Link to changelog for the latest release in this cycle, or null if unavailable.")
   private String link;
 
   @ApiModelProperty(value = "")
@@ -87,7 +87,7 @@ public class Cycle  {
   }
 
  /**
-  * Release Date for the first release in this cycle
+  * Release date for the first release in this cycle.
   * @return releaseDate
   */
   @JsonProperty("releaseDate")
@@ -135,7 +135,7 @@ public class Cycle  {
   }
 
  /**
-  * Latest release in this cycle
+  * Latest release in this cycle.
   * @return latest
   */
   @JsonProperty("latest")
@@ -159,7 +159,7 @@ public class Cycle  {
   }
 
  /**
-  * Link to changelog for the latest release, if available
+  * Link to changelog for the latest release in this cycle, or null if unavailable.
   * @return link
   */
   @JsonProperty("link")

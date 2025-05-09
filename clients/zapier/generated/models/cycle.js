@@ -12,18 +12,18 @@ module.exports = {
             ...cycle_cycle.fields(`${keyPrefix}cycle`, isInput),
             {
                 key: `${keyPrefix}releaseDate`,
-                label: `Release Date for the first release in this cycle - [${labelPrefix}releaseDate]`,
+                label: `Release date for the first release in this cycle. - [${labelPrefix}releaseDate]`,
                 type: 'string',
             },
             ...cycle_eol.fields(`${keyPrefix}eol`, isInput),
             {
                 key: `${keyPrefix}latest`,
-                label: `Latest release in this cycle - [${labelPrefix}latest]`,
+                label: `Latest release in this cycle. - [${labelPrefix}latest]`,
                 type: 'string',
             },
             {
                 key: `${keyPrefix}link`,
-                label: `Link to changelog for the latest release, if available - [${labelPrefix}link]`,
+                label: `Link to changelog for the latest release in this cycle, or null if unavailable. - [${labelPrefix}link]`,
                 type: 'string',
             },
             ...cycle_lts.fields(`${keyPrefix}lts`, isInput),

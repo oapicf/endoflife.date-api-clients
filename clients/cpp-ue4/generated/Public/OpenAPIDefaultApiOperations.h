@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * OpenAPI spec version: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -45,7 +45,7 @@ public:
 
 /* Single cycle details
  *
- * Gets details of a single cycle
+ * Gets details of a single cycle.
 */
 class OPENAPI_API OpenAPIDefaultApi::GetApiProductCycleJsonRequest : public Request
 {
@@ -54,7 +54,7 @@ public:
 	void SetupHttpRequest(const FHttpRequestRef& HttpRequest) const final;
 	FString ComputePath() const final;
 
-	/* Product URL as per the canonical URL on the endofife.date website */
+	/* Product URL as per the canonical URL on the endofife.date website. */
 	FString Product;
 	/* Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. */
 	FString Cycle;
@@ -81,7 +81,7 @@ public:
 	void SetupHttpRequest(const FHttpRequestRef& HttpRequest) const final;
 	FString ComputePath() const final;
 
-	/* Product URL as per the canonical URL on the endofife.date website */
+	/* Product URL as per the canonical URL on the endofife.date website. */
 	FString Product;
 };
 

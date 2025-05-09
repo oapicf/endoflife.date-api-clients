@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -37,7 +37,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2024-11-04T23:47:43.661706761Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2025-05-09T11:49:13.510742569Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Controller
 @Tag(name = "Default", description = "The Default API")
 public class DefaultController {
@@ -67,9 +67,9 @@ public class DefaultController {
 
     /**
      * Single cycle details
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      *
-     * @param product Product URL as per the canonical URL on the endofife.date website (required)
+     * @param product Product URL as per the canonical URL on the endofife.date website. (required)
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @return Cycle
      */
@@ -82,7 +82,7 @@ public class DefaultController {
             })
         },
         parameters = {
-            @Parameter(name = "product", description = "Product URL as per the canonical URL on the endofife.date website", required = true),
+            @Parameter(name = "product", description = "Product URL as per the canonical URL on the endofife.date website.", required = true),
             @Parameter(name = "cycle", description = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.", required = true)
         }
     )
@@ -102,7 +102,7 @@ public class DefaultController {
      * Get All Details
      * Get EoL dates of all cycles of a given product.
      *
-     * @param product Product URL as per the canonical URL on the endofife.date website (required)
+     * @param product Product URL as per the canonical URL on the endofife.date website. (required)
      * @return List&lt;Cycle&gt;
      */
     @Operation(
@@ -114,7 +114,7 @@ public class DefaultController {
             })
         },
         parameters = {
-            @Parameter(name = "product", description = "Product URL as per the canonical URL on the endofife.date website", required = true)
+            @Parameter(name = "product", description = "Product URL as per the canonical URL on the endofife.date website.", required = true)
         }
     )
     @Get(uri="/api/{product}.json")

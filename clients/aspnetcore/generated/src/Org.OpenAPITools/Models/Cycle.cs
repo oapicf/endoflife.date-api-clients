@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -33,9 +33,9 @@ namespace Org.OpenAPITools.Models
         public CycleCycle VarCycle { get; set; }
 
         /// <summary>
-        /// Release Date for the first release in this cycle
+        /// Release date for the first release in this cycle.
         /// </summary>
-        /// <value>Release Date for the first release in this cycle</value>
+        /// <value>Release date for the first release in this cycle.</value>
         [StringLength(10, MinimumLength=10)]
         [DataMember(Name="releaseDate", EmitDefaultValue=true)]
         public DateOnly ReleaseDate { get; set; }
@@ -47,17 +47,17 @@ namespace Org.OpenAPITools.Models
         public CycleEol Eol { get; set; }
 
         /// <summary>
-        /// Latest release in this cycle
+        /// Latest release in this cycle.
         /// </summary>
-        /// <value>Latest release in this cycle</value>
+        /// <value>Latest release in this cycle.</value>
         [MinLength(1)]
         [DataMember(Name="latest", EmitDefaultValue=false)]
         public string Latest { get; set; }
 
         /// <summary>
-        /// Link to changelog for the latest release, if available
+        /// Link to changelog for the latest release in this cycle, or null if unavailable.
         /// </summary>
-        /// <value>Link to changelog for the latest release, if available</value>
+        /// <value>Link to changelog for the latest release in this cycle, or null if unavailable.</value>
         [MinLength(1)]
         [DataMember(Name="link", EmitDefaultValue=true)]
         public string Link { get; set; }

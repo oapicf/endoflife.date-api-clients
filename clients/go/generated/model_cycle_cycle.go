@@ -1,7 +1,7 @@
 /*
 endoflife.date
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
 API version: 0.0.1
 Contact: blah+oapicf@cliffano.com
@@ -17,7 +17,7 @@ import (
 )
 
 
-// CycleCycle Release Cycle
+// CycleCycle The release cycle which this release is part of.
 type CycleCycle struct {
 	Float32 *float32
 	String *string
@@ -56,7 +56,7 @@ func (dst *CycleCycle) UnmarshalJSON(data []byte) error {
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *CycleCycle) MarshalJSON() ([]byte, error) {
+func (src CycleCycle) MarshalJSON() ([]byte, error) {
 	if src.Float32 != nil {
 		return json.Marshal(&src.Float32)
 	}

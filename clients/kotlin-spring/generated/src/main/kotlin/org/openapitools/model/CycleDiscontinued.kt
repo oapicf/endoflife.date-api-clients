@@ -13,7 +13,7 @@ import javax.validation.Valid
 import io.swagger.v3.oas.annotations.media.Schema
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
 class CycleDiscontinued(
 

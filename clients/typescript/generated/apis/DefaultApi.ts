@@ -31,7 +31,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
 
         
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
             await defaultAuth?.applySecurityAuthentication(requestContext);
         }
@@ -40,9 +40,9 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      * Single cycle details
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      */
     public async getApiProductCycleJson(product: string, cycle: string, _options?: Configuration): Promise<RequestContext> {
@@ -71,7 +71,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
 
         
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
             await defaultAuth?.applySecurityAuthentication(requestContext);
         }
@@ -82,7 +82,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get EoL dates of all cycles of a given product.
      * Get All Details
-     * @param product Product URL as per the canonical URL on the endofife.date website
+     * @param product Product URL as per the canonical URL on the endofife.date website.
      */
     public async getApiProductJson(product: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -103,7 +103,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
 
         
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        const defaultAuth: SecurityAuthentication | undefined = _config?.authMethods?.default
         if (defaultAuth?.applySecurityAuthentication) {
             await defaultAuth?.applySecurityAuthentication(requestContext);
         }

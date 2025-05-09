@@ -9,11 +9,11 @@ import io.swagger.annotations.ApiModel;
  *
  */
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
-@ApiModel(description = "Whether this cycle is now discontinued.")
+@ApiModel(description = "Whether this device version is no longer in production.")
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2024-11-04T23:48:03.300575970Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2025-05-09T11:49:16.888708462Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleDiscontinued   {
 
   @Override

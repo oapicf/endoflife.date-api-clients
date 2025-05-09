@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -26,7 +26,7 @@ import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2024-11-04T23:47:32.920889301Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2025-05-09T11:49:12.358623106Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 @Client("${openapi-micronaut-client-base-path}")
 public interface DefaultApi {
     /**
@@ -41,9 +41,9 @@ public interface DefaultApi {
 
     /**
      * Single cycle details
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      *
-     * @param product Product URL as per the canonical URL on the endofife.date website (required)
+     * @param product Product URL as per the canonical URL on the endofife.date website. (required)
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. (required)
      * @return Cycle
      */
@@ -58,7 +58,7 @@ public interface DefaultApi {
      * Get All Details
      * Get EoL dates of all cycles of a given product.
      *
-     * @param product Product URL as per the canonical URL on the endofife.date website (required)
+     * @param product Product URL as per the canonical URL on the endofife.date website. (required)
      * @return List&lt;Cycle&gt;
      */
     @Get(uri="/api/{product}.json")

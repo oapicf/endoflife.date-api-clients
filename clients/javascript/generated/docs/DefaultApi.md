@@ -57,7 +57,7 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 
@@ -65,7 +65,7 @@ Gets details of a single cycle
 import EndoflifeDate from 'endoflife-date';
 
 let apiInstance = new EndoflifeDate.DefaultApi();
-let product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website
+let product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website.
 let cycle = "cycle_example"; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 apiInstance.getApiProductCycleJson(product, cycle, (error, data, response) => {
   if (error) {
@@ -81,7 +81,7 @@ apiInstance.getApiProductCycleJson(product, cycle, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website. | 
  **cycle** | **String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
@@ -112,7 +112,7 @@ Get EoL dates of all cycles of a given product.
 import EndoflifeDate from 'endoflife-date';
 
 let apiInstance = new EndoflifeDate.DefaultApi();
-let product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website
+let product = "product_example"; // String | Product URL as per the canonical URL on the endofife.date website.
 apiInstance.getApiProductJson(product, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -127,7 +127,7 @@ apiInstance.getApiProductJson(product, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **String**| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website. | 
 
 ### Return type
 

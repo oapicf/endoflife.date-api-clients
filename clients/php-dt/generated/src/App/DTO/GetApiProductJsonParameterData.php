@@ -11,7 +11,7 @@ use Articus\DataTransfer\Annotation as DTA;
 class GetApiProductJsonParameterData
 {
     /**
-     * Product URL as per the canonical URL on the endofife.date website
+     * Product URL as per the canonical URL on the endofife.date website.
      * @DTA\Data(subset="path", field="product")
      * @DTA\Strategy(subset="path", name="QueryStringScalar", options={"type":"string"})
      * @DTA\Validator(subset="path", name="QueryStringScalar", options={"type":"string"})

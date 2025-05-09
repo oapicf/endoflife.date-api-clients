@@ -1,5 +1,5 @@
 package models
 
-// CycleEol - End of Life Date for this release cycle
+// CycleEol - End-of-Life date for this release cycle.
 type CycleEol struct {
 }

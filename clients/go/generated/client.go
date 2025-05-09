@@ -1,7 +1,7 @@
 /*
 endoflife.date
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
 API version: 0.0.1
 Contact: blah+oapicf@cliffano.com
@@ -128,6 +128,10 @@ func typeCheckParameter(obj interface{}, expected string, name string) error {
 
 func parameterValueToString( obj interface{}, key string ) string {
 	if reflect.TypeOf(obj).Kind() != reflect.Ptr {
+		if actualObj, ok := obj.(interface{ GetActualInstanceValue() interface{} }); ok {
+			return fmt.Sprintf("%v", actualObj.GetActualInstanceValue())
+		}
+
 		return fmt.Sprintf("%v", obj)
 	}
 	var param,ok = obj.(MappedNullable)

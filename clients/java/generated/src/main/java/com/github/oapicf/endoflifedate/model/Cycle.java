@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -55,44 +55,52 @@ import com.github.oapicf.endoflifedate.JSON;
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-04T23:46:50.090152017Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-09T11:49:02.743168284Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class Cycle {
   public static final String SERIALIZED_NAME_CYCLE = "cycle";
   @SerializedName(SERIALIZED_NAME_CYCLE)
+  @javax.annotation.Nullable
   private CycleCycle cycle;
 
   public static final String SERIALIZED_NAME_RELEASE_DATE = "releaseDate";
   @SerializedName(SERIALIZED_NAME_RELEASE_DATE)
+  @javax.annotation.Nullable
   private LocalDate releaseDate;
 
   public static final String SERIALIZED_NAME_EOL = "eol";
   @SerializedName(SERIALIZED_NAME_EOL)
+  @javax.annotation.Nullable
   private CycleEol eol;
 
   public static final String SERIALIZED_NAME_LATEST = "latest";
   @SerializedName(SERIALIZED_NAME_LATEST)
+  @javax.annotation.Nullable
   private String latest;
 
   public static final String SERIALIZED_NAME_LINK = "link";
   @SerializedName(SERIALIZED_NAME_LINK)
+  @javax.annotation.Nullable
   private String link;
 
   public static final String SERIALIZED_NAME_LTS = "lts";
   @SerializedName(SERIALIZED_NAME_LTS)
+  @javax.annotation.Nullable
   private CycleLts lts;
 
   public static final String SERIALIZED_NAME_SUPPORT = "support";
   @SerializedName(SERIALIZED_NAME_SUPPORT)
+  @javax.annotation.Nullable
   private CycleSupport support;
 
   public static final String SERIALIZED_NAME_DISCONTINUED = "discontinued";
   @SerializedName(SERIALIZED_NAME_DISCONTINUED)
+  @javax.annotation.Nullable
   private CycleDiscontinued discontinued;
 
   public Cycle() {
   }
 
-  public Cycle cycle(CycleCycle cycle) {
+  public Cycle cycle(@javax.annotation.Nullable CycleCycle cycle) {
     this.cycle = cycle;
     return this;
   }
@@ -106,18 +114,18 @@ public class Cycle {
     return cycle;
   }
 
-  public void setCycle(CycleCycle cycle) {
+  public void setCycle(@javax.annotation.Nullable CycleCycle cycle) {
     this.cycle = cycle;
   }
 
 
-  public Cycle releaseDate(LocalDate releaseDate) {
+  public Cycle releaseDate(@javax.annotation.Nullable LocalDate releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
 
   /**
-   * Release Date for the first release in this cycle
+   * Release date for the first release in this cycle.
    * @return releaseDate
    */
   @javax.annotation.Nullable
@@ -125,12 +133,12 @@ public class Cycle {
     return releaseDate;
   }
 
-  public void setReleaseDate(LocalDate releaseDate) {
+  public void setReleaseDate(@javax.annotation.Nullable LocalDate releaseDate) {
     this.releaseDate = releaseDate;
   }
 
 
-  public Cycle eol(CycleEol eol) {
+  public Cycle eol(@javax.annotation.Nullable CycleEol eol) {
     this.eol = eol;
     return this;
   }
@@ -144,18 +152,18 @@ public class Cycle {
     return eol;
   }
 
-  public void setEol(CycleEol eol) {
+  public void setEol(@javax.annotation.Nullable CycleEol eol) {
     this.eol = eol;
   }
 
 
-  public Cycle latest(String latest) {
+  public Cycle latest(@javax.annotation.Nullable String latest) {
     this.latest = latest;
     return this;
   }
 
   /**
-   * Latest release in this cycle
+   * Latest release in this cycle.
    * @return latest
    */
   @javax.annotation.Nullable
@@ -163,18 +171,18 @@ public class Cycle {
     return latest;
   }
 
-  public void setLatest(String latest) {
+  public void setLatest(@javax.annotation.Nullable String latest) {
     this.latest = latest;
   }
 
 
-  public Cycle link(String link) {
+  public Cycle link(@javax.annotation.Nullable String link) {
     this.link = link;
     return this;
   }
 
   /**
-   * Link to changelog for the latest release, if available
+   * Link to changelog for the latest release in this cycle, or null if unavailable.
    * @return link
    */
   @javax.annotation.Nullable
@@ -182,12 +190,12 @@ public class Cycle {
     return link;
   }
 
-  public void setLink(String link) {
+  public void setLink(@javax.annotation.Nullable String link) {
     this.link = link;
   }
 
 
-  public Cycle lts(CycleLts lts) {
+  public Cycle lts(@javax.annotation.Nullable CycleLts lts) {
     this.lts = lts;
     return this;
   }
@@ -201,12 +209,12 @@ public class Cycle {
     return lts;
   }
 
-  public void setLts(CycleLts lts) {
+  public void setLts(@javax.annotation.Nullable CycleLts lts) {
     this.lts = lts;
   }
 
 
-  public Cycle support(CycleSupport support) {
+  public Cycle support(@javax.annotation.Nullable CycleSupport support) {
     this.support = support;
     return this;
   }
@@ -220,12 +228,12 @@ public class Cycle {
     return support;
   }
 
-  public void setSupport(CycleSupport support) {
+  public void setSupport(@javax.annotation.Nullable CycleSupport support) {
     this.support = support;
   }
 
 
-  public Cycle discontinued(CycleDiscontinued discontinued) {
+  public Cycle discontinued(@javax.annotation.Nullable CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
     return this;
   }
@@ -239,7 +247,7 @@ public class Cycle {
     return discontinued;
   }
 
-  public void setDiscontinued(CycleDiscontinued discontinued) {
+  public void setDiscontinued(@javax.annotation.Nullable CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 

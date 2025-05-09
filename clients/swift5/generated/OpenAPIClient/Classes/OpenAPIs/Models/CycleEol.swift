@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** End of Life Date for this release cycle */
+/** End-of-Life date for this release cycle. */
 public struct CycleEol: Codable, JSONEncodable, Hashable {
 
 

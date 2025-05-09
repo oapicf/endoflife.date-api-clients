@@ -18,7 +18,7 @@ DefaultAPI_getApiAllJson(apiClient_t *apiClient);
 
 // Single cycle details
 //
-// Gets details of a single cycle
+// Gets details of a single cycle.
 //
 cycle_t*
 DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *cycle);

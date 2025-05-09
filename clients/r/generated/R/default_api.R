@@ -1,6 +1,6 @@
 #' endoflife.date
 #'
-#' Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+#' Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 #'
 #' The version of the OpenAPI document: 0.0.1
 #' Contact: blah+oapicf@cliffano.com
@@ -30,7 +30,7 @@
 #' ####################  GetApiProductCycleJson  ####################
 #'
 #' library(openapi)
-#' var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website
+#' var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website.
 #' var_cycle <- "cycle_example" # character | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 #'
 #' #Single cycle details
@@ -45,7 +45,7 @@
 #' ####################  GetApiProductJson  ####################
 #'
 #' library(openapi)
-#' var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website
+#' var_product <- "product_example" # character | Product URL as per the canonical URL on the endofife.date website.
 #'
 #' #Get All Details
 #' api_instance <- DefaultApi$new()
@@ -87,13 +87,13 @@ DefaultApi <- R6::R6Class(
     GetApiAllJson = function(data_file = NULL, ...) {
       local_var_response <- self$GetApiAllJsonWithHttpInfo(data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
-        local_var_response$content
+        return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
-        local_var_response
+        return(local_var_response)
       } else if (local_var_response$status_code >= 400 && local_var_response$status_code <= 499) {
-        local_var_response
+        return(local_var_response)
       } else if (local_var_response$status_code >= 500 && local_var_response$status_code <= 599) {
-        local_var_response
+        return(local_var_response)
       }
     },
 
@@ -138,18 +138,21 @@ DefaultApi <- R6::R6Class(
       if (local_var_resp$status_code >= 200 && local_var_resp$status_code <= 299) {
         # save response in a file
         if (!is.null(data_file)) {
-          write(local_var_resp$response, data_file)
+          self$api_client$WriteFile(local_var_resp, data_file)
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response_as_text(), "array[character]", loadNamespace("openapi")),
+          self$api_client$DeserializeResponse(local_var_resp, "array[character]"),
           error = function(e) {
             stop("Failed to deserialize response")
           }
         )
         local_var_resp$content <- deserialized_resp_obj
-        local_var_resp
-      } else if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
+        return(local_var_resp)
+      } 
+      
+      local_var_error_msg <- local_var_resp$response_as_text()      
+      if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
         ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
         ApiResponse$new("API client error", local_var_resp)
@@ -157,14 +160,14 @@ DefaultApi <- R6::R6Class(
         if (is.null(local_var_resp$response) || local_var_resp$response == "") {
           local_var_resp$response <- "API server error"
         }
-        local_var_resp
+        return(local_var_resp)
       }
     },
 
     #' @description
     #' Single cycle details
     #'
-    #' @param product Product URL as per the canonical URL on the endofife.date website
+    #' @param product Product URL as per the canonical URL on the endofife.date website.
     #' @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
@@ -173,20 +176,20 @@ DefaultApi <- R6::R6Class(
     GetApiProductCycleJson = function(product, cycle, data_file = NULL, ...) {
       local_var_response <- self$GetApiProductCycleJsonWithHttpInfo(product, cycle, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
-        local_var_response$content
+        return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
-        local_var_response
+        return(local_var_response)
       } else if (local_var_response$status_code >= 400 && local_var_response$status_code <= 499) {
-        local_var_response
+        return(local_var_response)
       } else if (local_var_response$status_code >= 500 && local_var_response$status_code <= 599) {
-        local_var_response
+        return(local_var_response)
       }
     },
 
     #' @description
     #' Single cycle details
     #'
-    #' @param product Product URL as per the canonical URL on the endofife.date website
+    #' @param product Product URL as per the canonical URL on the endofife.date website.
     #' @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
@@ -244,18 +247,21 @@ DefaultApi <- R6::R6Class(
       if (local_var_resp$status_code >= 200 && local_var_resp$status_code <= 299) {
         # save response in a file
         if (!is.null(data_file)) {
-          write(local_var_resp$response, data_file)
+          self$api_client$WriteFile(local_var_resp, data_file)
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response_as_text(), "Cycle", loadNamespace("openapi")),
+          self$api_client$DeserializeResponse(local_var_resp, "Cycle"),
           error = function(e) {
             stop("Failed to deserialize response")
           }
         )
         local_var_resp$content <- deserialized_resp_obj
-        local_var_resp
-      } else if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
+        return(local_var_resp)
+      } 
+      
+      local_var_error_msg <- local_var_resp$response_as_text()      
+      if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
         ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
         ApiResponse$new("API client error", local_var_resp)
@@ -263,14 +269,14 @@ DefaultApi <- R6::R6Class(
         if (is.null(local_var_resp$response) || local_var_resp$response == "") {
           local_var_resp$response <- "API server error"
         }
-        local_var_resp
+        return(local_var_resp)
       }
     },
 
     #' @description
     #' Get All Details
     #'
-    #' @param product Product URL as per the canonical URL on the endofife.date website
+    #' @param product Product URL as per the canonical URL on the endofife.date website.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #'
@@ -278,20 +284,20 @@ DefaultApi <- R6::R6Class(
     GetApiProductJson = function(product, data_file = NULL, ...) {
       local_var_response <- self$GetApiProductJsonWithHttpInfo(product, data_file = data_file, ...)
       if (local_var_response$status_code >= 200 && local_var_response$status_code <= 299) {
-        local_var_response$content
+        return(local_var_response$content)
       } else if (local_var_response$status_code >= 300 && local_var_response$status_code <= 399) {
-        local_var_response
+        return(local_var_response)
       } else if (local_var_response$status_code >= 400 && local_var_response$status_code <= 499) {
-        local_var_response
+        return(local_var_response)
       } else if (local_var_response$status_code >= 500 && local_var_response$status_code <= 599) {
-        local_var_response
+        return(local_var_response)
       }
     },
 
     #' @description
     #' Get All Details
     #'
-    #' @param product Product URL as per the canonical URL on the endofife.date website
+    #' @param product Product URL as per the canonical URL on the endofife.date website.
     #' @param data_file (optional) name of the data file to save the result
     #' @param ... Other optional arguments
     #'
@@ -339,18 +345,21 @@ DefaultApi <- R6::R6Class(
       if (local_var_resp$status_code >= 200 && local_var_resp$status_code <= 299) {
         # save response in a file
         if (!is.null(data_file)) {
-          write(local_var_resp$response, data_file)
+          self$api_client$WriteFile(local_var_resp, data_file)
         }
 
         deserialized_resp_obj <- tryCatch(
-          self$api_client$deserialize(local_var_resp$response_as_text(), "array[Cycle]", loadNamespace("openapi")),
+          self$api_client$DeserializeResponse(local_var_resp, "array[Cycle]"),
           error = function(e) {
             stop("Failed to deserialize response")
           }
         )
         local_var_resp$content <- deserialized_resp_obj
-        local_var_resp
-      } else if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
+        return(local_var_resp)
+      } 
+      
+      local_var_error_msg <- local_var_resp$response_as_text()      
+      if (local_var_resp$status_code >= 300 && local_var_resp$status_code <= 399) {
         ApiResponse$new(paste("Server returned ", local_var_resp$status_code, " response status code."), local_var_resp)
       } else if (local_var_resp$status_code >= 400 && local_var_resp$status_code <= 499) {
         ApiResponse$new("API client error", local_var_resp)
@@ -358,7 +367,7 @@ DefaultApi <- R6::R6Class(
         if (is.null(local_var_resp$response) || local_var_resp$response == "") {
           local_var_resp$response <- "API server error"
         }
-        local_var_resp
+        return(local_var_resp)
       }
     }
   )

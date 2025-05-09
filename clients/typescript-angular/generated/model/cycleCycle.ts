@@ -10,7 +10,7 @@
 
 
 /**
- * Release Cycle
+ * The release cycle which this release is part of.
  */
 export interface CycleCycle { 
 }

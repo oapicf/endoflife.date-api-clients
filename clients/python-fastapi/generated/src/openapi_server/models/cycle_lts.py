@@ -3,7 +3,7 @@
 """
     endoflife.date
 
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
     The version of the OpenAPI document: 0.0.1
     Contact: blah+oapicf@cliffano.com
@@ -35,13 +35,13 @@ CYCLELTS_ANY_OF_SCHEMAS = ["bool", "str"]
 
 class CycleLts(BaseModel):
     """
-    Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+    Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
     """
 
-    # data type: bool
-    anyof_schema_1_validator: Optional[StrictBool] = None
     # data type: str
-    anyof_schema_2_validator: Optional[StrictStr] = None
+    anyof_schema_1_validator: Optional[StrictStr] = None
+    # data type: bool
+    anyof_schema_2_validator: Optional[StrictBool] = None
     if TYPE_CHECKING:
         actual_instance: Optional[Union[bool, str]] = None
     else:
@@ -67,13 +67,13 @@ class CycleLts(BaseModel):
     def actual_instance_must_validate_anyof(cls, v):
         instance = CycleLts.model_construct()
         error_messages = []
-        # validate data type: bool
+        # validate data type: str
         try:
             instance.anyof_schema_1_validator = v
             return v
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # validate data type: str
+        # validate data type: bool
         try:
             instance.anyof_schema_2_validator = v
             return v
@@ -94,7 +94,7 @@ class CycleLts(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        # deserialize data into bool
+        # deserialize data into str
         try:
             # validation
             instance.anyof_schema_1_validator = json.loads(json_str)
@@ -103,7 +103,7 @@ class CycleLts(BaseModel):
             return instance
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into str
+        # deserialize data into bool
         try:
             # validation
             instance.anyof_schema_2_validator = json.loads(json_str)

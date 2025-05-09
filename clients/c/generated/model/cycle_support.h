@@ -1,7 +1,7 @@
 /*
  * cycle_support.h
  *
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  */
 
 #ifndef _cycle_support_H_
@@ -20,9 +20,10 @@ typedef struct cycle_support_t cycle_support_t;
 
 typedef struct cycle_support_t {
 
+    int _library_owned; // Is the library responsible for freeing this object?
 } cycle_support_t;
 
-cycle_support_t *cycle_support_create(
+__attribute__((deprecated)) cycle_support_t *cycle_support_create(
 );
 
 void cycle_support_free(cycle_support_t *cycle_support);

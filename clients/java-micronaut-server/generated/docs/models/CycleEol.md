@@ -2,7 +2,7 @@
 
 # CycleEol
 
-End of Life Date for this release cycle
+End-of-Life date for this release cycle.
 
 The class is defined in **[CycleEol.java](../../src/main/java/org/openapitools/model/CycleEol.java)**
 

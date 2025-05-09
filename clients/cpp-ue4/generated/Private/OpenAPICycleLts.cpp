@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * OpenAPI spec version: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -22,20 +22,12 @@ namespace OpenAPI
 
 void OpenAPICycleLts::WriteJson(JsonWriter& Writer) const
 {
-	Writer->WriteObjectStart();
-	Writer->WriteObjectEnd();
+	WriteJsonValue(Writer, Value);
 }
 
 bool OpenAPICycleLts::FromJson(const TSharedPtr<FJsonValue>& JsonValue)
 {
-	const TSharedPtr<FJsonObject>* Object;
-	if (!JsonValue->TryGetObject(Object))
-		return false;
-
-	bool ParseSuccess = true;
-
-
-	return ParseSuccess;
+	return TryGetJsonValue(JsonValue, Value);
 }
 
 }

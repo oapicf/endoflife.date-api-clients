@@ -2,7 +2,6 @@
 .github/workflows/r-client.yaml
 .gitignore
 .lintr
-.openapi-generator-ignore
 .travis.yml
 DESCRIPTION
 NAMESPACE
@@ -25,10 +24,3 @@ docs/CycleSupport.md
 docs/DefaultApi.md
 git_push.sh
 tests/testthat.R
-tests/testthat/test_cycle.R
-tests/testthat/test_cycle_cycle.R
-tests/testthat/test_cycle_discontinued.R
-tests/testthat/test_cycle_eol.R
-tests/testthat/test_cycle_lts.R
-tests/testthat/test_cycle_support.R
-tests/testthat/test_default_api.R

@@ -1,6 +1,6 @@
 {-
    endoflife.date
-   Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+   Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
    The version of the OpenAPI document: 0.0.1
    Contact: blah+oapicf@cliffano.com
@@ -59,31 +59,31 @@ type alias Cycle =
     }
 
 
-{-| Release Cycle
+{-| The release cycle which this release is part of.
 -}
 type alias CycleCycle =
     { }
 
 
-{-| Whether this cycle is now discontinued.
+{-| Whether this device version is no longer in production.
 -}
 type alias CycleDiscontinued =
     { }
 
 
-{-| End of Life Date for this release cycle
+{-| End-of-Life date for this release cycle.
 -}
 type alias CycleEol =
     { }
 
 
-{-| Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+{-| Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
 -}
 type alias CycleLts =
     { }
 
 
-{-| Whether this release cycle has active support
+{-| Whether this release cycle has active support.
 -}
 type alias CycleSupport =
     { }

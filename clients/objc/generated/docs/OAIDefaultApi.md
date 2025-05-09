@@ -64,12 +64,12 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 ```objc
 
-NSString* product = @"product_example"; // Product URL as per the canonical URL on the endofife.date website
+NSString* product = @"product_example"; // Product URL as per the canonical URL on the endofife.date website.
 NSString* cycle = @"cycle_example"; // Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
@@ -91,7 +91,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **NSString***| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **NSString***| Product URL as per the canonical URL on the endofife.date website. | 
  **cycle** | **NSString***| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
@@ -122,7 +122,7 @@ Get EoL dates of all cycles of a given product.
 ### Example
 ```objc
 
-NSString* product = @"product_example"; // Product URL as per the canonical URL on the endofife.date website
+NSString* product = @"product_example"; // Product URL as per the canonical URL on the endofife.date website.
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
@@ -142,7 +142,7 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **NSString***| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **NSString***| Product URL as per the canonical URL on the endofife.date website. | 
 
 ### Return type
 

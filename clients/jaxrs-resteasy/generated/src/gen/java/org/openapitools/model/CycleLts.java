@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2024-11-04T23:49:41.956731512Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@ApiModel(description="Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2025-05-09T11:49:28.972231658Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleLts   {
   
 

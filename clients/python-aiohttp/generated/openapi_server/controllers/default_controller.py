@@ -18,9 +18,9 @@ async def get_api_all_json(request: web.Request, ) -> web.Response:
 async def get_api_product_cycle_json(request: web.Request, product, cycle) -> web.Response:
     """Single cycle details
 
-    Gets details of a single cycle
+    Gets details of a single cycle.
 
-    :param product: Product URL as per the canonical URL on the endofife.date website
+    :param product: Product URL as per the canonical URL on the endofife.date website.
     :type product: str
     :param cycle: Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
     :type cycle: str
@@ -34,7 +34,7 @@ async def get_api_product_json(request: web.Request, product) -> web.Response:
 
     Get EoL dates of all cycles of a given product.
 
-    :param product: Product URL as per the canonical URL on the endofife.date website
+    :param product: Product URL as per the canonical URL on the endofife.date website.
     :type product: str
 
     """

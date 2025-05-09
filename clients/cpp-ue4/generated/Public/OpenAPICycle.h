@@ -1,6 +1,6 @@
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * OpenAPI spec version: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -35,12 +35,12 @@ public:
 	void WriteJson(JsonWriter& Writer) const final;
 
 	TOptional<OpenAPICycleCycle> Cycle;
-	/* Release Date for the first release in this cycle */
+	/* Release date for the first release in this cycle. */
 	TOptional<FDateTime> ReleaseDate;
 	TOptional<OpenAPICycleEol> Eol;
-	/* Latest release in this cycle */
+	/* Latest release in this cycle. */
 	TOptional<FString> Latest;
-	/* Link to changelog for the latest release, if available */
+	/* Link to changelog for the latest release in this cycle, or null if unavailable. */
 	TOptional<FString> Link;
 	TOptional<OpenAPICycleLts> Lts;
 	TOptional<OpenAPICycleSupport> Support;

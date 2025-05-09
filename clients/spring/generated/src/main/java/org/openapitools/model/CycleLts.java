@@ -14,12 +14,12 @@ import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. 
+ * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
  */
 
-@Schema(name = "cycle_lts", description = "Whether this release cycle has long-term-support (LTS). Can be a date instead in YYYY-MM-DD format as well if the release enters LTS status on a given date. ")
+@Schema(name = "cycle_lts", description = "Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.")
 @JsonTypeName("cycle_lts")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-11-05T00:02:26.954733642Z[Etc/UTC]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-09T11:50:43.381361653Z[Etc/UTC]", comments = "Generator version: 7.12.0")
 public class CycleLts {
 
   @Override

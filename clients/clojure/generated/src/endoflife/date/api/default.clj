@@ -38,7 +38,7 @@
 
 (defn-spec get-api-product-cycle-json-with-http-info any?
   "Single cycle details
-  Gets details of a single cycle"
+  Gets details of a single cycle."
   [product string?, cycle string?]
   (check-required-params product cycle)
   (call-api "/api/{product}/{cycle}.json" :get
@@ -52,7 +52,7 @@
 
 (defn-spec get-api-product-cycle-json cycle-spec
   "Single cycle details
-  Gets details of a single cycle"
+  Gets details of a single cycle."
   [product string?, cycle string?]
   (let [res (:data (get-api-product-cycle-json-with-http-info product cycle))]
     (if (:decode-models *api-context*)

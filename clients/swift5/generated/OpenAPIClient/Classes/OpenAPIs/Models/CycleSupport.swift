@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Whether this release cycle has active support */
+/** Whether this release cycle has active support. */
 public struct CycleSupport: Codable, JSONEncodable, Hashable {
 
 

@@ -107,7 +107,7 @@ class Cycle(Model):
     def release_date(self) -> date:
         """Gets the release_date of this Cycle.
 
-        Release Date for the first release in this cycle  # noqa: E501
+        Release date for the first release in this cycle.  # noqa: E501
 
         :return: The release_date of this Cycle.
         :rtype: date
@@ -118,7 +118,7 @@ class Cycle(Model):
     def release_date(self, release_date: date):
         """Sets the release_date of this Cycle.
 
-        Release Date for the first release in this cycle  # noqa: E501
+        Release date for the first release in this cycle.  # noqa: E501
 
         :param release_date: The release_date of this Cycle.
         :type release_date: date
@@ -155,7 +155,7 @@ class Cycle(Model):
     def latest(self) -> str:
         """Gets the latest of this Cycle.
 
-        Latest release in this cycle  # noqa: E501
+        Latest release in this cycle.  # noqa: E501
 
         :return: The latest of this Cycle.
         :rtype: str
@@ -166,7 +166,7 @@ class Cycle(Model):
     def latest(self, latest: str):
         """Sets the latest of this Cycle.
 
-        Latest release in this cycle  # noqa: E501
+        Latest release in this cycle.  # noqa: E501
 
         :param latest: The latest of this Cycle.
         :type latest: str
@@ -180,7 +180,7 @@ class Cycle(Model):
     def link(self) -> str:
         """Gets the link of this Cycle.
 
-        Link to changelog for the latest release, if available  # noqa: E501
+        Link to changelog for the latest release in this cycle, or null if unavailable.  # noqa: E501
 
         :return: The link of this Cycle.
         :rtype: str
@@ -191,7 +191,7 @@ class Cycle(Model):
     def link(self, link: str):
         """Sets the link of this Cycle.
 
-        Link to changelog for the latest release, if available  # noqa: E501
+        Link to changelog for the latest release in this cycle, or null if unavailable.  # noqa: E501
 
         :param link: The link of this Cycle.
         :type link: str

@@ -1,5 +1,5 @@
 package models
 
-// CycleSupport - Whether this release cycle has active support
+// CycleSupport - Whether this release cycle has active support.
 type CycleSupport struct {
 }

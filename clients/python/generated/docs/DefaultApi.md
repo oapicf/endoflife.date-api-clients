@@ -77,7 +77,7 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 
@@ -99,7 +99,7 @@ configuration = endoflifedate.Configuration(
 with endoflifedate.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = endoflifedate.DefaultApi(api_client)
-    product = 'product_example' # str | Product URL as per the canonical URL on the endofife.date website
+    product = 'product_example' # str | Product URL as per the canonical URL on the endofife.date website.
     cycle = 'cycle_example' # str | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
     try:
@@ -118,7 +118,7 @@ with endoflifedate.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **str**| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **str**| Product URL as per the canonical URL on the endofife.date website. | 
  **cycle** | **str**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
@@ -169,7 +169,7 @@ configuration = endoflifedate.Configuration(
 with endoflifedate.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = endoflifedate.DefaultApi(api_client)
-    product = 'product_example' # str | Product URL as per the canonical URL on the endofife.date website
+    product = 'product_example' # str | Product URL as per the canonical URL on the endofife.date website.
 
     try:
         # Get All Details
@@ -187,7 +187,7 @@ with endoflifedate.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **str**| Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **str**| Product URL as per the canonical URL on the endofife.date website. | 
 
 ### Return type
 

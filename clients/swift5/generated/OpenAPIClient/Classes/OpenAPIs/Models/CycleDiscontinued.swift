@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Whether this cycle is now discontinued. */
+/** Whether this device version is no longer in production. */
 public struct CycleDiscontinued: Codable, JSONEncodable, Hashable {
 
 

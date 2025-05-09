@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
     s.summary          = "endoflife.date"
     s.description      = <<-DESC
-                         Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+                         Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
                          DESC
 
     s.platform     = :ios, '7.0'

@@ -22,7 +22,7 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 <a name="GetApiProductJson"></a>
 # **GetApiProductJson**
 > Cycle GetApiProductJson(product)

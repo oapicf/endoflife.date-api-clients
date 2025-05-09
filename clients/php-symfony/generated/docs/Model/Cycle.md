@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cycle** | [**OpenAPI\Server\Model\CycleCycle**](CycleCycle.md) |  | [optional] 
-**releaseDate** | [**\DateTime**](Date.md) | Release Date for the first release in this cycle | [optional] 
+**releaseDate** | [**\DateTime**](Date.md) | Release date for the first release in this cycle. | [optional] 
 **eol** | [**OpenAPI\Server\Model\CycleEol**](CycleEol.md) |  | [optional] 
-**latest** | **string** | Latest release in this cycle | [optional] 
-**link** | **string** | Link to changelog for the latest release, if available | [optional] 
+**latest** | **string** | Latest release in this cycle. | [optional] 
+**link** | **string** | Link to changelog for the latest release in this cycle, or null if unavailable. | [optional] 
 **lts** | [**OpenAPI\Server\Model\CycleLts**](CycleLts.md) |  | [optional] 
 **support** | [**OpenAPI\Server\Model\CycleSupport**](CycleSupport.md) |  | [optional] 
 **discontinued** | [**OpenAPI\Server\Model\CycleDiscontinued**](CycleDiscontinued.md) |  | [optional] 

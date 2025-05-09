@@ -58,7 +58,7 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 
@@ -67,7 +67,7 @@ Gets details of a single cycle
 //import org.openapitools.client.api.DefaultApi;
 
 DefaultApi apiInstance = new DefaultApi();
-String product = null; // String | Product URL as per the canonical URL on the endofife.date website
+String product = null; // String | Product URL as per the canonical URL on the endofife.date website.
 String cycle = null; // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 try {
     Cycle result = apiInstance.getApiProductCycleJson(product, cycle);
@@ -83,7 +83,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **String**| Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website. | [default to null]
  **cycle** | **String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | [default to null]
 
 ### Return type
@@ -115,7 +115,7 @@ Get EoL dates of all cycles of a given product.
 //import org.openapitools.client.api.DefaultApi;
 
 DefaultApi apiInstance = new DefaultApi();
-String product = null; // String | Product URL as per the canonical URL on the endofife.date website
+String product = null; // String | Product URL as per the canonical URL on the endofife.date website.
 try {
     List<Cycle> result = apiInstance.getApiProductJson(product);
     System.out.println(result);
@@ -130,7 +130,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **String**| Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **product** | **String**| Product URL as per the canonical URL on the endofife.date website. | [default to null]
 
 ### Return type
 

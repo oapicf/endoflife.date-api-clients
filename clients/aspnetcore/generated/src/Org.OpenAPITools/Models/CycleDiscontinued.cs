@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -21,7 +21,7 @@ using Org.OpenAPITools.Converters;
 namespace Org.OpenAPITools.Models
 { 
     /// <summary>
-    /// Whether this cycle is now discontinued.
+    /// Whether this device version is no longer in production.
     /// </summary>
     [DataContract]
     public partial class CycleDiscontinued : IEquatable<CycleDiscontinued>

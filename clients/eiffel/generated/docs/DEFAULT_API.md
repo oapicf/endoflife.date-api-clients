@@ -42,14 +42,14 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **STRING_32**| Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **product** | **STRING_32**| Product URL as per the canonical URL on the endofife.date website. | [default to null]
  **cycle** | **STRING_32**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | [default to null]
 
 ### Return type
@@ -80,7 +80,7 @@ Get EoL dates of all cycles of a given product.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **STRING_32**| Product URL as per the canonical URL on the endofife.date website | [default to null]
+ **product** | **STRING_32**| Product URL as per the canonical URL on the endofife.date website. | [default to null]
 
 ### Return type
 

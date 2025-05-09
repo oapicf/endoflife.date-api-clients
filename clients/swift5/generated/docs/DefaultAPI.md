@@ -62,14 +62,14 @@ No authorization required
 
 Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let product = "product_example" // String | Product URL as per the canonical URL on the endofife.date website
+let product = "product_example" // String | Product URL as per the canonical URL on the endofife.date website.
 let cycle = "cycle_example" // String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
 
 // Single cycle details
@@ -89,7 +89,7 @@ DefaultAPI.getApiProductCycleJson(product: product, cycle: cycle) { (response, e
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **String** | Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **String** | Product URL as per the canonical URL on the endofife.date website. | 
  **cycle** | **String** | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | 
 
 ### Return type
@@ -121,7 +121,7 @@ Get EoL dates of all cycles of a given product.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let product = "product_example" // String | Product URL as per the canonical URL on the endofife.date website
+let product = "product_example" // String | Product URL as per the canonical URL on the endofife.date website.
 
 // Get All Details
 DefaultAPI.getApiProductJson(product: product) { (response, error) in
@@ -140,7 +140,7 @@ DefaultAPI.getApiProductJson(product: product) { (response, error) in
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | **String** | Product URL as per the canonical URL on the endofife.date website | 
+ **product** | **String** | Product URL as per the canonical URL on the endofife.date website. | 
 
 ### Return type
 

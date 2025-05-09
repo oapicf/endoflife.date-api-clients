@@ -27,7 +27,7 @@ MyApp.add_route('GET', '/api/{product}.json', {
   "parameters" => [
     {
       "name" => "product",
-      "description" => "Product URL as per the canonical URL on the endofife.date website",
+      "description" => "Product URL as per the canonical URL on the endofife.date website.",
       "dataType" => "String",
       "paramType" => "path",
     },
@@ -45,11 +45,11 @@ MyApp.add_route('GET', '/api/{product}/{cycle}.json', {
   "nickname" => "get_api_product_cycle/json",
   "responseClass" => "cycle",
   "endpoint" => "/api/{product}/{cycle}.json",
-  "notes" => "Gets details of a single cycle",
+  "notes" => "Gets details of a single cycle.",
   "parameters" => [
     {
       "name" => "product",
-      "description" => "Product URL as per the canonical URL on the endofife.date website",
+      "description" => "Product URL as per the canonical URL on the endofife.date website.",
       "dataType" => "String",
       "paramType" => "path",
     },

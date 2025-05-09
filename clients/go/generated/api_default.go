@@ -1,7 +1,7 @@
 /*
 endoflife.date
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 
 API version: 0.0.1
 Contact: blah+oapicf@cliffano.com
@@ -137,10 +137,10 @@ func (r ApiGetApiProductCycleJsonRequest) Execute() (*Cycle, *http.Response, err
 /*
 GetApiProductCycleJson Single cycle details
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param product Product URL as per the canonical URL on the endofife.date website
+ @param product Product URL as per the canonical URL on the endofife.date website.
  @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
  @return ApiGetApiProductCycleJsonRequest
 */
@@ -246,7 +246,7 @@ GetApiProductJson Get All Details
 Get EoL dates of all cycles of a given product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param product Product URL as per the canonical URL on the endofife.date website
+ @param product Product URL as per the canonical URL on the endofife.date website.
  @return ApiGetApiProductJsonRequest
 */
 func (a *DefaultAPIService) GetApiProductJson(ctx context.Context, product string) ApiGetApiProductJsonRequest {

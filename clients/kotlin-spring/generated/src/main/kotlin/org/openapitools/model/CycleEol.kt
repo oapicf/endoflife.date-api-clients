@@ -13,7 +13,7 @@ import javax.validation.Valid
 import io.swagger.v3.oas.annotations.media.Schema
 
 /**
- * End of Life Date for this release cycle
+ * End-of-Life date for this release cycle.
  */
 class CycleEol(
 

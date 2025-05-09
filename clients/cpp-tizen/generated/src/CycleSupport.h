@@ -1,7 +1,7 @@
 /*
  * Cycle_support.h
  *
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  */
 
 #ifndef _Cycle_support_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief Whether this release cycle has active support
+/*! \brief Whether this release cycle has active support.
  *
  *  \ingroup Models
  *

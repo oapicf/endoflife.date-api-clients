@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Whether this release cycle has active support
+ * Whether this release cycle has active support.
  *
  */
 

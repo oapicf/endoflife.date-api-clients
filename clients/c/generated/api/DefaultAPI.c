@@ -5,11 +5,6 @@
 
 #define MAX_NUMBER_LENGTH 16
 #define MAX_BUFFER_LENGTH 4096
-#define intToStr(dst, src) \
-    do {\
-    char dst[256];\
-    snprintf(dst, 256, "%ld", (long int)(src));\
-}while(0)
 
 
 // All Products
@@ -25,11 +20,14 @@ DefaultAPI_getApiAllJson(apiClient_t *apiClient)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
+
+    // clear the error code from the previous api call
+    apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/api/all.json")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/api/all.json");
+    char *localVarPath = strdup("/api/all.json");
+
 
 
 
@@ -42,6 +40,7 @@ DefaultAPI_getApiAllJson(apiClient_t *apiClient)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
@@ -49,14 +48,17 @@ DefaultAPI_getApiAllJson(apiClient_t *apiClient)
     //    printf("%s\n","OK");
     //}
     //primitive return type not simple
-    cJSON *localVarJSON = cJSON_Parse(apiClient->dataReceived);
-    cJSON *VarJSON;
-    list_t *elementToReturn = list_createList();
-    cJSON_ArrayForEach(VarJSON, localVarJSON){
-        keyValuePair_t *keyPair = keyValuePair_create(strdup(VarJSON->string), cJSON_Print(VarJSON));
-        list_addElement(elementToReturn, keyPair);
+    list_t *elementToReturn = NULL;
+    if(apiClient->response_code >= 200 && apiClient->response_code < 300) {
+        cJSON *localVarJSON = cJSON_Parse(apiClient->dataReceived);
+        cJSON *VarJSON;
+        elementToReturn = list_createList();
+        cJSON_ArrayForEach(VarJSON, localVarJSON){
+            keyValuePair_t *keyPair = keyValuePair_create(strdup(VarJSON->string), cJSON_Print(VarJSON));
+            list_addElement(elementToReturn, keyPair);
+        }
+        cJSON_Delete(localVarJSON);
     }
-    cJSON_Delete(localVarJSON);
 
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
@@ -78,7 +80,7 @@ end:
 
 // Single cycle details
 //
-// Gets details of a single cycle
+// Gets details of a single cycle.
 //
 cycle_t*
 DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *cycle)
@@ -89,15 +91,22 @@ DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *c
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
+
+    // clear the error code from the previous api call
+    apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/api/{product}/{cycle}.json")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/api/{product}/{cycle}.json");
+    char *localVarPath = strdup("/api/{product}/{cycle}.json");
+
+    if(!product)
+        goto end;
+    if(!cycle)
+        goto end;
 
 
     // Path Params
-    long sizeOfPathParams_product = strlen(product)+3 + strlen(cycle)+3 + strlen("{ product }");
+    long sizeOfPathParams_product = strlen(product)+3 + strlen(cycle)+3 + sizeof("{ product }") - 1;
     if(product == NULL) {
         goto end;
     }
@@ -107,7 +116,7 @@ DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *c
     localVarPath = strReplace(localVarPath, localVarToReplace_product, product);
 
     // Path Params
-    long sizeOfPathParams_cycle = strlen(product)+3 + strlen(cycle)+3 + strlen("{ cycle }");
+    long sizeOfPathParams_cycle = strlen(product)+3 + strlen(cycle)+3 + sizeof("{ cycle }") - 1;
     if(cycle == NULL) {
         goto end;
     }
@@ -126,6 +135,7 @@ DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *c
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
@@ -133,11 +143,14 @@ DefaultAPI_getApiProductCycleJson(apiClient_t *apiClient, char *product, char *c
     //    printf("%s\n","OK");
     //}
     //nonprimitive not container
-    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    cycle_t *elementToReturn = cycle_parseFromJSON(DefaultAPIlocalVarJSON);
-    cJSON_Delete(DefaultAPIlocalVarJSON);
-    if(elementToReturn == NULL) {
-        // return 0;
+    cycle_t *elementToReturn = NULL;
+    if(apiClient->response_code >= 200 && apiClient->response_code < 300) {
+        cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+        elementToReturn = cycle_parseFromJSON(DefaultAPIlocalVarJSON);
+        cJSON_Delete(DefaultAPIlocalVarJSON);
+        if(elementToReturn == NULL) {
+            // return 0;
+        }
     }
 
     //return type
@@ -174,15 +187,20 @@ DefaultAPI_getApiProductJson(apiClient_t *apiClient, char *product)
     list_t *localVarHeaderType = list_createList();
     list_t *localVarContentType = NULL;
     char      *localVarBodyParameters = NULL;
+    size_t     localVarBodyLength = 0;
+
+    // clear the error code from the previous api call
+    apiClient->response_code = 0;
 
     // create the path
-    long sizeOfPath = strlen("/api/{product}.json")+1;
-    char *localVarPath = malloc(sizeOfPath);
-    snprintf(localVarPath, sizeOfPath, "/api/{product}.json");
+    char *localVarPath = strdup("/api/{product}.json");
+
+    if(!product)
+        goto end;
 
 
     // Path Params
-    long sizeOfPathParams_product = strlen(product)+3 + strlen("{ product }");
+    long sizeOfPathParams_product = strlen(product)+3 + sizeof("{ product }") - 1;
     if(product == NULL) {
         goto end;
     }
@@ -201,30 +219,34 @@ DefaultAPI_getApiProductJson(apiClient_t *apiClient, char *product)
                     localVarHeaderType,
                     localVarContentType,
                     localVarBodyParameters,
+                    localVarBodyLength,
                     "GET");
 
     // uncomment below to debug the error response
     //if (apiClient->response_code == 200) {
     //    printf("%s\n","OK");
     //}
-    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    if(!cJSON_IsArray(DefaultAPIlocalVarJSON)) {
-        return 0;//nonprimitive container
-    }
-    list_t *elementToReturn = list_createList();
-    cJSON *VarJSON;
-    cJSON_ArrayForEach(VarJSON, DefaultAPIlocalVarJSON)
-    {
-        if(!cJSON_IsObject(VarJSON))
-        {
-           // return 0;
+    list_t *elementToReturn = NULL;
+    if(apiClient->response_code >= 200 && apiClient->response_code < 300) {
+        cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+        if(!cJSON_IsArray(DefaultAPIlocalVarJSON)) {
+            return 0;//nonprimitive container
         }
-        char *localVarJSONToChar = cJSON_Print(VarJSON);
-        list_addElement(elementToReturn , localVarJSONToChar);
-    }
+        elementToReturn = list_createList();
+        cJSON *VarJSON;
+        cJSON_ArrayForEach(VarJSON, DefaultAPIlocalVarJSON)
+        {
+            if(!cJSON_IsObject(VarJSON))
+            {
+               // return 0;
+            }
+            char *localVarJSONToChar = cJSON_Print(VarJSON);
+            list_addElement(elementToReturn , localVarJSONToChar);
+        }
 
-    cJSON_Delete( DefaultAPIlocalVarJSON);
-    cJSON_Delete( VarJSON);
+        cJSON_Delete( DefaultAPIlocalVarJSON);
+        cJSON_Delete( VarJSON);
+    }
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);

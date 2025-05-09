@@ -1,6 +1,6 @@
 /**
 * endoflife.date
-* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+* Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
 *
 * The version of the OpenAPI document: 0.0.1
 * Contact: blah+oapicf@cliffano.com
@@ -12,7 +12,7 @@
 /*
  * Cycle_discontinued.h
  *
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  */
 
 #ifndef Cycle_discontinued_H_
@@ -25,7 +25,7 @@ namespace org::openapitools::server::model
 {
 
 /// <summary>
-/// Whether this cycle is now discontinued.
+/// Whether this device version is no longer in production.
 /// </summary>
 class  Cycle_discontinued
 {

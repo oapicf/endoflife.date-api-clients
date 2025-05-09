@@ -58,7 +58,7 @@ No authorization required
 # **getApiProductCycleJson**
 > Cycle getApiProductCycleJson()
 
-Gets details of a single cycle
+Gets details of a single cycle.
 
 ### Example
 
@@ -71,7 +71,7 @@ const configuration = createConfiguration();
 const apiInstance = new DefaultApi(configuration);
 
 const request: DefaultApiGetApiProductCycleJsonRequest = {
-    // Product URL as per the canonical URL on the endofife.date website
+    // Product URL as per the canonical URL on the endofife.date website.
   product: "product_example",
     // Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\'s releng/14.0 becomes releng-14.0.
   cycle: "cycle_example",
@@ -86,7 +86,7 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**string**] | Product URL as per the canonical URL on the endofife.date website | defaults to undefined
+ **product** | [**string**] | Product URL as per the canonical URL on the endofife.date website. | defaults to undefined
  **cycle** | [**string**] | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0. | defaults to undefined
 
 
@@ -127,7 +127,7 @@ const configuration = createConfiguration();
 const apiInstance = new DefaultApi(configuration);
 
 const request: DefaultApiGetApiProductJsonRequest = {
-    // Product URL as per the canonical URL on the endofife.date website
+    // Product URL as per the canonical URL on the endofife.date website.
   product: "product_example",
 };
 
@@ -140,7 +140,7 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **product** | [**string**] | Product URL as per the canonical URL on the endofife.date website | defaults to undefined
+ **product** | [**string**] | Product URL as per the canonical URL on the endofife.date website. | defaults to undefined
 
 
 ### Return type

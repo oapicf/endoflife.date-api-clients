@@ -19,7 +19,7 @@ public class SpringDocConfiguration {
                 .info(
                         new Info()
                                 .title("endoflife.date")
-                                .description("Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)")
+                                .description("Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).")
                                 .contact(
                                         new Contact()
                                                 .name("OpenAPI Clients Factory")

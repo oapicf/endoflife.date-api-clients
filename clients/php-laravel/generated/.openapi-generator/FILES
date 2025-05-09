@@ -1,0 +1,13 @@
+.gitignore
+Api/DefaultApiInterface.php
+Http/Controllers/DefaultController.php
+Model/Cycle.php
+Model/CycleCycle.php
+Model/CycleDiscontinued.php
+Model/CycleEol.php
+Model/CycleLts.php
+Model/CycleSupport.php
+README.md
+composer.json
+phpunit.xml.dist
+routes.php

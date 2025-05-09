@@ -1,6 +1,6 @@
 --  ------------ EDIT NOTE ------------
 --  endoflife.date
---  Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife_date/endoflife.date/wiki)
+--  Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife_date/endoflife.date/wiki).
 --  This file was generated with openapi-generator.  You can modify it to implement
 --  the client.  After you modify this file, you should add the following line
 --  to the .openapi-generator-ignore file:

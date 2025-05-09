@@ -19,7 +19,7 @@ get_api_all_json() ->
   openapi_utils:request(Method, [Host, ?BASE_URL, Path]).
 
 %% @doc Single cycle details
-%% Gets details of a single cycle
+%% Gets details of a single cycle.
 -spec get_api_product_cycle_json(binary(), binary()) ->
   openapi_utils:response().
 get_api_product_cycle_json(Product, Cycle) ->

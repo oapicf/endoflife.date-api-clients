@@ -3,7 +3,7 @@ package org.openapitools.server.api.model;
 import java.util.Objects;
 
 /**
- * Whether this cycle is now discontinued.
+ * Whether this device version is no longer in production.
  **/
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CycleDiscontinued   {

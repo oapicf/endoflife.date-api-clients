@@ -52,8 +52,8 @@ bool getApiAllJsonAsync(char * accessToken,
 
 /*! \brief Single cycle details. *Synchronous*
  *
- * Gets details of a single cycle
- * \param product Product URL as per the canonical URL on the endofife.date website *Required*
+ * Gets details of a single cycle.
+ * \param product Product URL as per the canonical URL on the endofife.date website. *Required*
  * \param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -66,8 +66,8 @@ bool getApiProductCycleJsonSync(char * accessToken,
 
 /*! \brief Single cycle details. *Asynchronous*
  *
- * Gets details of a single cycle
- * \param product Product URL as per the canonical URL on the endofife.date website *Required*
+ * Gets details of a single cycle.
+ * \param product Product URL as per the canonical URL on the endofife.date website. *Required*
  * \param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -82,7 +82,7 @@ bool getApiProductCycleJsonAsync(char * accessToken,
 /*! \brief Get All Details. *Synchronous*
  *
  * Get EoL dates of all cycles of a given product.
- * \param product Product URL as per the canonical URL on the endofife.date website *Required*
+ * \param product Product URL as per the canonical URL on the endofife.date website. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
@@ -95,7 +95,7 @@ bool getApiProductJsonSync(char * accessToken,
 /*! \brief Get All Details. *Asynchronous*
  *
  * Get EoL dates of all cycles of a given product.
- * \param product Product URL as per the canonical URL on the endofife.date website *Required*
+ * \param product Product URL as per the canonical URL on the endofife.date website. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
