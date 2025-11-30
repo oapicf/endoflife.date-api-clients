@@ -4,7 +4,7 @@
 ################################################################
 
 # The version of Swaggy C
-SWAGGY_C_VERSION = 4.11.0
+SWAGGY_C_VERSION = 4.12.0
 
 # The version of OpenAPI Generator (https://openapi-generator.tech/) used for generating the API clients
 OPENAPI_GENERATOR_VERSION = 7.17.0
@@ -185,8 +185,8 @@ build-python:
 build-ruby:
 	apt-get install libyaml-dev
 	cd clients/ruby/generated/ && \
-	  find . -name '*.gem' -delete && \
-	  gem install bundler --version=1.17.3 && \
+	  rm -f *.gem && \
+	  gem install bundler && \
 	  bundle install --binstubs && \
 	  gem build *.gemspec && \
 	  gem install ./*.gem
@@ -213,6 +213,10 @@ test-python: build-python
 	  $(call python_venv,pytest -v ../../../test/python/*.py --capture=no)
 
 test-ruby: build-ruby
+	cd clients/ruby/generated/ && \
+	  rm -f *.gem && \
+	  bundle exec rspec --format documentation && \
+	  bundle exec rspec ../../../test/ruby/ --format documentation
 
 ################################################################
 # API clients package publishing targets for primary languages
