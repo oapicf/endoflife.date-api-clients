@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgrade Swaggy C to 4.12.0
 - Upgrade OpenAPI Generator to 7.17.0
+- Disable product and product cycle javascript integration tests, disable generated unit tests #1
 
 ## 1.0.0 - 2024-03-14
 ### Added
