@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Python and Ruby integration tests
 
 ### Changed
+- Pin down OpenAPI spec URL to use commit hash because endoflife.date doesn't have any tag
 - Upgrade Swaggy C to 4.12.0
 - Upgrade OpenAPI Generator to 7.17.0
 - Disable product and product cycle javascript integration tests, disable generated unit tests #1
