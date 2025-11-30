@@ -1,5 +1,5 @@
 spec_uri: >-
-  https://github.com/endoflife-date/endoflife.date/blob/73d78309f4a9bd84c4e9aad9efa2d0f03343a06b/assets/openapi.yml
+  https://raw.githubusercontent.com/endoflife-date/endoflife.date/73d78309f4a9bd84c4e9aad9efa2d0f03343a06b/assets/openapi.yml
 version: 1.0.1-pre.0
 contact:
   name: OpenAPI Clients Factory
