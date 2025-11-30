@@ -28,7 +28,7 @@ Return a list of all products. Each of these can be used for the other API endpo
 
 Params:
 
-Return: Vector{String}, OpenAPI.Clients.ApiResponse
+Return: `Vector{String}`, `OpenAPI.Clients.ApiResponse`
 """
 function get_api_all_json(_api::DefaultApi; _mediaType=nothing)
     _ctx = _oacinternal_get_api_all_json(_api; _mediaType=_mediaType)
@@ -58,10 +58,10 @@ end
 Gets details of a single cycle.
 
 Params:
-- product::String (required)
-- cycle::String (required)
+- `product`::`String` (required)
+- `cycle`::`String` (required)
 
-Return: Cycle, OpenAPI.Clients.ApiResponse
+Return: `Cycle`, `OpenAPI.Clients.ApiResponse`
 """
 function get_api_product_cycle_json(_api::DefaultApi, product::String, cycle::String; _mediaType=nothing)
     _ctx = _oacinternal_get_api_product_cycle_json(_api, product, cycle; _mediaType=_mediaType)
@@ -90,9 +90,9 @@ end
 Get EoL dates of all cycles of a given product.
 
 Params:
-- product::String (required)
+- `product`::`String` (required)
 
-Return: Vector{Cycle}, OpenAPI.Clients.ApiResponse
+Return: `Vector{Cycle}`, `OpenAPI.Clients.ApiResponse`
 """
 function get_api_product_json(_api::DefaultApi, product::String; _mediaType=nothing)
     _ctx = _oacinternal_get_api_product_json(_api, product; _mediaType=_mediaType)

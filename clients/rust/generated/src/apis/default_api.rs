@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -15,30 +15,30 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`get_api_all_period_json`]
+/// struct for typed errors of method [`get_api_all_json`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetApiAllPeriodJsonError {
+pub enum GetApiAllJsonError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_api_product_cycle_period_json`]
+/// struct for typed errors of method [`get_api_product_cycle_json`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetApiProductCyclePeriodJsonError {
+pub enum GetApiProductCycleJsonError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_api_product_period_json`]
+/// struct for typed errors of method [`get_api_product_json`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetApiProductPeriodJsonError {
+pub enum GetApiProductJsonError {
     UnknownValue(serde_json::Value),
 }
 
 
 /// Return a list of all products. Each of these can be used for the other API endpoints.
-pub async fn get_api_all_period_json(configuration: &configuration::Configuration, ) -> Result<Vec<String>, Error<GetApiAllPeriodJsonError>> {
+pub async fn get_api_all_json(configuration: &configuration::Configuration, ) -> Result<Vec<String>, Error<GetApiAllJsonError>> {
 
     let uri_str = format!("{}/api/all.json", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -67,18 +67,18 @@ pub async fn get_api_all_period_json(configuration: &configuration::Configuratio
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetApiAllPeriodJsonError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetApiAllJsonError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Gets details of a single cycle.
-pub async fn get_api_product_cycle_period_json(configuration: &configuration::Configuration, product: &str, cycle: &str) -> Result<models::Cycle, Error<GetApiProductCyclePeriodJsonError>> {
+pub async fn get_api_product_cycle_json(configuration: &configuration::Configuration, product: &str, cycle: &str) -> Result<models::Cycle, Error<GetApiProductCycleJsonError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_product = product;
-    let p_cycle = cycle;
+    let p_path_product = product;
+    let p_path_cycle = cycle;
 
-    let uri_str = format!("{}/api/{product}/{cycle}.json", configuration.base_path, product=crate::apis::urlencode(p_product), cycle=crate::apis::urlencode(p_cycle));
+    let uri_str = format!("{}/api/{product}/{cycle}.json", configuration.base_path, product=crate::apis::urlencode(p_path_product), cycle=crate::apis::urlencode(p_path_cycle));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -105,17 +105,17 @@ pub async fn get_api_product_cycle_period_json(configuration: &configuration::Co
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetApiProductCyclePeriodJsonError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetApiProductCycleJsonError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Get EoL dates of all cycles of a given product.
-pub async fn get_api_product_period_json(configuration: &configuration::Configuration, product: &str) -> Result<Vec<models::Cycle>, Error<GetApiProductPeriodJsonError>> {
+pub async fn get_api_product_json(configuration: &configuration::Configuration, product: &str) -> Result<Vec<models::Cycle>, Error<GetApiProductJsonError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_product = product;
+    let p_path_product = product;
 
-    let uri_str = format!("{}/api/{product}.json", configuration.base_path, product=crate::apis::urlencode(p_product));
+    let uri_str = format!("{}/api/{product}.json", configuration.base_path, product=crate::apis::urlencode(p_path_product));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -142,7 +142,7 @@ pub async fn get_api_product_period_json(configuration: &configuration::Configur
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<GetApiProductPeriodJsonError> = serde_json::from_str(&content).ok();
+        let entity: Option<GetApiProductJsonError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

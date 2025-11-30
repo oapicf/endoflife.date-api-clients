@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -25,98 +25,54 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
- * @export
- * @interface Cycle
  */
 export interface Cycle {
-    /**
-     * 
-     * @type {CycleCycle}
-     * @memberof Cycle
-     */
     'cycle'?: CycleCycle;
     /**
      * Release date for the first release in this cycle.
-     * @type {string}
-     * @memberof Cycle
      */
     'releaseDate'?: string;
-    /**
-     * 
-     * @type {CycleEol}
-     * @memberof Cycle
-     */
     'eol'?: CycleEol;
     /**
      * Latest release in this cycle.
-     * @type {string}
-     * @memberof Cycle
      */
     'latest'?: string;
     /**
      * Link to changelog for the latest release in this cycle, or null if unavailable.
-     * @type {string}
-     * @memberof Cycle
      */
     'link'?: string | null;
-    /**
-     * 
-     * @type {CycleLts}
-     * @memberof Cycle
-     */
     'lts'?: CycleLts;
-    /**
-     * 
-     * @type {CycleSupport}
-     * @memberof Cycle
-     */
     'support'?: CycleSupport;
-    /**
-     * 
-     * @type {CycleDiscontinued}
-     * @memberof Cycle
-     */
     'discontinued'?: CycleDiscontinued;
 }
 /**
  * The release cycle which this release is part of.
- * @export
- * @interface CycleCycle
  */
 export interface CycleCycle {
 }
 /**
  * Whether this device version is no longer in production.
- * @export
- * @interface CycleDiscontinued
  */
 export interface CycleDiscontinued {
 }
 /**
  * End-of-Life date for this release cycle.
- * @export
- * @interface CycleEol
  */
 export interface CycleEol {
 }
 /**
  * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
- * @export
- * @interface CycleLts
  */
 export interface CycleLts {
 }
 /**
  * Whether this release cycle has active support.
- * @export
- * @interface CycleSupport
  */
 export interface CycleSupport {
 }
 
 /**
  * DefaultApi - axios parameter creator
- * @export
  */
 export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -227,7 +183,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
 /**
  * DefaultApi - functional programming interface
- * @export
  */
 export const DefaultApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration)
@@ -276,7 +231,6 @@ export const DefaultApiFp = function(configuration?: Configuration) {
 
 /**
  * DefaultApi - factory interface
- * @export
  */
 export const DefaultApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DefaultApiFp(configuration)
@@ -316,9 +270,6 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
 
 /**
  * DefaultApi - object-oriented interface
- * @export
- * @class DefaultApi
- * @extends {BaseAPI}
  */
 export class DefaultApi extends BaseAPI {
     /**
@@ -326,7 +277,6 @@ export class DefaultApi extends BaseAPI {
      * @summary All Products
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getApiAllJson(options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getApiAllJson(options).then((request) => request(this.axios, this.basePath));
@@ -339,7 +289,6 @@ export class DefaultApi extends BaseAPI {
      * @param {string} cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getApiProductCycleJson(product: string, cycle: string, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getApiProductCycleJson(product, cycle, options).then((request) => request(this.axios, this.basePath));
@@ -351,7 +300,6 @@ export class DefaultApi extends BaseAPI {
      * @param {string} product Product URL as per the canonical URL on the endofife.date website.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DefaultApi
      */
     public getApiProductJson(product: string, options?: RawAxiosRequestConfig) {
         return DefaultApiFp(this.configuration).getApiProductJson(product, options).then((request) => request(this.axios, this.basePath));

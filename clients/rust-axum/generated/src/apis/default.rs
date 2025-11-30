@@ -10,7 +10,7 @@ use crate::{models, types::*};
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 #[allow(clippy::large_enum_variant)]
-pub enum GetApiAllPeriodJsonResponse {
+pub enum GetApiAllJsonResponse {
     /// OK
     Status200_OK
     (Vec<String>)
@@ -19,7 +19,7 @@ pub enum GetApiAllPeriodJsonResponse {
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 #[allow(clippy::large_enum_variant)]
-pub enum GetApiProductCyclePeriodJsonResponse {
+pub enum GetApiProductCycleJsonResponse {
     /// OK
     Status200_OK
     (models::Cycle)
@@ -28,11 +28,13 @@ pub enum GetApiProductCyclePeriodJsonResponse {
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 #[allow(clippy::large_enum_variant)]
-pub enum GetApiProductPeriodJsonResponse {
+pub enum GetApiProductJsonResponse {
     /// OK
     Status200_OK
     (Vec<models::Cycle>)
 }
+
+
 
 
 /// Default
@@ -41,33 +43,36 @@ pub enum GetApiProductPeriodJsonResponse {
 pub trait Default<E: std::fmt::Debug + Send + Sync + 'static = ()>: super::ErrorHandler<E> {
     /// All Products.
     ///
-    /// GetApiAllPeriodJson - GET /api/all.json
-    async fn get_api_all_period_json(
+    /// GetApiAllJson - GET /api/all.json
+    async fn get_api_all_json(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-    ) -> Result<GetApiAllPeriodJsonResponse, E>;
+    ) -> Result<GetApiAllJsonResponse, E>;
 
     /// Single cycle details.
     ///
-    /// GetApiProductCyclePeriodJson - GET /api/{product}/{cycle}.json
-    async fn get_api_product_cycle_period_json(
+    /// GetApiProductCycleJson - GET /api/{product}/{cycle}.json
+    async fn get_api_product_cycle_json(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-      path_params: &models::GetApiProductCyclePeriodJsonPathParams,
-    ) -> Result<GetApiProductCyclePeriodJsonResponse, E>;
+      path_params: &models::GetApiProductCycleJsonPathParams,
+    ) -> Result<GetApiProductCycleJsonResponse, E>;
 
     /// Get All Details.
     ///
-    /// GetApiProductPeriodJson - GET /api/{product}.json
-    async fn get_api_product_period_json(
+    /// GetApiProductJson - GET /api/{product}.json
+    async fn get_api_product_json(
     &self,
+    
     method: &Method,
     host: &Host,
     cookies: &CookieJar,
-      path_params: &models::GetApiProductPeriodJsonPathParams,
-    ) -> Result<GetApiProductPeriodJsonResponse, E>;
+      path_params: &models::GetApiProductJsonPathParams,
+    ) -> Result<GetApiProductJsonResponse, E>;
 }

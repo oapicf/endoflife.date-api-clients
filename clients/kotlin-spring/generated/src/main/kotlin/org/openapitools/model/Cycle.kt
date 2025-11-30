@@ -1,5 +1,6 @@
 package org.openapitools.model
 
+import java.util.Locale
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.openapitools.model.CycleCycle
@@ -63,7 +64,7 @@ data class Cycle(
     @field:Valid
     @Schema(example = "null", description = "")
     @get:JsonProperty("discontinued") val discontinued: CycleDiscontinued? = null
-    ) {
+) {
 
 }
 

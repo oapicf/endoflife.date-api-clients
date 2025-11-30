@@ -2,7 +2,7 @@
 	"info": {
 		"name": "endoflife.date",
 		"description": {
-		    "content": "Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).",
+		    "content": "The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).",
 		    "type": "text/markdown"
 		},
 		"version": "0.0.1",
@@ -19,45 +19,47 @@
                             {
                                 "name": "Get All Details",
                                 "request": {
-                                    "method": "GET",
-                                    "header": [
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/:product.json",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            ":product.json"
-                                        ],
-                                        "variable": [
-                                            {
-                                                "key": "product",
-                                                "value": "",
-                                                "description": "Product URL as per the canonical URL on the endofife.date website."
-                                            }
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Get EoL dates of all cycles of a given product."
-                                }
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/:product.json",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        ":product.json"
+    ],
+    "variable": [
+        {
+        "key": "product",
+        "value": "",
+        "description": "Product URL as per the canonical URL on the endofife.date website."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Get EoL dates of all cycles of a given product."
+}
+                                ,"response": [
+                            ]
                             }
                             ]
                         },
@@ -68,51 +70,53 @@
                             {
                                 "name": "Single cycle details",
                                 "request": {
-                                    "method": "GET",
-                                    "header": [
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/:product/:cycle.json",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            ":product",
-                                            ":cycle.json"
-                                        ],
-                                        "variable": [
-                                            {
-                                                "key": "product",
-                                                "value": "",
-                                                "description": "Product URL as per the canonical URL on the endofife.date website."
-                                            },
-                                            {
-                                                "key": "cycle",
-                                                "value": "",
-                                                "description": "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0."
-                                            }
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Gets details of a single cycle."
-                                }
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/:product/:cycle.json",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        ":product",
+        ":cycle.json"
+    ],
+    "variable": [
+        {
+        "key": "product",
+        "value": "",
+        "description": "Product URL as per the canonical URL on the endofife.date website."
+        },
+        {
+        "key": "cycle",
+        "value": "",
+        "description": "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0."
+        }
+    ],
+    "query": [
+    ]
+    },
+    "description": "Gets details of a single cycle."
+}
+                                ,"response": [
+                            ]
                             }
                             ]
                         },
@@ -123,40 +127,42 @@
                             {
                                 "name": "All Products",
                                 "request": {
-                                    "method": "GET",
-                                    "header": [
-                                        {
-                                            "key": "Accept",
-                                            "value": "application/json",
-                                            "description": "",
-                                            "disabled": false
-                                        }
-                                    ],
-                                    "body": {
-                                        "mode": "raw",
-                                        "raw": "",
-                                        "options": {
-                                            "raw": {
-                                                "language": "json"
-                                            }
-                                        }
-                                    },
-                                    "url": {
-                                        "raw": "{{baseUrl}}/api/all.json",
-                                        "host": [
-                                            "{{baseUrl}}"
-                                        ],
-                                        "path": [
-                                            "api",
-                                            "all.json"
-                                        ],
-                                        "variable": [
-                                        ],
-                                        "query": [
-                                        ]
-                                    },
-                                    "description": "Return a list of all products. Each of these can be used for the other API endpoints."
-                                }
+    "method": "GET",
+    "header": [
+        {
+        "key": "Accept",
+        "value": "application/json",
+        "description": "",
+        "disabled": false
+        }
+    ],
+    "body": {
+    "mode": "raw",
+    "raw": "",
+    "options": {
+    "raw": {
+    "language": "json"
+    }
+    }
+    },
+    "url": {
+    "raw": "{{baseUrl}}/api/all.json",
+    "host": [
+    "{{baseUrl}}"
+    ],
+    "path": [
+        "api",
+        "all.json"
+    ],
+    "variable": [
+    ],
+    "query": [
+    ]
+    },
+    "description": "Return a list of all products. Each of these can be used for the other API endpoints."
+}
+                                ,"response": [
+                            ]
                             }
                             ]
                         }

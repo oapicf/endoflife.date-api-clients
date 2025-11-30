@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -203,7 +203,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApiProductCycleJsonCall(String product, String cycle, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApiProductCycleJsonCall(@javax.annotation.Nonnull String product, @javax.annotation.Nonnull String cycle, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -250,7 +250,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApiProductCycleJsonValidateBeforeCall(String product, String cycle, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApiProductCycleJsonValidateBeforeCall(@javax.annotation.Nonnull String product, @javax.annotation.Nonnull String cycle, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'product' is set
         if (product == null) {
             throw new ApiException("Missing the required parameter 'product' when calling getApiProductCycleJson(Async)");
@@ -279,7 +279,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Cycle getApiProductCycleJson(String product, String cycle) throws ApiException {
+    public Cycle getApiProductCycleJson(@javax.annotation.Nonnull String product, @javax.annotation.Nonnull String cycle) throws ApiException {
         ApiResponse<Cycle> localVarResp = getApiProductCycleJsonWithHttpInfo(product, cycle);
         return localVarResp.getData();
     }
@@ -298,7 +298,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Cycle> getApiProductCycleJsonWithHttpInfo(String product, String cycle) throws ApiException {
+    public ApiResponse<Cycle> getApiProductCycleJsonWithHttpInfo(@javax.annotation.Nonnull String product, @javax.annotation.Nonnull String cycle) throws ApiException {
         okhttp3.Call localVarCall = getApiProductCycleJsonValidateBeforeCall(product, cycle, null);
         Type localVarReturnType = new TypeToken<Cycle>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -319,7 +319,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApiProductCycleJsonAsync(String product, String cycle, final ApiCallback<Cycle> _callback) throws ApiException {
+    public okhttp3.Call getApiProductCycleJsonAsync(@javax.annotation.Nonnull String product, @javax.annotation.Nonnull String cycle, final ApiCallback<Cycle> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApiProductCycleJsonValidateBeforeCall(product, cycle, _callback);
         Type localVarReturnType = new TypeToken<Cycle>(){}.getType();
@@ -339,7 +339,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApiProductJsonCall(String product, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApiProductJsonCall(@javax.annotation.Nonnull String product, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -385,7 +385,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApiProductJsonValidateBeforeCall(String product, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApiProductJsonValidateBeforeCall(@javax.annotation.Nonnull String product, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'product' is set
         if (product == null) {
             throw new ApiException("Missing the required parameter 'product' when calling getApiProductJson(Async)");
@@ -408,7 +408,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public List<Cycle> getApiProductJson(String product) throws ApiException {
+    public List<Cycle> getApiProductJson(@javax.annotation.Nonnull String product) throws ApiException {
         ApiResponse<List<Cycle>> localVarResp = getApiProductJsonWithHttpInfo(product);
         return localVarResp.getData();
     }
@@ -426,7 +426,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Cycle>> getApiProductJsonWithHttpInfo(String product) throws ApiException {
+    public ApiResponse<List<Cycle>> getApiProductJsonWithHttpInfo(@javax.annotation.Nonnull String product) throws ApiException {
         okhttp3.Call localVarCall = getApiProductJsonValidateBeforeCall(product, null);
         Type localVarReturnType = new TypeToken<List<Cycle>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -446,7 +446,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getApiProductJsonAsync(String product, final ApiCallback<List<Cycle>> _callback) throws ApiException {
+    public okhttp3.Call getApiProductJsonAsync(@javax.annotation.Nonnull String product, final ApiCallback<List<Cycle>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApiProductJsonValidateBeforeCall(product, _callback);
         Type localVarReturnType = new TypeToken<List<Cycle>>(){}.getType();

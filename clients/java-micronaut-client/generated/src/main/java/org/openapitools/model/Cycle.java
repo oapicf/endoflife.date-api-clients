@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -14,6 +14,7 @@ package org.openapitools.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Locale;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -43,7 +44,7 @@ import javax.annotation.Generated;
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
 @JsonTypeName("cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2025-05-09T11:49:12.358623106Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2025-11-30T06:33:39.955757420Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 @Introspected
 public class Cycle {
     public static final String JSON_PROPERTY_CYCLE = "cycle";

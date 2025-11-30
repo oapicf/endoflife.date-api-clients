@@ -1,6 +1,6 @@
 #' endoflife.date
 #'
-#' Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+#' The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 #'
 #' The version of the OpenAPI document: 0.0.1
 #' Contact: blah+oapicf@cliffano.com
@@ -213,7 +213,13 @@ DefaultApi <- R6::R6Class(
         stop("Missing required parameter `cycle`.")
       }
 
+      if (!missing(`product`) && is.null(`product`)) {
+        stop("Invalid value for `product` when calling DefaultApi$GetApiProductCycleJson, `product` is not nullable")
+      }
 
+      if (!missing(`cycle`) && is.null(`cycle`)) {
+        stop("Invalid value for `cycle` when calling DefaultApi$GetApiProductCycleJson, `cycle` is not nullable")
+      }
 
       local_var_url_path <- "/api/{product}/{cycle}.json"
       if (!missing(`product`)) {
@@ -316,6 +322,9 @@ DefaultApi <- R6::R6Class(
         stop("Missing required parameter `product`.")
       }
 
+      if (!missing(`product`) && is.null(`product`)) {
+        stop("Invalid value for `product` when calling DefaultApi$GetApiProductJson, `product` is not nullable")
+      }
 
       local_var_url_path <- "/api/{product}.json"
       if (!missing(`product`)) {

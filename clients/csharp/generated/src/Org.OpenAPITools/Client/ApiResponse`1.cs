@@ -2,7 +2,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -37,6 +37,11 @@ namespace Org.OpenAPITools.Client
         /// The raw content of this response.
         /// </summary>
         string RawContent { get; }
+        
+        /// <summary>
+        /// The raw binary stream (only set for binary responses)
+        /// </summary>
+        System.IO.Stream? ContentStream { get; }
 
         /// <summary>
         /// The DateTime when the request was retrieved.
@@ -84,6 +89,11 @@ namespace Org.OpenAPITools.Client
         /// The raw data
         /// </summary>
         public string RawContent { get; protected set; }
+
+        /// <summary>
+        /// The raw binary stream (only set for binary responses)
+        /// </summary>
+        public System.IO.Stream? ContentStream { get; protected set; }
 
         /// <summary>
         /// The IsSuccessStatusCode from the api response
@@ -141,6 +151,30 @@ namespace Org.OpenAPITools.Client
             IsSuccessStatusCode = httpResponseMessage.IsSuccessStatusCode;
             ReasonPhrase = httpResponseMessage.ReasonPhrase;
             RawContent = rawContent;
+            Path = path;
+            RequestUri = httpRequestMessage.RequestUri;
+            RequestedAt = requestedAt;
+            _jsonSerializerOptions = jsonSerializerOptions;
+            OnCreated(httpRequestMessage, httpResponseMessage);
+        }
+
+        /// <summary>
+        /// Construct the response using an HttpResponseMessage
+        /// </summary>
+        /// <param name="httpRequestMessage"></param>
+        /// <param name="httpResponseMessage"></param>
+        /// <param name="contentStream"></param>
+        /// <param name="path"></param>
+        /// <param name="requestedAt"></param>
+        /// <param name="jsonSerializerOptions"></param>
+        public ApiResponse(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions)
+        {
+            StatusCode = httpResponseMessage.StatusCode;
+            Headers = httpResponseMessage.Headers;
+            IsSuccessStatusCode = httpResponseMessage.IsSuccessStatusCode;
+            ReasonPhrase = httpResponseMessage.ReasonPhrase;
+            ContentStream = contentStream;
+            RawContent = string.Empty;
             Path = path;
             RequestUri = httpRequestMessage.RequestUri;
             RequestedAt = requestedAt;

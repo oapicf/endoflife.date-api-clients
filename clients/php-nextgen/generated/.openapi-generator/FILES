@@ -16,6 +16,7 @@ phpunit.xml.dist
 src/Api/DefaultApi.php
 src/ApiException.php
 src/Configuration.php
+src/FormDataProcessor.php
 src/HeaderSelector.php
 src/Model/Cycle.php
 src/Model/CycleCycle.php

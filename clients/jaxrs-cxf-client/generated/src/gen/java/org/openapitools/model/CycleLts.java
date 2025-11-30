@@ -1,14 +1,14 @@
 package org.openapitools.model;
 
-import io.swagger.annotations.ApiModel;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
-  * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
- **/
+ * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
+ */
 @ApiModel(description="Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.")
 
 public class CycleLts  {

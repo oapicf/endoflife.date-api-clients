@@ -1,6 +1,6 @@
 # Rust API for openapi
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 
 ## Overview
 
@@ -12,8 +12,8 @@ server, you can easily generate a server stub.
 To see how to make this your own, look here: [README]((https://openapi-generator.tech))
 
 - API version: 0.0.1
-- Build date: 2025-05-09T11:51:07.144006277Z[Etc/UTC]
-- Generator version: 7.12.0
+- Build date: 2025-11-30T06:35:49.592057579Z[Etc/UTC]
+- Generator version: 7.17.0
 
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 

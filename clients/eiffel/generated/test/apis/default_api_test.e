@@ -29,7 +29,7 @@ feature -- Test routines
     test_api_product_cycle_json
             -- Single cycle details
             --
-            -- Gets details of a single cycle
+            -- Gets details of a single cycle.
         local
             l_response: CYCLE
             l_product: STRING_32

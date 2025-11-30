@@ -36,23 +36,28 @@ Base.@kwdef mutable struct Cycle <: OpenAPI.APIModel
     discontinued = nothing # spec type: Union{ Nothing, CycleDiscontinued }
 
     function Cycle(cycle, releaseDate, eol, latest, link, lts, support, discontinued, )
-        OpenAPI.validate_property(Cycle, Symbol("cycle"), cycle)
-        OpenAPI.validate_property(Cycle, Symbol("releaseDate"), releaseDate)
-        OpenAPI.validate_property(Cycle, Symbol("eol"), eol)
-        OpenAPI.validate_property(Cycle, Symbol("latest"), latest)
-        OpenAPI.validate_property(Cycle, Symbol("link"), link)
-        OpenAPI.validate_property(Cycle, Symbol("lts"), lts)
-        OpenAPI.validate_property(Cycle, Symbol("support"), support)
-        OpenAPI.validate_property(Cycle, Symbol("discontinued"), discontinued)
-        return new(cycle, releaseDate, eol, latest, link, lts, support, discontinued, )
+        o = new(cycle, releaseDate, eol, latest, link, lts, support, discontinued, )
+        OpenAPI.validate_properties(o)
+        return o
     end
 end # type Cycle
 
 const _property_types_Cycle = Dict{Symbol,String}(Symbol("cycle")=>"CycleCycle", Symbol("releaseDate")=>"Date", Symbol("eol")=>"CycleEol", Symbol("latest")=>"String", Symbol("link")=>"String", Symbol("lts")=>"CycleLts", Symbol("support")=>"CycleSupport", Symbol("discontinued")=>"CycleDiscontinued", )
 OpenAPI.property_type(::Type{ Cycle }, name::Symbol) = Union{Nothing,eval(Base.Meta.parse(_property_types_Cycle[name]))}
 
-function check_required(o::Cycle)
+function OpenAPI.check_required(o::Cycle)
     true
+end
+
+function OpenAPI.validate_properties(o::Cycle)
+    OpenAPI.validate_property(Cycle, Symbol("cycle"), o.cycle)
+    OpenAPI.validate_property(Cycle, Symbol("releaseDate"), o.releaseDate)
+    OpenAPI.validate_property(Cycle, Symbol("eol"), o.eol)
+    OpenAPI.validate_property(Cycle, Symbol("latest"), o.latest)
+    OpenAPI.validate_property(Cycle, Symbol("link"), o.link)
+    OpenAPI.validate_property(Cycle, Symbol("lts"), o.lts)
+    OpenAPI.validate_property(Cycle, Symbol("support"), o.support)
+    OpenAPI.validate_property(Cycle, Symbol("discontinued"), o.discontinued)
 end
 
 function OpenAPI.validate_property(::Type{ Cycle }, name::Symbol, val)

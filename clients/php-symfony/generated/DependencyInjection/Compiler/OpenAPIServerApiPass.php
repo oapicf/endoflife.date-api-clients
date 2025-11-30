@@ -13,7 +13,7 @@
 /**
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -49,7 +49,7 @@ class OpenAPIServerApiPass implements CompilerPassInterface
      *
      * @param ContainerBuilder $container
      */
-    public function process(ContainerBuilder $container) {
+    public function process(ContainerBuilder $container) : void {
         // always first check if the primary service is defined
         if (!$container->has('open_api_server.api.api_server')) {
             return;

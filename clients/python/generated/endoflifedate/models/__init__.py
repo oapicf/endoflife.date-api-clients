@@ -4,7 +4,7 @@
 """
     endoflife.date
 
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+    The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 
     The version of the OpenAPI document: 0.0.1
     Contact: blah+oapicf@cliffano.com
@@ -13,7 +13,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from endoflifedate.models.cycle import Cycle
 from endoflifedate.models.cycle_cycle import CycleCycle
@@ -21,3 +20,4 @@ from endoflifedate.models.cycle_discontinued import CycleDiscontinued
 from endoflifedate.models.cycle_eol import CycleEol
 from endoflifedate.models.cycle_lts import CycleLts
 from endoflifedate.models.cycle_support import CycleSupport
+

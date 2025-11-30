@@ -1,7 +1,7 @@
 /*
   endoflife.date
 
-  Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+  The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 
   The version of the OpenAPI document: 0.0.1
 
@@ -25,7 +25,7 @@ message Cycle {
   CycleCycle cycle = 95131878;
 
   // Release date for the first release in this cycle.
-  string releaseDate = 212873301;
+  string release_date = 355242781;
 
   CycleEol eol = 100610;
 
@@ -42,3 +42,4 @@ message Cycle {
   CycleDiscontinued discontinued = 131849267;
 
 }
+

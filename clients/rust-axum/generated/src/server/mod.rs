@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use axum::{body::Body, extract::*, response::Response, routing::*};
-use axum_extra::extract::{CookieJar, Host};
+use axum_extra::extract::{CookieJar, Host, Query as QueryExtra};
 use bytes::Bytes;
 use http::{header::CONTENT_TYPE, HeaderMap, HeaderName, HeaderValue, Method, StatusCode};
 use tracing::error;
@@ -11,6 +11,9 @@ use crate::{header, types::*};
 
 #[allow(unused_imports)]
 use crate::{apis, models};
+
+#[allow(unused_imports)]
+use crate::{models::check_xss_string, models::check_xss_vec_string, models::check_xss_map_string, models::check_xss_map_nested, models::check_xss_map};
 
 
 /// Setup API Server.
@@ -24,20 +27,20 @@ where
     // build our application with a route
     Router::new()
         .route("/api/all.json",
-            get(get_api_all_period_json::<I, A, E>)
+            get(get_api_all_json::<I, A, E>)
         )
         .route("/api/{product}.json",
-            get(get_api_product_period_json::<I, A, E>)
+            get(get_api_product_json::<I, A, E>)
         )
         .route("/api/{product}/{cycle}.json",
-            get(get_api_product_cycle_period_json::<I, A, E>)
+            get(get_api_product_cycle_json::<I, A, E>)
         )
         .with_state(api_impl)
 }
 
 
 #[tracing::instrument(skip_all)]
-fn get_api_all_period_json_validation(
+fn get_api_all_json_validation(
 ) -> std::result::Result<(
 ), ValidationErrors>
 {
@@ -45,9 +48,9 @@ fn get_api_all_period_json_validation(
 Ok((
 ))
 }
-/// GetApiAllPeriodJson - GET /api/all.json
+/// GetApiAllJson - GET /api/all.json
 #[tracing::instrument(skip_all)]
-async fn get_api_all_period_json<I, A, E>(
+async fn get_api_all_json<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
@@ -60,9 +63,11 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
-    get_api_all_period_json_validation(
+    get_api_all_json_validation(
     )
   ).await.unwrap();
 
@@ -74,7 +79,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().get_api_all_period_json(
+
+
+let result = api_impl.as_ref().get_api_all_json(
+      
       &method,
       &host,
       &cookies,
@@ -84,7 +92,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                apis::default::GetApiAllPeriodJsonResponse::Status200_OK
+                                                apis::default::GetApiAllJsonResponse::Status200_OK
                                                     (body)
                                                 => {
                                                   let mut response = response.status(200);
@@ -92,7 +100,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("application/json").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("application/json"));
                                                   }
 
                                                   let body_content =  tokio::task::spawn_blocking(move ||
@@ -104,21 +112,22 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
 
 
 #[tracing::instrument(skip_all)]
-fn get_api_product_cycle_period_json_validation(
-  path_params: models::GetApiProductCyclePeriodJsonPathParams,
+fn get_api_product_cycle_json_validation(
+  path_params: models::GetApiProductCycleJsonPathParams,
 ) -> std::result::Result<(
-  models::GetApiProductCyclePeriodJsonPathParams,
+  models::GetApiProductCycleJsonPathParams,
 ), ValidationErrors>
 {
   path_params.validate()?;
@@ -127,13 +136,13 @@ Ok((
   path_params,
 ))
 }
-/// GetApiProductCyclePeriodJson - GET /api/{product}/{cycle}.json
+/// GetApiProductCycleJson - GET /api/{product}/{cycle}.json
 #[tracing::instrument(skip_all)]
-async fn get_api_product_cycle_period_json<I, A, E>(
+async fn get_api_product_cycle_json<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Path(path_params): Path<models::GetApiProductCyclePeriodJsonPathParams>,
+  Path(path_params): Path<models::GetApiProductCycleJsonPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -143,9 +152,11 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
-    get_api_product_cycle_period_json_validation(
+    get_api_product_cycle_json_validation(
         path_params,
     )
   ).await.unwrap();
@@ -159,7 +170,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().get_api_product_cycle_period_json(
+
+
+let result = api_impl.as_ref().get_api_product_cycle_json(
+      
       &method,
       &host,
       &cookies,
@@ -170,7 +184,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                apis::default::GetApiProductCyclePeriodJsonResponse::Status200_OK
+                                                apis::default::GetApiProductCycleJsonResponse::Status200_OK
                                                     (body)
                                                 => {
                                                   let mut response = response.status(200);
@@ -178,7 +192,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("application/json").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("application/json"));
                                                   }
 
                                                   let body_content =  tokio::task::spawn_blocking(move ||
@@ -190,21 +204,22 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
 
 
 #[tracing::instrument(skip_all)]
-fn get_api_product_period_json_validation(
-  path_params: models::GetApiProductPeriodJsonPathParams,
+fn get_api_product_json_validation(
+  path_params: models::GetApiProductJsonPathParams,
 ) -> std::result::Result<(
-  models::GetApiProductPeriodJsonPathParams,
+  models::GetApiProductJsonPathParams,
 ), ValidationErrors>
 {
   path_params.validate()?;
@@ -213,13 +228,13 @@ Ok((
   path_params,
 ))
 }
-/// GetApiProductPeriodJson - GET /api/{product}.json
+/// GetApiProductJson - GET /api/{product}.json
 #[tracing::instrument(skip_all)]
-async fn get_api_product_period_json<I, A, E>(
+async fn get_api_product_json<I, A, E>(
   method: Method,
   host: Host,
   cookies: CookieJar,
-  Path(path_params): Path<models::GetApiProductPeriodJsonPathParams>,
+  Path(path_params): Path<models::GetApiProductJsonPathParams>,
  State(api_impl): State<I>,
 ) -> Result<Response, StatusCode>
 where
@@ -229,9 +244,11 @@ where
         {
 
 
+
+
       #[allow(clippy::redundant_closure)]
       let validation = tokio::task::spawn_blocking(move ||
-    get_api_product_period_json_validation(
+    get_api_product_json_validation(
         path_params,
     )
   ).await.unwrap();
@@ -245,7 +262,10 @@ where
             .map_err(|_| StatusCode::BAD_REQUEST);
   };
 
-  let result = api_impl.as_ref().get_api_product_period_json(
+
+
+let result = api_impl.as_ref().get_api_product_json(
+      
       &method,
       &host,
       &cookies,
@@ -256,7 +276,7 @@ where
 
   let resp = match result {
                                             Ok(rsp) => match rsp {
-                                                apis::default::GetApiProductPeriodJsonResponse::Status200_OK
+                                                apis::default::GetApiProductJsonResponse::Status200_OK
                                                     (body)
                                                 => {
                                                   let mut response = response.status(200);
@@ -264,7 +284,7 @@ where
                                                     let mut response_headers = response.headers_mut().unwrap();
                                                     response_headers.insert(
                                                         CONTENT_TYPE,
-                                                        HeaderValue::from_str("application/json").map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })?);
+                                                        HeaderValue::from_static("application/json"));
                                                   }
 
                                                   let body_content =  tokio::task::spawn_blocking(move ||
@@ -276,12 +296,22 @@ where
                                                 },
                                             },
                                             Err(why) => {
-                                                // Application code returned an error. This should not happen, as the implementation should
-                                                // return a valid response.
-                                                return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
+                                                    // Application code returned an error. This should not happen, as the implementation should
+                                                    // return a valid response.
+                                                    return api_impl.as_ref().handle_error(&method, &host, &cookies, why).await;
                                             },
                                         };
+
 
                                         resp.map_err(|e| { error!(error = ?e); StatusCode::INTERNAL_SERVER_ERROR })
 }
 
+
+#[allow(dead_code)]
+#[inline]
+fn response_with_status_code_only(code: StatusCode) -> Result<Response, StatusCode> {
+   Response::builder()
+          .status(code)
+          .body(Body::empty())
+          .map_err(|_| code)
+}

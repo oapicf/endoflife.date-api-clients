@@ -3,7 +3,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * API version: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -52,22 +52,51 @@ func NewDefaultAPIController(s DefaultAPIServicer, opts ...DefaultAPIOption) *De
 func (c *DefaultAPIController) Routes() Routes {
 	return Routes{
 		"GetApiProductJson": Route{
+			"GetApiProductJson",
 			strings.ToUpper("Get"),
 			"/api/{product}.json",
 			c.GetApiProductJson,
 		},
 		"GetApiProductCycleJson": Route{
+			"GetApiProductCycleJson",
 			strings.ToUpper("Get"),
 			"/api/{product}/{cycle}.json",
 			c.GetApiProductCycleJson,
 		},
 		"GetApiAllJson": Route{
+			"GetApiAllJson",
 			strings.ToUpper("Get"),
 			"/api/all.json",
 			c.GetApiAllJson,
 		},
 	}
 }
+
+// OrderedRoutes returns all the api routes in a deterministic order for the DefaultAPIController
+func (c *DefaultAPIController) OrderedRoutes() []Route {
+	return []Route{
+		Route{
+			"GetApiProductJson",
+			strings.ToUpper("Get"),
+			"/api/{product}.json",
+			c.GetApiProductJson,
+		},
+		Route{
+			"GetApiProductCycleJson",
+			strings.ToUpper("Get"),
+			"/api/{product}/{cycle}.json",
+			c.GetApiProductCycleJson,
+		},
+		Route{
+			"GetApiAllJson",
+			strings.ToUpper("Get"),
+			"/api/all.json",
+			c.GetApiAllJson,
+		},
+	}
+}
+
+
 
 // GetApiProductJson - Get All Details
 func (c *DefaultAPIController) GetApiProductJson(w http.ResponseWriter, r *http.Request) {

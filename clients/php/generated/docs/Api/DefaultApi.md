@@ -1,5 +1,7 @@
 # OpenAPI\Client\DefaultApi
 
+
+
 All URIs are relative to https://endoflife.date, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

@@ -38,6 +38,7 @@ export class DefaultService extends BaseService {
     /**
      * All Products
      * Return a list of all products. Each of these can be used for the other API endpoints.
+     * @endpoint get /api/all.json
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -72,14 +73,15 @@ export class DefaultService extends BaseService {
         }
 
         let localVarPath = `/api/all.json`;
-        return this.httpClient.request<Array<string>>('get', `${this.configuration.basePath}${localVarPath}`,
+        const { basePath, withCredentials } = this.configuration;
+        return this.httpClient.request<Array<string>>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
+                ...(withCredentials ? { withCredentials } : {}),
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
+                ...(localVarTransferCache !== undefined ? { transferCache: localVarTransferCache } : {}),
                 reportProgress: reportProgress
             }
         );
@@ -88,6 +90,7 @@ export class DefaultService extends BaseService {
     /**
      * Single cycle details
      * Gets details of a single cycle.
+     * @endpoint get /api/{product}/{cycle}.json
      * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD\&#39;s releng/14.0 becomes releng-14.0.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -130,14 +133,15 @@ export class DefaultService extends BaseService {
         }
 
         let localVarPath = `/api/${this.configuration.encodeParam({name: "product", value: product, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "cycle", value: cycle, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}.json`;
-        return this.httpClient.request<Cycle>('get', `${this.configuration.basePath}${localVarPath}`,
+        const { basePath, withCredentials } = this.configuration;
+        return this.httpClient.request<Cycle>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
+                ...(withCredentials ? { withCredentials } : {}),
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
+                ...(localVarTransferCache !== undefined ? { transferCache: localVarTransferCache } : {}),
                 reportProgress: reportProgress
             }
         );
@@ -146,6 +150,7 @@ export class DefaultService extends BaseService {
     /**
      * Get All Details
      * Get EoL dates of all cycles of a given product.
+     * @endpoint get /api/{product}.json
      * @param product Product URL as per the canonical URL on the endofife.date website.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -184,14 +189,15 @@ export class DefaultService extends BaseService {
         }
 
         let localVarPath = `/api/${this.configuration.encodeParam({name: "product", value: product, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}.json`;
-        return this.httpClient.request<Array<Cycle>>('get', `${this.configuration.basePath}${localVarPath}`,
+        const { basePath, withCredentials } = this.configuration;
+        return this.httpClient.request<Array<Cycle>>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
+                ...(withCredentials ? { withCredentials } : {}),
                 headers: localVarHeaders,
                 observe: observe,
-                transferCache: localVarTransferCache,
+                ...(localVarTransferCache !== undefined ? { transferCache: localVarTransferCache } : {}),
                 reportProgress: reportProgress
             }
         );

@@ -5,12 +5,12 @@ defmodule EndoflifeDate.Mixfile do
     [
       app: :endoflife_date,
       version: "1.0.0",
-      elixir: "~> 1.10",
+      elixir: "~> 1.18",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),
       description: """
-      Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+      The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
       """,
       deps: deps()
     ]
@@ -35,10 +35,9 @@ defmodule EndoflifeDate.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:tesla, "~> 1.7"},
-      {:jason, "~> 1.4"},
-      {:ex_doc, "~> 0.30", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.3", only: [:dev, :test], runtime: false}
+      {:tesla, "~> 1.14"},
+      {:ex_doc, "~> 0.37.3", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false}
     ]
   end
 

@@ -1,6 +1,6 @@
 h1. endoflife.date
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki\](https://github.com/endoflife-date/endoflife.date/wiki).
+The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API\](https://endoflife.date/docs/api/v1/).
 
 *Version:* 0.0.1
 
@@ -53,8 +53,8 @@ h4. Responses
       }
     }
   }
-}{code} |
-       
+}{code}{code:title=Example  |collapse=true }{code} |
+       || Example 1 | {code:title=Example  |collapse=true }{code} |
 
 {panel}
 
@@ -133,8 +133,8 @@ h4. Responses
       }
     }
   }
-}{code} |
-       
+}{code}{code:title=Example  |collapse=true }{code}{code:title=Example  |collapse=true }{code} |
+       || Example 1 | {code:title=Example  |collapse=true }{code} ||| Example 2 | {code:title=Example  |collapse=true }{code} |
 
 {panel}
 
@@ -194,8 +194,8 @@ h4. Responses
       }
     }
   }
-}{code} |
-       
+}{code}{code:title=Example  |collapse=true }{code}{code:title=Example  |collapse=true }{code} |
+       || Example 1 | {code:title=Example  |collapse=true }{code} ||| Example 2 | {code:title=Example  |collapse=true }{code} |
 
 {panel}
 

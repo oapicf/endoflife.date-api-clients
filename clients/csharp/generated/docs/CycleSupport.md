@@ -1,5 +1,5 @@
 # Org.OpenAPITools.Model.CycleSupport
-Whether this release cycle has active support
+Whether this release cycle has active support.
 
 ## Properties
 

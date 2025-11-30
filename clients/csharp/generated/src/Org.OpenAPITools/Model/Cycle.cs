@@ -2,7 +2,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -192,18 +192,6 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReleaseDate (DateOnly) maxLength
-            if (this.ReleaseDate != null && this.ReleaseDate.Length > 10)
-            {
-                yield return new ValidationResult("Invalid value for ReleaseDate, length must be less than 10.", new [] { "ReleaseDate" });
-            }
-
-            // ReleaseDate (DateOnly) minLength
-            if (this.ReleaseDate != null && this.ReleaseDate.Length < 10)
-            {
-                yield return new ValidationResult("Invalid value for ReleaseDate, length must be greater than 10.", new [] { "ReleaseDate" });
-            }
-
             // Latest (string) minLength
             if (this.Latest != null && this.Latest.Length < 1)
             {
@@ -272,16 +260,13 @@ namespace Org.OpenAPITools.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "cycle":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                varCycle = new Option<CycleCycle?>(JsonSerializer.Deserialize<CycleCycle>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            varCycle = new Option<CycleCycle?>(JsonSerializer.Deserialize<CycleCycle>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "releaseDate":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                releaseDate = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly>(ref utf8JsonReader, jsonSerializerOptions));
+                            releaseDate = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "eol":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                eol = new Option<CycleEol?>(JsonSerializer.Deserialize<CycleEol>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            eol = new Option<CycleEol?>(JsonSerializer.Deserialize<CycleEol>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "latest":
                             latest = new Option<string?>(utf8JsonReader.GetString()!);
@@ -290,16 +275,13 @@ namespace Org.OpenAPITools.Model
                             link = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "lts":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                lts = new Option<CycleLts?>(JsonSerializer.Deserialize<CycleLts>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            lts = new Option<CycleLts?>(JsonSerializer.Deserialize<CycleLts>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "support":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                support = new Option<CycleSupport?>(JsonSerializer.Deserialize<CycleSupport>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            support = new Option<CycleSupport?>(JsonSerializer.Deserialize<CycleSupport>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "discontinued":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                discontinued = new Option<CycleDiscontinued?>(JsonSerializer.Deserialize<CycleDiscontinued>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            discontinued = new Option<CycleDiscontinued?>(JsonSerializer.Deserialize<CycleDiscontinued>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

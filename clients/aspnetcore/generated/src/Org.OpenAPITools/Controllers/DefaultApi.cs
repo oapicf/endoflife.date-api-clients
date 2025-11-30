@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -42,13 +42,13 @@ namespace Org.OpenAPITools.Controllers
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(List<string>));
+            // return StatusCode(200, default);
             string exampleJson = null;
             exampleJson = "[ \"\", \"\" ]";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<string>>(exampleJson)
-            : default(List<string>);
+            : default;
             //TODO: Change the data returned
             return new ObjectResult(example);
         }
@@ -69,13 +69,13 @@ namespace Org.OpenAPITools.Controllers
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(Cycle));
+            // return StatusCode(200, default);
             string exampleJson = null;
             exampleJson = "{\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<Cycle>(exampleJson)
-            : default(Cycle);
+            : default;
             //TODO: Change the data returned
             return new ObjectResult(example);
         }
@@ -95,13 +95,13 @@ namespace Org.OpenAPITools.Controllers
         {
 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(List<Cycle>));
+            // return StatusCode(200, default);
             string exampleJson = null;
             exampleJson = "[ {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}, {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n} ]";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<Cycle>>(exampleJson)
-            : default(List<Cycle>);
+            : default;
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

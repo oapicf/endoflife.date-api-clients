@@ -1,5 +1,5 @@
 # Org.OpenAPITools.Model.CycleCycle
-Release Cycle
+The release cycle which this release is part of.
 
 ## Properties
 

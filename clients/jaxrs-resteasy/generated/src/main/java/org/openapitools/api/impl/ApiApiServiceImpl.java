@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2025-05-09T11:49:28.972231658Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2025-11-30T06:33:58.376701608Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class ApiApiServiceImpl implements ApiApiService {
       public Response getApiAllJson(SecurityContext securityContext)
       throws NotFoundException {

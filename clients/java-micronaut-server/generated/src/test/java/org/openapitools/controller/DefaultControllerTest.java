@@ -79,7 +79,7 @@ public class DefaultControllerTest {
         // given
         String uri = UriTemplate.of("/api/all.json").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@3f92c349");
+            .accept("[Ljava.lang.String;@769d513");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, Argument.of(List.class, String.class));
@@ -93,7 +93,7 @@ public class DefaultControllerTest {
      *
      * The method should: Single cycle details
      *
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      *
      * TODO fill in the parameters and test return value.
      */
@@ -127,7 +127,7 @@ public class DefaultControllerTest {
             put("cycle", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@769a58e5");
+            .accept("[Ljava.lang.String;@5e4fa1da");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, Cycle.class);
@@ -173,7 +173,7 @@ public class DefaultControllerTest {
             put("product", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@55f8669d");
+            .accept("[Ljava.lang.String;@588cd519");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, Argument.of(List.class, Cycle.class));

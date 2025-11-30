@@ -1,6 +1,6 @@
 /*
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -14,6 +14,7 @@
 package com.github.oapicf.endoflifedate.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.github.oapicf.endoflifedate.model.CycleCycle;
 import com.github.oapicf.endoflifedate.model.CycleDiscontinued;
 import com.github.oapicf.endoflifedate.model.CycleEol;
@@ -49,13 +50,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import com.github.oapicf.endoflifedate.JSON;
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-09T11:49:02.743168284Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-30T06:33:29.984672800Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Cycle {
   public static final String SERIALIZED_NAME_CYCLE = "cycle";
   @SerializedName(SERIALIZED_NAME_CYCLE)
@@ -321,18 +323,10 @@ public class Cycle {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cycle");
-    openapiFields.add("releaseDate");
-    openapiFields.add("eol");
-    openapiFields.add("latest");
-    openapiFields.add("link");
-    openapiFields.add("lts");
-    openapiFields.add("support");
-    openapiFields.add("discontinued");
+    openapiFields = new HashSet<String>(Arrays.asList("cycle", "releaseDate", "eol", "latest", "link", "lts", "support", "discontinued"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -344,7 +338,7 @@ public class Cycle {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Cycle.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Cycle is not found in the empty JSON string", Cycle.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Cycle is not found in the empty JSON string", Cycle.openapiRequiredFields.toString()));
         }
       }
 
@@ -352,7 +346,7 @@ public class Cycle {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Cycle.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Cycle` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Cycle` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -365,10 +359,10 @@ public class Cycle {
         CycleEol.validateJsonElement(jsonObj.get("eol"));
       }
       if ((jsonObj.get("latest") != null && !jsonObj.get("latest").isJsonNull()) && !jsonObj.get("latest").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `latest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("latest").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `latest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("latest").toString()));
       }
       if ((jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) && !jsonObj.get("link").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
       }
       // validate the optional field `lts`
       if (jsonObj.get("lts") != null && !jsonObj.get("lts").isJsonNull()) {

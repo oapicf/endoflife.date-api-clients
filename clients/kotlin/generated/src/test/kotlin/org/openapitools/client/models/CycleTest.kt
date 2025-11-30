@@ -36,7 +36,7 @@ class CycleTest : ShouldSpec() {
             //modelInstance.cycle shouldBe ("TODO")
         }
 
-        // to test the property `releaseDate` - Release Date for the first release in this cycle
+        // to test the property `releaseDate` - Release date for the first release in this cycle.
         should("test releaseDate") {
             // uncomment below to test the property
             //modelInstance.releaseDate shouldBe ("TODO")
@@ -48,13 +48,13 @@ class CycleTest : ShouldSpec() {
             //modelInstance.eol shouldBe ("TODO")
         }
 
-        // to test the property `latest` - Latest release in this cycle
+        // to test the property `latest` - Latest release in this cycle.
         should("test latest") {
             // uncomment below to test the property
             //modelInstance.latest shouldBe ("TODO")
         }
 
-        // to test the property `link` - Link to changelog for the latest release, if available
+        // to test the property `link` - Link to changelog for the latest release in this cycle, or null if unavailable.
         should("test link") {
             // uncomment below to test the property
             //modelInstance.link shouldBe ("TODO")

@@ -7,11 +7,70 @@ use validator::Validate;
 use crate::header;
 use crate::{models, types::*};
 
-      
-      
+#[allow(dead_code)]
+fn from_validation_error(e: validator::ValidationError) -> validator::ValidationErrors {
+  let mut errs = validator::ValidationErrors::new();
+  errs.add("na", e);
+  errs
+}
+
+#[allow(dead_code)]
+pub fn check_xss_string(v: &str) -> std::result::Result<(), validator::ValidationError> {
+    if ammonia::is_html(v) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+#[allow(dead_code)]
+pub fn check_xss_vec_string(v: &[String]) -> std::result::Result<(), validator::ValidationError> {
+    if v.iter().any(|i| ammonia::is_html(i)) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+#[allow(dead_code)]
+pub fn check_xss_map_string(
+    v: &std::collections::HashMap<String, String>,
+) -> std::result::Result<(), validator::ValidationError> {
+    if v.keys().any(|k| ammonia::is_html(k)) || v.values().any(|v| ammonia::is_html(v)) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+#[allow(dead_code)]
+pub fn check_xss_map_nested<T>(
+    v: &std::collections::HashMap<String, T>,
+) -> std::result::Result<(), validator::ValidationError>
+where
+    T: validator::Validate,
+{
+    if v.keys().any(|k| ammonia::is_html(k)) || v.values().any(|v| v.validate().is_err()) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+#[allow(dead_code)]
+pub fn check_xss_map<T>(v: &std::collections::HashMap<String, T>) -> std::result::Result<(), validator::ValidationError> {
+    if v.keys().any(|k| ammonia::is_html(k)) {
+        std::result::Result::Err(validator::ValidationError::new("xss detected"))
+    } else {
+        std::result::Result::Ok(())
+    }
+}
+
+
+
     #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
-    #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))] 
-    pub struct GetApiProductCyclePeriodJsonPathParams {
+    #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
+    pub struct GetApiProductCycleJsonPathParams {
             /// Product URL as per the canonical URL on the endofife.date website.
                 pub product: String,
             /// Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
@@ -19,10 +78,10 @@ use crate::{models, types::*};
     }
 
 
-      
+
     #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
-    #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))] 
-    pub struct GetApiProductPeriodJsonPathParams {
+    #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
+    pub struct GetApiProductJsonPathParams {
             /// Product URL as per the canonical URL on the endofife.date website.
                 pub product: String,
     }
@@ -35,6 +94,7 @@ use crate::{models, types::*};
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Cycle {
     #[serde(rename = "cycle")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub cycle: Option<models::CycleCycle>,
 
@@ -42,11 +102,12 @@ pub struct Cycle {
     #[serde(rename = "releaseDate")]
     #[validate(
             length(min = 10, max = 10),
-        )]
+    )]
     #[serde(skip_serializing_if="Option::is_none")]
     pub release_date: Option<chrono::naive::NaiveDate>,
 
     #[serde(rename = "eol")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub eol: Option<models::CycleEol>,
 
@@ -54,7 +115,8 @@ pub struct Cycle {
     #[serde(rename = "latest")]
     #[validate(
             length(min = 1),
-        )]
+          custom(function = "check_xss_string"),
+    )]
     #[serde(skip_serializing_if="Option::is_none")]
     pub latest: Option<String>,
 
@@ -62,21 +124,24 @@ pub struct Cycle {
     #[serde(rename = "link")]
     #[validate(
             length(min = 1),
-        )]
+    )]
     #[serde(deserialize_with = "deserialize_optional_nullable")]
     #[serde(default = "default_optional_nullable")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub link: Option<Nullable<String>>,
 
     #[serde(rename = "lts")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub lts: Option<models::CycleLts>,
 
     #[serde(rename = "support")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub support: Option<models::CycleSupport>,
 
     #[serde(rename = "discontinued")]
+          #[validate(nested)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub discontinued: Option<models::CycleDiscontinued>,
 
@@ -84,20 +149,18 @@ pub struct Cycle {
 
 
 
-
-
 impl Cycle {
     #[allow(clippy::new_without_default, clippy::too_many_arguments)]
     pub fn new() -> Cycle {
         Cycle {
-            cycle: None,
-            release_date: None,
-            eol: None,
-            latest: None,
-            link: None,
-            lts: None,
-            support: None,
-            discontinued: None,
+ cycle: None,
+ release_date: None,
+ eol: None,
+ latest: None,
+ link: None,
+ lts: None,
+ support: None,
+ discontinued: None,
         }
     }
 }
@@ -225,9 +288,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Cycle>> for HeaderValue {
         let hdr_value = hdr_value.to_string();
         match HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for Cycle - value: {} is invalid {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Invalid header value for Cycle - value: {hdr_value} is invalid {e}"#))
         }
     }
 }
@@ -241,32 +302,32 @@ impl std::convert::TryFrom<HeaderValue> for header::IntoHeaderValue<Cycle> {
              std::result::Result::Ok(value) => {
                     match <Cycle as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into Cycle - {}",
-                                value, err))
+                        std::result::Result::Err(err) => std::result::Result::Err(format!(r#"Unable to convert header value '{value}' into Cycle - {err}"#))
                     }
              },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+             std::result::Result::Err(e) => std::result::Result::Err(format!(r#"Unable to convert header: {hdr_value:?} to string: {e}"#))
         }
     }
 }
 
 
 
-
 /// The release cycle which this release is part of.
-/// Any of:
-/// - String
-/// - f64
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct CycleCycle(Box<serde_json::value::RawValue>);
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+#[allow(non_camel_case_types, clippy::large_enum_variant)]
+pub enum CycleCycle {
+    F64(f64),
+    String(String),
+}
 
 impl validator::Validate for CycleCycle
 {
     fn validate(&self) -> std::result::Result<(), validator::ValidationErrors> {
-        std::result::Result::Ok(())
+        match self {
+            Self::F64(_) => std::result::Result::Ok(()),
+            Self::String(_) => std::result::Result::Ok(()),
+        }
     }
 }
 
@@ -281,9 +342,15 @@ impl std::str::FromStr for CycleCycle {
     }
 }
 
-impl PartialEq for CycleCycle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0.get() == other.0.get()
+
+impl From<f64> for CycleCycle {
+    fn from(value: f64) -> Self {
+        Self::F64(value)
+    }
+}
+impl From<String> for CycleCycle {
+    fn from(value: String) -> Self {
+        Self::String(value)
     }
 }
 
@@ -292,16 +359,21 @@ impl PartialEq for CycleCycle {
 
 
 /// Whether this device version is no longer in production.
-/// Any of:
-/// - String
-/// - bool
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct CycleDiscontinued(Box<serde_json::value::RawValue>);
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+#[allow(non_camel_case_types, clippy::large_enum_variant)]
+pub enum CycleDiscontinued {
+    String(String),
+    Bool(bool),
+}
 
 impl validator::Validate for CycleDiscontinued
 {
     fn validate(&self) -> std::result::Result<(), validator::ValidationErrors> {
-        std::result::Result::Ok(())
+        match self {
+            Self::String(_) => std::result::Result::Ok(()),
+            Self::Bool(_) => std::result::Result::Ok(()),
+        }
     }
 }
 
@@ -316,9 +388,15 @@ impl std::str::FromStr for CycleDiscontinued {
     }
 }
 
-impl PartialEq for CycleDiscontinued {
-    fn eq(&self, other: &Self) -> bool {
-        self.0.get() == other.0.get()
+
+impl From<String> for CycleDiscontinued {
+    fn from(value: String) -> Self {
+        Self::String(value)
+    }
+}
+impl From<bool> for CycleDiscontinued {
+    fn from(value: bool) -> Self {
+        Self::Bool(value)
     }
 }
 
@@ -327,16 +405,21 @@ impl PartialEq for CycleDiscontinued {
 
 
 /// End-of-Life date for this release cycle.
-/// Any of:
-/// - String
-/// - bool
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct CycleEol(Box<serde_json::value::RawValue>);
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+#[allow(non_camel_case_types, clippy::large_enum_variant)]
+pub enum CycleEol {
+    String(String),
+    Bool(bool),
+}
 
 impl validator::Validate for CycleEol
 {
     fn validate(&self) -> std::result::Result<(), validator::ValidationErrors> {
-        std::result::Result::Ok(())
+        match self {
+            Self::String(_) => std::result::Result::Ok(()),
+            Self::Bool(_) => std::result::Result::Ok(()),
+        }
     }
 }
 
@@ -351,9 +434,15 @@ impl std::str::FromStr for CycleEol {
     }
 }
 
-impl PartialEq for CycleEol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0.get() == other.0.get()
+
+impl From<String> for CycleEol {
+    fn from(value: String) -> Self {
+        Self::String(value)
+    }
+}
+impl From<bool> for CycleEol {
+    fn from(value: bool) -> Self {
+        Self::Bool(value)
     }
 }
 
@@ -362,16 +451,21 @@ impl PartialEq for CycleEol {
 
 
 /// Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
-/// Any of:
-/// - String
-/// - bool
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct CycleLts(Box<serde_json::value::RawValue>);
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+#[allow(non_camel_case_types, clippy::large_enum_variant)]
+pub enum CycleLts {
+    String(String),
+    Bool(bool),
+}
 
 impl validator::Validate for CycleLts
 {
     fn validate(&self) -> std::result::Result<(), validator::ValidationErrors> {
-        std::result::Result::Ok(())
+        match self {
+            Self::String(_) => std::result::Result::Ok(()),
+            Self::Bool(_) => std::result::Result::Ok(()),
+        }
     }
 }
 
@@ -386,9 +480,15 @@ impl std::str::FromStr for CycleLts {
     }
 }
 
-impl PartialEq for CycleLts {
-    fn eq(&self, other: &Self) -> bool {
-        self.0.get() == other.0.get()
+
+impl From<String> for CycleLts {
+    fn from(value: String) -> Self {
+        Self::String(value)
+    }
+}
+impl From<bool> for CycleLts {
+    fn from(value: bool) -> Self {
+        Self::Bool(value)
     }
 }
 
@@ -397,16 +497,21 @@ impl PartialEq for CycleLts {
 
 
 /// Whether this release cycle has active support.
-/// Any of:
-/// - String
-/// - bool
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct CycleSupport(Box<serde_json::value::RawValue>);
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+#[allow(non_camel_case_types, clippy::large_enum_variant)]
+pub enum CycleSupport {
+    String(String),
+    Bool(bool),
+}
 
 impl validator::Validate for CycleSupport
 {
     fn validate(&self) -> std::result::Result<(), validator::ValidationErrors> {
-        std::result::Result::Ok(())
+        match self {
+            Self::String(_) => std::result::Result::Ok(()),
+            Self::Bool(_) => std::result::Result::Ok(()),
+        }
     }
 }
 
@@ -421,9 +526,15 @@ impl std::str::FromStr for CycleSupport {
     }
 }
 
-impl PartialEq for CycleSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0.get() == other.0.get()
+
+impl From<String> for CycleSupport {
+    fn from(value: String) -> Self {
+        Self::String(value)
+    }
+}
+impl From<bool> for CycleSupport {
+    fn from(value: bool) -> Self {
+        Self::Bool(value)
     }
 }
 

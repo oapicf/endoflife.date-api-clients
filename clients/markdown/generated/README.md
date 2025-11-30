@@ -7,9 +7,9 @@ All URIs are relative to *https://endoflife.date*
 
 | Class | Method | HTTP request | Description |
 |------------ | ------------- | ------------- | -------------|
-| *DefaultApi* | [**getApiAll.json**](Apis/DefaultApi.md#getapiall.json) | **GET** /api/all.json | All Products |
-*DefaultApi* | [**getApiProduct.json**](Apis/DefaultApi.md#getapiproduct.json) | **GET** /api/{product}.json | Get All Details |
-*DefaultApi* | [**getApiProductCycle.json**](Apis/DefaultApi.md#getapiproductcycle.json) | **GET** /api/{product}/{cycle}.json | Single cycle details |
+| *DefaultApi* | [**getApiAll.json**](Apis/DefaultApi.md#getApiAll.json) | **GET** /api/all.json | All Products |
+*DefaultApi* | [**getApiProduct.json**](Apis/DefaultApi.md#getApiProduct.json) | **GET** /api/{product}.json | Get All Details |
+*DefaultApi* | [**getApiProductCycle.json**](Apis/DefaultApi.md#getApiProductCycle.json) | **GET** /api/{product}/{cycle}.json | Single cycle details |
 
 
 <a name="documentation-for-models"></a>

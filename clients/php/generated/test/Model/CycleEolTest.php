@@ -13,7 +13,7 @@
 /**
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CycleEolTest Class Doc Comment
  *
  * @category    Class
- * @description End of Life Date for this release cycle
+ * @description End-of-Life date for this release cycle.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

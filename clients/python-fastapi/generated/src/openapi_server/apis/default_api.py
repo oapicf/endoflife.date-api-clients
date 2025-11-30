@@ -37,20 +37,21 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
 
 
 @router.get(
-    "/api/all.json",
+    "/api/{product}.json",
     responses={
-        200: {"model": List[str], "description": "OK"},
+        200: {"model": List[Cycle], "description": "OK"},
     },
     tags=["default"],
-    summary="All Products",
+    summary="Get All Details",
     response_model_by_alias=True,
 )
-async def get_api_all_json(
-) -> List[str]:
-    """Return a list of all products. Each of these can be used for the other API endpoints."""
+async def get_api_product_json(
+    product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")] = Path(..., description="Product URL as per the canonical URL on the endofife.date website."),
+) -> List[Cycle]:
+    """Get EoL dates of all cycles of a given product."""
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
-    return await BaseDefaultApi.subclasses[0]().get_api_all_json()
+    return await BaseDefaultApi.subclasses[0]().get_api_product_json(product)
 
 
 @router.get(
@@ -73,18 +74,17 @@ async def get_api_product_cycle_json(
 
 
 @router.get(
-    "/api/{product}.json",
+    "/api/all.json",
     responses={
-        200: {"model": List[Cycle], "description": "OK"},
+        200: {"model": List[str], "description": "OK"},
     },
     tags=["default"],
-    summary="Get All Details",
+    summary="All Products",
     response_model_by_alias=True,
 )
-async def get_api_product_json(
-    product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")] = Path(..., description="Product URL as per the canonical URL on the endofife.date website."),
-) -> List[Cycle]:
-    """Get EoL dates of all cycles of a given product."""
+async def get_api_all_json(
+) -> List[str]:
+    """Return a list of all products. Each of these can be used for the other API endpoints."""
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
-    return await BaseDefaultApi.subclasses[0]().get_api_product_json(product)
+    return await BaseDefaultApi.subclasses[0]().get_api_all_json()

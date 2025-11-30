@@ -6,10 +6,10 @@ Details of a single release cycle of a given product. There might be some slight
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VarCycle** | [**CycleCycle**](CycleCycle.md) |  | [optional] 
-**ReleaseDate** | **DateOnly** | Release Date for the first release in this cycle | [optional] 
+**ReleaseDate** | **DateOnly** | Release date for the first release in this cycle. | [optional] 
 **Eol** | [**CycleEol**](CycleEol.md) |  | [optional] 
-**Latest** | **string** | Latest release in this cycle | [optional] 
-**Link** | **string** | Link to changelog for the latest release, if available | [optional] 
+**Latest** | **string** | Latest release in this cycle. | [optional] 
+**Link** | **string** | Link to changelog for the latest release in this cycle, or null if unavailable. | [optional] 
 **Lts** | [**CycleLts**](CycleLts.md) |  | [optional] 
 **Support** | [**CycleSupport**](CycleSupport.md) |  | [optional] 
 **Discontinued** | [**CycleDiscontinued**](CycleDiscontinued.md) |  | [optional] 

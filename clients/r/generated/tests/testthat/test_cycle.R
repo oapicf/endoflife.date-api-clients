@@ -14,7 +14,7 @@ test_that("cycle", {
 
 test_that("releaseDate", {
   # tests for the property `releaseDate` (character)
-  # Release Date for the first release in this cycle
+  # Release date for the first release in this cycle.
 
   # uncomment below to test the property
   #expect_equal(model.instance$`releaseDate`, "EXPECTED_RESULT")
@@ -29,7 +29,7 @@ test_that("eol", {
 
 test_that("latest", {
   # tests for the property `latest` (character)
-  # Latest release in this cycle
+  # Latest release in this cycle.
 
   # uncomment below to test the property
   #expect_equal(model.instance$`latest`, "EXPECTED_RESULT")
@@ -37,7 +37,7 @@ test_that("latest", {
 
 test_that("link", {
   # tests for the property `link` (character)
-  # Link to changelog for the latest release, if available
+  # Link to changelog for the latest release in this cycle, or null if unavailable.
 
   # uncomment below to test the property
   #expect_equal(model.instance$`link`, "EXPECTED_RESULT")

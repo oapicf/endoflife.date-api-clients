@@ -1,5 +1,12 @@
 apis/DefaultApi.ts
 apis/index.ts
+docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
+docs/DefaultApi.md
 index.ts
 models/Cycle.ts
 models/CycleCycle.ts

@@ -1,7 +1,6 @@
 package org.openapitools.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import io.swagger.annotations.ApiModel;
 import org.joda.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.CycleCycle;

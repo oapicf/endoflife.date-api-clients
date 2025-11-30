@@ -36,7 +36,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getApiProductCycleJson
         should("test getApiProductCycleJson") {
             // uncomment below to test getApiProductCycleJson
-            //val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website
+            //val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website.
             //val cycle : kotlin.String = cycle_example // kotlin.String | Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
             //val result : Cycle = apiInstance.getApiProductCycleJson(product, cycle)
             //result shouldBe ("TODO")
@@ -45,7 +45,7 @@ class DefaultApiTest : ShouldSpec() {
         // to test getApiProductJson
         should("test getApiProductJson") {
             // uncomment below to test getApiProductJson
-            //val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website
+            //val product : kotlin.String = product_example // kotlin.String | Product URL as per the canonical URL on the endofife.date website.
             //val result : kotlin.collections.List<Cycle> = apiInstance.getApiProductJson(product)
             //result shouldBe ("TODO")
         }

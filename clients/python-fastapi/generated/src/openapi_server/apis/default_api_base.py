@@ -14,10 +14,11 @@ class BaseDefaultApi:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         BaseDefaultApi.subclasses = BaseDefaultApi.subclasses + (cls,)
-    async def get_api_all_json(
+    async def get_api_product_json(
         self,
-    ) -> List[str]:
-        """Return a list of all products. Each of these can be used for the other API endpoints."""
+        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")],
+    ) -> List[Cycle]:
+        """Get EoL dates of all cycles of a given product."""
         ...
 
 
@@ -30,9 +31,8 @@ class BaseDefaultApi:
         ...
 
 
-    async def get_api_product_json(
+    async def get_api_all_json(
         self,
-        product: Annotated[StrictStr, Field(description="Product URL as per the canonical URL on the endofife.date website.")],
-    ) -> List[Cycle]:
-        """Get EoL dates of all cycles of a given product."""
+    ) -> List[str]:
+        """Return a list of all products. Each of these can be used for the other API endpoints."""
         ...

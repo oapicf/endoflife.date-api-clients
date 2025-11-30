@@ -1,17 +1,17 @@
 package org.openapitools.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import io.swagger.annotations.ApiModel;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
-  * Whether this device version is no longer in production.
- **/
+ * Whether this device version is no longer in production.
+ */
 @ApiModel(description="Whether this device version is no longer in production.")
 
 public class CycleDiscontinued  {

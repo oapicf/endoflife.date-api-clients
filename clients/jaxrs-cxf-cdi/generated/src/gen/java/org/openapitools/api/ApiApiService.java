@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2025-05-09T11:49:26.502470538Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2025-11-30T06:33:55.251274667Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public interface ApiApiService {
       public Response getApiAllJson(SecurityContext securityContext);
       public Response getApiProductCycleJson(String product, String cycle, SecurityContext securityContext);

@@ -32,7 +32,7 @@ cycle_t* instantiate_cycle(int include_optional) {
       "0",
       "0",
       "0",
-      1,
+      "0",
       "2013-10-20",
       "2013-10-20"
     );
@@ -43,7 +43,7 @@ cycle_t* instantiate_cycle(int include_optional) {
       "0",
       "0",
       "0",
-      1,
+      "0",
       "2013-10-20",
       "2013-10-20"
     );

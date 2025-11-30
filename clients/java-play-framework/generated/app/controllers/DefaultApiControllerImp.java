@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-09T11:49:18.178599199Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-11-30T06:33:45.413924818Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class DefaultApiControllerImp extends DefaultApiControllerImpInterface {
     @Override
     public List<String> getApiAllJson(Http.Request request) throws Exception {

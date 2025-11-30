@@ -1,7 +1,7 @@
 =begin
 #endoflife.date
 
-#Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki)
+#The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 
 The version of the OpenAPI document: 0.0.1
 Contact: blah+oapicf@cliffano.com
@@ -45,8 +45,8 @@ describe 'DefaultApi' do
 
   # unit tests for get_api_product_cycle_json
   # Single cycle details
-  # Gets details of a single cycle
-  # @param product Product URL as per the canonical URL on the endofife.date website
+  # Gets details of a single cycle.
+  # @param product Product URL as per the canonical URL on the endofife.date website.
   # @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.
   # @param [Hash] opts the optional parameters
   # @return [Cycle]
@@ -59,7 +59,7 @@ describe 'DefaultApi' do
   # unit tests for get_api_product_json
   # Get All Details
   # Get EoL dates of all cycles of a given product.
-  # @param product Product URL as per the canonical URL on the endofife.date website
+  # @param product Product URL as per the canonical URL on the endofife.date website.
   # @param [Hash] opts the optional parameters
   # @return [Array<Cycle>]
   describe 'get_api_product_json test' do

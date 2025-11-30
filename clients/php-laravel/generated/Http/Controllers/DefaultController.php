@@ -2,7 +2,7 @@
 
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  * PHP version 8.1
  *
  * The version of the OpenAPI document: 0.0.1
@@ -64,12 +64,8 @@ class DefaultController extends Controller
             return response()->json(['error' => 'Invalid input'], 400);
         }
 
-        try {
-            $apiResult = $this->api->getApiAllJson();
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->getApiAllJson();
 
         if (is_array($apiResult)) {
             $serialized = array_map(fn ($item) => $this->serde->serialize($item, format: 'array'), $apiResult);
@@ -113,12 +109,8 @@ class DefaultController extends Controller
 
 
 
-        try {
-            $apiResult = $this->api->getApiProductCycleJson($product, $cycle);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->getApiProductCycleJson($product, $cycle);
 
         if ($apiResult instanceof \OpenAPI\Server\Model\Cycle) {
             return response()->json($this->serde->serialize($apiResult, format: 'array'), 200);
@@ -156,12 +148,8 @@ class DefaultController extends Controller
         }
 
 
-        try {
-            $apiResult = $this->api->getApiProductJson($product);
-        } catch (\Exception $exception) {
-            // This shouldn't happen
-            return response()->json(['error' => $exception->getMessage()], 500);
-        }
+
+        $apiResult = $this->api->getApiProductJson($product);
 
         if (is_array($apiResult)) {
             $serialized = array_map(fn ($item) => $this->serde->serialize($item, format: 'array'), $apiResult);

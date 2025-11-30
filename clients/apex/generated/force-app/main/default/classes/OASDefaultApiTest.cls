@@ -31,7 +31,7 @@ private class OASDefaultApiTest {
     /**
      * Single cycle details
      *
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      */
     @isTest
     private static void getApiProductCycleJsonTest() {

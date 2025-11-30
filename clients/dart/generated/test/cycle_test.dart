@@ -21,7 +21,7 @@ void main() {
       // TODO
     });
 
-    // Release Date for the first release in this cycle
+    // Release date for the first release in this cycle.
     // DateTime releaseDate
     test('to test the property `releaseDate`', () async {
       // TODO
@@ -32,13 +32,13 @@ void main() {
       // TODO
     });
 
-    // Latest release in this cycle
+    // Latest release in this cycle.
     // String latest
     test('to test the property `latest`', () async {
       // TODO
     });
 
-    // Link to changelog for the latest release, if available
+    // Link to changelog for the latest release in this cycle, or null if unavailable.
     // String link
     test('to test the property `link`', () async {
       // TODO

@@ -5,7 +5,7 @@
 """
     endoflife.date
 
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+    The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 
     The version of the OpenAPI document: 0.0.1
     Contact: blah+oapicf@cliffano.com
@@ -17,24 +17,44 @@
 
 __version__ = "1.0.0"
 
+# Define package exports
+__all__ = [
+    "DefaultApi",
+    "ApiResponse",
+    "ApiClient",
+    "Configuration",
+    "OpenApiException",
+    "ApiTypeError",
+    "ApiValueError",
+    "ApiKeyError",
+    "ApiAttributeError",
+    "ApiException",
+    "Cycle",
+    "CycleCycle",
+    "CycleDiscontinued",
+    "CycleEol",
+    "CycleLts",
+    "CycleSupport",
+]
+
 # import apis into sdk package
-from openapi_client.api.default_api import DefaultApi
+from openapi_client.api.default_api import DefaultApi as DefaultApi
 
 # import ApiClient
-from openapi_client.api_response import ApiResponse
-from openapi_client.api_client import ApiClient
-from openapi_client.configuration import Configuration
-from openapi_client.exceptions import OpenApiException
-from openapi_client.exceptions import ApiTypeError
-from openapi_client.exceptions import ApiValueError
-from openapi_client.exceptions import ApiKeyError
-from openapi_client.exceptions import ApiAttributeError
-from openapi_client.exceptions import ApiException
+from openapi_client.api_response import ApiResponse as ApiResponse
+from openapi_client.api_client import ApiClient as ApiClient
+from openapi_client.configuration import Configuration as Configuration
+from openapi_client.exceptions import OpenApiException as OpenApiException
+from openapi_client.exceptions import ApiTypeError as ApiTypeError
+from openapi_client.exceptions import ApiValueError as ApiValueError
+from openapi_client.exceptions import ApiKeyError as ApiKeyError
+from openapi_client.exceptions import ApiAttributeError as ApiAttributeError
+from openapi_client.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from openapi_client.models.cycle import Cycle
-from openapi_client.models.cycle_cycle import CycleCycle
-from openapi_client.models.cycle_discontinued import CycleDiscontinued
-from openapi_client.models.cycle_eol import CycleEol
-from openapi_client.models.cycle_lts import CycleLts
-from openapi_client.models.cycle_support import CycleSupport
+from openapi_client.models.cycle import Cycle as Cycle
+from openapi_client.models.cycle_cycle import CycleCycle as CycleCycle
+from openapi_client.models.cycle_discontinued import CycleDiscontinued as CycleDiscontinued
+from openapi_client.models.cycle_eol import CycleEol as CycleEol
+from openapi_client.models.cycle_lts import CycleLts as CycleLts
+from openapi_client.models.cycle_support import CycleSupport as CycleSupport

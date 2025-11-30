@@ -4,9 +4,8 @@ info:
     email: blah+oapicf@cliffano.com
     name: OpenAPI Clients Factory
     url: https://github.com/oapicf/endoflife.date-api-clients
-  description: "Documentation for the endoflife.date API. The API is currently in\
-    \ Alpha. Additional information about the API can be found on the [endoflife.date\
-    \ wiki](https://github.com/endoflife-date/endoflife.date/wiki)."
+  description: "The endoflife.date v0 API is currently deprecated, please [use the\
+    \ endoflife.date v1 API](https://endoflife.date/docs/api/v1/)."
   license:
     name: MIT
     url: https://github.com/endoflife-date/endoflife.date/blob/master/LICENSE
@@ -64,7 +63,7 @@ paths:
                     link: https://www.python.org/downloads/release/python-3810/
               schema:
                 items:
-                  $ref: '#/components/schemas/cycle'
+                  $ref: "#/components/schemas/cycle"
                 type: array
           description: OK
       summary: Get All Details
@@ -115,7 +114,7 @@ paths:
                     latest: "21.04"
                     link: https://wiki.ubuntu.com/HirsuteHippo/ReleaseNotes/
               schema:
-                $ref: '#/components/schemas/cycle'
+                $ref: "#/components/schemas/cycle"
           description: OK
       summary: Single cycle details
       tags: []
@@ -216,7 +215,7 @@ components:
         latest: latest
       properties:
         cycle:
-          $ref: '#/components/schemas/cycle_cycle'
+          $ref: "#/components/schemas/cycle_cycle"
         releaseDate:
           description: Release date for the first release in this cycle.
           format: date
@@ -224,7 +223,7 @@ components:
           minLength: 10
           type: string
         eol:
-          $ref: '#/components/schemas/cycle_eol'
+          $ref: "#/components/schemas/cycle_eol"
         latest:
           description: Latest release in this cycle.
           minLength: 1
@@ -236,11 +235,11 @@ components:
           nullable: true
           type: string
         lts:
-          $ref: '#/components/schemas/cycle_lts'
+          $ref: "#/components/schemas/cycle_lts"
         support:
-          $ref: '#/components/schemas/cycle_support'
+          $ref: "#/components/schemas/cycle_support"
         discontinued:
-          $ref: '#/components/schemas/cycle_discontinued'
+          $ref: "#/components/schemas/cycle_discontinued"
       title: Cycle
       x-examples:
         python:

@@ -32,7 +32,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle", description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-09T11:50:43.381361653Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-11-30T06:35:21.952552168Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Cycle {
 
   private @Nullable CycleCycle cycle;
@@ -52,7 +52,7 @@ public class Cycle {
 
   private @Nullable CycleDiscontinued discontinued;
 
-  public Cycle cycle(CycleCycle cycle) {
+  public Cycle cycle(@Nullable CycleCycle cycle) {
     this.cycle = cycle;
     return this;
   }
@@ -64,15 +64,15 @@ public class Cycle {
   @Valid 
   @Schema(name = "cycle", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("cycle")
-  public CycleCycle getCycle() {
+  public @Nullable CycleCycle getCycle() {
     return cycle;
   }
 
-  public void setCycle(CycleCycle cycle) {
+  public void setCycle(@Nullable CycleCycle cycle) {
     this.cycle = cycle;
   }
 
-  public Cycle releaseDate(LocalDate releaseDate) {
+  public Cycle releaseDate(@Nullable LocalDate releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
@@ -84,15 +84,15 @@ public class Cycle {
   @Valid @Size(min = 10, max = 10) 
   @Schema(name = "releaseDate", description = "Release date for the first release in this cycle.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("releaseDate")
-  public LocalDate getReleaseDate() {
+  public @Nullable LocalDate getReleaseDate() {
     return releaseDate;
   }
 
-  public void setReleaseDate(LocalDate releaseDate) {
+  public void setReleaseDate(@Nullable LocalDate releaseDate) {
     this.releaseDate = releaseDate;
   }
 
-  public Cycle eol(CycleEol eol) {
+  public Cycle eol(@Nullable CycleEol eol) {
     this.eol = eol;
     return this;
   }
@@ -104,15 +104,15 @@ public class Cycle {
   @Valid 
   @Schema(name = "eol", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("eol")
-  public CycleEol getEol() {
+  public @Nullable CycleEol getEol() {
     return eol;
   }
 
-  public void setEol(CycleEol eol) {
+  public void setEol(@Nullable CycleEol eol) {
     this.eol = eol;
   }
 
-  public Cycle latest(String latest) {
+  public Cycle latest(@Nullable String latest) {
     this.latest = latest;
     return this;
   }
@@ -124,11 +124,11 @@ public class Cycle {
   @Size(min = 1) 
   @Schema(name = "latest", description = "Latest release in this cycle.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("latest")
-  public String getLatest() {
+  public @Nullable String getLatest() {
     return latest;
   }
 
-  public void setLatest(String latest) {
+  public void setLatest(@Nullable String latest) {
     this.latest = latest;
   }
 
@@ -152,7 +152,7 @@ public class Cycle {
     this.link = link;
   }
 
-  public Cycle lts(CycleLts lts) {
+  public Cycle lts(@Nullable CycleLts lts) {
     this.lts = lts;
     return this;
   }
@@ -164,15 +164,15 @@ public class Cycle {
   @Valid 
   @Schema(name = "lts", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("lts")
-  public CycleLts getLts() {
+  public @Nullable CycleLts getLts() {
     return lts;
   }
 
-  public void setLts(CycleLts lts) {
+  public void setLts(@Nullable CycleLts lts) {
     this.lts = lts;
   }
 
-  public Cycle support(CycleSupport support) {
+  public Cycle support(@Nullable CycleSupport support) {
     this.support = support;
     return this;
   }
@@ -184,15 +184,15 @@ public class Cycle {
   @Valid 
   @Schema(name = "support", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("support")
-  public CycleSupport getSupport() {
+  public @Nullable CycleSupport getSupport() {
     return support;
   }
 
-  public void setSupport(CycleSupport support) {
+  public void setSupport(@Nullable CycleSupport support) {
     this.support = support;
   }
 
-  public Cycle discontinued(CycleDiscontinued discontinued) {
+  public Cycle discontinued(@Nullable CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
     return this;
   }
@@ -204,11 +204,11 @@ public class Cycle {
   @Valid 
   @Schema(name = "discontinued", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("discontinued")
-  public CycleDiscontinued getDiscontinued() {
+  public @Nullable CycleDiscontinued getDiscontinued() {
     return discontinued;
   }
 
-  public void setDiscontinued(CycleDiscontinued discontinued) {
+  public void setDiscontinued(@Nullable CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
 

@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
  **/
 @ApiModel(description = "End-of-Life date for this release cycle.")
 @JsonTypeName("cycle_eol")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-05-09T11:49:31.811227707Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-11-30T06:34:01.283359999Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class CycleEol   {
 
   public CycleEol() {

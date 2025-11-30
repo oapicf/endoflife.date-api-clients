@@ -1,5 +1,5 @@
 # Org.OpenAPITools.Model.CycleDiscontinued
-Whether this cycle is now discontinued.
+Whether this device version is no longer in production.
 
 ## Properties
 

@@ -1,17 +1,17 @@
 package org.openapitools.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import io.swagger.annotations.ApiModel;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
-  * End-of-Life date for this release cycle.
- **/
+ * End-of-Life date for this release cycle.
+ */
 @ApiModel(description="End-of-Life date for this release cycle.")
 
 public class CycleEol  {

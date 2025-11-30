@@ -18,7 +18,7 @@ void main() {
 
     // Single cycle details
     //
-    // Gets details of a single cycle
+    // Gets details of a single cycle.
     //
     //Future<Cycle> getApiProductCycleJson(String product, String cycle) async
     test('test getApiProductCycleJson', () async {

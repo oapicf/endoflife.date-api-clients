@@ -44,7 +44,7 @@ public class DefaultApiTest {
     /**
      * Single cycle details
      *
-     * Gets details of a single cycle
+     * Gets details of a single cycle.
      */
     @Test
     @Disabled("Not Implemented")

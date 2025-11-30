@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * endoflife.date
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -45,8 +45,11 @@ export class DefaultApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/api/all.json`;
+
         const response = await this.request({
-            path: `/api/all.json`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -87,8 +90,13 @@ export class DefaultApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/api/{product}/{cycle}.json`;
+        urlPath = urlPath.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters['product'])));
+        urlPath = urlPath.replace(`{${"cycle"}}`, encodeURIComponent(String(requestParameters['cycle'])));
+
         const response = await this.request({
-            path: `/api/{product}/{cycle}.json`.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters['product']))).replace(`{${"cycle"}}`, encodeURIComponent(String(requestParameters['cycle']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -122,8 +130,12 @@ export class DefaultApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/api/{product}.json`;
+        urlPath = urlPath.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters['product'])));
+
         const response = await this.request({
-            path: `/api/{product}.json`.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters['product']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

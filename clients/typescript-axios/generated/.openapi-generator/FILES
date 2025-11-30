@@ -4,5 +4,12 @@ api.ts
 base.ts
 common.ts
 configuration.ts
+docs/Cycle.md
+docs/CycleCycle.md
+docs/CycleDiscontinued.md
+docs/CycleEol.md
+docs/CycleLts.md
+docs/CycleSupport.md
+docs/DefaultApi.md
 git_push.sh
 index.ts

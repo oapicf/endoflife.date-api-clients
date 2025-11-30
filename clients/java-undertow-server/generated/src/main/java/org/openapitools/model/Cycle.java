@@ -1,7 +1,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * OpenAPI document version: 0.0.1
  * Maintained by: blah+oapicf@cliffano.com
@@ -30,7 +30,7 @@ import org.openapitools.model.CycleSupport;
  */
 
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2025-05-09T11:49:19.392591350Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2025-11-30T06:33:46.822618837Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Cycle   {
   
   private CycleCycle cycle;

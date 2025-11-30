@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  **/
 
 @ApiModel(description = "The release cycle which this release is part of.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2025-05-09T11:49:11.149893161Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2025-11-30T06:33:38.593080054Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class CycleCycle   {
 
   @Override

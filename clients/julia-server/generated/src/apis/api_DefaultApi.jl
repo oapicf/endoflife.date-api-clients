@@ -14,7 +14,8 @@ end
 function get_api_all_json_validate(handler)
     function get_api_all_json_validate_handler(req::HTTP.Request)
         openapi_params = req.context[:openapi_params]
-        
+        op = "get_api_all_json"
+
         return handler(req)
     end
 end
@@ -43,7 +44,32 @@ end
 function get_api_product_cycle_json_validate(handler)
     function get_api_product_cycle_json_validate_handler(req::HTTP.Request)
         openapi_params = req.context[:openapi_params]
+        op = "get_api_product_cycle_json"
         
+        n = "product"
+        v = get(openapi_params, n, nothing)
+        isnothing(v) && throw(OpenAPI.ValidationException(;reason="missing parameter $n", operation_or_model=op))
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+        
+        n = "cycle"
+        v = get(openapi_params, n, nothing)
+        isnothing(v) && throw(OpenAPI.ValidationException(;reason="missing parameter $n", operation_or_model=op))
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+
         return handler(req)
     end
 end
@@ -71,7 +97,20 @@ end
 function get_api_product_json_validate(handler)
     function get_api_product_json_validate_handler(req::HTTP.Request)
         openapi_params = req.context[:openapi_params]
+        op = "get_api_product_json"
         
+        n = "product"
+        v = get(openapi_params, n, nothing)
+        isnothing(v) && throw(OpenAPI.ValidationException(;reason="missing parameter $n", operation_or_model=op))
+        if !isnothing(v)
+            if isa(v, OpenAPI.APIModel)
+                OpenAPI.validate_properties(v)
+                if !OpenAPI.check_required(v)
+                    throw(OpenAPI.ValidationException(;reason="$n is missing required properties", operation_or_model=op))
+                end
+            end
+        end
+
         return handler(req)
     end
 end

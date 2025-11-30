@@ -1,6 +1,6 @@
 # Rust API for openapi_client
 
-Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 
 ## Overview
 
@@ -14,8 +14,8 @@ To see how to make this your own, look here:
 [README]((https://openapi-generator.tech))
 
 - API version: 0.0.1
-- Build date: 2025-05-09T11:50:27.590595731Z[Etc/UTC]
-- Generator version: 7.12.0
+- Build date: 2025-11-30T06:35:04.968699037Z[Etc/UTC]
+- Generator version: 7.17.0
 
 For more information, please visit [https://github.com/oapicf/endoflife.date-api-clients](https://github.com/oapicf/endoflife.date-api-clients)
 
@@ -87,9 +87,9 @@ cargo run --example server
 To run a client, follow one of the following simple steps:
 
 ```
-cargo run --example client GetApiAllPeriodJson
-cargo run --example client GetApiProductPeriodJson
-cargo run --example client GetApiProductCyclePeriodJson
+cargo run --example client GetApiAllJson
+cargo run --example client GetApiProductJson
+cargo run --example client GetApiProductCycleJson
 ```
 
 ### HTTPS

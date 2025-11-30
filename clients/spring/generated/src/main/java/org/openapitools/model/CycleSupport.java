@@ -19,7 +19,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle_support", description = "Whether this release cycle has active support.")
 @JsonTypeName("cycle_support")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-05-09T11:50:43.381361653Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-11-30T06:35:21.952552168Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class CycleSupport {
 
   @Override

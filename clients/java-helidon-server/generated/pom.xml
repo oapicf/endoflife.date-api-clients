@@ -6,14 +6,14 @@
     <parent>
         <groupId>io.helidon.applications</groupId>
         <artifactId>helidon-se</artifactId>
-        <version>4.2.1</version>
+        <version>4.3.2</version>
         <relativePath/>
     </parent>
     <groupId>org.openapitools</groupId>
     <artifactId>openapi-java-server</artifactId>
     <version>0.0.1</version>
     <name>openapi-java-server</name>
-    <description>Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).</description>
+    <description>The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).</description>
 
     <properties>
         <mainClass>org.openapitools.server.Main</mainClass>

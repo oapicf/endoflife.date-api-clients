@@ -19,6 +19,7 @@ lib/endoflife_date.rb
 lib/endoflife_date/api/default_api.rb
 lib/endoflife_date/api_client.rb
 lib/endoflife_date/api_error.rb
+lib/endoflife_date/api_model_base.rb
 lib/endoflife_date/configuration.rb
 lib/endoflife_date/models/cycle.rb
 lib/endoflife_date/models/cycle_cycle.rb

@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
  **/
 @ApiModel(description = "Whether this device version is no longer in production.")
 @JsonTypeName("cycle_discontinued")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-05-09T11:49:31.811227707Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2025-11-30T06:34:01.283359999Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class CycleDiscontinued   {
 
   public CycleDiscontinued() {

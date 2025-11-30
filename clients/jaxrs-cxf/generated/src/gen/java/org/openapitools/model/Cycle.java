@@ -1,7 +1,6 @@
 package org.openapitools.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import io.swagger.annotations.ApiModel;
 import org.joda.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.openapitools.model.CycleCycle;
@@ -12,53 +11,67 @@ import org.openapitools.model.CycleSupport;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
-  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
- **/
+ * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
+ */
 @ApiModel(description="Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 
 public class Cycle  {
   
   @ApiModelProperty(value = "")
+
   @Valid
+
   private CycleCycle cycle;
 
-  @ApiModelProperty(value = "Release date for the first release in this cycle.")
  /**
-   * Release date for the first release in this cycle.
-  **/
+  * Release date for the first release in this cycle.
+  */
+  @ApiModelProperty(value = "Release date for the first release in this cycle.")
+
   private LocalDate releaseDate;
 
   @ApiModelProperty(value = "")
+
   @Valid
+
   private CycleEol eol;
 
-  @ApiModelProperty(value = "Latest release in this cycle.")
  /**
-   * Latest release in this cycle.
-  **/
+  * Latest release in this cycle.
+  */
+  @ApiModelProperty(value = "Latest release in this cycle.")
+
   private String latest;
 
-  @ApiModelProperty(value = "Link to changelog for the latest release in this cycle, or null if unavailable.")
  /**
-   * Link to changelog for the latest release in this cycle, or null if unavailable.
-  **/
+  * Link to changelog for the latest release in this cycle, or null if unavailable.
+  */
+  @ApiModelProperty(value = "Link to changelog for the latest release in this cycle, or null if unavailable.")
+
   private String link;
 
   @ApiModelProperty(value = "")
+
   @Valid
+
   private CycleLts lts;
 
   @ApiModelProperty(value = "")
+
   @Valid
+
   private CycleSupport support;
 
   @ApiModelProperty(value = "")
+
   @Valid
+
   private CycleDiscontinued discontinued;
  /**
    * Get cycle

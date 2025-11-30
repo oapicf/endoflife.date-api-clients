@@ -21,21 +21,21 @@ pub use auth::{AuthenticationApi, Claims};
 
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GetApiAllPeriodJsonResponse {
+pub enum GetApiAllJsonResponse {
     /// OK
     OK
     (Vec<String>)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GetApiProductPeriodJsonResponse {
+pub enum GetApiProductJsonResponse {
     /// OK
     OK
     (Vec<models::Cycle>)
 }
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum GetApiProductCyclePeriodJsonResponse {
+pub enum GetApiProductCycleJsonResponse {
     /// OK
     OK
     (models::Cycle)
@@ -45,27 +45,23 @@ pub enum GetApiProductCyclePeriodJsonResponse {
 #[async_trait]
 #[allow(clippy::too_many_arguments, clippy::ptr_arg)]
 pub trait Api<C: Send + Sync> {
-    fn poll_ready(&self, _cx: &mut Context) -> Poll<Result<(), Box<dyn Error + Send + Sync + 'static>>> {
-        Poll::Ready(Ok(()))
-    }
-
     /// All Products
-    async fn get_api_all_period_json(
+    async fn get_api_all_json(
         &self,
-        context: &C) -> Result<GetApiAllPeriodJsonResponse, ApiError>;
+        context: &C) -> Result<GetApiAllJsonResponse, ApiError>;
 
     /// Get All Details
-    async fn get_api_product_period_json(
+    async fn get_api_product_json(
         &self,
         product: String,
-        context: &C) -> Result<GetApiProductPeriodJsonResponse, ApiError>;
+        context: &C) -> Result<GetApiProductJsonResponse, ApiError>;
 
     /// Single cycle details
-    async fn get_api_product_cycle_period_json(
+    async fn get_api_product_cycle_json(
         &self,
         product: String,
         cycle: String,
-        context: &C) -> Result<GetApiProductCyclePeriodJsonResponse, ApiError>;
+        context: &C) -> Result<GetApiProductCycleJsonResponse, ApiError>;
 
 }
 
@@ -74,27 +70,25 @@ pub trait Api<C: Send + Sync> {
 #[allow(clippy::too_many_arguments, clippy::ptr_arg)]
 pub trait ApiNoContext<C: Send + Sync> {
 
-    fn poll_ready(&self, _cx: &mut Context) -> Poll<Result<(), Box<dyn Error + Send + Sync + 'static>>>;
-
     fn context(&self) -> &C;
 
     /// All Products
-    async fn get_api_all_period_json(
+    async fn get_api_all_json(
         &self,
-        ) -> Result<GetApiAllPeriodJsonResponse, ApiError>;
+        ) -> Result<GetApiAllJsonResponse, ApiError>;
 
     /// Get All Details
-    async fn get_api_product_period_json(
+    async fn get_api_product_json(
         &self,
         product: String,
-        ) -> Result<GetApiProductPeriodJsonResponse, ApiError>;
+        ) -> Result<GetApiProductJsonResponse, ApiError>;
 
     /// Single cycle details
-    async fn get_api_product_cycle_period_json(
+    async fn get_api_product_cycle_json(
         &self,
         product: String,
         cycle: String,
-        ) -> Result<GetApiProductCyclePeriodJsonResponse, ApiError>;
+        ) -> Result<GetApiProductCycleJsonResponse, ApiError>;
 
 }
 
@@ -113,42 +107,38 @@ impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ContextWrapperExt<C> for T
 
 #[async_trait]
 impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for ContextWrapper<T, C> {
-    fn poll_ready(&self, cx: &mut Context) -> Poll<Result<(), ServiceError>> {
-        self.api().poll_ready(cx)
-    }
-
     fn context(&self) -> &C {
         ContextWrapper::context(self)
     }
 
     /// All Products
-    async fn get_api_all_period_json(
+    async fn get_api_all_json(
         &self,
-        ) -> Result<GetApiAllPeriodJsonResponse, ApiError>
+        ) -> Result<GetApiAllJsonResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().get_api_all_period_json(&context).await
+        self.api().get_api_all_json(&context).await
     }
 
     /// Get All Details
-    async fn get_api_product_period_json(
+    async fn get_api_product_json(
         &self,
         product: String,
-        ) -> Result<GetApiProductPeriodJsonResponse, ApiError>
+        ) -> Result<GetApiProductJsonResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().get_api_product_period_json(product, &context).await
+        self.api().get_api_product_json(product, &context).await
     }
 
     /// Single cycle details
-    async fn get_api_product_cycle_period_json(
+    async fn get_api_product_cycle_json(
         &self,
         product: String,
         cycle: String,
-        ) -> Result<GetApiProductCyclePeriodJsonResponse, ApiError>
+        ) -> Result<GetApiProductCycleJsonResponse, ApiError>
     {
         let context = self.context().clone();
-        self.api().get_api_product_cycle_period_json(product, cycle, &context).await
+        self.api().get_api_product_cycle_json(product, cycle, &context).await
     }
 
 }

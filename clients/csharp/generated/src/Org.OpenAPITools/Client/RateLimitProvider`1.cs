@@ -2,7 +2,7 @@
 /*
  * endoflife.date
  *
- * Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+ * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: blah+oapicf@cliffano.com
@@ -41,9 +41,11 @@ namespace Org.OpenAPITools.Client
 
             AvailableTokens.Add(string.Empty, global::System.Threading.Channels.Channel.CreateBounded<TTokenBase>(options));
 
-            foreach(global::System.Threading.Channels.Channel<TTokenBase> tokens in AvailableTokens.Values)
-                for (int i = 0; i < _tokens.Length; i++)
-                    _tokens[i].TokenBecameAvailable += ((sender) => tokens.Writer.TryWrite((TTokenBase) sender));
+            foreach (var availableToken in AvailableTokens)
+                foreach(TTokenBase token in _tokens)
+                {
+                    token.TokenBecameAvailable += ((sender) => availableToken.Value.Writer.TryWrite((TTokenBase)sender));
+                }
         }
 
         internal override async System.Threading.Tasks.ValueTask<TTokenBase> GetAsync(string header = "", System.Threading.CancellationToken cancellation = default)

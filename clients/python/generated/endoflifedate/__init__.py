@@ -5,7 +5,7 @@
 """
     endoflife.date
 
-    Documentation for the endoflife.date API. The API is currently in Alpha. Additional information about the API can be found on the [endoflife.date wiki](https://github.com/endoflife-date/endoflife.date/wiki).
+    The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 
     The version of the OpenAPI document: 0.0.1
     Contact: blah+oapicf@cliffano.com
@@ -17,24 +17,45 @@
 
 __version__ = "1.0.1-pre.0"
 
+# Define package exports
+__all__ = [
+    "DefaultApi",
+    "ApiResponse",
+    "ApiClient",
+    "Configuration",
+    "OpenApiException",
+    "ApiTypeError",
+    "ApiValueError",
+    "ApiKeyError",
+    "ApiAttributeError",
+    "ApiException",
+    "Cycle",
+    "CycleCycle",
+    "CycleDiscontinued",
+    "CycleEol",
+    "CycleLts",
+    "CycleSupport",
+]
+
 # import apis into sdk package
-from endoflifedate.api.default_api import DefaultApi
+from endoflifedate.api.default_api import DefaultApi as DefaultApi
 
 # import ApiClient
-from endoflifedate.api_response import ApiResponse
-from endoflifedate.api_client import ApiClient
-from endoflifedate.configuration import Configuration
-from endoflifedate.exceptions import OpenApiException
-from endoflifedate.exceptions import ApiTypeError
-from endoflifedate.exceptions import ApiValueError
-from endoflifedate.exceptions import ApiKeyError
-from endoflifedate.exceptions import ApiAttributeError
-from endoflifedate.exceptions import ApiException
+from endoflifedate.api_response import ApiResponse as ApiResponse
+from endoflifedate.api_client import ApiClient as ApiClient
+from endoflifedate.configuration import Configuration as Configuration
+from endoflifedate.exceptions import OpenApiException as OpenApiException
+from endoflifedate.exceptions import ApiTypeError as ApiTypeError
+from endoflifedate.exceptions import ApiValueError as ApiValueError
+from endoflifedate.exceptions import ApiKeyError as ApiKeyError
+from endoflifedate.exceptions import ApiAttributeError as ApiAttributeError
+from endoflifedate.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from endoflifedate.models.cycle import Cycle
-from endoflifedate.models.cycle_cycle import CycleCycle
-from endoflifedate.models.cycle_discontinued import CycleDiscontinued
-from endoflifedate.models.cycle_eol import CycleEol
-from endoflifedate.models.cycle_lts import CycleLts
-from endoflifedate.models.cycle_support import CycleSupport
+from endoflifedate.models.cycle import Cycle as Cycle
+from endoflifedate.models.cycle_cycle import CycleCycle as CycleCycle
+from endoflifedate.models.cycle_discontinued import CycleDiscontinued as CycleDiscontinued
+from endoflifedate.models.cycle_eol import CycleEol as CycleEol
+from endoflifedate.models.cycle_lts import CycleLts as CycleLts
+from endoflifedate.models.cycle_support import CycleSupport as CycleSupport
+

@@ -6,10 +6,31 @@
  * Schema Cycle_cycle.t : The release cycle which this release is part of.
  *)
 
-type t = {
-} [@@deriving yojson { strict = false }, show ];;
 
-(** The release cycle which this release is part of. *)
-let create () : t = {
-}
+        type t =
+            | AnyOf0 of float
+            | AnyOf1 of string
+        [@@deriving show, eq];;
+        
+        let to_yojson = function
+            | AnyOf0 v -> [%to_yojson: float] v
+            | AnyOf1 v -> [%to_yojson: string] v
+        
+        (* Manual implementations because the derived one encodes into a tuple list where the first element is the constructor name. *)
+        
+        let of_yojson json =
+          [
+            [%of_yojson: float] json
+              |> Stdlib.Result.to_option
+              |> Stdlib.Option.map (fun v -> AnyOf0 v);
+            [%of_yojson: string] json
+              |> Stdlib.Result.to_option
+              |> Stdlib.Option.map (fun v -> AnyOf1 v);
+                        ]
+          |> Stdlib.List.filter_map (Fun.id)
+          |> function
+             | t :: _ -> Ok t (* Return the first successful parsing. *)
+             | [] -> Error ("Failed to parse JSON " ^ Yojson.Safe.show json ^ " into a value of type Cycle_cycle.t")
+
+    
 

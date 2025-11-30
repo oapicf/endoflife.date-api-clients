@@ -1,18 +1,18 @@
 package org.openapitools.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import io.swagger.annotations.ApiModel;
 import java.math.BigDecimal;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
-  * The release cycle which this release is part of.
- **/
+ * The release cycle which this release is part of.
+ */
 @ApiModel(description="The release cycle which this release is part of.")
 
 public class CycleCycle  {

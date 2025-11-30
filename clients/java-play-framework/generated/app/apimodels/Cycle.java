@@ -17,7 +17,7 @@ import javax.validation.Valid;
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-05-09T11:49:18.178599199Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2025-11-30T06:33:45.413924818Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class Cycle   {
   @JsonProperty("cycle")

@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * The release cycle which this release is part of.
  */
 @ApiModel(description = "The release cycle which this release is part of.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2025-05-09T11:49:14.867992856Z[Etc/UTC]", comments = "Generator version: 7.12.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2025-11-30T06:33:42.742262578Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class CycleCycle   {
 
   @Override

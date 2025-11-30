@@ -6,29 +6,73 @@
  * Schema Cycle.t : Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
  *)
 
-type t = {
-    cycle: Cycle_cycle.t option [@default None];
-    (* Release date for the first release in this cycle. *)
-    release_date: string option [@default None];
-    eol: Cycle_eol.t option [@default None];
-    (* Latest release in this cycle. *)
-    latest: string option [@default None];
-    (* Link to changelog for the latest release in this cycle, or null if unavailable. *)
-    link: string option [@default None];
-    lts: Cycle_lts.t option [@default None];
-    support: Cycle_support.t option [@default None];
-    discontinued: Cycle_discontinued.t option [@default None];
-} [@@deriving yojson { strict = false }, show ];;
 
-(** Details of a single release cycle of a given product. There might be some slight variations to this depending on the product. *)
-let create () : t = {
-    cycle = None;
-    release_date = None;
-    eol = None;
-    latest = None;
-    link = None;
-    lts = None;
-    support = None;
-    discontinued = None;
-}
+
+    
+        type t = {
+                              cycle: Cycle_cycle.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "cycle"]
+                                              release_date: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "releaseDate"]
+                    (** Release date for the first release in this cycle. *)
+                                      eol: Cycle_eol.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "eol"]
+                                              latest: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "latest"]
+                    (** Latest release in this cycle. *)
+                                      link: string
+                  
+                   option [@default None]
+                
+                
+                ; [@key "link"]
+                    (** Link to changelog for the latest release in this cycle, or null if unavailable. *)
+                                      lts: Cycle_lts.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "lts"]
+                                              support: Cycle_support.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "support"]
+                                              discontinued: Cycle_discontinued.t
+                  
+                   option [@default None]
+                
+                
+                ; [@key "discontinued"]
+                        } [@@deriving yojson { strict = false }, show, eq ];;
+        
+        (** Details of a single release cycle of a given product. There might be some slight variations to this depending on the product. *)
+        let create () : t = {
+            cycle = None;
+            release_date = None;
+            eol = None;
+            latest = None;
+            link = None;
+            lts = None;
+            support = None;
+            discontinued = None;
+        }
+    
 

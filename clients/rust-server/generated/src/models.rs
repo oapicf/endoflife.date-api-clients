@@ -76,10 +76,10 @@ impl Cycle {
 }
 
 /// Converts the Cycle value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl std::string::ToString for Cycle {
-    fn to_string(&self) -> String {
+impl std::fmt::Display for Cycle {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let params: Vec<Option<String>> = vec![
             // Skipping non-primitive type cycle in query parameter serialization
             // Skipping non-primitive type releaseDate in query parameter serialization
@@ -101,12 +101,12 @@ impl std::string::ToString for Cycle {
             // Skipping non-primitive type discontinued in query parameter serialization
         ];
 
-        params.into_iter().flatten().collect::<Vec<_>>().join(",")
+        write!(f, "{}", params.into_iter().flatten().collect::<Vec<_>>().join(","))
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a Cycle value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl std::str::FromStr for Cycle {
     type Err = String;
@@ -189,8 +189,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Cycle>> for hyper::header::He
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for Cycle - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for Cycle - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -205,13 +204,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <Cycle as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into Cycle - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into Cycle - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -227,8 +224,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<Cycle>>> for hyper::heade
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -248,16 +244,14 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <Cycle as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into Cycle - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into Cycle - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
@@ -293,17 +287,17 @@ impl std::ops::DerefMut for CycleCycle {
 }
 
 /// Converts the CycleCycle value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl ::std::string::ToString for CycleCycle {
-    fn to_string(&self) -> String {
-        // ToString for this model is not supported
-        "".to_string()
+impl std::fmt::Display for CycleCycle {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // Display for this model is not supported
+        write!(f, "")
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a CycleCycle value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl ::std::str::FromStr for CycleCycle {
     type Err = &'static str;
@@ -324,8 +318,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<CycleCycle>> for hyper::heade
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for CycleCycle - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for CycleCycle - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -340,13 +333,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <CycleCycle as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into CycleCycle - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into CycleCycle - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -362,8 +353,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<CycleCycle>>> for hyper::
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -383,16 +373,14 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <CycleCycle as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into CycleCycle - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into CycleCycle - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
@@ -428,17 +416,17 @@ impl std::ops::DerefMut for CycleDiscontinued {
 }
 
 /// Converts the CycleDiscontinued value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl ::std::string::ToString for CycleDiscontinued {
-    fn to_string(&self) -> String {
-        // ToString for this model is not supported
-        "".to_string()
+impl std::fmt::Display for CycleDiscontinued {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // Display for this model is not supported
+        write!(f, "")
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a CycleDiscontinued value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl ::std::str::FromStr for CycleDiscontinued {
     type Err = &'static str;
@@ -459,8 +447,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<CycleDiscontinued>> for hyper
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for CycleDiscontinued - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for CycleDiscontinued - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -475,13 +462,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <CycleDiscontinued as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into CycleDiscontinued - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into CycleDiscontinued - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -497,8 +482,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<CycleDiscontinued>>> for 
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -518,16 +502,14 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <CycleDiscontinued as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into CycleDiscontinued - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into CycleDiscontinued - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
@@ -563,17 +545,17 @@ impl std::ops::DerefMut for CycleEol {
 }
 
 /// Converts the CycleEol value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl ::std::string::ToString for CycleEol {
-    fn to_string(&self) -> String {
-        // ToString for this model is not supported
-        "".to_string()
+impl std::fmt::Display for CycleEol {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // Display for this model is not supported
+        write!(f, "")
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a CycleEol value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl ::std::str::FromStr for CycleEol {
     type Err = &'static str;
@@ -594,8 +576,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<CycleEol>> for hyper::header:
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for CycleEol - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for CycleEol - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -610,13 +591,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <CycleEol as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into CycleEol - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into CycleEol - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -632,8 +611,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<CycleEol>>> for hyper::he
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -653,16 +631,14 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <CycleEol as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into CycleEol - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into CycleEol - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
@@ -698,17 +674,17 @@ impl std::ops::DerefMut for CycleLts {
 }
 
 /// Converts the CycleLts value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl ::std::string::ToString for CycleLts {
-    fn to_string(&self) -> String {
-        // ToString for this model is not supported
-        "".to_string()
+impl std::fmt::Display for CycleLts {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // Display for this model is not supported
+        write!(f, "")
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a CycleLts value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl ::std::str::FromStr for CycleLts {
     type Err = &'static str;
@@ -729,8 +705,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<CycleLts>> for hyper::header:
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for CycleLts - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for CycleLts - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -745,13 +720,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <CycleLts as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into CycleLts - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into CycleLts - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -767,8 +740,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<CycleLts>>> for hyper::he
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -788,16 +760,14 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <CycleLts as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into CycleLts - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into CycleLts - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }
@@ -833,17 +803,17 @@ impl std::ops::DerefMut for CycleSupport {
 }
 
 /// Converts the CycleSupport value to the Query Parameters representation (style=form, explode=false)
-/// specified in https://swagger.io/docs/specification/serialization/
+/// specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde serializer
-impl ::std::string::ToString for CycleSupport {
-    fn to_string(&self) -> String {
-        // ToString for this model is not supported
-        "".to_string()
+impl std::fmt::Display for CycleSupport {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // Display for this model is not supported
+        write!(f, "")
     }
 }
 
 /// Converts Query Parameters representation (style=form, explode=false) to a CycleSupport value
-/// as specified in https://swagger.io/docs/specification/serialization/
+/// as specified in <https://swagger.io/docs/specification/serialization/>
 /// Should be implemented in a serde deserializer
 impl ::std::str::FromStr for CycleSupport {
     type Err = &'static str;
@@ -864,8 +834,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<CycleSupport>> for hyper::hea
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for CycleSupport - value: {} is invalid {}",
-                     hdr_value, e))
+                 format!("Invalid header value for CycleSupport - value: {hdr_value} is invalid {e}"))
         }
     }
 }
@@ -880,13 +849,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                     match <CycleSupport as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into CycleSupport - {}",
-                                value, err))
+                            format!("Unable to convert header value '{value}' into CycleSupport - {err}"))
                     }
              },
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
+                 format!("Unable to convert header: {hdr_value:?} to string: {e}"))
         }
     }
 }
@@ -902,8 +869,7 @@ impl std::convert::TryFrom<header::IntoHeaderValue<Vec<CycleSupport>>> for hyper
 
         match hyper::header::HeaderValue::from_str(&hdr_values.join(", ")) {
            std::result::Result::Ok(hdr_value) => std::result::Result::Ok(hdr_value),
-           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {:?} into a header - {}",
-               hdr_values, e))
+           std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to convert {hdr_values:?} into a header - {e}",))
         }
     }
 }
@@ -923,16 +889,14 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
                         match <CycleSupport as std::str::FromStr>::from_str(hdr_value) {
                             std::result::Result::Ok(value) => std::result::Result::Ok(value),
                             std::result::Result::Err(err) => std::result::Result::Err(
-                                format!("Unable to convert header value '{}' into CycleSupport - {}",
-                                    hdr_value, err))
+                                format!("Unable to convert header value '{hdr_value}' into CycleSupport - {err}"))
                         }
                     })
                 }).collect::<std::result::Result<std::vec::Vec<_>, String>>()?;
 
                 std::result::Result::Ok(header::IntoHeaderValue(hdr_values))
             },
-            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {:?} as a string - {}",
-                hdr_values, e)),
+            std::result::Result::Err(e) => std::result::Result::Err(format!("Unable to parse header: {hdr_values:?} as a string - {e}")),
         }
     }
 }

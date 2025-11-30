@@ -1,16 +1,16 @@
 //! CLI tool driving the API client
 use anyhow::{anyhow, Context, Result};
+use clap::Parser;
 use log::{debug, info};
 // models may be unused if all inputs are primitive types
 #[allow(unused_imports)]
 use openapi_client::{
     models, ApiNoContext, Client, ContextWrapperExt,
-    GetApiAllPeriodJsonResponse,
-    GetApiProductPeriodJsonResponse,
-    GetApiProductCyclePeriodJsonResponse,
+    GetApiAllJsonResponse,
+    GetApiProductJsonResponse,
+    GetApiProductCycleJsonResponse,
 };
 use simple_logger::SimpleLogger;
-use structopt::StructOpt;
 use swagger::{AuthData, ContextBuilder, EmptyContext, Push, XSpanIdString};
 
 type ClientContext = swagger::make_context_ty!(
@@ -20,55 +20,55 @@ type ClientContext = swagger::make_context_ty!(
     XSpanIdString
 );
 
-#[derive(StructOpt, Debug)]
-#[structopt(
+#[derive(Parser, Debug)]
+#[clap(
     name = "endoflife.date",
     version = "0.0.1",
     about = "CLI access to endoflife.date"
 )]
 struct Cli {
-    #[structopt(subcommand)]
+    #[clap(subcommand)]
     operation: Operation,
 
     /// Address or hostname of the server hosting this API, including optional port
-    #[structopt(short = "a", long, default_value = "http://localhost")]
+    #[clap(short = 'a', long, default_value = "http://localhost")]
     server_address: String,
 
     /// Path to the client private key if using client-side TLS authentication
     #[cfg(not(any(target_os = "macos", target_os = "windows", target_os = "ios")))]
-    #[structopt(long, requires_all(&["client-certificate", "server-certificate"]))]
+    #[clap(long, requires_all(&["client_certificate", "server_certificate"]))]
     client_key: Option<String>,
 
     /// Path to the client's public certificate associated with the private key
     #[cfg(not(any(target_os = "macos", target_os = "windows", target_os = "ios")))]
-    #[structopt(long, requires_all(&["client-key", "server-certificate"]))]
+    #[clap(long, requires_all(&["client_key", "server_certificate"]))]
     client_certificate: Option<String>,
 
     /// Path to CA certificate used to authenticate the server
     #[cfg(not(any(target_os = "macos", target_os = "windows", target_os = "ios")))]
-    #[structopt(long)]
+    #[clap(long)]
     server_certificate: Option<String>,
 
     /// If set, write output to file instead of stdout
-    #[structopt(short, long)]
+    #[clap(short, long)]
     output_file: Option<String>,
 
-    #[structopt(flatten)]
+    #[command(flatten)]
     verbosity: clap_verbosity_flag::Verbosity,
 }
 
-#[derive(StructOpt, Debug)]
+#[derive(Parser, Debug)]
 enum Operation {
     /// All Products
-    GetApiAllPeriodJson {
+    GetApiAllJson {
     },
     /// Get All Details
-    GetApiProductPeriodJson {
+    GetApiProductJson {
         /// Product URL as per the canonical URL on the endofife.date website.
         product: String,
     },
     /// Single cycle details
-    GetApiProductCyclePeriodJson {
+    GetApiProductCycleJson {
         /// Product URL as per the canonical URL on the endofife.date website.
         product: String,
         /// Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
@@ -111,7 +111,7 @@ fn create_client(args: &Cli, context: ClientContext) -> Result<Box<dyn ApiNoCont
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let args = Cli::from_args();
+    let args = Cli::parse();
     if let Some(log_level) = args.verbosity.log_level() {
         SimpleLogger::new().with_level(log_level.to_level_filter()).init()?;
     }
@@ -131,59 +131,59 @@ async fn main() -> Result<()> {
     let client = create_client(&args, context)?;
 
     let result = match args.operation {
-        Operation::GetApiAllPeriodJson {
+        Operation::GetApiAllJson {
         } => {
-            info!("Performing a GetApiAllPeriodJson request");
+            info!("Performing a GetApiAllJson request");
 
-            let result = client.get_api_all_period_json(
+            let result = client.get_api_all_json(
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                GetApiAllPeriodJsonResponse::OK
+                GetApiAllJsonResponse::OK
                 (body)
                 => "OK\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::GetApiProductPeriodJson {
+        Operation::GetApiProductJson {
             product,
         } => {
-            info!("Performing a GetApiProductPeriodJson request on {:?}", (
+            info!("Performing a GetApiProductJson request on {:?}", (
                 &product
             ));
 
-            let result = client.get_api_product_period_json(
+            let result = client.get_api_product_json(
                 product,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                GetApiProductPeriodJsonResponse::OK
+                GetApiProductJsonResponse::OK
                 (body)
                 => "OK\n".to_string()
                    +
                     &serde_json::to_string_pretty(&body)?,
             }
         }
-        Operation::GetApiProductCyclePeriodJson {
+        Operation::GetApiProductCycleJson {
             product,
             cycle,
         } => {
-            info!("Performing a GetApiProductCyclePeriodJson request on {:?}", (
+            info!("Performing a GetApiProductCycleJson request on {:?}", (
                 &product,
                 &cycle
             ));
 
-            let result = client.get_api_product_cycle_period_json(
+            let result = client.get_api_product_cycle_json(
                 product,
                 cycle,
             ).await?;
             debug!("Result: {:?}", result);
 
             match result {
-                GetApiProductCyclePeriodJsonResponse::OK
+                GetApiProductCycleJsonResponse::OK
                 (body)
                 => "OK\n".to_string()
                    +
@@ -202,6 +202,6 @@ async fn main() -> Result<()> {
 
 // May be unused if all inputs are primitive types
 #[allow(dead_code)]
-fn parse_json<'a, T: serde::de::Deserialize<'a>>(json_string: &'a str) -> Result<T> {
+fn parse_json<T: serde::de::DeserializeOwned>(json_string: &str) -> Result<T> {
     serde_json::from_str(json_string).map_err(|err| anyhow!("Error parsing input: {}", err))
 }
