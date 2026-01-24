@@ -85,7 +85,7 @@ private:
     /// <remarks>
     /// Return a list of all products. Each of these can be used for the other API endpoints.
     /// </remarks>
-    virtual void get_api_all_json(Pistache::Http::ResponseWriter &response) = 0;
+    virtual void get_api_all_json( Pistache::Http::ResponseWriter &response) = 0;
     /// <summary>
     /// Single cycle details
     /// </summary>
@@ -94,7 +94,7 @@ private:
     /// </remarks>
     /// <param name="product">Product URL as per the canonical URL on the endofife.date website.</param>
     /// <param name="cycle">Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.</param>
-    virtual void get_api_product_cycle_json(const std::string &product, const std::string &cycle, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void get_api_product_cycle_json( const std::string &product, const std::string &cycle, Pistache::Http::ResponseWriter &response) = 0;
     /// <summary>
     /// Get All Details
     /// </summary>
@@ -102,7 +102,7 @@ private:
     /// Get EoL dates of all cycles of a given product.
     /// </remarks>
     /// <param name="product">Product URL as per the canonical URL on the endofife.date website.</param>
-    virtual void get_api_product_json(const std::string &product, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void get_api_product_json( const std::string &product, Pistache::Http::ResponseWriter &response) = 0;
 
 };
 

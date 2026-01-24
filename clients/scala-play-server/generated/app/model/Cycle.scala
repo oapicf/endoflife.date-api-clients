@@ -9,7 +9,7 @@ import java.time.LocalDate
   * @param latest Latest release in this cycle.
   * @param link Link to changelog for the latest release in this cycle, or null if unavailable.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2025-11-30T06:35:16.672805115Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-01-24T12:08:01.998091523Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 case class Cycle(
   cycle: Option[CycleCycle],
   releaseDate: Option[LocalDate],

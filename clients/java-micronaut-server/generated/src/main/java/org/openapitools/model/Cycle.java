@@ -14,7 +14,6 @@ package org.openapitools.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Locale;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.LocalDate;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -46,7 +45,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
   Cycle.JSON_PROPERTY_DISCONTINUED
 })
 @JsonTypeName("cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2025-11-30T06:33:41.391866082Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-01-24T12:06:22.675443076Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 @Introspected
 public class Cycle {
     public static final String JSON_PROPERTY_CYCLE = "cycle";

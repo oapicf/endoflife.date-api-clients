@@ -19,7 +19,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle_discontinued", description = "Whether this device version is no longer in production.")
 @JsonTypeName("cycle_discontinued")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2025-11-30T06:33:51.142496282Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-01-24T12:06:30.317910219Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class CycleDiscontinued {
 
   @Override

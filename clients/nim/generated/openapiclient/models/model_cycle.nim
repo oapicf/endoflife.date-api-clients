@@ -9,6 +9,8 @@
 
 import json
 import tables
+import marshal
+import options
 
 import model_cycle_cycle
 import model_cycle_discontinued
@@ -18,11 +20,12 @@ import model_cycle_support
 
 type Cycle* = object
   ## Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
-  cycle*: cycle_cycle
-  releaseDate*: string ## Release date for the first release in this cycle.
-  eol*: cycle_eol
-  latest*: string ## Latest release in this cycle.
-  link*: string ## Link to changelog for the latest release in this cycle, or null if unavailable.
-  lts*: cycle_lts
-  support*: cycle_support
-  discontinued*: cycle_discontinued
+  cycle*: Option[cycle_cycle]
+  releaseDate*: Option[string] ## Release date for the first release in this cycle.
+  eol*: Option[cycle_eol]
+  latest*: Option[string] ## Latest release in this cycle.
+  link*: Option[string] ## Link to changelog for the latest release in this cycle, or null if unavailable.
+  lts*: Option[cycle_lts]
+  support*: Option[cycle_support]
+  discontinued*: Option[cycle_discontinued]
+

@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.helidon.applications</groupId>
         <artifactId>helidon-se</artifactId>
-        <version>4.3.2</version>
+        <version>4.3.3</version>
         <relativePath/>
     </parent>
     <groupId>org.openapitools</groupId>
@@ -17,7 +17,7 @@
 
     <properties>
         <mainClass>org.openapitools.server.Main</mainClass>
-        <version.jackson.databind.nullable>0.2.6</version.jackson.databind.nullable>
+        <version.jackson.databind.nullable>0.2.8</version.jackson.databind.nullable>
     </properties>
 
     <dependencies>

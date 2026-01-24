@@ -25,7 +25,7 @@ class TestDefaultApi(unittest.TestCase):
         self.api = DefaultApi()
 
     def tearDown(self) -> None:
-        pass
+        self.api.api_client.close()
 
     def test_get_api_all_json(self) -> None:
         """Test case for get_api_all_json

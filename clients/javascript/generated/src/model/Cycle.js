@@ -21,7 +21,7 @@ import CycleSupport from './CycleSupport';
 /**
  * The Cycle model module.
  * @module model/Cycle
- * @version 1.0.1-pre.0
+ * @version 1.1.1-pre.0
  */
 class Cycle {
     /**

@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .php-cs-fixer.dist.php
 .phplint.yml
 .travis.yml
@@ -26,3 +27,10 @@ src/Model/CycleLts.php
 src/Model/CycleSupport.php
 src/Model/ModelInterface.php
 src/ObjectSerializer.php
+tests/Api/DefaultApiTest.php
+tests/Model/CycleCycleTest.php
+tests/Model/CycleDiscontinuedTest.php
+tests/Model/CycleEolTest.php
+tests/Model/CycleLtsTest.php
+tests/Model/CycleSupportTest.php
+tests/Model/CycleTest.php

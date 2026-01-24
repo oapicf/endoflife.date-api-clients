@@ -1,6 +1,6 @@
 {
   "name": "endoflife-date",
-  "version": "1.0.1-pre.0",
+  "version": "1.1.1-pre.0",
   "description": "The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).",
   "license": "MIT",
   "main": "dist/index.js",

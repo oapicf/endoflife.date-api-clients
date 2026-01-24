@@ -1,58 +1,82 @@
 #![allow(unused_qualifications)]
-
+#[cfg(not(feature = "validate"))]
 use validator::Validate;
 
 use crate::models;
 #[cfg(any(feature = "client", feature = "server"))]
 use crate::header;
+#[cfg(feature = "validate")]
+use serde_valid::Validate;
 
 /// Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
-#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize, validator::Validate)]
+#[derive(Debug, Clone, PartialEq, Validate, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Cycle {
     #[serde(rename = "cycle")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub cycle: Option<models::CycleCycle>,
 
     /// Release date for the first release in this cycle.
     #[serde(rename = "releaseDate")]
-    #[validate(
+    #[cfg_attr(not(feature = "validate"), validate(
             length(min = 10, max = 10),
-        )]
+        ))]
+    #[cfg_attr(feature = "validate", validate(min_length = 10))]
+    #[cfg_attr(feature = "validate", validate(max_length = 10))]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub release_date: Option<chrono::naive::NaiveDate>,
 
     #[serde(rename = "eol")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub eol: Option<models::CycleEol>,
 
     /// Latest release in this cycle.
     #[serde(rename = "latest")]
-    #[validate(
+    #[cfg_attr(not(feature = "validate"), validate(
             length(min = 1),
-        )]
+        ))]
+    #[cfg_attr(feature = "validate", validate(min_length = 1))]
+
     #[serde(skip_serializing_if="Option::is_none")]
     pub latest: Option<String>,
 
     /// Link to changelog for the latest release in this cycle, or null if unavailable.
     #[serde(rename = "link")]
-    #[validate(
+    #[cfg_attr(not(feature = "validate"), validate(
             length(min = 1),
-        )]
+        ))]
+    #[cfg_attr(feature = "validate", validate(min_length = 1))]
+
     #[serde(deserialize_with = "swagger::nullable_format::deserialize_optional_nullable")]
     #[serde(default = "swagger::nullable_format::default_optional_nullable")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub link: Option<swagger::Nullable<String>>,
 
     #[serde(rename = "lts")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub lts: Option<models::CycleLts>,
 
     #[serde(rename = "support")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub support: Option<models::CycleSupport>,
 
     #[serde(rename = "discontinued")]
+
+    #[cfg_attr(feature = "validate", validate)]
+    #[cfg_attr(feature = "validate", validate)]
     #[serde(skip_serializing_if="Option::is_none")]
     pub discontinued: Option<models::CycleDiscontinued>,
 
@@ -258,8 +282,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
 
 /// The release cycle which this release is part of.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[cfg_attr(feature = "validate", derive(Validate))]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct CycleCycle(swagger::AnyOf2<f64,String>);
+pub struct CycleCycle(
+    swagger::AnyOf2<f64,String>
+);
 
 impl std::convert::From<swagger::AnyOf2<f64,String>> for CycleCycle {
     fn from(x: swagger::AnyOf2<f64,String>) -> Self {
@@ -387,8 +414,13 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
 
 /// Whether this device version is no longer in production.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[cfg_attr(feature = "validate", derive(Validate))]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct CycleDiscontinued(swagger::AnyOf2<String,bool>);
+pub struct CycleDiscontinued(
+    #[cfg_attr(feature = "validate", validate(min_length = 10))]
+    #[cfg_attr(feature = "validate", validate(max_length = 10))]
+    swagger::AnyOf2<String,bool>
+);
 
 impl std::convert::From<swagger::AnyOf2<String,bool>> for CycleDiscontinued {
     fn from(x: swagger::AnyOf2<String,bool>) -> Self {
@@ -516,8 +548,12 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
 
 /// End-of-Life date for this release cycle.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[cfg_attr(feature = "validate", derive(Validate))]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct CycleEol(swagger::AnyOf2<String,bool>);
+pub struct CycleEol(
+    #[cfg_attr(feature = "validate", validate(min_length = 1))]
+    swagger::AnyOf2<String,bool>
+);
 
 impl std::convert::From<swagger::AnyOf2<String,bool>> for CycleEol {
     fn from(x: swagger::AnyOf2<String,bool>) -> Self {
@@ -645,8 +681,11 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
 
 /// Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[cfg_attr(feature = "validate", derive(Validate))]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct CycleLts(swagger::AnyOf2<String,bool>);
+pub struct CycleLts(
+    swagger::AnyOf2<String,bool>
+);
 
 impl std::convert::From<swagger::AnyOf2<String,bool>> for CycleLts {
     fn from(x: swagger::AnyOf2<String,bool>) -> Self {
@@ -774,8 +813,13 @@ impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderVal
 
 /// Whether this release cycle has active support.
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[cfg_attr(feature = "validate", derive(Validate))]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
-pub struct CycleSupport(swagger::AnyOf2<String,bool>);
+pub struct CycleSupport(
+    #[cfg_attr(feature = "validate", validate(min_length = 10))]
+    #[cfg_attr(feature = "validate", validate(max_length = 10))]
+    swagger::AnyOf2<String,bool>
+);
 
 impl std::convert::From<swagger::AnyOf2<String,bool>> for CycleSupport {
     fn from(x: swagger::AnyOf2<String,bool>) -> Self {

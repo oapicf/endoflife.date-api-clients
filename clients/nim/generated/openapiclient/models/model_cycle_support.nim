@@ -9,7 +9,34 @@
 
 import json
 import tables
+import marshal
+import options
 
+
+# AnyOf type
+type CycleSupportKind* {.pure.} = enum
+  StringVariant
+  BooleanVariant
 
 type CycleSupport* = object
   ## Whether this release cycle has active support.
+  case kind*: CycleSupportKind
+  of CycleSupportKind.StringVariant:
+    stringValue*: string
+  of CycleSupportKind.BooleanVariant:
+    booleanValue*: bool
+
+proc to*(node: JsonNode, T: typedesc[CycleSupport]): CycleSupport =
+  ## Custom deserializer for anyOf type - tries each variant
+  try:
+    return CycleSupport(kind: CycleSupportKind.StringVariant, stringValue: to(node, string))
+  except Exception as e:
+    when defined(debug):
+      echo "Failed to deserialize as string: ", e.msg
+  try:
+    return CycleSupport(kind: CycleSupportKind.BooleanVariant, booleanValue: to(node, bool))
+  except Exception as e:
+    when defined(debug):
+      echo "Failed to deserialize as bool: ", e.msg
+  raise newException(ValueError, "Unable to deserialize into any variant of CycleSupport. JSON: " & $node)
+

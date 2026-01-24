@@ -1,8 +1,0 @@
-# EndoflifeDate.CycleEol
-
-## Properties
-
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-
-

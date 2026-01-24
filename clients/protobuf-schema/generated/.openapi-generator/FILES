@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 README.md
 models/cycle.proto
 models/cycle_cycle.proto

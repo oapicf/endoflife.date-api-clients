@@ -79,7 +79,7 @@ public class DefaultControllerTest {
         // given
         String uri = UriTemplate.of("/api/all.json").expand(new HashMap<>());
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@769d513");
+            .accept("[Ljava.lang.String;@352e787a");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, Argument.of(List.class, String.class));
@@ -127,7 +127,7 @@ public class DefaultControllerTest {
             put("cycle", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@5e4fa1da");
+            .accept("[Ljava.lang.String;@159a48a6");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, Cycle.class);
@@ -173,7 +173,7 @@ public class DefaultControllerTest {
             put("product", "example");
         }});
         MutableHttpRequest<?> request = HttpRequest.GET(uri)
-            .accept("[Ljava.lang.String;@588cd519");
+            .accept("[Ljava.lang.String;@15bc339");
 
         // when
         HttpResponse<?> response = client.toBlocking().exchange(request, Argument.of(List.class, Cycle.class));

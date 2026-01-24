@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.context.request.NativeWebRequest
 import org.springframework.beans.factory.annotation.Autowired
+import org.openapitools.api.ApiApiController.Companion.BASE_PATH
 
 import javax.validation.Valid
 import javax.validation.constraints.DecimalMax
@@ -30,7 +31,7 @@ import kotlin.collections.Map
 
 @RestController
 @Validated
-@RequestMapping("\${api.base-path:}")
+@RequestMapping("\${openapi.endoflifeDate.base-path:\${api.base-path:$BASE_PATH}}")
 class ApiApiController() {
 
     @Operation(
@@ -42,7 +43,7 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/api/all.json"],
+        value = [PATH_GET_API_ALL_JSON /* "/api/all.json" */],
         produces = ["application/json"]
     )
     fun getApiAllJson(): ResponseEntity<List<kotlin.String>> {
@@ -58,10 +59,13 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/api/{product}/{cycle}.json"],
+        value = [PATH_GET_API_PRODUCT_CYCLE_JSON /* "/api/{product}/{cycle}.json" */],
         produces = ["application/json"]
     )
-    fun getApiProductCycleJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website.", required = true) @PathVariable("product") product: kotlin.String,@Parameter(description = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.", required = true) @PathVariable("cycle") cycle: kotlin.String): ResponseEntity<Cycle> {
+    fun getApiProductCycleJson(
+        @Parameter(description = "Product URL as per the canonical URL on the endofife.date website.", required = true) @PathVariable("product") product: kotlin.String,
+        @Parameter(description = "Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.", required = true) @PathVariable("cycle") cycle: kotlin.String
+    ): ResponseEntity<Cycle> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -74,10 +78,20 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = ["/api/{product}.json"],
+        value = [PATH_GET_API_PRODUCT_JSON /* "/api/{product}.json" */],
         produces = ["application/json"]
     )
-    fun getApiProductJson(@Parameter(description = "Product URL as per the canonical URL on the endofife.date website.", required = true) @PathVariable("product") product: kotlin.String): ResponseEntity<List<Cycle>> {
+    fun getApiProductJson(
+        @Parameter(description = "Product URL as per the canonical URL on the endofife.date website.", required = true) @PathVariable("product") product: kotlin.String
+    ): ResponseEntity<List<Cycle>> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
+    }
+
+    companion object {
+        //for your own safety never directly reuse these path definitions in tests
+        const val BASE_PATH: String = ""
+        const val PATH_GET_API_ALL_JSON: String = "/api/all.json"
+        const val PATH_GET_API_PRODUCT_CYCLE_JSON: String = "/api/{product}/{cycle}.json"
+        const val PATH_GET_API_PRODUCT_JSON: String = "/api/{product}.json"
     }
 }

@@ -9,7 +9,34 @@
 
 import json
 import tables
+import marshal
+import options
 
+
+# AnyOf type
+type CycleCycleKind* {.pure.} = enum
+  NumberVariant
+  StringVariant
 
 type CycleCycle* = object
   ## The release cycle which this release is part of.
+  case kind*: CycleCycleKind
+  of CycleCycleKind.NumberVariant:
+    numberValue*: float
+  of CycleCycleKind.StringVariant:
+    stringValue*: string
+
+proc to*(node: JsonNode, T: typedesc[CycleCycle]): CycleCycle =
+  ## Custom deserializer for anyOf type - tries each variant
+  try:
+    return CycleCycle(kind: CycleCycleKind.NumberVariant, numberValue: to(node, float))
+  except Exception as e:
+    when defined(debug):
+      echo "Failed to deserialize as float: ", e.msg
+  try:
+    return CycleCycle(kind: CycleCycleKind.StringVariant, stringValue: to(node, string))
+  except Exception as e:
+    when defined(debug):
+      echo "Failed to deserialize as string: ", e.msg
+  raise newException(ValueError, "Unable to deserialize into any variant of CycleCycle. JSON: " & $node)
+

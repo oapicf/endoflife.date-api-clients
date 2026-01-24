@@ -1,3 +1,5 @@
+.openapi-generator-ignore
+README.md
 docs/Cycle.md
 docs/CycleCycle.md
 docs/CycleDiscontinued.md
@@ -5,6 +7,7 @@ docs/CycleEol.md
 docs/CycleLts.md
 docs/CycleSupport.md
 docs/DefaultApi.md
+pom.xml
 src/main/java/org/openapitools/client/JavaTimeFormatter.java
 src/main/java/org/openapitools/client/RFC3339DateFormat.java
 src/main/java/org/openapitools/client/api/ApiException.java
@@ -16,3 +19,10 @@ src/main/java/org/openapitools/client/model/CycleDiscontinued.java
 src/main/java/org/openapitools/client/model/CycleEol.java
 src/main/java/org/openapitools/client/model/CycleLts.java
 src/main/java/org/openapitools/client/model/CycleSupport.java
+src/test/java/org/openapitools/client/api/DefaultApiTest.java
+src/test/java/org/openapitools/client/model/CycleCycleTest.java
+src/test/java/org/openapitools/client/model/CycleDiscontinuedTest.java
+src/test/java/org/openapitools/client/model/CycleEolTest.java
+src/test/java/org/openapitools/client/model/CycleLtsTest.java
+src/test/java/org/openapitools/client/model/CycleSupportTest.java
+src/test/java/org/openapitools/client/model/CycleTest.java

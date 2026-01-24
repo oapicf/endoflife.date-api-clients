@@ -1,8 +1,16 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 git_push.sh
 shard.yml
+spec/api/default_api_spec.cr
+spec/models/cycle_cycle_spec.cr
+spec/models/cycle_discontinued_spec.cr
+spec/models/cycle_eol_spec.cr
+spec/models/cycle_lts_spec.cr
+spec/models/cycle_spec.cr
+spec/models/cycle_support_spec.cr
 spec/spec_helper.cr
 src/openapi_client.cr
 src/openapi_client/api/default_api.cr
@@ -15,3 +23,4 @@ src/openapi_client/models/cycle_discontinued.cr
 src/openapi_client/models/cycle_eol.cr
 src/openapi_client/models/cycle_lts.cr
 src/openapi_client/models/cycle_support.cr
+src/openapi_client/recursive_hash.cr

@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 API/Client/Cycle.js
 API/Client/CycleCycle.js
 API/Client/CycleDiscontinued.js

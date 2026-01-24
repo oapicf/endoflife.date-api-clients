@@ -9,7 +9,34 @@
 
 import json
 import tables
+import marshal
+import options
 
+
+# AnyOf type
+type CycleDiscontinuedKind* {.pure.} = enum
+  StringVariant
+  BooleanVariant
 
 type CycleDiscontinued* = object
   ## Whether this device version is no longer in production.
+  case kind*: CycleDiscontinuedKind
+  of CycleDiscontinuedKind.StringVariant:
+    stringValue*: string
+  of CycleDiscontinuedKind.BooleanVariant:
+    booleanValue*: bool
+
+proc to*(node: JsonNode, T: typedesc[CycleDiscontinued]): CycleDiscontinued =
+  ## Custom deserializer for anyOf type - tries each variant
+  try:
+    return CycleDiscontinued(kind: CycleDiscontinuedKind.StringVariant, stringValue: to(node, string))
+  except Exception as e:
+    when defined(debug):
+      echo "Failed to deserialize as string: ", e.msg
+  try:
+    return CycleDiscontinued(kind: CycleDiscontinuedKind.BooleanVariant, booleanValue: to(node, bool))
+  except Exception as e:
+    when defined(debug):
+      echo "Failed to deserialize as bool: ", e.msg
+  raise newException(ValueError, "Unable to deserialize into any variant of CycleDiscontinued. JSON: " & $node)
+

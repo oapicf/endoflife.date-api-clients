@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 ApiHelper.n4js
 Cycle.n4jsd
 DefaultApi.n4js

@@ -3,13 +3,16 @@
 from fastapi.testclient import TestClient
 
 
+from pydantic import Field, StrictStr  # noqa: F401
+from typing import List  # noqa: F401
+from typing_extensions import Annotated  # noqa: F401
 from openapi_server.models.cycle import Cycle  # noqa: F401
 
 
-def test_get_api_all_json(client: TestClient):
-    """Test case for get_api_all_json
+def test_get_api_product_json(client: TestClient):
+    """Test case for get_api_product_json
 
-    All Products
+    Get All Details
     """
 
     headers = {
@@ -17,7 +20,7 @@ def test_get_api_all_json(client: TestClient):
     # uncomment below to make a request
     #response = client.request(
     #    "GET",
-    #    "/api/all.json",
+    #    "/api/{product}.json".format(product='product_example'),
     #    headers=headers,
     #)
 
@@ -44,10 +47,10 @@ def test_get_api_product_cycle_json(client: TestClient):
     #assert response.status_code == 200
 
 
-def test_get_api_product_json(client: TestClient):
-    """Test case for get_api_product_json
+def test_get_api_all_json(client: TestClient):
+    """Test case for get_api_all_json
 
-    Get All Details
+    All Products
     """
 
     headers = {
@@ -55,7 +58,7 @@ def test_get_api_product_json(client: TestClient):
     # uncomment below to make a request
     #response = client.request(
     #    "GET",
-    #    "/api/{product}.json".format(product='product_example'),
+    #    "/api/all.json",
     #    headers=headers,
     #)
 

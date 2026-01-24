@@ -26,7 +26,7 @@ import javax.validation.Valid;
 @ApiModel(description = "End-of-Life date for this release cycle.")
 @JsonPropertyOrder({
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2025-11-30T06:33:56.989017223Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-01-24T12:06:35.261819240Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class CycleEol   {
 
   @Override

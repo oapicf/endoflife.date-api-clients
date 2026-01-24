@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 README.md
 apis/DefaultApi.js
 authentication.js
@@ -10,4 +11,5 @@ models/cycle_lts.js
 models/cycle_support.js
 operations/actions.js
 package.json
+samples/DefaultApi.js
 utils/utils.js

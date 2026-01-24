@@ -1,6 +1,5 @@
 package org.openapitools.model
 
-import java.util.Locale
 import java.util.Objects
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin

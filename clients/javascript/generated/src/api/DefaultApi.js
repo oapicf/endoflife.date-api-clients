@@ -18,7 +18,7 @@ import Cycle from '../model/Cycle';
 /**
 * Default service.
 * @module api/DefaultApi
-* @version 1.0.1-pre.0
+* @version 1.1.1-pre.0
 */
 export default class DefaultApi {
 

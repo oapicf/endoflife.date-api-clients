@@ -20,7 +20,7 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle_cycle", description = "The release cycle which this release is part of.")
 @JsonTypeName("cycle_cycle")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-11-30T06:35:21.952552168Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T12:08:07.706348621Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class CycleCycle {
 
   @Override

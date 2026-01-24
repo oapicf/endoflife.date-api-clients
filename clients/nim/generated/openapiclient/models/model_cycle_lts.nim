@@ -9,7 +9,34 @@
 
 import json
 import tables
+import marshal
+import options
 
+
+# AnyOf type
+type CycleLtsKind* {.pure.} = enum
+  StringVariant
+  BooleanVariant
 
 type CycleLts* = object
   ## Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
+  case kind*: CycleLtsKind
+  of CycleLtsKind.StringVariant:
+    stringValue*: string
+  of CycleLtsKind.BooleanVariant:
+    booleanValue*: bool
+
+proc to*(node: JsonNode, T: typedesc[CycleLts]): CycleLts =
+  ## Custom deserializer for anyOf type - tries each variant
+  try:
+    return CycleLts(kind: CycleLtsKind.StringVariant, stringValue: to(node, string))
+  except Exception as e:
+    when defined(debug):
+      echo "Failed to deserialize as string: ", e.msg
+  try:
+    return CycleLts(kind: CycleLtsKind.BooleanVariant, booleanValue: to(node, bool))
+  except Exception as e:
+    when defined(debug):
+      echo "Failed to deserialize as bool: ", e.msg
+  raise newException(ValueError, "Unable to deserialize into any variant of CycleLts. JSON: " & $node)
+

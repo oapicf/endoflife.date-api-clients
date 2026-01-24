@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 analysis_options.yaml
@@ -27,3 +28,10 @@ lib/model/cycle_eol.dart
 lib/model/cycle_lts.dart
 lib/model/cycle_support.dart
 pubspec.yaml
+test/cycle_cycle_test.dart
+test/cycle_discontinued_test.dart
+test/cycle_eol_test.dart
+test/cycle_lts_test.dart
+test/cycle_support_test.dart
+test/cycle_test.dart
+test/default_api_test.dart

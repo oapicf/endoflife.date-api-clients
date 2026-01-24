@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 README.md
 build.gradle
 docs/Cycle.md
@@ -36,3 +37,10 @@ src/main/kotlin/org/openapitools/client/models/CycleDiscontinued.kt
 src/main/kotlin/org/openapitools/client/models/CycleEol.kt
 src/main/kotlin/org/openapitools/client/models/CycleLts.kt
 src/main/kotlin/org/openapitools/client/models/CycleSupport.kt
+src/test/kotlin/org/openapitools/client/apis/DefaultApiTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleCycleTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleDiscontinuedTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleEolTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleLtsTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleSupportTest.kt
+src/test/kotlin/org/openapitools/client/models/CycleTest.kt

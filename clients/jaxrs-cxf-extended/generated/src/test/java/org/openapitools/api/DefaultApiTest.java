@@ -1,4 +1,4 @@
-/**
+/*
  * endoflife.date
  * The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
  *
@@ -18,6 +18,7 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
+import javax.validation.Valid;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;

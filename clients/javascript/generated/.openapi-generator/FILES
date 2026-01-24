@@ -1,5 +1,6 @@
 .babelrc
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 docs/Cycle.md
@@ -21,3 +22,10 @@ src/model/CycleDiscontinued.js
 src/model/CycleEol.js
 src/model/CycleLts.js
 src/model/CycleSupport.js
+test/api/DefaultApi.spec.js
+test/model/Cycle.spec.js
+test/model/CycleCycle.spec.js
+test/model/CycleDiscontinued.spec.js
+test/model/CycleEol.spec.js
+test/model/CycleLts.spec.js
+test/model/CycleSupport.spec.js

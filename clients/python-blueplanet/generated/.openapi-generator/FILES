@@ -1,3 +1,4 @@
+.openapi-generator-ignore
 Makefile
 Makefile
 README.md
@@ -33,6 +34,7 @@ app/openapi_server/swagger/swagger.yaml
 app/openapi_server/swagger/swagger.yaml
 app/openapi_server/test/__init__.py
 app/openapi_server/test/__init__.py
+app/openapi_server/test/test_default_controller.py
 app/openapi_server/typing_utils.py
 app/openapi_server/typing_utils.py
 app/openapi_server/util.py
@@ -45,6 +47,24 @@ app/test-requirements.txt
 app/test-requirements.txt
 app/tox.ini
 app/tox.ini
+model-definitions/types/ddui-views/openapi_server.resourceTypes.Cycle/create.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.Cycle/high.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.Cycle/low.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleCycle/create.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleCycle/high.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleCycle/low.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleDiscontinued/create.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleDiscontinued/high.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleDiscontinued/low.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleEol/create.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleEol/high.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleEol/low.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleLts/create.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleLts/high.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleLts/low.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleSupport/create.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleSupport/high.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.CycleSupport/low.json
 model-definitions/types/tosca/openapi_server/CycleCycle_ResourceType.tosca
 model-definitions/types/tosca/openapi_server/CycleDiscontinued_ResourceType.tosca
 model-definitions/types/tosca/openapi_server/CycleEol_ResourceType.tosca
