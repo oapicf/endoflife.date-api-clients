@@ -1,4 +1,4 @@
-<img align="right" src="https://raw.github.com/oapicf/endoflife.date-api-clients/master/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/oapicf/endoflife.date-api-clients/main/avatar.jpg" alt="Avatar"/>
 
 [![Build Status](https://github.com/oapicf/endoflife.date-api-clients/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/oapicf/endoflife.date-api-clients/actions/workflows/ci-workflow.yaml)
 <br/>
