@@ -209,7 +209,7 @@ build-ruby:
 # Test target is a convenience target to run tests for all primary generators
 test: test-javascript test-python test-ruby
 
-test-javascript:
+test-javascript: build-javascript
 	make -f Makefile-extras x-test-javascript
 
 test-python: build-python

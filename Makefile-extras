@@ -1,6 +1,6 @@
 # Disabled Javascript unit tests (npm run test)
 # due to https://github.com/oapicf/endoflife.date-api-clients/issues/1
-x-test-javascript: build-javascript
+x-test-javascript:
 	npm install -g mocha
 	npm install validator
 	cd clients/javascript/generated/ && \
