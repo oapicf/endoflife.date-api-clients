@@ -14,3 +14,15 @@ base_dir:
   local: /Users/cliffano/dev/workspace-oapicf/endoflife.date-api-clients
   custom: >-
     /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/endoflife.date-api-clients/
+generator:
+  component: oag-url-spec
+  inputs:
+    project_id: endoflife.date-api-clients
+    project_name: endoflife.date API Clients
+    project_desc: A set of generated client libraries for endoflife.date API from their OpenAPI v3 specification
+    author_name: OpenAPI Clients Factory
+    author_email: blah+oapicf@cliffano.com
+    author_url: https://github.com/oapicf
+    github_id: oapicf
+    github_repo: endoflife.date-api-clients
+    github_token_prefix: OAPICF

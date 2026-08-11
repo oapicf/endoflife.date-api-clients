@@ -1,6 +1,20 @@
 {
   "resources": [
     {
+      "path": "specification/endoflife.date-api-clients.yml",
+      "type": "yaml",
+      "params": {
+        "property": "info.version"
+      }
+    },
+    {
+      "path": "clients/java/conf.json",
+      "type": "json",
+      "params": {
+        "property": "artifactVersion"
+      }
+    },
+    {
       "path": "clients/javascript/conf.json",
       "type": "json",
       "params": {
