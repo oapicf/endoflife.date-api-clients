@@ -1,13 +1,13 @@
 # Disabled Javascript unit tests (npm run test)
 # due to https://github.com/oapicf/endoflife.date-api-clients/issues/1
-x-test-javascript:
-	npm install -g mocha
+x-pre-test-javascript:
 	npm install validator
 	cd clients/javascript/generated/ && \
 	  npm install --dev # && \
 	  # npm run test
 	cd test/javascript/ && \
 	  npm link ../../clients/javascript/generated/ && \
-	  mocha --timeout 5000 .
+	  ../../clients/javascript/generated/node_modules/.bin/mocha --timeout 5000 .
+	@exit 0
 
-.PHONY: x-test-javascript
+.PHONY: x-pre-test-javascript
