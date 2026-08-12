@@ -24,6 +24,8 @@ Cycle_support::Cycle_support()
     
 }
 
+Cycle_support::~Cycle_support() = default;
+
 void Cycle_support::validate() const
 {
     std::stringstream msg;

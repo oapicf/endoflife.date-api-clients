@@ -28,9 +28,7 @@ import org.openapitools.server.infrastructure.ApiPrincipal
 import org.openapitools.server.models.Cycle
 
 fun Route.DefaultApi() {
-    val empty = mutableMapOf<String, Any?>()
-
-    get<Paths.getApiAllJson> {
+    get<Paths.getApiAllJson> { getApiAllJson ->
         val exampleContentType = "application/json"
         val exampleContentString = """[ "", "" ]"""
         
@@ -41,18 +39,17 @@ fun Route.DefaultApi() {
         }
         
     }
-
-    get<Paths.getApiProductCycleJson> {
+    get<Paths.getApiProductCycleJson> { getApiProductCycleJson ->
         val exampleContentType = "application/json"
         val exampleContentString = """{
-          "eol" : "cycle_eol",
+          "cycle" : 0.8008281904610115,
           "releaseDate" : "2000-01-23",
+          "eol" : "cycle_eol",
+          "latest" : "latest",
           "link" : "link",
           "lts" : "cycle_lts",
-          "discontinued" : "cycle_discontinued",
-          "cycle" : 0.8008281904610115,
           "support" : "cycle_support",
-          "latest" : "latest"
+          "discontinued" : "cycle_discontinued"
         }"""
         
         when (exampleContentType) {
@@ -62,27 +59,26 @@ fun Route.DefaultApi() {
         }
         
     }
-
-    get<Paths.getApiProductJson> {
+    get<Paths.getApiProductJson> { getApiProductJson ->
         val exampleContentType = "application/json"
         val exampleContentString = """[ {
-          "eol" : "cycle_eol",
+          "cycle" : 0.8008281904610115,
           "releaseDate" : "2000-01-23",
+          "eol" : "cycle_eol",
+          "latest" : "latest",
           "link" : "link",
           "lts" : "cycle_lts",
-          "discontinued" : "cycle_discontinued",
-          "cycle" : 0.8008281904610115,
           "support" : "cycle_support",
-          "latest" : "latest"
+          "discontinued" : "cycle_discontinued"
         }, {
-          "eol" : "cycle_eol",
+          "cycle" : 0.8008281904610115,
           "releaseDate" : "2000-01-23",
+          "eol" : "cycle_eol",
+          "latest" : "latest",
           "link" : "link",
           "lts" : "cycle_lts",
-          "discontinued" : "cycle_discontinued",
-          "cycle" : 0.8008281904610115,
           "support" : "cycle_support",
-          "latest" : "latest"
+          "discontinued" : "cycle_discontinued"
         } ]"""
         
         when (exampleContentType) {
@@ -92,5 +88,4 @@ fun Route.DefaultApi() {
         }
         
     }
-
 }

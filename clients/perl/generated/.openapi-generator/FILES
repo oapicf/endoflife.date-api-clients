@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 bin/autodoc
@@ -24,10 +23,3 @@ lib/WWW/OpenAPIClient/Object/CycleLts.pm
 lib/WWW/OpenAPIClient/Object/CycleSupport.pm
 lib/WWW/OpenAPIClient/Role.pm
 lib/WWW/OpenAPIClient/Role/AutoDoc.pm
-t/CycleCycleTest.t
-t/CycleDiscontinuedTest.t
-t/CycleEolTest.t
-t/CycleLtsTest.t
-t/CycleSupportTest.t
-t/CycleTest.t
-t/DefaultApiTest.t

@@ -95,7 +95,7 @@ function getApiProductCycleJsonRaw<T>(requestParameters: GetApiProductCycleJsonR
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/{product}/{cycle}.json`.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters.product))).replace(`{${"cycle"}}`, encodeURIComponent(String(requestParameters.cycle))),
+        url: `${runtime.Configuration.basePath}/api/{product}/{cycle}.json`.replace('{product}', encodeURIComponent(String(requestParameters.product))).replace('{cycle}', encodeURIComponent(String(requestParameters.cycle))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,
@@ -143,7 +143,7 @@ function getApiProductJsonRaw<T>(requestParameters: GetApiProductJsonRequest, re
     const { meta = {} } = requestConfig;
 
     const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/api/{product}.json`.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters.product))),
+        url: `${runtime.Configuration.basePath}/api/{product}.json`.replace('{product}', encodeURIComponent(String(requestParameters.product))),
         meta,
         update: requestConfig.update,
         queryKey: requestConfig.queryKey,

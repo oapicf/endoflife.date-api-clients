@@ -30,13 +30,13 @@ namespace OpenAPI {
 class OAICycle_eol : public OAIObject {
 public:
     OAICycle_eol();
-    OAICycle_eol(QString json);
+    OAICycle_eol(const QString &json);
     ~OAICycle_eol() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;

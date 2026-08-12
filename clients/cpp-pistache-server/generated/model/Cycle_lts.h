@@ -31,7 +31,7 @@ class  Cycle_lts
 {
 public:
     Cycle_lts();
-    virtual ~Cycle_lts() = default;
+    virtual ~Cycle_lts();
 
 
     /// <summary>

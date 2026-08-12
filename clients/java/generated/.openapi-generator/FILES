@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -47,10 +46,3 @@ src/main/java/com/github/oapicf/endoflifedate/model/CycleDiscontinued.java
 src/main/java/com/github/oapicf/endoflifedate/model/CycleEol.java
 src/main/java/com/github/oapicf/endoflifedate/model/CycleLts.java
 src/main/java/com/github/oapicf/endoflifedate/model/CycleSupport.java
-src/test/java/com/github/oapicf/endoflifedate/api/DefaultApiTest.java
-src/test/java/com/github/oapicf/endoflifedate/model/CycleCycleTest.java
-src/test/java/com/github/oapicf/endoflifedate/model/CycleDiscontinuedTest.java
-src/test/java/com/github/oapicf/endoflifedate/model/CycleEolTest.java
-src/test/java/com/github/oapicf/endoflifedate/model/CycleLtsTest.java
-src/test/java/com/github/oapicf/endoflifedate/model/CycleSupportTest.java
-src/test/java/com/github/oapicf/endoflifedate/model/CycleTest.java

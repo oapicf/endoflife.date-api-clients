@@ -49,7 +49,7 @@ class Cycle
      * @var CycleCycle|null
      * @SerializedName("cycle")
      * @Type("OpenAPI\Server\Model\CycleCycle")
-    */
+     */
     #[Assert\Type("OpenAPI\Server\Model\CycleCycle")]
     protected ?CycleCycle $cycle = null;
 
@@ -59,7 +59,7 @@ class Cycle
      * @var \DateTime|null
      * @SerializedName("releaseDate")
      * @Type("DateTime<'Y-m-d'>")
-    */
+     */
     #[Assert\Type("\DateTime")]
     #[Assert\Length(max: 10)]
     #[Assert\Length(min: 10)]
@@ -69,7 +69,7 @@ class Cycle
      * @var CycleEol|null
      * @SerializedName("eol")
      * @Type("OpenAPI\Server\Model\CycleEol")
-    */
+     */
     #[Assert\Type("OpenAPI\Server\Model\CycleEol")]
     protected ?CycleEol $eol = null;
 
@@ -79,7 +79,7 @@ class Cycle
      * @var string|null
      * @SerializedName("latest")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     #[Assert\Length(min: 1)]
     protected ?string $latest = null;
@@ -90,7 +90,7 @@ class Cycle
      * @var string|null
      * @SerializedName("link")
      * @Type("string")
-    */
+     */
     #[Assert\Type("string")]
     #[Assert\Length(min: 1)]
     protected ?string $link = null;
@@ -99,7 +99,7 @@ class Cycle
      * @var CycleLts|null
      * @SerializedName("lts")
      * @Type("OpenAPI\Server\Model\CycleLts")
-    */
+     */
     #[Assert\Type("OpenAPI\Server\Model\CycleLts")]
     protected ?CycleLts $lts = null;
 
@@ -107,7 +107,7 @@ class Cycle
      * @var CycleSupport|null
      * @SerializedName("support")
      * @Type("OpenAPI\Server\Model\CycleSupport")
-    */
+     */
     #[Assert\Type("OpenAPI\Server\Model\CycleSupport")]
     protected ?CycleSupport $support = null;
 
@@ -115,7 +115,7 @@ class Cycle
      * @var CycleDiscontinued|null
      * @SerializedName("discontinued")
      * @Type("OpenAPI\Server\Model\CycleDiscontinued")
-    */
+     */
     #[Assert\Type("OpenAPI\Server\Model\CycleDiscontinued")]
     protected ?CycleDiscontinued $discontinued = null;
 
@@ -148,12 +148,12 @@ class Cycle
     }
 
     /**
-    * Sets cycle.
-    *
-    * @param CycleCycle|null $cycle
-    *
-    * @return $this
-    */
+     * Sets cycle.
+     *
+     * @param CycleCycle|null $cycle
+     *
+     * @return $this
+     */
     public function setCycle(?CycleCycle $cycle = null): self
     {
         $this->cycle = $cycle;
@@ -175,12 +175,12 @@ class Cycle
     }
 
     /**
-    * Sets releaseDate.
-    *
-    * @param \DateTime|null $releaseDate  Release date for the first release in this cycle.
-    *
-    * @return $this
-    */
+     * Sets releaseDate.
+     *
+     * @param \DateTime|null $releaseDate  Release date for the first release in this cycle.
+     *
+     * @return $this
+     */
     public function setReleaseDate(?\DateTime $releaseDate = null): self
     {
         $this->releaseDate = $releaseDate;
@@ -202,12 +202,12 @@ class Cycle
     }
 
     /**
-    * Sets eol.
-    *
-    * @param CycleEol|null $eol
-    *
-    * @return $this
-    */
+     * Sets eol.
+     *
+     * @param CycleEol|null $eol
+     *
+     * @return $this
+     */
     public function setEol(?CycleEol $eol = null): self
     {
         $this->eol = $eol;
@@ -229,12 +229,12 @@ class Cycle
     }
 
     /**
-    * Sets latest.
-    *
-    * @param string|null $latest  Latest release in this cycle.
-    *
-    * @return $this
-    */
+     * Sets latest.
+     *
+     * @param string|null $latest  Latest release in this cycle.
+     *
+     * @return $this
+     */
     public function setLatest(?string $latest = null): self
     {
         $this->latest = $latest;
@@ -256,12 +256,12 @@ class Cycle
     }
 
     /**
-    * Sets link.
-    *
-    * @param string|null $link  Link to changelog for the latest release in this cycle, or null if unavailable.
-    *
-    * @return $this
-    */
+     * Sets link.
+     *
+     * @param string|null $link  Link to changelog for the latest release in this cycle, or null if unavailable.
+     *
+     * @return $this
+     */
     public function setLink(?string $link = null): self
     {
         $this->link = $link;
@@ -283,12 +283,12 @@ class Cycle
     }
 
     /**
-    * Sets lts.
-    *
-    * @param CycleLts|null $lts
-    *
-    * @return $this
-    */
+     * Sets lts.
+     *
+     * @param CycleLts|null $lts
+     *
+     * @return $this
+     */
     public function setLts(?CycleLts $lts = null): self
     {
         $this->lts = $lts;
@@ -310,12 +310,12 @@ class Cycle
     }
 
     /**
-    * Sets support.
-    *
-    * @param CycleSupport|null $support
-    *
-    * @return $this
-    */
+     * Sets support.
+     *
+     * @param CycleSupport|null $support
+     *
+     * @return $this
+     */
     public function setSupport(?CycleSupport $support = null): self
     {
         $this->support = $support;
@@ -337,12 +337,12 @@ class Cycle
     }
 
     /**
-    * Sets discontinued.
-    *
-    * @param CycleDiscontinued|null $discontinued
-    *
-    * @return $this
-    */
+     * Sets discontinued.
+     *
+     * @param CycleDiscontinued|null $discontinued
+     *
+     * @return $this
+     */
     public function setDiscontinued(?CycleDiscontinued $discontinued = null): self
     {
         $this->discontinued = $discontinued;

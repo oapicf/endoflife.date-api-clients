@@ -30,4 +30,3 @@ case class Cycle(
   support: Option[CycleSupport] = None,
   discontinued: Option[CycleDiscontinued] = None
 )
-

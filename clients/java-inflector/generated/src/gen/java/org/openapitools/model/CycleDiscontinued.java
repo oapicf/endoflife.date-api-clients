@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModel;
  **/
 
 @ApiModel(description = "Whether this device version is no longer in production.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-01-24T12:06:19.862002050Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-08-12T04:59:54.894586256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleDiscontinued   {
 
   @Override
@@ -44,10 +44,7 @@ public class CycleDiscontinued   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

@@ -24,6 +24,8 @@ Cycle_discontinued::Cycle_discontinued()
     
 }
 
+Cycle_discontinued::~Cycle_discontinued() = default;
+
 void Cycle_discontinued::validate() const
 {
     std::stringstream msg;

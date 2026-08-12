@@ -37,7 +37,7 @@ class  Cycle
 {
 public:
     Cycle();
-    virtual ~Cycle() = default;
+    virtual ~Cycle();
 
 
     /// <summary>

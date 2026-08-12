@@ -237,6 +237,51 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
 
             // GetApiAllJson - GET /api/all.json
             hyper::Method::GET if path.matched(paths::ID_API_ALL_JSON) => {
+                handle_get_api_all_json(api_impl, uri, headers, body, context, validation).await
+            },
+
+            // GetApiProductJson - GET /api/{product}.json
+            hyper::Method::GET if path.matched(paths::ID_API_PRODUCT_JSON) => {
+                handle_get_api_product_json(api_impl, uri, headers, body, context, validation).await
+            },
+
+            // GetApiProductCycleJson - GET /api/{product}/{cycle}.json
+            hyper::Method::GET if path.matched(paths::ID_API_PRODUCT_CYCLE_JSON) => {
+                handle_get_api_product_cycle_json(api_impl, uri, headers, body, context, validation).await
+            },
+
+            _ if path.matched(paths::ID_API_ALL_JSON) => method_not_allowed(),
+            _ if path.matched(paths::ID_API_PRODUCT_JSON) => method_not_allowed(),
+            _ if path.matched(paths::ID_API_PRODUCT_CYCLE_JSON) => method_not_allowed(),
+                _ => Ok(Response::builder().status(StatusCode::NOT_FOUND)
+                        .body(BoxBody::new(http_body_util::Empty::new()))
+                        .expect("Unable to create Not Found response"))
+            }
+        }
+        Box::pin(run(
+            self.api_impl.clone(),
+            req,
+            self.validation
+        ))
+    }
+}
+
+#[allow(unused_variables)]
+async fn handle_get_api_all_json<T, C, ReqBody>(
+    mut api_impl: T,
+    uri: hyper::Uri,
+    headers: HeaderMap,
+    body: ReqBody,
+    context: C,
+    validation: bool,
+) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
+where
+    T: Api<C> + Clone + Send + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    ReqBody: Body + Send + 'static,
+    ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
+    ReqBody::Data: Send,
+{
                                 let result = api_impl.get_api_all_json(
                                         &context
                                     ).await;
@@ -270,10 +315,24 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         }
 
                                         Ok(response)
-            },
+}
 
-            // GetApiProductJson - GET /api/{product}.json
-            hyper::Method::GET if path.matched(paths::ID_API_PRODUCT_JSON) => {
+#[allow(unused_variables)]
+async fn handle_get_api_product_json<T, C, ReqBody>(
+    mut api_impl: T,
+    uri: hyper::Uri,
+    headers: HeaderMap,
+    body: ReqBody,
+    context: C,
+    validation: bool,
+) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
+where
+    T: Api<C> + Clone + Send + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    ReqBody: Body + Send + 'static,
+    ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
+    ReqBody::Data: Send,
+{
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -331,10 +390,24 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         }
 
                                         Ok(response)
-            },
+}
 
-            // GetApiProductCycleJson - GET /api/{product}/{cycle}.json
-            hyper::Method::GET if path.matched(paths::ID_API_PRODUCT_CYCLE_JSON) => {
+#[allow(unused_variables)]
+async fn handle_get_api_product_cycle_json<T, C, ReqBody>(
+    mut api_impl: T,
+    uri: hyper::Uri,
+    headers: HeaderMap,
+    body: ReqBody,
+    context: C,
+    validation: bool,
+) -> Result<Response<BoxBody<Bytes, Infallible>>, crate::ServiceError>
+where
+    T: Api<C> + Clone + Send + 'static,
+    C: Has<XSpanIdString>  + Send + Sync + 'static,
+    ReqBody: Body + Send + 'static,
+    ReqBody::Error: Into<Box<dyn Error + Send + Sync>> + Send,
+    ReqBody::Data: Send,
+{
                 // Path parameters
                 let path: &str = uri.path();
                 let path_params =
@@ -407,22 +480,6 @@ impl<T, C, ReqBody> hyper::service::Service<(Request<ReqBody>, C)> for Service<T
                                         }
 
                                         Ok(response)
-            },
-
-            _ if path.matched(paths::ID_API_ALL_JSON) => method_not_allowed(),
-            _ if path.matched(paths::ID_API_PRODUCT_JSON) => method_not_allowed(),
-            _ if path.matched(paths::ID_API_PRODUCT_CYCLE_JSON) => method_not_allowed(),
-                _ => Ok(Response::builder().status(StatusCode::NOT_FOUND)
-                        .body(BoxBody::new(http_body_util::Empty::new()))
-                        .expect("Unable to create Not Found response"))
-            }
-        }
-        Box::pin(run(
-            self.api_impl.clone(),
-            req,
-            self.validation
-        ))
-    }
 }
 
 /// Request parser for `Api`.

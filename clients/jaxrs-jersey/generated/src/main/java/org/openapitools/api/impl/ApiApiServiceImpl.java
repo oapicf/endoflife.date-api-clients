@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-01-24T12:06:35.261819240Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-12T05:00:18.664630598Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class ApiApiServiceImpl extends ApiApiService {
     @Override
     public Response getApiAllJson(SecurityContext securityContext) throws NotFoundException {

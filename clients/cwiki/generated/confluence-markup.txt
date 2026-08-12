@@ -44,7 +44,8 @@ h4. Responses
         "description" : "List of all products.",
         "items" : {
           "type" : "string"
-        }
+        },
+        "default" : null
       },
       "examples" : {
         "all-products" : {
@@ -93,7 +94,8 @@ h4. Responses
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/cycle"
-        }
+        },
+        "default" : null
       },
       "examples" : {
         "/api/ubuntu.json" : {

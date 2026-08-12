@@ -156,8 +156,8 @@ export class DefaultApi {
      */
     public async getApiProductCycleJson (product: string, cycle: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Cycle;  }> {
         const localVarPath = this.basePath + '/api/{product}/{cycle}.json'
-            .replace('{' + 'product' + '}', encodeURIComponent(String(product)))
-            .replace('{' + 'cycle' + '}', encodeURIComponent(String(cycle)));
+            .replace('{product}', encodeURIComponent(String(product)))
+            .replace('{cycle}', encodeURIComponent(String(cycle)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -231,7 +231,7 @@ export class DefaultApi {
      */
     public async getApiProductJson (product: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Array<Cycle>;  }> {
         const localVarPath = this.basePath + '/api/{product}.json'
-            .replace('{' + 'product' + '}', encodeURIComponent(String(product)));
+            .replace('{product}', encodeURIComponent(String(product)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];

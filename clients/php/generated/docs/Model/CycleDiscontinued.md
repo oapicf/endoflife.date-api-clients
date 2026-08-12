@@ -1,4 +1,4 @@
-# # CycleDiscontinued
+# CycleDiscontinued
 
 ## Properties
 

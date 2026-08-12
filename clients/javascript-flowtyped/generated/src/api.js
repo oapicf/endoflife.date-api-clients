@@ -204,8 +204,8 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('cycle','Required parameter cycle was null or undefined when calling getApiProductCycleJson.');
             }
             const localVarPath = `/api/{product}/{cycle}.json`
-                .replace(`{${"product"}}`, encodeURIComponent(String(product)))
-                .replace(`{${"cycle"}}`, encodeURIComponent(String(cycle)));
+                .replace('{product}', encodeURIComponent(String(product)))
+                .replace('{cycle}', encodeURIComponent(String(cycle)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};
@@ -232,7 +232,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
                 throw new RequiredError('product','Required parameter product was null or undefined when calling getApiProductJson.');
             }
             const localVarPath = `/api/{product}.json`
-                .replace(`{${"product"}}`, encodeURIComponent(String(product)));
+                .replace('{product}', encodeURIComponent(String(product)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
             const localVarHeaderParameter = {};

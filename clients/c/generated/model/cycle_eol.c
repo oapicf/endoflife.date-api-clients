@@ -11,15 +11,18 @@ static cycle_eol_t *cycle_eol_create_internal(
     if (!cycle_eol_local_var) {
         return NULL;
     }
-
+    memset(cycle_eol_local_var, 0, sizeof(cycle_eol_t));
     cycle_eol_local_var->_library_owned = 1;
     return cycle_eol_local_var;
 }
 
 __attribute__((deprecated)) cycle_eol_t *cycle_eol_create(
     ) {
-    return cycle_eol_create_internal (
+    cycle_eol_t *result = cycle_eol_create_internal (
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void cycle_eol_free(cycle_eol_t *cycle_eol) {
@@ -49,8 +52,13 @@ cycle_eol_t *cycle_eol_parseFromJSON(cJSON *cycle_eolJSON){
     cycle_eol_t *cycle_eol_local_var = NULL;
 
 
+
     cycle_eol_local_var = cycle_eol_create_internal (
         );
+
+    if (!cycle_eol_local_var) {
+        goto end;
+    }
 
     return cycle_eol_local_var;
 end:

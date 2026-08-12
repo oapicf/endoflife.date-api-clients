@@ -2,7 +2,6 @@
 .mvn/wrapper/MavenWrapperDownloader.java
 .mvn/wrapper/maven-wrapper.jar
 .mvn/wrapper/maven-wrapper.properties
-.openapi-generator-ignore
 README.md
 build.gradle
 docs/apis/DefaultApi.md
@@ -31,10 +30,3 @@ src/main/java/org/openapitools/model/CycleLts.java
 src/main/java/org/openapitools/model/CycleSupport.java
 src/main/resources/application.yml
 src/main/resources/logback.xml
-src/test/java/org/openapitools/api/DefaultApiTest.java
-src/test/java/org/openapitools/model/CycleCycleTest.java
-src/test/java/org/openapitools/model/CycleDiscontinuedTest.java
-src/test/java/org/openapitools/model/CycleEolTest.java
-src/test/java/org/openapitools/model/CycleLtsTest.java
-src/test/java/org/openapitools/model/CycleSupportTest.java
-src/test/java/org/openapitools/model/CycleTest.java

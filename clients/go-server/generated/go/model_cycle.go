@@ -37,7 +37,8 @@ type Cycle struct {
 	Discontinued CycleDiscontinued `json:"discontinued,omitempty"`
 }
 
-// AssertCycleRequired checks if the required fields are not zero-ed
+// AssertCycleRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertCycleRequired(obj Cycle) error {
 	if err := AssertCycleCycleRequired(obj.Cycle); err != nil {
 		return err

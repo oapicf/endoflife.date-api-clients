@@ -116,7 +116,7 @@ Cycle <- R6::R6Class(
       CycleObject <- list()
       if (!is.null(self$`cycle`)) {
         CycleObject[["cycle"]] <-
-          self$`cycle`$toSimpleType()
+          self$extractSimpleType(self$`cycle`)
       }
       if (!is.null(self$`releaseDate`)) {
         CycleObject[["releaseDate"]] <-
@@ -124,7 +124,7 @@ Cycle <- R6::R6Class(
       }
       if (!is.null(self$`eol`)) {
         CycleObject[["eol"]] <-
-          self$`eol`$toSimpleType()
+          self$extractSimpleType(self$`eol`)
       }
       if (!is.null(self$`latest`)) {
         CycleObject[["latest"]] <-
@@ -136,17 +136,40 @@ Cycle <- R6::R6Class(
       }
       if (!is.null(self$`lts`)) {
         CycleObject[["lts"]] <-
-          self$`lts`$toSimpleType()
+          self$extractSimpleType(self$`lts`)
       }
       if (!is.null(self$`support`)) {
         CycleObject[["support"]] <-
-          self$`support`$toSimpleType()
+          self$extractSimpleType(self$`support`)
       }
       if (!is.null(self$`discontinued`)) {
         CycleObject[["discontinued"]] <-
-          self$`discontinued`$toSimpleType()
+          self$extractSimpleType(self$`discontinued`)
       }
       return(CycleObject)
+    },
+
+    extractSimpleType = function(x) {
+      if (R6::is.R6(x)) {
+        return(x$toSimpleType())
+      } else if (!self$hasNestedR6(x)) {
+        return(x)
+      }
+      lapply(x, self$extractSimpleType)
+    },
+
+    hasNestedR6 = function(x) {
+      if (R6::is.R6(x)) {
+        return(TRUE)
+      }
+      if (is.list(x)) {
+        for (item in x) {
+          if (self$hasNestedR6(item)) {
+            return(TRUE)
+          }
+        }
+      }
+      FALSE
     },
 
     #' @description

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.context.request.NativeWebRequest
 import org.springframework.beans.factory.annotation.Autowired
-import org.openapitools.api.ApiApiController.Companion.BASE_PATH
 
 import javax.validation.Valid
 import javax.validation.constraints.DecimalMax
@@ -31,7 +30,7 @@ import kotlin.collections.Map
 
 @RestController
 @Validated
-@RequestMapping("\${openapi.endoflifeDate.base-path:\${api.base-path:$BASE_PATH}}")
+@RequestMapping("\${api.base-path:}")
 class ApiApiController() {
 
     @Operation(
@@ -43,7 +42,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GET_API_ALL_JSON /* "/api/all.json" */],
+        // "/api/all.json"
+        value = [PATH_GET_API_ALL_JSON],
         produces = ["application/json"]
     )
     fun getApiAllJson(): ResponseEntity<List<kotlin.String>> {
@@ -59,7 +59,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GET_API_PRODUCT_CYCLE_JSON /* "/api/{product}/{cycle}.json" */],
+        // "/api/{product}/{cycle}.json"
+        value = [PATH_GET_API_PRODUCT_CYCLE_JSON],
         produces = ["application/json"]
     )
     fun getApiProductCycleJson(
@@ -78,7 +79,8 @@ class ApiApiController() {
     )
     @RequestMapping(
         method = [RequestMethod.GET],
-        value = [PATH_GET_API_PRODUCT_JSON /* "/api/{product}.json" */],
+        // "/api/{product}.json"
+        value = [PATH_GET_API_PRODUCT_JSON],
         produces = ["application/json"]
     )
     fun getApiProductJson(

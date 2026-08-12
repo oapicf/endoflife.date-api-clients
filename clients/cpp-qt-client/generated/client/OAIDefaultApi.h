@@ -39,6 +39,7 @@ public:
     void initializeServerConfigs();
     int setDefaultServerValue(int serverIndex,const QString &operation, const QString &variable,const QString &val);
     void setServerIndex(const QString &operation, int serverIndex);
+    void setServerIndex(int serverIndex);
     void setApiKey(const QString &apiKeyName, const QString &apiKey);
     void setBearerToken(const QString &token);
     void setUsername(const QString &username);
@@ -73,6 +74,13 @@ public:
 
 
 private:
+    enum class OauthMethod : int {
+        INVALID_VALUE_OPENAPI_GENERATED = 0,
+        ImplicitFlow = 1,
+        AuthorizationFlow = 2,
+        ClientCredentialsFlow = 3,
+        ResourceOwnerPasswordFlow = 4
+    };
     QMap<QString,int> _serverIndices;
     QMap<QString,QList<OAIServerConfiguration>> _serverConfigs;
     QMap<QString, QString> _apiKeys;
@@ -92,7 +100,7 @@ private:
     OauthImplicit _implicitFlow;
     OauthCredentials _credentialFlow;
     OauthPassword _passwordFlow;
-    int _OauthMethod = 0;
+    OauthMethod _OauthMethod = OauthMethod::INVALID_VALUE_OPENAPI_GENERATED;
 
     void getApiAll_jsonCallback(OAIHttpRequestWorker *worker);
     void getApiProductCycle_jsonCallback(OAIHttpRequestWorker *worker);
@@ -109,24 +117,12 @@ Q_SIGNALS:
     void getApiProductCycle_jsonSignalFull(OAIHttpRequestWorker *worker, OAICycle summary);
     void getApiProduct_jsonSignalFull(OAIHttpRequestWorker *worker, QList<OAICycle> summary);
 
-    Q_DECL_DEPRECATED_X("Use getApiAll_jsonSignalError() instead")
-    void getApiAll_jsonSignalE(QList<QString> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getApiAll_jsonSignalError(QList<QString> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use getApiProductCycle_jsonSignalError() instead")
-    void getApiProductCycle_jsonSignalE(OAICycle summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getApiProductCycle_jsonSignalError(OAICycle summary, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use getApiProduct_jsonSignalError() instead")
-    void getApiProduct_jsonSignalE(QList<OAICycle> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getApiProduct_jsonSignalError(QList<OAICycle> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
 
-    Q_DECL_DEPRECATED_X("Use getApiAll_jsonSignalErrorFull() instead")
-    void getApiAll_jsonSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getApiAll_jsonSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use getApiProductCycle_jsonSignalErrorFull() instead")
-    void getApiProductCycle_jsonSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getApiProductCycle_jsonSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
-    Q_DECL_DEPRECATED_X("Use getApiProduct_jsonSignalErrorFull() instead")
-    void getApiProduct_jsonSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getApiProduct_jsonSignalErrorFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, const QString &error_str);
 
     void abortRequestsSignal();

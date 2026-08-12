@@ -62,8 +62,8 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/{product}/{cycle}.json'
-            .replace('{' + 'product' + '}', encodeURIComponent(String(product)))
-            .replace('{' + 'cycle' + '}', encodeURIComponent(String(cycle)));
+            .replace('{product}', encodeURIComponent(String(product)))
+            .replace('{cycle}', encodeURIComponent(String(cycle)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -95,7 +95,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
         // Path Params
         const localVarPath = '/api/{product}.json'
-            .replace('{' + 'product' + '}', encodeURIComponent(String(product)));
+            .replace('{product}', encodeURIComponent(String(product)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

@@ -29,7 +29,7 @@ import javax.annotation.Generated;
 @JsonPropertyOrder({
 })
 @JsonTypeName("cycle_cycle")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-01-24T12:06:21.103652416Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautClientCodegen", date="2026-08-12T04:59:56.815379882Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class CycleCycle {
     public CycleCycle() {
@@ -64,10 +64,7 @@ public class CycleCycle {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+        return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
 }

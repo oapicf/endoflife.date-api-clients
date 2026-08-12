@@ -24,6 +24,8 @@ Cycle_eol::Cycle_eol()
     
 }
 
+Cycle_eol::~Cycle_eol() = default;
+
 void Cycle_eol::validate() const
 {
     std::stringstream msg;

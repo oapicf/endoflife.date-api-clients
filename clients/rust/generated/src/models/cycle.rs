@@ -18,7 +18,7 @@ pub struct Cycle {
     pub cycle: Option<Box<models::CycleCycle>>,
     /// Release date for the first release in this cycle.
     #[serde(rename = "releaseDate", skip_serializing_if = "Option::is_none")]
-    pub release_date: Option<String>,
+    pub release_date: Option<chrono::NaiveDate>,
     #[serde(rename = "eol", skip_serializing_if = "Option::is_none")]
     pub eol: Option<Box<models::CycleEol>>,
     /// Latest release in this cycle.

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from './common';
 import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
@@ -120,8 +120,8 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'cycle' is not null or undefined
             assertParamExists('getApiProductCycleJson', 'cycle', cycle)
             const localVarPath = `/api/{product}/{cycle}.json`
-                .replace(`{${"product"}}`, encodeURIComponent(String(product)))
-                .replace(`{${"cycle"}}`, encodeURIComponent(String(cycle)));
+                .replace('{product}', encodeURIComponent(String(product)))
+                .replace('{cycle}', encodeURIComponent(String(cycle)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -155,7 +155,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // verify required parameter 'product' is not null or undefined
             assertParamExists('getApiProductJson', 'product', product)
             const localVarPath = `/api/{product}.json`
-                .replace(`{${"product"}}`, encodeURIComponent(String(product)));
+                .replace('{product}', encodeURIComponent(String(product)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

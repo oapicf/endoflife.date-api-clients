@@ -19,6 +19,8 @@ static cycle_t *cycle_create_internal(
     if (!cycle_local_var) {
         return NULL;
     }
+    memset(cycle_local_var, 0, sizeof(cycle_t));
+    cycle_local_var->_library_owned = 1;
     cycle_local_var->cycle = cycle;
     cycle_local_var->release_date = release_date;
     cycle_local_var->eol = eol;
@@ -27,8 +29,6 @@ static cycle_t *cycle_create_internal(
     cycle_local_var->lts = lts;
     cycle_local_var->support = support;
     cycle_local_var->discontinued = discontinued;
-
-    cycle_local_var->_library_owned = 1;
     return cycle_local_var;
 }
 
@@ -42,7 +42,7 @@ __attribute__((deprecated)) cycle_t *cycle_create(
     cycle_support_t *support,
     cycle_discontinued_t *discontinued
     ) {
-    return cycle_create_internal (
+    cycle_t *result = cycle_create_internal (
         cycle,
         release_date,
         eol,
@@ -52,6 +52,9 @@ __attribute__((deprecated)) cycle_t *cycle_create(
         support,
         discontinued
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void cycle_free(cycle_t *cycle) {
@@ -204,8 +207,14 @@ cycle_t *cycle_parseFromJSON(cJSON *cycleJSON){
     // define the local variable for cycle->cycle
     cycle_cycle_t *cycle_local_nonprim = NULL;
 
+    char *release_date_local_str = NULL;
+
     // define the local variable for cycle->eol
     cycle_eol_t *eol_local_nonprim = NULL;
+
+    char *latest_local_str = NULL;
+
+    char *link_local_str = NULL;
 
     // define the local variable for cycle->lts
     cycle_lts_t *lts_local_nonprim = NULL;
@@ -298,16 +307,24 @@ cycle_t *cycle_parseFromJSON(cJSON *cycleJSON){
     }
 
 
+    if (release_date) release_date_local_str = strdup(release_date->valuestring);
+    if (latest && !cJSON_IsNull(latest)) latest_local_str = strdup(latest->valuestring);
+    if (link && !cJSON_IsNull(link)) link_local_str = strdup(link->valuestring);
+
     cycle_local_var = cycle_create_internal (
         cycle ? cycle_local_nonprim : NULL,
-        release_date ? strdup(release_date->valuestring) : NULL,
+        release_date_local_str,
         eol ? eol_local_nonprim : NULL,
-        latest && !cJSON_IsNull(latest) ? strdup(latest->valuestring) : NULL,
-        link && !cJSON_IsNull(link) ? strdup(link->valuestring) : NULL,
+        latest_local_str,
+        link_local_str,
         lts ? lts_local_nonprim : NULL,
         support ? support_local_nonprim : NULL,
         discontinued ? discontinued_local_nonprim : NULL
         );
+
+    if (!cycle_local_var) {
+        goto end;
+    }
 
     return cycle_local_var;
 end:
@@ -315,9 +332,21 @@ end:
         cycle_cycle_free(cycle_local_nonprim);
         cycle_local_nonprim = NULL;
     }
+    if (release_date_local_str) {
+        free(release_date_local_str);
+        release_date_local_str = NULL;
+    }
     if (eol_local_nonprim) {
         cycle_eol_free(eol_local_nonprim);
         eol_local_nonprim = NULL;
+    }
+    if (latest_local_str) {
+        free(latest_local_str);
+        latest_local_str = NULL;
+    }
+    if (link_local_str) {
+        free(link_local_str);
+        link_local_str = NULL;
     }
     if (lts_local_nonprim) {
         cycle_lts_free(lts_local_nonprim);

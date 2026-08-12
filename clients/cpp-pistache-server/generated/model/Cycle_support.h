@@ -31,7 +31,7 @@ class  Cycle_support
 {
 public:
     Cycle_support();
-    virtual ~Cycle_support() = default;
+    virtual ~Cycle_support();
 
 
     /// <summary>

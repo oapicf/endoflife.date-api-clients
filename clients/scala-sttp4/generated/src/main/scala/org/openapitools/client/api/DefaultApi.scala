@@ -28,7 +28,7 @@ class DefaultApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[String] (OK)
    */
-  def getApiAllJson(): Request[Either[ResponseException[String, Exception], Seq[String]]] =
+  def getApiAllJson(): Request[Either[ResponseException[String], Seq[String]]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/all.json")
       .contentType("application/json")
@@ -43,7 +43,7 @@ class DefaultApi(baseUrl: String) {
    * @param product Product URL as per the canonical URL on the endofife.date website.
    * @param cycle Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD's releng/14.0 becomes releng-14.0.
    */
-  def getApiProductCycleJson(product: String, cycle: String): Request[Either[ResponseException[String, Exception], Cycle]] =
+  def getApiProductCycleJson(product: String, cycle: String): Request[Either[ResponseException[String], Cycle]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/${product}/${cycle}.json")
       .contentType("application/json")
@@ -57,7 +57,7 @@ class DefaultApi(baseUrl: String) {
    * 
    * @param product Product URL as per the canonical URL on the endofife.date website.
    */
-  def getApiProductJson(product: String): Request[Either[ResponseException[String, Exception], Seq[Cycle]]] =
+  def getApiProductJson(product: String): Request[Either[ResponseException[String], Seq[Cycle]]] =
     basicRequest
       .method(Method.GET, uri"$baseUrl/api/${product}.json")
       .contentType("application/json")

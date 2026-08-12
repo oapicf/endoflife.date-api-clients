@@ -71,7 +71,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "{\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}";
+            exampleJson = "{\n  \"cycle\" : 0.8008281904610115,\n  \"releaseDate\" : \"2000-01-23\",\n  \"eol\" : \"cycle_eol\",\n  \"latest\" : \"latest\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"support\" : \"cycle_support\",\n  \"discontinued\" : \"cycle_discontinued\"\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<Cycle>(exampleJson)
@@ -97,7 +97,7 @@ namespace Org.OpenAPITools.Controllers
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default);
             string exampleJson = null;
-            exampleJson = "[ {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n}, {\n  \"eol\" : \"cycle_eol\",\n  \"releaseDate\" : \"2000-01-23\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"discontinued\" : \"cycle_discontinued\",\n  \"cycle\" : 0.8008281904610115,\n  \"support\" : \"cycle_support\",\n  \"latest\" : \"latest\"\n} ]";
+            exampleJson = "[ {\n  \"cycle\" : 0.8008281904610115,\n  \"releaseDate\" : \"2000-01-23\",\n  \"eol\" : \"cycle_eol\",\n  \"latest\" : \"latest\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"support\" : \"cycle_support\",\n  \"discontinued\" : \"cycle_discontinued\"\n}, {\n  \"cycle\" : 0.8008281904610115,\n  \"releaseDate\" : \"2000-01-23\",\n  \"eol\" : \"cycle_eol\",\n  \"latest\" : \"latest\",\n  \"link\" : \"link\",\n  \"lts\" : \"cycle_lts\",\n  \"support\" : \"cycle_support\",\n  \"discontinued\" : \"cycle_discontinued\"\n} ]";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<Cycle>>(exampleJson)

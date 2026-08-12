@@ -126,7 +126,7 @@ export function CycleFromJSONTyped(json: any, ignoreDiscriminator: boolean): Cyc
         'releaseDate': json['releaseDate'] == null ? undefined : (new Date(json['releaseDate'])),
         'eol': json['eol'] == null ? undefined : CycleEolFromJSON(json['eol']),
         'latest': json['latest'] == null ? undefined : json['latest'],
-        'link': json['link'] == null ? undefined : json['link'],
+        'link': json['link'] === undefined ? undefined : json['link'] === null ? null : json['link'],
         'lts': json['lts'] == null ? undefined : CycleLtsFromJSON(json['lts']),
         'support': json['support'] == null ? undefined : CycleSupportFromJSON(json['support']),
         'discontinued': json['discontinued'] == null ? undefined : CycleDiscontinuedFromJSON(json['discontinued']),

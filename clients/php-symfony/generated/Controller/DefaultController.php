@@ -144,14 +144,14 @@ class DefaultController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($product, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($cycle, $asserts);
         if ($response instanceof Response) {
             return $response;
@@ -224,7 +224,7 @@ class DefaultController extends Controller
         // Validate the input values
         $asserts = [];
         $asserts[] = new Assert\NotNull();
-        $asserts[] = new Assert\Type("string");
+        $asserts[] = new Assert\Type('string');
         $response = $this->validate($product, $asserts);
         if ($response instanceof Response) {
             return $response;

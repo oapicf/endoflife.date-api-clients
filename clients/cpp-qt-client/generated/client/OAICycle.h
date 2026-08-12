@@ -37,13 +37,13 @@ namespace OpenAPI {
 class OAICycle : public OAIObject {
 public:
     OAICycle();
-    OAICycle(QString json);
+    OAICycle(const QString &json);
     ~OAICycle() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
-    void fromJson(QString jsonString) override;
+    void fromJson(const QString &jsonString) override;
 
     OAICycle_cycle getCycle() const;
     void setCycle(const OAICycle_cycle &cycle);

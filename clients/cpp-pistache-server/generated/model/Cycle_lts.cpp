@@ -24,6 +24,8 @@ Cycle_lts::Cycle_lts()
     
 }
 
+Cycle_lts::~Cycle_lts() = default;
+
 void Cycle_lts::validate() const
 {
     std::stringstream msg;

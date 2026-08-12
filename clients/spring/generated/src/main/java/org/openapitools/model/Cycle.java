@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -18,13 +19,13 @@ import org.springframework.lang.Nullable;
 import java.util.NoSuchElementException;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.
@@ -32,24 +33,32 @@ import javax.annotation.Generated;
 
 @Schema(name = "cycle", description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-01-24T12:08:07.706348621Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-12T05:02:39.551214907Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Cycle {
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleCycle cycle;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
   private @Nullable LocalDate releaseDate;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleEol eol;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String latest;
 
+  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<@Size(min = 1) String> link = JsonNullable.<String>undefined();
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleLts lts;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleSupport support;
 
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleDiscontinued discontinued;
 
   public Cycle cycle(@Nullable CycleCycle cycle) {
@@ -68,6 +77,7 @@ public class Cycle {
     return cycle;
   }
 
+  @JsonProperty("cycle")
   public void setCycle(@Nullable CycleCycle cycle) {
     this.cycle = cycle;
   }
@@ -88,6 +98,7 @@ public class Cycle {
     return releaseDate;
   }
 
+  @JsonProperty("releaseDate")
   public void setReleaseDate(@Nullable LocalDate releaseDate) {
     this.releaseDate = releaseDate;
   }
@@ -108,6 +119,7 @@ public class Cycle {
     return eol;
   }
 
+  @JsonProperty("eol")
   public void setEol(@Nullable CycleEol eol) {
     this.eol = eol;
   }
@@ -128,6 +140,7 @@ public class Cycle {
     return latest;
   }
 
+  @JsonProperty("latest")
   public void setLatest(@Nullable String latest) {
     this.latest = latest;
   }
@@ -168,6 +181,7 @@ public class Cycle {
     return lts;
   }
 
+  @JsonProperty("lts")
   public void setLts(@Nullable CycleLts lts) {
     this.lts = lts;
   }
@@ -188,6 +202,7 @@ public class Cycle {
     return support;
   }
 
+  @JsonProperty("support")
   public void setSupport(@Nullable CycleSupport support) {
     this.support = support;
   }
@@ -208,6 +223,7 @@ public class Cycle {
     return discontinued;
   }
 
+  @JsonProperty("discontinued")
   public void setDiscontinued(@Nullable CycleDiscontinued discontinued) {
     this.discontinued = discontinued;
   }
@@ -267,11 +283,8 @@ public class Cycle {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  private String toIndentedString(@Nullable Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

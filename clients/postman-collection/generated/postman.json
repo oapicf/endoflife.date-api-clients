@@ -11,6 +11,7 @@
 	"item": [
 	        {
 	            "name": "default",
+	            "description": "default tag",
 	            "item": [
 	                        {
     "name": "/api/:product.json",

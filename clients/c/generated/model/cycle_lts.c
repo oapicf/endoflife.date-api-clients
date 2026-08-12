@@ -11,15 +11,18 @@ static cycle_lts_t *cycle_lts_create_internal(
     if (!cycle_lts_local_var) {
         return NULL;
     }
-
+    memset(cycle_lts_local_var, 0, sizeof(cycle_lts_t));
     cycle_lts_local_var->_library_owned = 1;
     return cycle_lts_local_var;
 }
 
 __attribute__((deprecated)) cycle_lts_t *cycle_lts_create(
     ) {
-    return cycle_lts_create_internal (
+    cycle_lts_t *result = cycle_lts_create_internal (
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void cycle_lts_free(cycle_lts_t *cycle_lts) {
@@ -49,8 +52,13 @@ cycle_lts_t *cycle_lts_parseFromJSON(cJSON *cycle_ltsJSON){
     cycle_lts_t *cycle_lts_local_var = NULL;
 
 
+
     cycle_lts_local_var = cycle_lts_create_internal (
         );
+
+    if (!cycle_lts_local_var) {
+        goto end;
+    }
 
     return cycle_lts_local_var;
 end:

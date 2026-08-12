@@ -1,4 +1,4 @@
-.openapi-generator-ignore
+.scalafmt.conf
 README.md
 build.sbt
 docs/Cycle.md
@@ -10,6 +10,7 @@ docs/CycleSupport.md
 docs/DefaultApi.md
 pom.xml
 project/build.properties
+project/plugins.sbt
 src/main/resources/reference.conf
 src/main/scala/org/openapitools/client/api/DefaultApi.scala
 src/main/scala/org/openapitools/client/api/EnumsSerializers.scala

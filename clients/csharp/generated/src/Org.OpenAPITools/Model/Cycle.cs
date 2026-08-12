@@ -69,7 +69,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets VarCycle
         /// </summary>
         [JsonPropertyName("cycle")]
-        public CycleCycle? VarCycle { get { return this.VarCycleOption; } set { this.VarCycleOption = new(value); } }
+        public CycleCycle? VarCycle { get { return this.VarCycleOption.Value; } set { this.VarCycleOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ReleaseDate
@@ -83,7 +83,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>Release date for the first release in this cycle.</value>
         [JsonPropertyName("releaseDate")]
-        public DateOnly? ReleaseDate { get { return this.ReleaseDateOption; } set { this.ReleaseDateOption = new(value); } }
+        public DateOnly? ReleaseDate { get { return this.ReleaseDateOption.Value; } set { this.ReleaseDateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Eol
@@ -96,7 +96,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Eol
         /// </summary>
         [JsonPropertyName("eol")]
-        public CycleEol? Eol { get { return this.EolOption; } set { this.EolOption = new(value); } }
+        public CycleEol? Eol { get { return this.EolOption.Value; } set { this.EolOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Latest
@@ -110,7 +110,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>Latest release in this cycle.</value>
         [JsonPropertyName("latest")]
-        public string? Latest { get { return this.LatestOption; } set { this.LatestOption = new(value); } }
+        public string? Latest { get { return this.LatestOption.Value; } set { this.LatestOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Link
@@ -124,7 +124,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>Link to changelog for the latest release in this cycle, or null if unavailable.</value>
         [JsonPropertyName("link")]
-        public string? Link { get { return this.LinkOption; } set { this.LinkOption = new(value); } }
+        public string? Link { get { return this.LinkOption.Value; } set { this.LinkOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Lts
@@ -137,7 +137,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Lts
         /// </summary>
         [JsonPropertyName("lts")]
-        public CycleLts? Lts { get { return this.LtsOption; } set { this.LtsOption = new(value); } }
+        public CycleLts? Lts { get { return this.LtsOption.Value; } set { this.LtsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Support
@@ -150,7 +150,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Support
         /// </summary>
         [JsonPropertyName("support")]
-        public CycleSupport? Support { get { return this.SupportOption; } set { this.SupportOption = new(value); } }
+        public CycleSupport? Support { get { return this.SupportOption.Value; } set { this.SupportOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Discontinued
@@ -163,7 +163,7 @@ namespace Org.OpenAPITools.Model
         /// Gets or Sets Discontinued
         /// </summary>
         [JsonPropertyName("discontinued")]
-        public CycleDiscontinued? Discontinued { get { return this.DiscontinuedOption; } set { this.DiscontinuedOption = new(value); } }
+        public CycleDiscontinued? Discontinued { get { return this.DiscontinuedOption.Value; } set { this.DiscontinuedOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -211,12 +211,22 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="Cycle" />
     /// </summary>
-    public class CycleJsonConverter : JsonConverter<Cycle>
+    public partial class CycleJsonConverter : JsonConverter<Cycle>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CycleJsonConverter" /> class.
+        /// </summary>
+        public CycleJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// The format to use to serialize ReleaseDate
         /// </summary>
-        public static string ReleaseDateFormat { get; set; } = "yyyy'-'MM'-'dd";
+        public string ReleaseDateFormat { get; private set; } = "yyyy'-'MM'-'dd";
 
         /// <summary>
         /// Deserializes json to <see cref="Cycle" />

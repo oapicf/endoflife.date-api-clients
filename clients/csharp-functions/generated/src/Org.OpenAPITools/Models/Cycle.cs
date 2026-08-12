@@ -139,7 +139,7 @@ namespace Org.OpenAPITools.Models
                 ) && 
                 (
                     ReleaseDate == other.ReleaseDate ||
-                    ReleaseDate != null &&
+                    
                     ReleaseDate.Equals(other.ReleaseDate)
                 ) && 
                 (
@@ -186,7 +186,7 @@ namespace Org.OpenAPITools.Models
                 // Suitable nullity checks etc, of course :)
                     if (VarCycle != null)
                     hashCode = hashCode * 59 + VarCycle.GetHashCode();
-                    if (ReleaseDate != null)
+                    
                     hashCode = hashCode * 59 + ReleaseDate.GetHashCode();
                     if (Eol != null)
                     hashCode = hashCode * 59 + Eol.GetHashCode();

@@ -12,15 +12,12 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  Cycle,
-} from '../models/index';
 import {
+    type Cycle,
     CycleFromJSON,
     CycleToJSON,
-} from '../models/index';
+} from '../models/Cycle';
 
 export interface GetApiProductCycleJsonRequest {
     product: string;
@@ -37,10 +34,9 @@ export interface GetApiProductJsonRequest {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * Return a list of all products. Each of these can be used for the other API endpoints.
-     * All Products
+     * Creates request options for getApiAllJson without sending the request
      */
-    async getApiAllJsonRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<string>>> {
+    async getApiAllJsonRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -48,12 +44,21 @@ export class DefaultApi extends runtime.BaseAPI {
 
         let urlPath = `/api/all.json`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Return a list of all products. Each of these can be used for the other API endpoints.
+     * All Products
+     */
+    async getApiAllJsonRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<string>>> {
+        const requestOptions = await this.getApiAllJsonRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
     }
@@ -68,10 +73,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Gets details of a single cycle.
-     * Single cycle details
+     * Creates request options for getApiProductCycleJson without sending the request
      */
-    async getApiProductCycleJsonRaw(requestParameters: GetApiProductCycleJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cycle>> {
+    async getApiProductCycleJsonRequestOpts(requestParameters: GetApiProductCycleJsonRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['product'] == null) {
             throw new runtime.RequiredError(
                 'product',
@@ -92,15 +96,24 @@ export class DefaultApi extends runtime.BaseAPI {
 
 
         let urlPath = `/api/{product}/{cycle}.json`;
-        urlPath = urlPath.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters['product'])));
-        urlPath = urlPath.replace(`{${"cycle"}}`, encodeURIComponent(String(requestParameters['cycle'])));
+        urlPath = urlPath.replace('{product}', encodeURIComponent(String(requestParameters['product'])));
+        urlPath = urlPath.replace('{cycle}', encodeURIComponent(String(requestParameters['cycle'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Gets details of a single cycle.
+     * Single cycle details
+     */
+    async getApiProductCycleJsonRaw(requestParameters: GetApiProductCycleJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Cycle>> {
+        const requestOptions = await this.getApiProductCycleJsonRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CycleFromJSON(jsonValue));
     }
@@ -115,10 +128,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get EoL dates of all cycles of a given product.
-     * Get All Details
+     * Creates request options for getApiProductJson without sending the request
      */
-    async getApiProductJsonRaw(requestParameters: GetApiProductJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Cycle>>> {
+    async getApiProductJsonRequestOpts(requestParameters: GetApiProductJsonRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['product'] == null) {
             throw new runtime.RequiredError(
                 'product',
@@ -132,14 +144,23 @@ export class DefaultApi extends runtime.BaseAPI {
 
 
         let urlPath = `/api/{product}.json`;
-        urlPath = urlPath.replace(`{${"product"}}`, encodeURIComponent(String(requestParameters['product'])));
+        urlPath = urlPath.replace('{product}', encodeURIComponent(String(requestParameters['product'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get EoL dates of all cycles of a given product.
+     * Get All Details
+     */
+    async getApiProductJsonRaw(requestParameters: GetApiProductJsonRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Cycle>>> {
+        const requestOptions = await this.getApiProductJsonRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CycleFromJSON));
     }

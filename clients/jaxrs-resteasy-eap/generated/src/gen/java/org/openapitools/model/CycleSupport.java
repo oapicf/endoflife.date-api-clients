@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Whether this release cycle has active support.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-01-24T12:06:38.542501398Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@ApiModel(description="Whether this release cycle has active support.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-12T05:00:23.607743805Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleSupport   {
   
 
@@ -43,10 +43,7 @@ public class CycleSupport   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

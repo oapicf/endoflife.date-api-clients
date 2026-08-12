@@ -50,7 +50,7 @@ import com.google.gson.JsonParseException;
 
 import com.github.oapicf.endoflifedate.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-24T12:06:10.608838463Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-12T04:59:44.914646682Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleDiscontinued extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CycleDiscontinued.class.getName());
 

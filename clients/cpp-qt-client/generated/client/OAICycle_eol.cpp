@@ -21,7 +21,7 @@
 
 namespace OpenAPI {
 
-OAICycle_eol::OAICycle_eol(QString json) {
+OAICycle_eol::OAICycle_eol(const QString &json) {
     this->initializeModel();
     this->fromJson(json);
 }
@@ -36,7 +36,7 @@ void OAICycle_eol::initializeModel() {
 
 }
 
-void OAICycle_eol::fromJson(QString jsonString) {
+void OAICycle_eol::fromJson(const QString &jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();

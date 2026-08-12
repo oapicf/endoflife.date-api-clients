@@ -31,7 +31,7 @@ class  Cycle_eol
 {
 public:
     Cycle_eol();
-    virtual ~Cycle_eol() = default;
+    virtual ~Cycle_eol();
 
 
     /// <summary>

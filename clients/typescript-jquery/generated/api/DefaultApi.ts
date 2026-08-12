@@ -112,7 +112,7 @@ export class DefaultApi {
     { response: JQueryXHR; body: models.Cycle;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/{product}/{cycle}.json'.replace('{' + 'product' + '}', encodeURIComponent(String(product))).replace('{' + 'cycle' + '}', encodeURIComponent(String(cycle)));
+        let localVarPath = this.basePath + '/api/{product}/{cycle}.json'.replace('{product}', encodeURIComponent(String(product))).replace('{cycle}', encodeURIComponent(String(cycle)));
 
         let queryParameters: any = {};
         let headerParams: any = {};
@@ -179,7 +179,7 @@ export class DefaultApi {
     { response: JQueryXHR; body: Array<models.Cycle>;  },
     { response: JQueryXHR; errorThrown: string }
     > {
-        let localVarPath = this.basePath + '/api/{product}.json'.replace('{' + 'product' + '}', encodeURIComponent(String(product)));
+        let localVarPath = this.basePath + '/api/{product}.json'.replace('{product}', encodeURIComponent(String(product)));
 
         let queryParameters: any = {};
         let headerParams: any = {};

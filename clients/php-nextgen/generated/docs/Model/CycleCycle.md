@@ -1,4 +1,4 @@
-# # CycleCycle
+# CycleCycle
 
 ## Properties
 

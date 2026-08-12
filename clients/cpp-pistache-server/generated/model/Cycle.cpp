@@ -34,6 +34,8 @@ Cycle::Cycle()
     
 }
 
+Cycle::~Cycle() = default;
+
 void Cycle::validate() const
 {
     std::stringstream msg;

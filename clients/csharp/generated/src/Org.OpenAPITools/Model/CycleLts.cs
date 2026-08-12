@@ -55,7 +55,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets String
         /// </summary>
-        public string? String { get { return this.StringOption; } set { this.StringOption = new(value); } }
+        public string? String { get { return this.StringOption.Value; } set { this.StringOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Bool
@@ -67,7 +67,7 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets Bool
         /// </summary>
-        public bool? Bool { get { return this.BoolOption; } set { this.BoolOption = new(value); } }
+        public bool? Bool { get { return this.BoolOption.Value; } set { this.BoolOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -95,8 +95,18 @@ namespace Org.OpenAPITools.Model
     /// <summary>
     /// A Json converter for type <see cref="CycleLts" />
     /// </summary>
-    public class CycleLtsJsonConverter : JsonConverter<CycleLts>
+    public partial class CycleLtsJsonConverter : JsonConverter<CycleLts>
     {
+        partial void OnCreated();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CycleLtsJsonConverter" /> class.
+        /// </summary>
+        public CycleLtsJsonConverter()
+        {
+            OnCreated();
+        }
+
         /// <summary>
         /// Deserializes json to <see cref="CycleLts" />
         /// </summary>

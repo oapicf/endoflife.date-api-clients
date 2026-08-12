@@ -11,15 +11,18 @@ static cycle_cycle_t *cycle_cycle_create_internal(
     if (!cycle_cycle_local_var) {
         return NULL;
     }
-
+    memset(cycle_cycle_local_var, 0, sizeof(cycle_cycle_t));
     cycle_cycle_local_var->_library_owned = 1;
     return cycle_cycle_local_var;
 }
 
 __attribute__((deprecated)) cycle_cycle_t *cycle_cycle_create(
     ) {
-    return cycle_cycle_create_internal (
+    cycle_cycle_t *result = cycle_cycle_create_internal (
         );
+    if (!result) {
+    }
+    return result;
 }
 
 void cycle_cycle_free(cycle_cycle_t *cycle_cycle) {
@@ -49,8 +52,13 @@ cycle_cycle_t *cycle_cycle_parseFromJSON(cJSON *cycle_cycleJSON){
     cycle_cycle_t *cycle_cycle_local_var = NULL;
 
 
+
     cycle_cycle_local_var = cycle_cycle_create_internal (
         );
+
+    if (!cycle_cycle_local_var) {
+        goto end;
+    }
 
     return cycle_cycle_local_var;
 end:

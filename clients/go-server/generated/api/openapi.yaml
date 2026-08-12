@@ -65,6 +65,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/cycle"
                 type: array
+                default: null
           description: OK
       summary: Get All Details
       tags: []
@@ -187,6 +188,7 @@ paths:
                 items:
                   type: string
                 type: array
+                default: null
           description: OK
       summary: All Products
       tags: []
@@ -196,14 +198,14 @@ components:
       description: Details of a single release cycle of a given product. There might
         be some slight variations to this depending on the product.
       example:
-        eol: cycle_eol
+        cycle: 0.8008281904610115
         releaseDate: 2000-01-23
+        eol: cycle_eol
+        latest: latest
         link: link
         lts: cycle_lts
-        discontinued: cycle_discontinued
-        cycle: 0.8008281904610115
         support: cycle_support
-        latest: latest
+        discontinued: cycle_discontinued
       properties:
         cycle:
           $ref: "#/components/schemas/cycle_cycle"

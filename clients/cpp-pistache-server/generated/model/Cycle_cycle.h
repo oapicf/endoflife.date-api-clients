@@ -31,7 +31,7 @@ class  Cycle_cycle
 {
 public:
     Cycle_cycle();
-    virtual ~Cycle_cycle() = default;
+    virtual ~Cycle_cycle();
 
 
     /// <summary>

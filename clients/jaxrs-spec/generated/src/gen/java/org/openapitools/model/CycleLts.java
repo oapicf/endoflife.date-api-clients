@@ -18,7 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  **/
 @ApiModel(description = "Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.")
 @JsonTypeName("cycle_lts")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-01-24T12:06:39.771494506Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-12T05:00:25.612061183Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleLts   {
 
   public CycleLts() {
@@ -55,12 +55,8 @@ public class CycleLts   {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
 }
-

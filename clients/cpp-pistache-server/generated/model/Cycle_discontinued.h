@@ -31,7 +31,7 @@ class  Cycle_discontinued
 {
 public:
     Cycle_discontinued();
-    virtual ~Cycle_discontinued() = default;
+    virtual ~Cycle_discontinued();
 
 
     /// <summary>

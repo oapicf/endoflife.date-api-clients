@@ -18,7 +18,8 @@ package openapi
 type CycleDiscontinued struct {
 }
 
-// AssertCycleDiscontinuedRequired checks if the required fields are not zero-ed
+// AssertCycleDiscontinuedRequired checks complex required fields (models, arrays, maps) and embedded parents.
+// Primitive required fields are validated for JSON request bodies in UnmarshalJSON so zero values remain valid.
 func AssertCycleDiscontinuedRequired(obj CycleDiscontinued) error {
 	return nil
 }

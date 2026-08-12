@@ -87,14 +87,14 @@ function Initialize-Cycle {
 
 
         $PSO = [PSCustomObject]@{
-            "cycle" = ${Cycle}
-            "releaseDate" = ${ReleaseDate}
-            "eol" = ${Eol}
-            "latest" = ${Latest}
-            "link" = ${Link}
-            "lts" = ${Lts}
-            "support" = ${Support}
-            "discontinued" = ${Discontinued}
+            'cycle' = ${Cycle}
+            'releaseDate' = ${ReleaseDate}
+            'eol' = ${Eol}
+            'latest' = ${Latest}
+            'link' = ${Link}
+            'lts' = ${Lts}
+            'support' = ${Support}
+            'discontinued' = ${Discontinued}
         }
 
 
@@ -132,70 +132,70 @@ function ConvertFrom-JsonToCycle {
         $JsonParameters = ConvertFrom-Json -InputObject $Json
 
         # check if Json contains properties not defined in Cycle
-        $AllProperties = ("cycle", "releaseDate", "eol", "latest", "link", "lts", "support", "discontinued")
+        $AllProperties = ('cycle', 'releaseDate', 'eol', 'latest', 'link', 'lts', 'support', 'discontinued')
         foreach ($name in $JsonParameters.PsObject.Properties.Name) {
             if (!($AllProperties.Contains($name))) {
                 throw "Error! JSON key '$name' not found in the properties: $($AllProperties)"
             }
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "cycle"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'cycle'))) { #optional property not found
             $Cycle = $null
         } else {
-            $Cycle = $JsonParameters.PSobject.Properties["cycle"].value
+            $Cycle = $JsonParameters.PSobject.Properties['cycle'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "releaseDate"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'releaseDate'))) { #optional property not found
             $ReleaseDate = $null
         } else {
-            $ReleaseDate = $JsonParameters.PSobject.Properties["releaseDate"].value
+            $ReleaseDate = $JsonParameters.PSobject.Properties['releaseDate'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "eol"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'eol'))) { #optional property not found
             $Eol = $null
         } else {
-            $Eol = $JsonParameters.PSobject.Properties["eol"].value
+            $Eol = $JsonParameters.PSobject.Properties['eol'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "latest"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'latest'))) { #optional property not found
             $Latest = $null
         } else {
-            $Latest = $JsonParameters.PSobject.Properties["latest"].value
+            $Latest = $JsonParameters.PSobject.Properties['latest'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "link"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'link'))) { #optional property not found
             $Link = $null
         } else {
-            $Link = $JsonParameters.PSobject.Properties["link"].value
+            $Link = $JsonParameters.PSobject.Properties['link'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "lts"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'lts'))) { #optional property not found
             $Lts = $null
         } else {
-            $Lts = $JsonParameters.PSobject.Properties["lts"].value
+            $Lts = $JsonParameters.PSobject.Properties['lts'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "support"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'support'))) { #optional property not found
             $Support = $null
         } else {
-            $Support = $JsonParameters.PSobject.Properties["support"].value
+            $Support = $JsonParameters.PSobject.Properties['support'].value
         }
 
-        if (!([bool]($JsonParameters.PSobject.Properties.name -match "discontinued"))) { #optional property not found
+        if (!([bool]($JsonParameters.PSobject.Properties.name -match 'discontinued'))) { #optional property not found
             $Discontinued = $null
         } else {
-            $Discontinued = $JsonParameters.PSobject.Properties["discontinued"].value
+            $Discontinued = $JsonParameters.PSobject.Properties['discontinued'].value
         }
 
         $PSO = [PSCustomObject]@{
-            "cycle" = ${Cycle}
-            "releaseDate" = ${ReleaseDate}
-            "eol" = ${Eol}
-            "latest" = ${Latest}
-            "link" = ${Link}
-            "lts" = ${Lts}
-            "support" = ${Support}
-            "discontinued" = ${Discontinued}
+            'cycle' = ${Cycle}
+            'releaseDate' = ${ReleaseDate}
+            'eol' = ${Eol}
+            'latest' = ${Latest}
+            'link' = ${Link}
+            'lts' = ${Lts}
+            'support' = ${Support}
+            'discontinued' = ${Discontinued}
         }
 
         return $PSO

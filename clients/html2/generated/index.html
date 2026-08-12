@@ -1372,7 +1372,8 @@ pub fn main() {
         "description" : "List of all products.",
         "items" : {
           "type" : "string"
-        }
+        },
+        "default" : null
       },
       "examples" : {
         "all-products" : {
@@ -1752,7 +1753,8 @@ Product URL as per the canonical URL on the endofife.date website.
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/cycle"
-        }
+        },
+        "default" : null
       },
       "examples" : {
         "/api/ubuntu.json" : {

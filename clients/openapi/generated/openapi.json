@@ -78,7 +78,8 @@
                   "items" : {
                     "$ref" : "#/components/schemas/cycle"
                   },
-                  "type" : "array"
+                  "type" : "array",
+                  "default" : null
                 }
               }
             },
@@ -168,7 +169,8 @@
                   "items" : {
                     "type" : "string"
                   },
-                  "type" : "array"
+                  "type" : "array",
+                  "default" : null
                 }
               }
             },

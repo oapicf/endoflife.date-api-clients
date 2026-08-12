@@ -1,6 +1,5 @@
 .github/workflows/main.yml
 .gitignore
-.openapi-generator-ignore
 README.md
 composer.json
 config/.htaccess
@@ -23,11 +22,4 @@ phpcs.xml.dist
 phpunit.xml.dist
 public/.htaccess
 public/index.php
-tests/Api/DefaultApiTest.php
 tests/BaseModelTest.php
-tests/Model/CycleCycleTest.php
-tests/Model/CycleDiscontinuedTest.php
-tests/Model/CycleEolTest.php
-tests/Model/CycleLtsTest.php
-tests/Model/CycleSupportTest.php
-tests/Model/CycleTest.php
