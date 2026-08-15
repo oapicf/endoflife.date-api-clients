@@ -1,6 +1,6 @@
 {
   "artifactId": "endoflifedate",
-  "artifactVersion": "1.2.0",
+  "artifactVersion": "1.2.1-pre.0",
   "artifactUrl": "https://github.com/oapicf/endoflife.date-api-clients",
   "artifactDescription": "endoflife.date API clients generated from OpenAPI specification",
   "groupId": "com.github.oapicf",
