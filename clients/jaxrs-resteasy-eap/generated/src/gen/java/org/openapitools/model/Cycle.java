@@ -18,7 +18,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-12T05:00:23.607743805Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@ApiModel(description="Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-15T02:28:22.866929342Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Cycle   {
   
   private CycleCycle cycle;

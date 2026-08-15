@@ -21,7 +21,7 @@ import org.openapitools.model.CycleSupport;
  **/
 
 @ApiModel(description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-08-12T04:59:54.894586256Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2026-08-15T02:27:55.667932870Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class Cycle   {
   @JsonProperty("cycle")
   private CycleCycle cycle;

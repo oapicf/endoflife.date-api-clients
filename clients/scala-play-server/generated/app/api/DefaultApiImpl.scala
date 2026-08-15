@@ -5,7 +5,7 @@ import model.Cycle
 /**
   * Provides a default implementation for [[DefaultApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-08-12T05:02:30.066770890Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2026-08-15T02:30:22.774812366Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 class DefaultApiImpl extends DefaultApi {
   /**
     * @inheritdoc

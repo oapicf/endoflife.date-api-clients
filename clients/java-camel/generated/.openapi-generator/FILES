@@ -12,4 +12,3 @@ src/main/java/org/openapitools/model/CycleEol.java
 src/main/java/org/openapitools/model/CycleLts.java
 src/main/java/org/openapitools/model/CycleSupport.java
 src/main/resources/application.properties
-src/test/java/org/openapitools/api/ApiApiTest.java

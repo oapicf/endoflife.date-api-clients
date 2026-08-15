@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="Whether this device version is no longer in production.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-12T05:00:23.607743805Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@ApiModel(description="Whether this device version is no longer in production.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-15T02:28:22.866929342Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleDiscontinued   {
   
 

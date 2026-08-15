@@ -10,7 +10,7 @@ import javax.validation.Valid;
 /**
  * Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-12T05:00:04.774385803Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2026-08-15T02:28:05.120608266Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class CycleLts   {
 

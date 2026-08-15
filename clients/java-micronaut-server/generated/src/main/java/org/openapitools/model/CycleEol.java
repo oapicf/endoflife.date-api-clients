@@ -30,7 +30,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @JsonPropertyOrder({
 })
 @JsonTypeName("cycle_eol")
-@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-12T04:59:58.773384203Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value="org.openapitools.codegen.languages.JavaMicronautServerCodegen", date="2026-08-15T02:27:59.466904648Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 @Introspected
 public class CycleEol {
     public CycleEol() {

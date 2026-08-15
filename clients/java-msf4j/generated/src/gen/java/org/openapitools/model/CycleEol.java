@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModel;
  * End-of-Life date for this release cycle.
  */
 @ApiModel(description = "End-of-Life date for this release cycle.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-12T05:00:00.802353312Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-15T02:28:01.391712242Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleEol   {
 
   @Override

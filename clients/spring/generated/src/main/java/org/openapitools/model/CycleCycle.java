@@ -21,7 +21,7 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "cycle_cycle", description = "The release cycle which this release is part of.")
 @JsonTypeName("cycle_cycle")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-12T05:02:39.551214907Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-15T02:30:31.802348228Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleCycle {
 
   @Override

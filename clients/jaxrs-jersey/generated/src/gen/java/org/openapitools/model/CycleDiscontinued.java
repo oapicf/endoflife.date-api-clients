@@ -26,7 +26,7 @@ import javax.validation.Valid;
 @ApiModel(description = "Whether this device version is no longer in production.")
 @JsonPropertyOrder({
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-12T05:00:18.664630598Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2026-08-15T02:28:18.247909757Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleDiscontinued   {
 
   @Override

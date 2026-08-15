@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiModel;
  */
 
 @ApiModel(description = "Whether this release cycle has long-term-support (LTS), or the date it entered LTS status.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-08-12T05:00:06.784684658Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2026-08-15T02:28:07.033142930Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleLts   {
   
 

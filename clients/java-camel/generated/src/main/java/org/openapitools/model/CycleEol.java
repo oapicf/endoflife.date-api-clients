@@ -19,7 +19,7 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "cycle_eol", description = "End-of-Life date for this release cycle.")
 @JsonTypeName("cycle_eol")
-@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-12T05:00:10.761650127Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.JavaCamelServerCodegen", date = "2026-08-15T02:28:10.801441826Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleEol {
 
   @Override

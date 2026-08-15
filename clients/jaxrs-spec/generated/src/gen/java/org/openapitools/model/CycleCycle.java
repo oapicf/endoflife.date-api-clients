@@ -19,7 +19,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  **/
 @ApiModel(description = "The release cycle which this release is part of.")
 @JsonTypeName("cycle_cycle")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-12T05:00:25.612061183Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-15T02:28:24.653626514Z[Etc/UTC]", comments = "Generator version: 7.24.0")
 public class CycleCycle   {
 
   public CycleCycle() {

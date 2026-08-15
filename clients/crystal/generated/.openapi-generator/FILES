@@ -2,9 +2,6 @@
 README.md
 git_push.sh
 shard.yml
-spec/api/all_json_spec.cr
-spec/api/cycle_json_spec.cr
-spec/api/product_json_spec.cr
 spec/spec_helper.cr
 src/openapi_client.cr
 src/openapi_client/api/all_json.cr
