@@ -1,7 +1,6 @@
 ---
-spec_uri: >-
-  https://raw.githubusercontent.com/endoflife-date/endoflife.date/73d78309f4a9bd84c4e9aad9efa2d0f03343a06b/assets/openapi.yml
-version: 1.2.1-pre.0
+spec_uri: https://raw.githubusercontent.com/endoflife-date/endoflife.date/73d78309f4a9bd84c4e9aad9efa2d0f03343a06b/assets/openapi.yml
+version: 1.3.0
 contact:
   name: OpenAPI Clients Factory
   url: https://github.com/oapicf/endoflife.date-api-clients
@@ -12,8 +11,7 @@ scm:
 base_dir:
   github_actions: /home/runner/work/endoflife.date-api-clients/endoflife.date-api-clients
   local: /Users/cliffano/dev/workspace-oapicf/endoflife.date-api-clients
-  custom: >-
-    /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/endoflife.date-api-clients/
+  custom: /home/runner/work/generator-openapi-generator/generator-openapi-generator/stage/endoflife.date-api-clients/
 generator:
   component: oag-url-spec
   inputs:
