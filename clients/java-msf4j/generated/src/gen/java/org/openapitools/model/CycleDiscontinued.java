@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModel;
  * Whether this device version is no longer in production.
  */
 @ApiModel(description = "Whether this device version is no longer in production.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-08-15T02:28:01.391712242Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2026-11-03T06:09:28.889077580Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class CycleDiscontinued   {
 
   @Override

@@ -82,9 +82,9 @@ try {
 ```
 
 ### Parameters
-| **product** | **kotlin.String**| Product URL as per the canonical URL on the endofife.date website. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **product** | **kotlin.String**| Product URL as per the canonical URL on the endofife.date website. | |
 | **cycle** | **kotlin.String**| Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0. | |
 
 ### Return type

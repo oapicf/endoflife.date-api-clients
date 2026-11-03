@@ -163,7 +163,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         product: String,
         context: &C) -> Result<GetApiProductJsonResponse, ApiError>
     {
-        info!("get_api_product_json(\"{}\") - X-Span-ID: {:?}", product, context.get().0.clone());
+        info!("get_api_product_json({:?}) - X-Span-ID: {:?}", product, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 
@@ -174,7 +174,7 @@ impl<C> Api<C> for Server<C> where C: Has<XSpanIdString> + Send + Sync
         cycle: String,
         context: &C) -> Result<GetApiProductCycleJsonResponse, ApiError>
     {
-        info!("get_api_product_cycle_json(\"{}\", \"{}\") - X-Span-ID: {:?}", product, cycle, context.get().0.clone());
+        info!("get_api_product_cycle_json({:?}, {:?}) - X-Span-ID: {:?}", product, cycle, context.get().0.clone());
         Err(ApiError("Api-Error: Operation is NOT implemented".into()))
     }
 

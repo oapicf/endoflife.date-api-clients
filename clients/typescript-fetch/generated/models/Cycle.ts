@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues, parseDate, parseDateTime, serializeDate, serializeDateTime } from '../runtime';
 import type { CycleLts } from './CycleLts';
 import {
     CycleLtsFromJSON,
@@ -57,50 +57,34 @@ import {
 export interface Cycle {
     /**
      * 
-     * @type {CycleCycle}
-     * @memberof Cycle
      */
     cycle?: CycleCycle;
     /**
      * Release date for the first release in this cycle.
-     * @type {Date}
-     * @memberof Cycle
      */
     releaseDate?: Date;
     /**
      * 
-     * @type {CycleEol}
-     * @memberof Cycle
      */
     eol?: CycleEol;
     /**
      * Latest release in this cycle.
-     * @type {string}
-     * @memberof Cycle
      */
     latest?: string;
     /**
      * Link to changelog for the latest release in this cycle, or null if unavailable.
-     * @type {string}
-     * @memberof Cycle
      */
     link?: string | null;
     /**
      * 
-     * @type {CycleLts}
-     * @memberof Cycle
      */
     lts?: CycleLts;
     /**
      * 
-     * @type {CycleSupport}
-     * @memberof Cycle
      */
     support?: CycleSupport;
     /**
      * 
-     * @type {CycleDiscontinued}
-     * @memberof Cycle
      */
     discontinued?: CycleDiscontinued;
 }
@@ -123,7 +107,7 @@ export function CycleFromJSONTyped(json: any, ignoreDiscriminator: boolean): Cyc
     return {
         
         'cycle': json['cycle'] == null ? undefined : CycleCycleFromJSON(json['cycle']),
-        'releaseDate': json['releaseDate'] == null ? undefined : (new Date(json['releaseDate'])),
+        'releaseDate': json['releaseDate'] == null ? undefined : (parseDate(json['releaseDate'])),
         'eol': json['eol'] == null ? undefined : CycleEolFromJSON(json['eol']),
         'latest': json['latest'] == null ? undefined : json['latest'],
         'link': json['link'] === undefined ? undefined : json['link'] === null ? null : json['link'],
@@ -145,7 +129,7 @@ export function CycleToJSONTyped(value?: Cycle | null, ignoreDiscriminator: bool
     return {
         
         'cycle': CycleCycleToJSON(value['cycle']),
-        'releaseDate': value['releaseDate'] == null ? value['releaseDate'] : value['releaseDate'].toISOString().substring(0,10),
+        'releaseDate': value['releaseDate'] == null ? value['releaseDate'] : serializeDate(value['releaseDate']),
         'eol': CycleEolToJSON(value['eol']),
         'latest': value['latest'],
         'link': value['link'],

@@ -118,7 +118,7 @@ class Cycle {
       json[r'cycle'] = null;
     }
     if (this.releaseDate != null) {
-      json[r'releaseDate'] = _dateFormatter.format(this.releaseDate!.toUtc());
+      json[r'releaseDate'] = _dateFormatter.format(this.releaseDate!);
     } else {
       json[r'releaseDate'] = null;
     }

@@ -13,7 +13,7 @@
 
 package com.github.oapicf.endoflifedate;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-15T02:27:46.105475659Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-03T06:09:11.007373315Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class Pair {
   private final String name;
   private final String value;

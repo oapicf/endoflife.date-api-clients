@@ -75,7 +75,7 @@ namespace Org.OpenAPITools
                     c.SwaggerDoc("0.0.1", new OpenApiInfo
                     {
                         Title = "endoflife.date",
-                        Description = "endoflife.date (ASP.NET Core 8.0)",
+                        Description = "endoflife.date (ASP.NET Core 10.0)",
                         TermsOfService = new Uri("https://github.com/openapitools/openapi-generator"),
                         Contact = new OpenApiContact
                         {

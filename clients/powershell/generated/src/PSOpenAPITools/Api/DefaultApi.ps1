@@ -126,11 +126,11 @@ function Get-ApiProductCycleJson {
         if (!$Product) {
             throw "Error! The required parameter `Product` missing when calling getApiProductCycle_json."
         }
-        $LocalVarUri = $LocalVarUri.replace('{product}', [System.Web.HTTPUtility]::UrlEncode($Product))
+        $LocalVarUri = $LocalVarUri.replace('{product}', [System.Uri]::EscapeDataString([string]$Product))
         if (!$Cycle) {
             throw "Error! The required parameter `Cycle` missing when calling getApiProductCycle_json."
         }
-        $LocalVarUri = $LocalVarUri.replace('{cycle}', [System.Web.HTTPUtility]::UrlEncode($Cycle))
+        $LocalVarUri = $LocalVarUri.replace('{cycle}', [System.Uri]::EscapeDataString([string]$Cycle))
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `
@@ -203,7 +203,7 @@ function Get-ApiProductJson {
         if (!$Product) {
             throw "Error! The required parameter `Product` missing when calling getApiProduct_json."
         }
-        $LocalVarUri = $LocalVarUri.replace('{product}', [System.Web.HTTPUtility]::UrlEncode($Product))
+        $LocalVarUri = $LocalVarUri.replace('{product}', [System.Uri]::EscapeDataString([string]$Product))
 
         $LocalVarResult = Invoke-ApiClient -Method 'GET' `
                                 -Uri $LocalVarUri `

@@ -51,10 +51,10 @@ class DefaultController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     
                 ],
-                $request->all(),
             ),
             [
             ],
@@ -86,10 +86,10 @@ class DefaultController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'product' => $product,'cycle' => $cycle,
                 ],
-                $request->all(),
             ),
             [
                 'product' => [
@@ -130,10 +130,10 @@ class DefaultController extends Controller
     {
         $validator = Validator::make(
             array_merge(
+                $request->all(),
                 [
                     'product' => $product,
                 ],
-                $request->all(),
             ),
             [
                 'product' => [

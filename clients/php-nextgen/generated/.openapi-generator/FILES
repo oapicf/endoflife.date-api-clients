@@ -18,6 +18,7 @@ src/ApiException.php
 src/Configuration.php
 src/FormDataProcessor.php
 src/HeaderSelector.php
+src/Model/AnyOfInterface.php
 src/Model/Cycle.php
 src/Model/CycleCycle.php
 src/Model/CycleDiscontinued.php

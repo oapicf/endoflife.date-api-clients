@@ -18,7 +18,7 @@ import javax.validation.Valid;
 */
 @Path("/api")
 @Api(description = "the api API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-08-15T02:28:24.653626514Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2026-11-03T06:09:55.574345324Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class ApiApi {
 
     @GET
@@ -39,7 +39,9 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class)
     })
-    public Response getApiProductCycleJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website.") String product,@PathParam("cycle") @ApiParam("Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.") String cycle) {
+    public Response getApiProductCycleJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website.") String product
+,@PathParam("cycle") @ApiParam("Release Cycle for which the details must be fetched. Any slash character in the cycle name will be replaced with dashes. For example FreeBSD&#39;s releng/14.0 becomes releng-14.0.") String cycle
+) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -50,7 +52,8 @@ public class ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = Cycle.class, responseContainer = "List")
     })
-    public Response getApiProductJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website.") String product) {
+    public Response getApiProductJson(@PathParam("product") @ApiParam("Product URL as per the canonical URL on the endofife.date website.") String product
+) {
         return Response.ok().entity("magic!").build();
     }
 }

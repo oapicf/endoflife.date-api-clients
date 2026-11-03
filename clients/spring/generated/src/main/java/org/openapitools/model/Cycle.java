@@ -2,7 +2,6 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -33,32 +32,24 @@ import jakarta.annotation.Generated;
 
 @Schema(name = "cycle", description = "Details of a single release cycle of a given product. There might be some slight variations to this depending on the product.")
 @JsonTypeName("cycle")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-08-15T02:30:31.802348228Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2026-11-03T06:12:12.203192899Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class Cycle {
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleCycle cycle;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
   private @Nullable LocalDate releaseDate;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleEol eol;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable String latest;
 
-  @JsonInclude(JsonInclude.Include.NON_ABSENT)
   private JsonNullable<@Size(min = 1) String> link = JsonNullable.<String>undefined();
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleLts lts;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleSupport support;
 
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private @Nullable CycleDiscontinued discontinued;
 
   public Cycle cycle(@Nullable CycleCycle cycle) {
@@ -155,7 +146,7 @@ public class Cycle {
    * @return link
    */
   @Size(min = 1) 
-  @Schema(name = "link", description = "Link to changelog for the latest release in this cycle, or null if unavailable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "link", description = "Link to changelog for the latest release in this cycle, or null if unavailable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED, nullable = true)
   @JsonProperty("link")
   public JsonNullable<@Size(min = 1) String> getLink() {
     return link;

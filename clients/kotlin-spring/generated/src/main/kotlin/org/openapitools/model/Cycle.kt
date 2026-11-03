@@ -1,10 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.annotation.JsonSetter
-import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.CycleCycle
 import org.openapitools.model.CycleDiscontinued
 import org.openapitools.model.CycleEol
@@ -36,30 +33,22 @@ data class Cycle(
 
     @field:Valid
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("cycle")
     @get:JsonProperty("cycle") val cycle: CycleCycle? = null,
 
     @field:Valid
     @get:Size(min=10,max=10)
     @Schema(description = "Release date for the first release in this cycle.")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("releaseDate")
     @get:JsonProperty("releaseDate") val releaseDate: java.time.LocalDate? = null,
 
     @field:Valid
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("eol")
     @get:JsonProperty("eol") val eol: CycleEol? = null,
 
     @get:Size(min=1)
     @Schema(description = "Latest release in this cycle.")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("latest")
     @get:JsonProperty("latest") val latest: kotlin.String? = null,
 
@@ -70,22 +59,16 @@ data class Cycle(
 
     @field:Valid
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("lts")
     @get:JsonProperty("lts") val lts: CycleLts? = null,
 
     @field:Valid
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("support")
     @get:JsonProperty("support") val support: CycleSupport? = null,
 
     @field:Valid
     @Schema(description = "")
-    @field:JsonInclude(JsonInclude.Include.NON_NULL)
-    @field:JsonSetter(nulls = Nulls.SKIP)
     @param:JsonProperty("discontinued")
     @get:JsonProperty("discontinued") val discontinued: CycleDiscontinued? = null
 ) {

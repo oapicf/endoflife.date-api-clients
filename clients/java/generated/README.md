@@ -2,8 +2,8 @@
 
 endoflife.date
 - API version: 0.0.1
-  - Build date: 2026-08-15T02:27:46.105475659Z[Etc/UTC]
-  - Generator version: 7.24.0
+  - Build date: 2026-11-03T06:09:11.007373315Z[Etc/UTC]
+  - Generator version: 7.26.0
 
 The endoflife.date v0 API is currently deprecated, please [use the endoflife.date v1 API](https://endoflife.date/docs/api/v1/).
 
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.github.oapicf</groupId>
   <artifactId>endoflifedate</artifactId>
-  <version>1.0.0-pre.0</version>
+  <version>1.2.1-pre.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -58,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.github.oapicf:endoflifedate:1.0.0-pre.0"
+     implementation "com.github.oapicf:endoflifedate:1.2.1-pre.0"
   }
 ```
 
@@ -72,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/endoflifedate-1.0.0-pre.0.jar`
+* `target/endoflifedate-1.2.1-pre.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

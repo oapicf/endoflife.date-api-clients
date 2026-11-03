@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 import io.swagger.annotations.*;
 
-@ApiModel(description="End-of-Life date for this release cycle.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-08-15T02:28:22.866929342Z[Etc/UTC]", comments = "Generator version: 7.24.0")
+@ApiModel(description="End-of-Life date for this release cycle.")@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2026-11-03T06:09:53.528926231Z[Etc/UTC]", comments = "Generator version: 7.26.0")
 public class CycleEol   {
   
 

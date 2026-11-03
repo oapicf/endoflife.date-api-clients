@@ -300,25 +300,25 @@ namespace Org.OpenAPITools.Model
             }
 
             if (varCycle.IsSet && varCycle.Value == null)
-                throw new ArgumentNullException(nameof(varCycle), "Property is not nullable for class Cycle.");
+                throw new JsonException("Property is not nullable for class Cycle: cycle.");
 
             if (releaseDate.IsSet && releaseDate.Value == null)
-                throw new ArgumentNullException(nameof(releaseDate), "Property is not nullable for class Cycle.");
+                throw new JsonException("Property is not nullable for class Cycle: releaseDate.");
 
             if (eol.IsSet && eol.Value == null)
-                throw new ArgumentNullException(nameof(eol), "Property is not nullable for class Cycle.");
+                throw new JsonException("Property is not nullable for class Cycle: eol.");
 
             if (latest.IsSet && latest.Value == null)
-                throw new ArgumentNullException(nameof(latest), "Property is not nullable for class Cycle.");
+                throw new JsonException("Property is not nullable for class Cycle: latest.");
 
             if (lts.IsSet && lts.Value == null)
-                throw new ArgumentNullException(nameof(lts), "Property is not nullable for class Cycle.");
+                throw new JsonException("Property is not nullable for class Cycle: lts.");
 
             if (support.IsSet && support.Value == null)
-                throw new ArgumentNullException(nameof(support), "Property is not nullable for class Cycle.");
+                throw new JsonException("Property is not nullable for class Cycle: support.");
 
             if (discontinued.IsSet && discontinued.Value == null)
-                throw new ArgumentNullException(nameof(discontinued), "Property is not nullable for class Cycle.");
+                throw new JsonException("Property is not nullable for class Cycle: discontinued.");
 
             return new Cycle(varCycle, releaseDate, eol, latest, link, lts, support, discontinued);
         }
@@ -329,7 +329,6 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="cycle"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Cycle cycle, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -344,26 +343,28 @@ namespace Org.OpenAPITools.Model
         /// <param name="writer"></param>
         /// <param name="cycle"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Cycle cycle, JsonSerializerOptions jsonSerializerOptions)
         {
             if (cycle.VarCycleOption.IsSet && cycle.VarCycle == null)
-                throw new ArgumentNullException(nameof(cycle.VarCycle), "Property is required for class Cycle.");
+                throw new JsonException("Cannot write null property Cycle.VarCycle to non-nullable JSON property 'cycle'.");
+
+            if (cycle.ReleaseDateOption.IsSet && cycle.ReleaseDate == null)
+                throw new JsonException("Cannot write null property Cycle.ReleaseDate to non-nullable JSON property 'releaseDate'.");
 
             if (cycle.EolOption.IsSet && cycle.Eol == null)
-                throw new ArgumentNullException(nameof(cycle.Eol), "Property is required for class Cycle.");
+                throw new JsonException("Cannot write null property Cycle.Eol to non-nullable JSON property 'eol'.");
 
             if (cycle.LatestOption.IsSet && cycle.Latest == null)
-                throw new ArgumentNullException(nameof(cycle.Latest), "Property is required for class Cycle.");
+                throw new JsonException("Cannot write null property Cycle.Latest to non-nullable JSON property 'latest'.");
 
             if (cycle.LtsOption.IsSet && cycle.Lts == null)
-                throw new ArgumentNullException(nameof(cycle.Lts), "Property is required for class Cycle.");
+                throw new JsonException("Cannot write null property Cycle.Lts to non-nullable JSON property 'lts'.");
 
             if (cycle.SupportOption.IsSet && cycle.Support == null)
-                throw new ArgumentNullException(nameof(cycle.Support), "Property is required for class Cycle.");
+                throw new JsonException("Cannot write null property Cycle.Support to non-nullable JSON property 'support'.");
 
             if (cycle.DiscontinuedOption.IsSet && cycle.Discontinued == null)
-                throw new ArgumentNullException(nameof(cycle.Discontinued), "Property is required for class Cycle.");
+                throw new JsonException("Cannot write null property Cycle.Discontinued to non-nullable JSON property 'discontinued'.");
 
             if (cycle.VarCycleOption.IsSet)
             {
